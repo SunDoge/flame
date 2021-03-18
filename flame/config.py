@@ -20,21 +20,20 @@ def from_snippet(expr: str, filename='snippet.jsonnet') -> dict:
 
 
 def config_snippet(local_variables: List[str], files_or_snippets: List[str]) -> str:
-    """
-    {{local_variables}}
-    local x = import "x.jsonnet";
+    """config snippet
+    
+    The snippet looks like::
 
-    {
-        a: 2
-    }
-    +
-    {{
-        (file_or_snippet) + (file_or_snippet) + (file_or_snippet)
-    }}
+        {{local_variables}}
 
-    Args:
+        {{(file_or_snippet) + (file_or_snippet) + (file_or_snippet)}}
+    
+    Convert strategy::
+
         local_variables: "a=a.jsonnet" -> local a = import "a.jsonnet"; "a=1" -> local a = 1;
         files_or_snippets: "{a:1}" -> ({a:1}), "a.jsonnet" -> (import "a.jsonnet")
+    
+
     """
     snippet = ''
     for local_variable in local_variables:
