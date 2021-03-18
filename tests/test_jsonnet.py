@@ -10,6 +10,6 @@ def test_eval_snippet():
 
 
 def test_eval_file():
-    json_str = jsonnet.evaluate_file('tests/fake_config/batch_size.jsonnet')
+    json_str = jsonnet.evaluate_file('tests/fake_config/batch_size_16.jsonnet')
     json_obj = json.loads(json_str)
     assert json_obj['batch_size'] == 16
