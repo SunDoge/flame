@@ -2,18 +2,58 @@ name: sphinx make html
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   docs:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.8]
+
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+
+      - name: Setup python
+        uses: actions/setup-python@v2
         with:
-          python-version: 3.8
-      - uses: ammaraskar/sphinx-action@master
+          python-version: ${{ matrix.python-version }}
+
+      - name: Setup poetry
+        uses: Gr1N/setup-poetry@v4
+
+      - name: Install dependencies
+        run: poetry install
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
         with:
-          docs-folder: "docs/"
+          path: ~/.cache/pypoetry/virtualenvs
+          key: ${{ runner.os }}-poetry-${{ hashFiles('poetry.lock') }}
+
+      - name: Make html
+        run: |
+          cd docs
+          make html
+        shell: bash
+
+      - name: Commit docs
+        run: |
+          git clone https://github.com/SunDoge/flame.git --branch gh-pages --single-branch gh-pages
+          cp -r docs/_build/html/* gh-pages/
+          cd gh-pages
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "Update documentation" -a || true
+          # The above command will fail if no changes were present, so we ignore
+          # the return code.
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          branch: gh-pages
+          directory: gh-pages
+          github_token: ${{ secrets.GITHUB_TOKEN }}
