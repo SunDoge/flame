@@ -33,10 +33,12 @@ jobs:
           path: ~/.cache/pypoetry/virtualenvs
           key: ${{ runner.os }}-poetry-${{ hashFiles('poetry.lock') }}
 
+      - run: poetry --version
+
       - name: Make html
         run: |
           cd docs
-          make html
+          poetry run make html
         shell: bash
 
       - name: Commit docs
@@ -50,6 +52,7 @@ jobs:
           git commit -m "Update documentation" -a || true
           # The above command will fail if no changes were present, so we ignore
           # the return code.
+          # don't forget to create orphan branch gh-pages and clean it: git checkout --orphan gh-pages
 
       - name: Push changes
         uses: ad-m/github-push-action@master
