@@ -9,7 +9,9 @@ def test_experiment_dir():
     debug_exp_dir = experiment.get_experiment_dir(
         output_dir, experiment_name, debug=True)
 
-    assert debug_exp_dir == output_dir / 'debug' / experiment_name
+    debug_exp_dir_str, _timestamp = str(debug_exp_dir).split('.')
+
+    assert debug_exp_dir_str == str(output_dir / 'debug' / experiment_name)
 
     release_exp_dir = experiment.get_experiment_dir(
         output_dir, experiment_name, debug=False)

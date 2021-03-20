@@ -7,6 +7,8 @@ import copy
 def import_from_path(path: str) -> Any:
     """
     根据路径名自动import
+
+    torch.nn.Conv2d -> torch.nn + Conv2d
     """
     module_name, _sep, attribute_name = path.rpartition('.')
     module = importlib.import_module(module_name)
