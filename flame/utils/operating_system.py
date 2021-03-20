@@ -7,3 +7,5 @@ def find_free_port() -> int:
         _host, port = s.getsockname()
 
     return port
+
+

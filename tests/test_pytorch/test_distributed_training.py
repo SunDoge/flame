@@ -1,5 +1,6 @@
 from flame.pytorch import distributed_training
 import flame
+import torch.distributed as dist
 
 
 def _assert_x_eq_1(x: int):
@@ -16,3 +17,15 @@ def test_start_distributed_training_on_cpu():
         dist_backend='GLOO',
         dist_url=dist_url
     )
+
+
+def test_local_dist_url():
+    assert distributed_training.get_available_local_dist_url()
+
+
+def test_init_cpu_process_group():
+    distributed_training.init_cpu_process_group(
+        dist_url=distributed_training.get_available_local_dist_url()
+    )
+
+    assert dist.get_rank() == 0

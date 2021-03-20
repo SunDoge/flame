@@ -5,6 +5,7 @@ import torch.cuda as torch_cuda
 import torch.distributed as dist
 import torch.multiprocessing as mp
 from dataclasses import dataclass
+import flame
 
 _logger = logging.getLogger(__name__)
 
@@ -18,6 +19,17 @@ class DistOptions:
 
 
 def _init_process_group_fn(device_id: int, worker_fn: Callable, dist_options: DistOptions, *args):
+    """wrapper function for worker_fn
+
+    必须定义成可以被pickle的函数。
+
+    1. compute rank
+    2. init_process_group
+    3. set cuda device if cuda is available
+    4. call worker_fn
+
+    """
+
     rank = dist_options.rank_start + device_id
     print(f'=> rank: {rank}')
 
@@ -72,4 +84,40 @@ def start_distributed_training(
         _init_process_group_fn,
         args=(worker_fn, dist_options, *args),
         nprocs=nprocs
+    )
+
+
+def get_available_local_dist_url() -> str:
+    """helper function for single node distributed training
+
+    Get a local dist url like::
+
+        tcp://127.0.0.1:12345
+
+
+    """
+
+    port = flame.utils.operating_system.find_free_port()
+    return f'tcp://127.0.0.1:{port}'
+
+
+def init_cpu_process_group(
+    rank: int = 0,
+    world_size: int = 1,
+    dist_url: str = 'tcp://127.0.0.1:12345',
+):
+    """helper function for testing distributed training
+
+    测试函数，方便在CPU环境下测试分布式操作，比如测试MoCo的shuffle bn。
+    不要在生产环境中使用。
+
+    """
+    _logger.warning(
+        'this function is for testing only, do not use it for production'
+    )
+    dist.init_process_group(
+        backend='GLOO',
+        init_method=dist_url,
+        rank=rank,
+        world_size=world_size,
     )
