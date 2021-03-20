@@ -7,6 +7,20 @@
 ## Attention
 `pytorch` is not listed in the dependencies. You should install it manually.
 
+## Install
+
+If in China
+
+```bash
+pip install -U git+https://hub.fastgit.org/SunDoge/flame
+```
+
+else
+
+```bash
+pip install -U git+https://github.com/SunDoge/flame
+```
+
 ## Usage
 
 Docs: [https://sundoge.github.io/flame/](https://sundoge.github.io/flame/)
