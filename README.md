@@ -1,5 +1,9 @@
 # flame
 
+
+![CI workflow](https://github.com/SunDoge/flame/actions/workflows/python-package.yml/badge.svg)
+![docs workflow](https://github.com/SunDoge/flame/actions/workflows/sphinx-make-html.yml/badge.svg)
+
 ## Attention
 `pytorch` is not listed in the dependencies. You should install it manually.
 
