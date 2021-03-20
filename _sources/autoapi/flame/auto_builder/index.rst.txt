@@ -23,6 +23,8 @@ Functions
 
    根据路径名自动import
 
+   torch.nn.Conv2d -> torch.nn + Conv2d
+
 
 .. function:: signature_contains(obj: Callable, key: str) -> bool
 

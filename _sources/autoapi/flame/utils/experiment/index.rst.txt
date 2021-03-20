@@ -14,7 +14,13 @@ Functions
 .. autoapisummary::
 
    flame.utils.experiment.get_experiment_dir
+   flame.utils.experiment.make_experiment_dir
 
+
+.. data:: _logger
+   
+
+   
 
 .. function:: get_experiment_dir(output_dir: pathlib.Path, experiment_name: str, debug: bool = False) -> pathlib.Path
 
@@ -22,5 +28,8 @@ Functions
 
    experiment_dir = output_dir / release or debug / experiment_name
    e.g. exps/release/000
+
+
+.. function:: make_experiment_dir(output_dir: pathlib.Path, experiment_name: str, debug: bool = False, yes: bool = False) -> pathlib.Path
 
 

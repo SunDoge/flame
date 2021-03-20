@@ -215,8 +215,18 @@
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.utils.operating_system._logger">
+       _logger
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#flame.utils.operating_system.find_free_port">
        find_free_port
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.utils.operating_system.ulimit_n_max">
+       ulimit_n_max
       </a>
      </li>
     </ul>
@@ -253,14 +263,30 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame.utils.operating_system.find_free_port" title="flame.utils.operating_system.find_free_port"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_free_port</span></code></a>() → int</p></td>
-<td><p></p></td>
+<td><p>find a free port for distributed training automatically</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.utils.operating_system.ulimit_n_max" title="flame.utils.operating_system.ulimit_n_max"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ulimit_n_max</span></code></a>()</p></td>
+<td><p>Raise ulimit to its max value</p></td>
 </tr>
 </tbody>
 </table>
+<dl class="py data">
+<dt id="flame.utils.operating_system._logger">
+<code class="sig-prename descclassname"><span class="pre">flame.utils.operating_system.</span></code><code class="sig-name descname"><span class="pre">_logger</span></code><a class="headerlink" href="#flame.utils.operating_system._logger" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py function">
 <dt id="flame.utils.operating_system.find_free_port">
 <code class="sig-prename descclassname"><span class="pre">flame.utils.operating_system.</span></code><code class="sig-name descname"><span class="pre">find_free_port</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#flame.utils.operating_system.find_free_port" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>find a free port for distributed training automatically</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="flame.utils.operating_system.ulimit_n_max">
+<code class="sig-prename descclassname"><span class="pre">flame.utils.operating_system.</span></code><code class="sig-name descname"><span class="pre">ulimit_n_max</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flame.utils.operating_system.ulimit_n_max" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raise ulimit to its max value</p>
+<p>在某些情况下，dataloader会把文件描述符用完</p>
+</dd></dl>
 
 </div>
 </div>

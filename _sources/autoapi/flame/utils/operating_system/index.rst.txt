@@ -14,8 +14,23 @@ Functions
 .. autoapisummary::
 
    flame.utils.operating_system.find_free_port
+   flame.utils.operating_system.ulimit_n_max
 
+
+.. data:: _logger
+   
+
+   
 
 .. function:: find_free_port() -> int
+
+   find a free port for distributed training automatically
+
+
+.. function:: ulimit_n_max()
+
+   Raise ulimit to its max value
+
+   在某些情况下，dataloader会把文件描述符用完
 
 
