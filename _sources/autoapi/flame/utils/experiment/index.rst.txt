@@ -1,0 +1,26 @@
+:mod:`flame.utils.experiment`
+=============================
+
+.. py:module:: flame.utils.experiment
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.utils.experiment.get_experiment_dir
+
+
+.. function:: get_experiment_dir(output_dir: pathlib.Path, experiment_name: str, debug: bool = False) -> pathlib.Path
+
+   实验默认是release模式，只有指定debug模式的时候，才会生成debug目录
+
+   experiment_dir = output_dir / release or debug / experiment_name
+   e.g. exps/release/000
+
+

@@ -1,0 +1,369 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flame.config &#8212; flame 0.0.1 documentation</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.101715efdecc9b59cb6e1ddfa685c31f.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d8bbf5861d671d414e1a.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="flame.logging" href="../logging/index.html" />
+    <link rel="prev" title="flame.auto_builder" href="../auto_builder/index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+
+    
+    <a class="navbar-brand" href="../../../index.html">
+      <p class="title">flame</p>
+    </a>
+    
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        <li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../../index.html">
+  API Reference
+ </a>
+</li>
+
+        
+      </ul>
+
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l2 current active">
+  <a class="reference internal" href="../index.html">
+   <code class="xref py py-mod docutils literal notranslate">
+    <span class="pre">
+     flame
+    </span>
+   </code>
+  </a>
+  <ul class="current">
+   <li class="toctree-l3">
+    <a class="reference internal" href="../pytorch/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.pytorch
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../utils/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.utils
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../archiver/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.archiver
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../argument/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.argument
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../auto_builder/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.auto_builder
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3 current active">
+    <a class="current reference internal" href="#">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.config
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../logging/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.logging
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-contents">
+   Module Contents
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions">
+     Functions
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.config._logger">
+       _logger
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.config.from_file">
+       from_file
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.config.from_snippet">
+       from_snippet
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.config.config_snippet">
+       config_snippet
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.config._process_local_variable">
+       _process_local_variable
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.config._process_file_or_snippet">
+       _process_file_or_snippet
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.config.dump_as_json">
+       dump_as_json
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="module-flame.config">
+<span id="flame-config"></span><h1><a class="reference internal" href="#module-flame.config" title="flame.config"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.config</span></code></a><a class="headerlink" href="#module-flame.config" title="Permalink to this headline">¶</a></h1>
+<p>暂时使用dict作为config</p>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.config.from_file" title="flame.config.from_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_file</span></code></a>(filename: str) → dict</p></td>
+<td><p>读取jsonnet格式的config</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.config.from_snippet" title="flame.config.from_snippet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_snippet</span></code></a>(expr: str, filename: str = 'snippet.jsonnet') → dict</p></td>
+<td><p>helper function for evaluating snippet to python dict</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.config.config_snippet" title="flame.config.config_snippet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">config_snippet</span></code></a>(local_variables: List[str], files_or_snippets: List[str]) → str</p></td>
+<td><p>config snippet</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.config._process_local_variable" title="flame.config._process_local_variable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_process_local_variable</span></code></a>(local_variable: str) → str</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.config._process_file_or_snippet" title="flame.config._process_file_or_snippet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_process_file_or_snippet</span></code></a>(file_or_snippet: str) → str</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.config.dump_as_json" title="flame.config.dump_as_json"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dump_as_json</span></code></a>(cfg: dict, filename: str)</p></td>
+<td><p>保存config为json文件。jsonnet可以直接读取json文件。</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt id="flame.config._logger">
+<code class="sig-prename descclassname"><span class="pre">flame.config.</span></code><code class="sig-name descname"><span class="pre">_logger</span></code><a class="headerlink" href="#flame.config._logger" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="flame.config.from_file">
+<code class="sig-prename descclassname"><span class="pre">flame.config.</span></code><code class="sig-name descname"><span class="pre">from_file</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#flame.config.from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>读取jsonnet格式的config</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="flame.config.from_snippet">
+<code class="sig-prename descclassname"><span class="pre">flame.config.</span></code><code class="sig-name descname"><span class="pre">from_snippet</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expr</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'snippet.jsonnet'</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#flame.config.from_snippet" title="Permalink to this definition">¶</a></dt>
+<dd><p>helper function for evaluating snippet to python dict</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>expr</strong> – jsonnet expression</p></li>
+<li><p><strong>filename</strong> – fake file name for snippet</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="flame.config.config_snippet">
+<code class="sig-prename descclassname"><span class="pre">flame.config.</span></code><code class="sig-name descname"><span class="pre">config_snippet</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">local_variables</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files_or_snippets</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#flame.config.config_snippet" title="Permalink to this definition">¶</a></dt>
+<dd><p>config snippet</p>
+<p>The snippet looks like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{{</span><span class="n">local_variables</span><span class="p">}}</span>
+
+<span class="p">{{(</span><span class="n">file_or_snippet</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">file_or_snippet</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">file_or_snippet</span><span class="p">)}}</span>
+</pre></div>
+</div>
+<p>Convert strategy:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">local_variables</span><span class="p">:</span> <span class="s2">&quot;a=a.jsonnet&quot;</span> <span class="o">-&gt;</span> <span class="n">local</span> <span class="n">a</span> <span class="o">=</span> <span class="kn">import</span> <span class="s2">&quot;a.jsonnet&quot;</span><span class="p">;</span> <span class="s2">&quot;a=1&quot;</span> <span class="o">-&gt;</span> <span class="n">local</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">files_or_snippets</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{a:1}</span><span class="s2">&quot;</span> <span class="o">-&gt;</span> <span class="p">({</span><span class="n">a</span><span class="p">:</span><span class="mi">1</span><span class="p">}),</span> <span class="s2">&quot;a.jsonnet&quot;</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kn">import</span> <span class="s2">&quot;a.jsonnet&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="flame.config._process_local_variable">
+<code class="sig-prename descclassname"><span class="pre">flame.config.</span></code><code class="sig-name descname"><span class="pre">_process_local_variable</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">local_variable</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#flame.config._process_local_variable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="flame.config._process_file_or_snippet">
+<code class="sig-prename descclassname"><span class="pre">flame.config.</span></code><code class="sig-name descname"><span class="pre">_process_file_or_snippet</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_or_snippet</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#flame.config._process_file_or_snippet" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="flame.config.dump_as_json">
+<code class="sig-prename descclassname"><span class="pre">flame.config.</span></code><code class="sig-name descname"><span class="pre">dump_as_json</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.config.dump_as_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>保存config为json文件。jsonnet可以直接读取json文件。</p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="../auto_builder/index.html" title="previous page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.auto_builder</span></code></a>
+    <a class='right-next' id="next-link" href="../logging/index.html" title="next page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.logging</span></code></a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d8bbf5861d671d414e1a.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2021, SunDoge.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.2.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+:mod:`flame.config`
+===================
+
+.. py:module:: flame.config
+
+.. autoapi-nested-parse::
+
+   暂时使用dict作为config
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.config.from_file
+   flame.config.from_snippet
+   flame.config.config_snippet
+   flame.config._process_local_variable
+   flame.config._process_file_or_snippet
+   flame.config.dump_as_json
+
+
+.. data:: _logger
+   
+
+   
+
+.. function:: from_file(filename: str) -> dict
+
+   读取jsonnet格式的config
+
+
+.. function:: from_snippet(expr: str, filename: str = 'snippet.jsonnet') -> dict
+
+   helper function for evaluating snippet to python dict
+
+   :param expr: jsonnet expression
+   :param filename: fake file name for snippet
+
+
+.. function:: config_snippet(local_variables: List[str], files_or_snippets: List[str]) -> str
+
+   config snippet
+
+   The snippet looks like::
+
+       {{local_variables}}
+
+       {{(file_or_snippet) + (file_or_snippet) + (file_or_snippet)}}
+
+   Convert strategy::
+
+       local_variables: "a=a.jsonnet" -> local a = import "a.jsonnet"; "a=1" -> local a = 1;
+       files_or_snippets: "{a:1}" -> ({a:1}), "a.jsonnet" -> (import "a.jsonnet")
+
+
+
+.. function:: _process_local_variable(local_variable: str) -> str
+
+
+.. function:: _process_file_or_snippet(file_or_snippet: str) -> str
+
+
+.. function:: dump_as_json(cfg: dict, filename: str)
+
+   保存config为json文件。jsonnet可以直接读取json文件。
+
+

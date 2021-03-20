@@ -1,0 +1,34 @@
+:mod:`flame.utils.jsonnet`
+==========================
+
+.. py:module:: flame.utils.jsonnet
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.utils.jsonnet.evaluate_file
+   flame.utils.jsonnet.evaluate_snippet
+
+
+.. function:: evaluate_file(filename: str, **kwargs) -> str
+
+   eval file
+
+   :param filename: jsonnet file
+
+
+.. function:: evaluate_snippet(filename: str, expr: str, **kwargs) -> str
+
+   eval snippet
+
+   :param filename: fake name for snippet
+   :param expr: the snippet
+
+

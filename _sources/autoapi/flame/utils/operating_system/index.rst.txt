@@ -1,0 +1,21 @@
+:mod:`flame.utils.operating_system`
+===================================
+
+.. py:module:: flame.utils.operating_system
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.utils.operating_system.find_free_port
+
+
+.. function:: find_free_port() -> int
+
+

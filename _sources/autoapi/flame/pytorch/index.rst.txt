@@ -1,0 +1,24 @@
+:mod:`flame.pytorch`
+====================
+
+.. py:module:: flame.pytorch
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   utils/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   distributed_training/index.rst
+
+

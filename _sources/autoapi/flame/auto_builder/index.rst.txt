@@ -1,0 +1,39 @@
+:mod:`flame.auto_builder`
+=========================
+
+.. py:module:: flame.auto_builder
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.auto_builder.import_from_path
+   flame.auto_builder.signature_contains
+   flame.auto_builder.build_from_config
+   flame.auto_builder.get_kwargs_from_config
+
+
+.. function:: import_from_path(path: str) -> Any
+
+   根据路径名自动import
+
+
+.. function:: signature_contains(obj: Callable, key: str) -> bool
+
+   测试函数签名里面是否存在特定key
+
+
+.. function:: build_from_config(cfg: dict, type_key='_type') -> Any
+
+   默认_type指定路径
+
+
+.. function:: get_kwargs_from_config(cfg: dict, type_key='_type') -> dict
+
+

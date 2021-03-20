@@ -1,0 +1,52 @@
+:mod:`flame.pytorch.utils.rank0`
+================================
+
+.. py:module:: flame.pytorch.utils.rank0
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.utils.rank0.FakeObject
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.utils.rank0.do_nothing
+   flame.pytorch.utils.rank0.rank0
+
+
+.. class:: FakeObject
+
+   .. method:: __getattr__(self, _name: str) -> Callable
+
+
+
+.. function:: do_nothing(*args, **kwargs) -> flame.pytorch.utils.rank0.FakeObject
+
+
+.. function:: rank0(func)
+
+   run func only on rank 0
+
+   You can use it as a decorator
+
+   .. code-block:: python
+
+       @rank0
+       def my_print(*args, **kwargs):
+           print(*args, **kwargs)
+
+
+   :param func: function or lambda
+
+

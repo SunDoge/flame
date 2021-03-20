@@ -1,0 +1,37 @@
+:mod:`flame`
+============
+
+.. py:module:: flame
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   pytorch/index.rst
+   utils/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   archiver/index.rst
+   argument/index.rst
+   auto_builder/index.rst
+   config/index.rst
+   logging/index.rst
+
+
+Package Contents
+----------------
+
+.. data:: __version__
+   :annotation: = 0.1.0
+
+   
+

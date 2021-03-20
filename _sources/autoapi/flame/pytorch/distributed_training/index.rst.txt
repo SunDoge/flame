@@ -1,0 +1,97 @@
+:mod:`flame.pytorch.distributed_training`
+=========================================
+
+.. py:module:: flame.pytorch.distributed_training
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.distributed_training.DistOptions
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.distributed_training._init_process_group_fn
+   flame.pytorch.distributed_training.start_distributed_training
+   flame.pytorch.distributed_training.get_available_local_dist_url
+   flame.pytorch.distributed_training.init_cpu_process_group
+
+
+.. data:: _logger
+   
+
+   
+
+.. class:: DistOptions
+
+   .. attribute:: rank_start
+      :annotation: :int = 0
+
+      
+
+   .. attribute:: world_size
+      :annotation: :int = 1
+
+      
+
+   .. attribute:: dist_backend
+      :annotation: :str = NCCL
+
+      
+
+   .. attribute:: dist_url
+      :annotation: :str = tcp://127.0.0.1:12345
+
+      
+
+
+.. function:: _init_process_group_fn(device_id: int, worker_fn: Callable, dist_options: flame.pytorch.distributed_training.DistOptions, *args)
+
+   wrapper function for worker_fn
+
+   必须定义成可以被pickle的函数。
+
+   1. compute rank
+   2. init_process_group
+   3. set cuda device if cuda is available
+   4. call worker_fn
+
+
+.. function:: start_distributed_training(worker_fn: Callable, args: tuple = (), rank_start: int = 0, world_size: int = 1, dist_backend: str = 'NCCL', dist_url: str = 'tcp://127.0.0.1:12345')
+
+   helper function for distributed training
+
+   1. get number of GPUs
+   2. start N process, N = number of GPUs
+   3. init_process_group
+   4. call worker_fn with *args
+
+
+.. function:: get_available_local_dist_url() -> str
+
+   helper function for single node distributed training
+
+   Get a local dist url like::
+
+       tcp://127.0.0.1:12345
+
+
+
+.. function:: init_cpu_process_group(rank: int = 0, world_size: int = 1, dist_url: str = 'tcp://127.0.0.1:12345')
+
+   helper function for testing distributed training
+
+   测试函数，方便在CPU环境下测试分布式操作，比如测试MoCo的shuffle bn。
+   不要在生产环境中使用。
+
+

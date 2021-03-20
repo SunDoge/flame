@@ -1,0 +1,71 @@
+:mod:`flame.argument`
+=====================
+
+.. py:module:: flame.argument
+
+.. autoapi-nested-parse::
+
+   我先用标准库，后面再考虑要不要用typed-args
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.argument.BasicArgs
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.argument.add_basic_arguments
+   flame.argument.parse_basic_args
+
+
+.. class:: BasicArgs
+
+   .. attribute:: config
+      :annotation: :List[str]
+
+      
+
+   .. attribute:: output_dir
+      :annotation: :Path
+
+      
+
+   .. attribute:: experiment_name
+      :annotation: :str
+
+      
+
+   .. attribute:: debug
+      :annotation: :bool
+
+      
+
+   .. attribute:: yes
+      :annotation: :bool
+
+      
+
+   .. attribute:: world_size
+      :annotation: :int
+
+      
+
+
+.. function:: add_basic_arguments(parser: argparse.ArgumentParser) -> argparse.ArgumentParser
+
+
+.. function:: parse_basic_args(parser: Optional[ArgumentParser] = None) -> flame.argument.BasicArgs
+
+

@@ -1,0 +1,51 @@
+:mod:`flame.logging`
+====================
+
+.. py:module:: flame.logging
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.logging.log_hook
+   flame.logging.set_excepthook
+   flame.logging.get_file_handler
+   flame.logging.get_console_handler
+   flame.logging.init_logger
+
+
+.. data:: _logger
+   
+
+   
+
+.. data:: FILE_FORMAT
+   :annotation: = %(asctime)s:%(levelname)s:%(name)s:%(message)s
+
+   
+
+.. function:: log_hook(exc_type, exc_value, traceback)
+
+   log the exception when it raise
+
+
+.. function:: set_excepthook()
+
+
+.. function:: get_file_handler(filename: str, fmt: str = FILE_FORMAT)
+
+
+.. function:: get_console_handler()
+
+
+.. function:: init_logger(rank: int = 0, filename: Optional[str] = None, debug: bool = False)
+
+   :param rank: 目前只有rank0会输出到console和log file
+
+
