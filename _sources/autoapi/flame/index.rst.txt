@@ -23,6 +23,7 @@ Submodules
    archiver/index.rst
    argument/index.rst
    auto_builder/index.rst
+   ckcfg/index.rst
    config/index.rst
    logging/index.rst
 

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>flame.pytorch.utils.attributes &#8212; flame 0.0.1 documentation</title>
+    <title>flame.pytorch.utils.ranking &#8212; flame 0.0.1 documentation</title>
     
   <link href="../../../../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../../../../_static/css/index.101715efdecc9b59cb6e1ddfa685c31f.css" rel="stylesheet" />
@@ -34,8 +34,8 @@
     <script src="../../../../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
-    <link rel="next" title="flame.pytorch.utils.ranking" href="../ranking/index.html" />
-    <link rel="prev" title="flame.pytorch.utils" href="../index.html" />
+    <link rel="next" title="flame.pytorch.distributed_training" href="../../distributed_training/index.html" />
+    <link rel="prev" title="flame.pytorch.utils.attributes" href="../attributes/index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
   </head>
@@ -237,28 +237,35 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classes">
+     Classes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#functions">
      Functions
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.pytorch.utils.attributes.get_first_parameter_or_buffer">
-       get_first_parameter_or_buffer
+      <a class="reference internal nav-link" href="#flame.pytorch.utils.ranking.FakeObject">
+       FakeObject
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.utils.ranking.FakeObject.__getattr__">
+         __getattr__
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.pytorch.utils.ranking.do_nothing">
+       do_nothing
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.pytorch.utils.attributes.get_device_from_module">
-       get_device_from_module
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.pytorch.utils.attributes.get_dtype_from_module">
-       get_dtype_from_module
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.pytorch.utils.attributes.get_learning_rate_from_optimizer">
-       get_learning_rate_from_optimizer
+      <a class="reference internal nav-link" href="#flame.pytorch.utils.ranking.rank0">
+       rank0
       </a>
      </li>
     </ul>
@@ -282,10 +289,24 @@
               
               <div>
                 
-  <div class="section" id="module-flame.pytorch.utils.attributes">
-<span id="flame-pytorch-utils-attributes"></span><h1><a class="reference internal" href="#module-flame.pytorch.utils.attributes" title="flame.pytorch.utils.attributes"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.utils.attributes</span></code></a><a class="headerlink" href="#module-flame.pytorch.utils.attributes" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-flame.pytorch.utils.ranking">
+<span id="flame-pytorch-utils-ranking"></span><h1><a class="reference internal" href="#module-flame.pytorch.utils.ranking" title="flame.pytorch.utils.ranking"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.utils.ranking</span></code></a><a class="headerlink" href="#module-flame.pytorch.utils.ranking" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.utils.ranking.FakeObject" title="flame.pytorch.utils.ranking.FakeObject"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FakeObject</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section" id="functions">
 <h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
 <table class="longtable table autosummary">
@@ -294,40 +315,44 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.utils.attributes.get_first_parameter_or_buffer" title="flame.pytorch.utils.attributes.get_first_parameter_or_buffer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_first_parameter_or_buffer</span></code></a>(module: torch.nn.Module) → torch.Tensor</p></td>
-<td><p>Get first parameter or buffer from module</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.utils.attributes.get_device_from_module" title="flame.pytorch.utils.attributes.get_device_from_module"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_device_from_module</span></code></a>(module: torch.nn.Module) → torch.device</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.utils.ranking.do_nothing" title="flame.pytorch.utils.ranking.do_nothing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">do_nothing</span></code></a>(*args, **kwargs) → flame.pytorch.utils.ranking.FakeObject</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.utils.attributes.get_dtype_from_module" title="flame.pytorch.utils.attributes.get_dtype_from_module"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_dtype_from_module</span></code></a>(module: torch.nn.Module) → torch.dtype</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.utils.attributes.get_learning_rate_from_optimizer" title="flame.pytorch.utils.attributes.get_learning_rate_from_optimizer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_learning_rate_from_optimizer</span></code></a>(optimizer: torch.optim.Optimizer) → float</p></td>
-<td><p>Get learning rate from optimizer</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.utils.ranking.rank0" title="flame.pytorch.utils.ranking.rank0"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rank0</span></code></a>(func)</p></td>
+<td><p>run func only on rank 0</p></td>
 </tr>
 </tbody>
 </table>
-<dl class="py function">
-<dt id="flame.pytorch.utils.attributes.get_first_parameter_or_buffer">
-<code class="sig-prename descclassname"><span class="pre">flame.pytorch.utils.attributes.</span></code><code class="sig-name descname"><span class="pre">get_first_parameter_or_buffer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.nn.Module</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#flame.pytorch.utils.attributes.get_first_parameter_or_buffer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get first parameter or buffer from module</p>
+<dl class="py class">
+<dt id="flame.pytorch.utils.ranking.FakeObject">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.utils.ranking.</span></code><code class="sig-name descname"><span class="pre">FakeObject</span></code><a class="headerlink" href="#flame.pytorch.utils.ranking.FakeObject" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="flame.pytorch.utils.ranking.FakeObject.__getattr__">
+<code class="sig-name descname"><span class="pre">__getattr__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Callable</span><a class="headerlink" href="#flame.pytorch.utils.ranking.FakeObject.__getattr__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 <dl class="py function">
-<dt id="flame.pytorch.utils.attributes.get_device_from_module">
-<code class="sig-prename descclassname"><span class="pre">flame.pytorch.utils.attributes.</span></code><code class="sig-name descname"><span class="pre">get_device_from_module</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.nn.Module</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.device</span><a class="headerlink" href="#flame.pytorch.utils.attributes.get_device_from_module" title="Permalink to this definition">¶</a></dt>
+<dt id="flame.pytorch.utils.ranking.do_nothing">
+<code class="sig-prename descclassname"><span class="pre">flame.pytorch.utils.ranking.</span></code><code class="sig-name descname"><span class="pre">do_nothing</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#flame.pytorch.utils.ranking.FakeObject" title="flame.pytorch.utils.ranking.FakeObject"><span class="pre">flame.pytorch.utils.ranking.FakeObject</span></a><a class="headerlink" href="#flame.pytorch.utils.ranking.do_nothing" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="flame.pytorch.utils.attributes.get_dtype_from_module">
-<code class="sig-prename descclassname"><span class="pre">flame.pytorch.utils.attributes.</span></code><code class="sig-name descname"><span class="pre">get_dtype_from_module</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.nn.Module</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.dtype</span><a class="headerlink" href="#flame.pytorch.utils.attributes.get_dtype_from_module" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="flame.pytorch.utils.attributes.get_learning_rate_from_optimizer">
-<code class="sig-prename descclassname"><span class="pre">flame.pytorch.utils.attributes.</span></code><code class="sig-name descname"><span class="pre">get_learning_rate_from_optimizer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">optimizer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.optim.Optimizer</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">float</span><a class="headerlink" href="#flame.pytorch.utils.attributes.get_learning_rate_from_optimizer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get learning rate from optimizer</p>
+<dt id="flame.pytorch.utils.ranking.rank0">
+<code class="sig-prename descclassname"><span class="pre">flame.pytorch.utils.ranking.</span></code><code class="sig-name descname"><span class="pre">rank0</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.utils.ranking.rank0" title="Permalink to this definition">¶</a></dt>
+<dd><p>run func only on rank 0</p>
+<p>You can use it as a decorator</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@rank0</span>
+<span class="k">def</span> <span class="nf">my_print</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>func</strong> – function or lambda</p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
@@ -340,8 +365,8 @@
               
               <div class='prev-next-bottom'>
                 
-    <a class='left-prev' id="prev-link" href="../index.html" title="previous page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.utils</span></code></a>
-    <a class='right-next' id="next-link" href="../ranking/index.html" title="next page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.utils.ranking</span></code></a>
+    <a class='left-prev' id="prev-link" href="../attributes/index.html" title="previous page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.utils.attributes</span></code></a>
+    <a class='right-next' id="next-link" href="../../distributed_training/index.html" title="next page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.distributed_training</span></code></a>
 
               </div>
               

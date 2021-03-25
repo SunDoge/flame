@@ -187,6 +187,15 @@
     </a>
    </li>
    <li class="toctree-l3">
+    <a class="reference internal" href="../../ckcfg/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.ckcfg
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
     <a class="reference internal" href="../../config/index.html">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
@@ -227,6 +236,35 @@
    Submodules
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#package-contents">
+   Package Contents
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions">
+     Functions
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.pytorch.utils.rank0">
+       rank0
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.pytorch.utils.get_learning_rate_from_optimizer">
+       get_learning_rate_from_optimizer
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.pytorch.utils.get_first_parameter_or_buffer">
+       get_first_parameter_or_buffer
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
 </ul>
 
 </nav>
@@ -251,8 +289,60 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="attributes/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.utils.attributes</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="rank0/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.utils.rank0</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="ranking/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.utils.ranking</span></code></a></li>
 </ul>
+</div>
+</div>
+<div class="section" id="package-contents">
+<h2>Package Contents<a class="headerlink" href="#package-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.utils.rank0" title="flame.pytorch.utils.rank0"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rank0</span></code></a>(func)</p></td>
+<td><p>run func only on rank 0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.utils.get_learning_rate_from_optimizer" title="flame.pytorch.utils.get_learning_rate_from_optimizer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_learning_rate_from_optimizer</span></code></a>(optimizer: torch.optim.Optimizer) → float</p></td>
+<td><p>Get learning rate from optimizer</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.utils.get_first_parameter_or_buffer" title="flame.pytorch.utils.get_first_parameter_or_buffer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_first_parameter_or_buffer</span></code></a>(module: torch.nn.Module) → torch.Tensor</p></td>
+<td><p>Get first parameter or buffer from module</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt id="flame.pytorch.utils.rank0">
+<code class="sig-prename descclassname"><span class="pre">flame.pytorch.utils.</span></code><code class="sig-name descname"><span class="pre">rank0</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.utils.rank0" title="Permalink to this definition">¶</a></dt>
+<dd><p>run func only on rank 0</p>
+<p>You can use it as a decorator</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@rank0</span>
+<span class="k">def</span> <span class="nf">my_print</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>func</strong> – function or lambda</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="flame.pytorch.utils.get_learning_rate_from_optimizer">
+<code class="sig-prename descclassname"><span class="pre">flame.pytorch.utils.</span></code><code class="sig-name descname"><span class="pre">get_learning_rate_from_optimizer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">optimizer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.optim.Optimizer</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">float</span><a class="headerlink" href="#flame.pytorch.utils.get_learning_rate_from_optimizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get learning rate from optimizer</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="flame.pytorch.utils.get_first_parameter_or_buffer">
+<code class="sig-prename descclassname"><span class="pre">flame.pytorch.utils.</span></code><code class="sig-name descname"><span class="pre">get_first_parameter_or_buffer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.nn.Module</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">torch.Tensor</span><a class="headerlink" href="#flame.pytorch.utils.get_first_parameter_or_buffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get first parameter or buffer from module</p>
+</dd></dl>
+
 </div>
 </div>
 </div>

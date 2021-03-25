@@ -1,0 +1,28 @@
+:mod:`flame.ckcfg`
+==================
+
+.. py:module:: flame.ckcfg
+
+.. autoapi-nested-parse::
+
+   测试config::
+
+   python -m flame.ckcfg -c config/your_config.jsonnet
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.ckcfg.main
+
+
+.. function:: main()
+
+
