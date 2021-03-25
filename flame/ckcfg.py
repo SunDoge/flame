@@ -1,5 +1,7 @@
 """
-测试config::
+测试config
+
+.. code-block:: bash
 
     python -m flame.ckcfg -c config/your_config.jsonnet
 
