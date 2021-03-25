@@ -2,6 +2,7 @@ from pathlib import Path
 import logging
 import time
 from datetime import datetime
+from typing import Tuple
 
 _logger = logging.getLogger(__name__)
 
@@ -21,9 +22,18 @@ def get_experiment_dir(output_dir: Path, experiment_name: str, debug: bool = Fal
     return output_dir / ('debug' if debug else 'release') / experiment_name
 
 
-def make_experiment_dir(output_dir: Path, experiment_name: str, debug: bool = False, yes: bool = False) -> Path:
-    experiment_dir = get_experiment_dir(
-        output_dir, experiment_name, debug=debug)
+def get_output_dir_and_experiment_name(experiment_dir: Path) -> Tuple[Path, str]:
+    output_dir = experiment_dir.parent.parent
+    experiment_name = experiment_dir.name
+    return output_dir, experiment_name
+
+
+def make_experiment_dir(experiment_dir: Path, yes: bool = False) -> Path:
+    """
+    设计失误，应该传入experiment_dir
+    """
+    # experiment_dir = get_experiment_dir(
+    #     output_dir, experiment_name, debug=debug)
 
     if experiment_dir.exists():
         _logger.warning('experiment dir %s exists', experiment_dir)
@@ -36,6 +46,9 @@ def make_experiment_dir(output_dir: Path, experiment_name: str, debug: bool = Fa
             choice = input()
 
         if choice.lower() in {'y', 'yes'}:
+            output_dir, experiment_name = get_output_dir_and_experiment_name(
+                experiment_dir
+            )
             target_debug_dir = get_experiment_dir(
                 output_dir, experiment_name, debug=True
             )

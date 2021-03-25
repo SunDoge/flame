@@ -1,3 +1,4 @@
+from pathlib import Path
 from typing import Dict, List, NewType
 from torch import Tensor
 from torch.utils.data import Dataset, DataLoader
@@ -13,6 +14,9 @@ TrainDataLoader = NewType('TrainDataLoader', DataLoader)
 ValDataLoader = NewType('ValDataLoader', DataLoader)
 TestDataLoader = NewType('TestDataLoader', DataLoader)
 
+RootConfig = NewType('RootConfig', dict)
+ExperimentDir = NewType('ExperimentDir', Path)
+
 Criterion = NewType('Criterion', nn.Module)
 Optimizer = Optimizer
 LrScheduler = LrScheduler
@@ -25,4 +29,3 @@ class Model(nn.Module):
 
 TensorDict = Dict[str, Tensor]
 TensorList = List[Tensor]
-
