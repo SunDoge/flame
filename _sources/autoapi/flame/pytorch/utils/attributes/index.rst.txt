@@ -1,0 +1,40 @@
+:mod:`flame.pytorch.utils.attributes`
+=====================================
+
+.. py:module:: flame.pytorch.utils.attributes
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.utils.attributes.get_first_parameter_or_buffer
+   flame.pytorch.utils.attributes.get_device_from_module
+   flame.pytorch.utils.attributes.get_dtype_from_module
+   flame.pytorch.utils.attributes.get_learning_rate_from_optimizer
+
+
+.. function:: get_first_parameter_or_buffer(module: torch.nn.Module) -> torch.Tensor
+
+   Get first parameter or buffer from module
+
+
+
+
+.. function:: get_device_from_module(module: torch.nn.Module) -> torch.device
+
+
+.. function:: get_dtype_from_module(module: torch.nn.Module) -> torch.dtype
+
+
+.. function:: get_learning_rate_from_optimizer(optimizer: torch.optim.Optimizer) -> float
+
+   Get learning rate from optimizer
+
+
+

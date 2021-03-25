@@ -20,5 +20,8 @@ Submodules
    :maxdepth: 1
 
    distributed_training/index.rst
+   engine/index.rst
+   process/index.rst
+   typing_prelude/index.rst
 
 

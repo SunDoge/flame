@@ -10,6 +10,7 @@ Submodules
    :titlesonly:
    :maxdepth: 1
 
+   attributes/index.rst
    rank0/index.rst
 
 

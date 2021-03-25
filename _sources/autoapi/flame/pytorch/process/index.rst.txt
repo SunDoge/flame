@@ -1,0 +1,89 @@
+:mod:`flame.pytorch.process`
+============================
+
+.. py:module:: flame.pytorch.process
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.process.BaseProcess
+   flame.pytorch.process.SupervisedProcess
+
+
+
+.. data:: _logger
+   
+
+   
+
+.. class:: BaseProcess
+
+   .. method:: forward(self, batch: Any) -> Tuple[(Tensor, Any)]
+
+      forward wrapper
+
+      处理数据并计算loss，决定返回哪些数据。
+
+      :returns: 第一个返回值必为loss
+                output: 其他不需要backward的内容
+      :rtype: loss
+
+      example::
+
+          def forward(self, batch):
+              image, label = batch
+              pred = self.model(image)
+              loss = self.criterion(pred, label)
+              return loss, {'loss': loss, 'pred': pred, 'label': label}
+
+
+   .. method:: training_step(self, batch: Any) -> Any
+
+
+   .. method:: validation_step(self, batch: Any) -> Any
+
+
+   .. method:: update(self)
+
+
+
+.. class:: SupervisedProcess(model: flame.pytorch.typing_prelude.Model, optimizer: flame.pytorch.typing_prelude.Optimizer, criterion: flame.pytorch.typing_prelude.Criterion, grad_scaler: Optional[GradScaler] = None)
+
+
+   Bases: :class:`flame.pytorch.process.BaseProcess`
+
+   .. method:: forward(self, batch: Tuple[(Tensor, Tensor)]) -> Tuple[(Tensor, TensorDict)]
+
+      forward wrapper
+
+      处理数据并计算loss，决定返回哪些数据。
+
+      :returns: 第一个返回值必为loss
+                output: 其他不需要backward的内容
+      :rtype: loss
+
+      example::
+
+          def forward(self, batch):
+              image, label = batch
+              pred = self.model(image)
+              loss = self.criterion(pred, label)
+              return loss, {'loss': loss, 'pred': pred, 'label': label}
+
+
+   .. method:: training_step(self, batch: Any) -> Any
+
+
+   .. method:: validation_step(self, batch: Any) -> Any
+
+
+   .. method:: update(self)
+
+
+
