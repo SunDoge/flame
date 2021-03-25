@@ -17,6 +17,7 @@ _logger = logging.getLogger(__name__)
 class BasicArgs:
 
     config: List[str]
+    local: List[str]
     output_dir: Path
     experiment_name: str
     debug: bool
@@ -27,8 +28,13 @@ class BasicArgs:
 def add_basic_arguments(parser: ArgumentParser) -> ArgumentParser:
     parser.add_argument(
         '-c', '--config',
-        type=str, action='append',
+        type=str, action='append', default=[],
         help='config file or snippet'
+    )
+    parser.add_argument(
+        '-l', '--local',
+        type=str, action='append', default=[],
+        help='local variables'
     )
     parser.add_argument(
         '-o', '--output-dir',
@@ -55,7 +61,7 @@ def add_basic_arguments(parser: ArgumentParser) -> ArgumentParser:
         action='store_true',
         help='to skip some steps'
     )
-
+    return parser
 
 def parse_basic_args(parser: Optional[ArgumentParser] = None) -> BasicArgs:
     if parser is None:

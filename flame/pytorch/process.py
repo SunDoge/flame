@@ -44,8 +44,10 @@ class BaseProcess:
         pass
 
 
+@singleton
 class SupervisedProcess(BaseProcess):
 
+    @inject
     def __init__(
         self,
         model: Model,
