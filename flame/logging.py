@@ -7,6 +7,7 @@ _logger = logging.getLogger(__name__)
 
 
 FILE_FORMAT = '%(asctime)s:%(levelname)s:%(name)s:%(message)s'
+CONSOLE_FORMAT = "%(message)s"
 
 
 def log_hook(exc_type, exc_value, traceback):
@@ -30,7 +31,9 @@ def get_file_handler(filename: str, fmt: str = FILE_FORMAT):
 
 
 def get_console_handler():
+    formatter = logging.Formatter(CONSOLE_FORMAT)
     console_handler = RichHandler()
+    console_handler.setFormatter(formatter)
     return console_handler
 
 

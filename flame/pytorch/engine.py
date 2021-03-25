@@ -1,3 +1,4 @@
+import logging
 from ignite.engine import Engine as BaseEngine, RemovableEventHandle, CallableEventWithFilter, EventsList
 from ignite.engine.utils import _check_signature
 from injector import Binder, Injector, inject
@@ -9,6 +10,8 @@ class Engine(BaseEngine):
 
     def __init__(self, process_function: Callable, injector: Optional[Injector] = None):
         super().__init__(process_function)
+
+        # self.logger = logging.getLogger(__name__)
 
         if injector is None:
 
