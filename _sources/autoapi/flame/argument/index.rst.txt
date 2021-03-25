@@ -44,6 +44,11 @@ Functions
 
       
 
+   .. attribute:: local
+      :annotation: :List[str]
+
+      
+
    .. attribute:: output_dir
       :annotation: :Path
 

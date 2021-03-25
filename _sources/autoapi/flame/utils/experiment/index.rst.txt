@@ -14,6 +14,7 @@ Functions
 .. autoapisummary::
 
    flame.utils.experiment.get_experiment_dir
+   flame.utils.experiment.get_output_dir_and_experiment_name
    flame.utils.experiment.make_experiment_dir
 
 
@@ -30,6 +31,11 @@ Functions
    e.g. exps/release/000
 
 
-.. function:: make_experiment_dir(output_dir: pathlib.Path, experiment_name: str, debug: bool = False, yes: bool = False) -> pathlib.Path
+.. function:: get_output_dir_and_experiment_name(experiment_dir: pathlib.Path) -> Tuple[(Path, str)]
+
+
+.. function:: make_experiment_dir(experiment_dir: pathlib.Path, yes: bool = False) -> pathlib.Path
+
+   设计失误，应该传入experiment_dir
 
 
