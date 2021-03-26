@@ -5,6 +5,7 @@ from torch.utils.data import Dataset, DataLoader
 from torch import nn
 from torch.optim import Optimizer
 from torch.optim.lr_scheduler import _LRScheduler as LrScheduler
+from .engine import Engine
 
 
 TrainDataset = NewType('TrainDataset', Dataset)
@@ -20,6 +21,10 @@ ExperimentDir = NewType('ExperimentDir', Path)
 Criterion = NewType('Criterion', nn.Module)
 Optimizer = Optimizer
 LrScheduler = LrScheduler
+
+
+Trainer = NewType('Trainer', Engine)
+Evaluator = NewType('Evaluator', Engine)
 
 
 class Model(nn.Module):

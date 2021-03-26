@@ -16,7 +16,7 @@ class Engine(BaseEngine):
         if injector is None:
 
             # def configure_self(binder: Binder):
-                # binder.bind(self.__class__, to=self)
+            # binder.bind(self.__class__, to=self)
 
             self.logger.warning('Init an empty Dependency Injector')
             injector = Injector()
@@ -102,7 +102,8 @@ class Engine(BaseEngine):
         Always add self
         """
         # self._event_handlers[event_name].append((handler, args, kwargs))
-        self._event_handlers[event_name].append((handler, (self,) + args, kwargs))
+        self._event_handlers[event_name].append(
+            (handler, (self,) + args, kwargs))
 
         self.logger.debug(f"added handler for event {event_name}")
 
@@ -133,13 +134,18 @@ class Engine(BaseEngine):
             # func(*first, *(event_args + others), **kwargs)
             self.injector.call_with_injection(func, args=args, kwargs=kwargs)
 
+    @property
+    def iter_counter(self):
+        """Get current iter number, 1 base"""
+        return (self.state.iteration - 1) % self.state.epoch_length + 1
+
 
 if __name__ == '__main__':
     from ignite.engine import Events
     from injector import singleton
 
     @singleton
-    class A:   
+    class A:
         @inject
         def __init__(self) -> None:
             print(self.__class__)
