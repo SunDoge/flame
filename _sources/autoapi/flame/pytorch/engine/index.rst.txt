@@ -190,6 +190,12 @@ Classes
       :param \*\*event_kwargs: optional keyword args to be passed to all handlers.
 
 
+   .. method:: iter_counter(self)
+      :property:
+
+      Get current iter number, 1 base
+
+
 
 .. class:: A
 

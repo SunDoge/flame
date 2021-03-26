@@ -71,6 +71,16 @@ Classes
 
    
 
+.. data:: Trainer
+   
+
+   
+
+.. data:: Evaluator
+   
+
+   
+
 .. class:: Model
 
 

@@ -74,7 +74,7 @@ Functions
    1. get number of GPUs
    2. start N process, N = number of GPUs
    3. init_process_group
-   4. call worker_fn with *args
+   4. call worker_fn with \*args
 
 
 .. function:: get_available_local_dist_url() -> str
