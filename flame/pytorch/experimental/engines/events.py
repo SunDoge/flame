@@ -1,191 +1,81 @@
 from enum import Enum
-from typing import Union, Iterator
+from typing import Any, Dict, Iterable, Iterator, List, Optional
+from dataclasses import dataclass, field
 
 
-class CallableEventWithFilter:
+class Events(Enum):
+    # For epoch
+    EPOCH_STARTED = 'epoch_started'
+    EPOCH_COMPLETED = 'epoch_completed'
 
-    def __init__(self) -> None:
-        pass
+    # For training
+    STARTED = 'started'
+    COMPLETED = 'completed'
 
+    # For iteration
+    ITERATION_STARTED = 'iteration_started'
+    ITERATION_COMPLETED = 'iteration_completed'
+    EXCEPTION_RAISED = 'exception_raised'  # FIXME: 不确定有什么用
 
-class EventEnum(CallableEventWithFilter, Enum):
+    # For data
+    GET_BATCH_STARTED = 'get_batch_started'
+    GET_BATCH_COMPLETED = 'get_batch_completed'
 
-    pass
-
-
-class Events(EventEnum):
-
-    """Events that are fired by the :class:`~ignite.engine.engine.Engine` during execution. Built-in events:
-
-    - STARTED : triggered when engine's run is started
-    - EPOCH_STARTED : triggered when the epoch is started
-    - GET_BATCH_STARTED : triggered before next batch is fetched
-    - GET_BATCH_COMPLETED : triggered after the batch is fetched
-    - ITERATION_STARTED : triggered when an iteration is started
-    - ITERATION_COMPLETED : triggered when the iteration is ended
-
-    - DATALOADER_STOP_ITERATION : engine's specific event triggered when dataloader has no more data to provide
-
-    - EXCEPTION_RAISED : triggered when an exception is encountered
-    - TERMINATE_SINGLE_EPOCH : triggered when the run is about to end the current epoch,
-      after receiving a :meth:`~ignite.engine.engine.Engine.terminate_epoch()` or
-      :meth:`~ignite.engine.engine.Engine.terminate()` call.
-
-    - TERMINATE : triggered when the run is about to end completely,
-      after receiving :meth:`~ignite.engine.engine.Engine.terminate()` call.
-
-    - EPOCH_COMPLETED : triggered when the epoch is ended. Note that this is triggered even
-      when :meth:`~ignite.engine.engine.Engine.terminate_epoch()` is called.
-    - COMPLETED : triggered when engine's run is completed
-
-    The table below illustrates which events are triggered when various termination methods are called.
-
-    .. list-table::
-       :widths: 24 25 33 18
-       :header-rows: 1
-
-       * - Method
-         - EVENT_COMPLETED
-         - TERMINATE_SINGLE_EPOCH
-         - TERMINATE
-       * - no termination
-         - ✔
-         - ✗
-         - ✗
-       * - :meth:`~ignite.engine.engine.Engine.terminate_epoch()`
-         - ✔
-         - ✔
-         - ✗
-       * - :meth:`~ignite.engine.engine.Engine.terminate()`
-         - ✗
-         - ✔
-         - ✔
-
-    Since v0.3.0, Events become more flexible and allow to pass an event filter to the Engine:
-
-    .. code-block:: python
-
-        engine = Engine()
-
-        # a) custom event filter
-        def custom_event_filter(engine, event):
-            if event in [1, 2, 5, 10, 50, 100]:
-                return True
-            return False
-
-        @engine.on(Events.ITERATION_STARTED(event_filter=custom_event_filter))
-        def call_on_special_event(engine):
-            # do something on 1, 2, 5, 10, 50, 100 iterations
-
-        # b) "every" event filter
-        @engine.on(Events.ITERATION_STARTED(every=10))
-        def call_every(engine):
-            # do something every 10th iteration
-
-        # c) "once" event filter
-        @engine.on(Events.ITERATION_STARTED(once=50))
-        def call_once(engine):
-            # do something on 50th iteration
-
-    Event filter function `event_filter` accepts as input `engine` and `event` and should return True/False.
-    Argument `event` is the value of iteration or epoch, depending on which type of Events the function is passed.
-
-    Since v0.4.0, user can also combine events with `|`-operator:
-
-    .. code-block:: python
-
-        events = Events.STARTED | Events.COMPLETED | Events.ITERATION_STARTED(every=3)
-        engine = ...
-
-        @engine.on(events)
-        def call_on_events(engine):
-            # do something
-
-    Since v0.4.0, custom events defined by user should inherit from :class:`~ignite.engine.events.EventEnum` :
-
-    .. code-block:: python
-
-        class CustomEvents(EventEnum):
-            FOO_EVENT = "foo_event"
-            BAR_EVENT = "bar_event"
-    """
-
-    EPOCH_STARTED = "epoch_started"
-    """triggered when the epoch is started."""
-    EPOCH_COMPLETED = "epoch_completed"
-    """Event attribute indicating epoch is ended."""
-
-    STARTED = "started"
-    """triggered when engine’s run is started."""
-    COMPLETED = "completed"
-    """"triggered when engine’s run is completed"""
-
-    ITERATION_STARTED = "iteration_started"
-    """triggered when an iteration is started."""
-    ITERATION_COMPLETED = "iteration_completed"
-    """triggered when the iteration is ended."""
-    EXCEPTION_RAISED = "exception_raised"
-    """triggered when an exception is encountered."""
-
-    GET_BATCH_STARTED = "get_batch_started"
-    """triggered before next batch is fetched."""
-    GET_BATCH_COMPLETED = "get_batch_completed"
-    """triggered after the batch is fetched."""
-
-    DATALOADER_STOP_ITERATION = "dataloader_stop_iteration"
-    """"engine’s specific event triggered when dataloader has no more data to provide"""
-    TERMINATE = "terminate"
-    """triggered when the run is about to end completely, after receiving terminate() call."""
-    TERMINATE_SINGLE_EPOCH = "terminate_single_epoch"
-    """triggered when the run is about to end the current epoch,
-    after receiving a terminate_epoch() or terminate() call."""
-
-    def __or__(self, other: Any) -> "EventsList":
-        return EventsList() | self | other
+    # 这几个理论上都用不到
+    DATALOADER_STOP_ITERATION = 'dataloader_stop_iteration'
+    TERMINATE = 'terminate'
+    TERMINATE_SINGLE_EPOCH = 'terminate_single_epoch'
 
 
 class EventsList:
-    """Collection of events stacked by operator `__or__`.
-
-    .. code-block:: python
-
-        events = Events.STARTED | Events.COMPLETED
-        events |= Events.ITERATION_STARTED(every=3)
-
-        engine = ...
-
-        @engine.on(events)
-        def call_on_events(engine):
-            # do something
-
-    or
-
-    .. code-block:: python
-
-        @engine.on(Events.STARTED | Events.COMPLETED | Events.ITERATION_STARTED(every=3))
-        def call_on_events(engine):
-            # do something
-
-    """
 
     def __init__(self) -> None:
-        self._events = []  # type: List[Union[Events, CallableEventWithFilter]]
+        self._events: List[Events] = []
 
-    def _append(self, event: Union[Events, CallableEventWithFilter]) -> None:
-        if not isinstance(event, (Events, CallableEventWithFilter)):
-            raise TypeError(
-                f"Argument event should be Events or CallableEventWithFilter, got: {type(event)}")
+    def _append(self, event: Events):
         self._events.append(event)
 
-    def __getitem__(self, item: int) -> Union[Events, CallableEventWithFilter]:
-        return self._events[item]
+    def __getitem__(self, index: int) -> Events:
+        return self._events[index]
 
-    def __iter__(self) -> Iterator[Union[Events, CallableEventWithFilter]]:
+    def __iter__(self) -> Iterator[Events]:
         return iter(self._events)
 
     def __len__(self) -> int:
         return len(self._events)
 
-    def __or__(self, other: Union[Events, CallableEventWithFilter]) -> "EventsList":
-        self._append(event=other)
+    def __or__(self, other: Events) -> 'EventsList':
+        self._append(other)
         return self
+
+
+@dataclass
+class State:
+    # For epoch engine
+    epoch: int = 0
+    max_epochs: Optional[int] = None
+
+    # For iteration engine
+    # 内循环的iter
+    local_iteration: int = 0
+    # 总的iter
+    global_iteration: int = 0
+
+    # dataloader的长度，和local_iteration相关
+    epoch_length: Optional[int] = None
+
+    # 最多跑多少iter，和global_iteration相关
+    max_iterations: Optional[int] = None
+
+    batch: Optional[Any] = None  # model input
+    output: Optional[Any] = None  # model output
+    dataloader: Optional[Iterable[Any]] = None
+    metrics: Dict[str, Any] = field(default_factory=dict)
+
+    def update_local_iteration(self, iteration: int):
+        self.local_iteration = iteration
+
+    def update_global_iteration(self):
+        self.global_iteration += 1
+
+    
