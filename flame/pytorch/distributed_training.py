@@ -60,7 +60,7 @@ def start_distributed_training(
     1. get number of GPUs
     2. start N process, N = number of GPUs
     3. init_process_group
-    4. call worker_fn with \*args
+    4. call worker_fn with args
 
     """
 

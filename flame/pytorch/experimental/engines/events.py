@@ -78,4 +78,33 @@ class State:
     def update_global_iteration(self):
         self.global_iteration += 1
 
-    
+    def is_done_iterations(self) -> bool:
+        return self.max_iterations is not None and self.global_iteration >= self.max_iterations
+
+    def is_done_epochs(self) -> bool:
+        return self.max_epochs is not None and self.epoch >= self.max_epochs
+
+    def is_done_count(self) -> bool:
+        return (
+            self.epoch_length is not None
+            and self.max_epochs is not None
+            and self.global_iteration >= self.epoch_length * self.max_epochs
+        )
+
+    def is_done(self) -> bool:
+        return self.is_done_iterations() or self.is_done_count() or self.is_done_epochs()
+
+    def reset(self):
+        self.epoch = 0
+        self.max_epochs = None
+
+        self.local_iteration = 0
+        self.global_iteration = 0
+
+        self.epoch_length = None
+        self.max_iterations = None
+
+        self.batch = None
+        self.output = None
+        self.dataloader = None
+        self.metrics = {}
