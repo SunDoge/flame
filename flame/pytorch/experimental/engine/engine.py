@@ -158,7 +158,7 @@ class Engine(Serializable):
         self.state.output = self._process_function(self.state.batch)
         self.fire_event(Events.ITERATION_COMPLETED)
 
-    def _internal_run(self):
+    def internal_run(self):
         # try:
         #     self.fire_event(Events.STARTED)
         #     self._start_epoch_loop()
@@ -328,4 +328,4 @@ class Engine(Serializable):
             epoch_length=epoch_length
         )
 
-        self._internal_run()
+        self.internal_run()

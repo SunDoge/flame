@@ -1,5 +1,5 @@
 import functools
-from typing import Callable
+from typing import Callable, Optional
 from injector import inject, Injector
 from .events import State
 
@@ -7,7 +7,6 @@ from .events import State
 def every_epochs(func: Callable, n: int = 1):
 
     @inject
-    @functools.wraps(func)
     def wrapper(state: State, container: Injector, *args, **kwargs):
         if state.every_epochs(n):
             return container.call_with_injection(
@@ -19,10 +18,9 @@ def every_epochs(func: Callable, n: int = 1):
     return wrapper
 
 
-def every_iterations(func: Callable, n: int = 1):
+def every_iterations(func: Optional[Callable] = None, n: int = 1):
 
     @inject
-    @functools.wraps(func)
     def wrapper(state: State, container: Injector, *args, **kwargs):
         if state.every_iterations(n):
             return container.call_with_injection(
@@ -31,4 +29,7 @@ def every_iterations(func: Callable, n: int = 1):
                 kwargs=kwargs,
             )
 
-    return wrapper
+    if func is None:
+        return functools.partial(every_iterations, n=n)
+    else:
+        return wrapper

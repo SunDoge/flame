@@ -5,7 +5,8 @@ from torch import Tensor
 from injector import inject, singleton
 from .utils.attributes import get_device_from_module, get_dtype_from_module
 from .typing_prelude import Model, Optimizer, Criterion, TensorDict
-from torch.cuda.amp import autocast, GradScaler
+from torch.cuda.amp import autocast
+from torch.cuda.amp.grad_scaler import GradScaler
 import torch
 import logging
 
