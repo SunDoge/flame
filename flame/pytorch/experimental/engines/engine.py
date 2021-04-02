@@ -4,6 +4,7 @@ from collections import defaultdict
 from .events import Events, EventsList, State
 from injector import Injector
 import logging
+import math
 
 _logger = logging.getLogger(__name__)
 
@@ -34,6 +35,8 @@ class Engine(Serializable):
         container.binder.bind(State, to=state)
 
         self._event_handlers: EventHandlerDict = defaultdict(list)
+        self._dataloader_iter: Optional[Iterable] = None
+        self._process_function = process_function
 
         self.last_event_name: Optional[Events] = None
         self.should_terminate = False
@@ -103,11 +106,75 @@ class Engine(Serializable):
     def fire_event(self, event_name: Any):
         self._fire_event(event_name)
 
-    def step_epoch(self, epoch: int):
-        pass
+    def step_epoch(self):
+        # 更新epoch
+        self.state.epoch += 1
+        self.fire_event(Events.EPOCH_STARTED)
+
+        # 设置dataloader iter
+        if self._dataloader_iter is None:
+            self._dataloader_iter = iter(self.state.dataloader)
+
+        # 开始iteration loop
+        while True:
+            # 尝试获取数据
+            try:
+                self.fire_event(Events.GET_BATCH_STARTED)
+                self.state.batch = next(self._dataloader_iter)
+                self.fire_event(Events.GET_BATCH_COMPLETED)
+
+            # 数据结束
+            except StopIteration:
+                if self.state.epoch_length is None:
+                    self.state.epoch_length = self.state.local_iteration
+
+                    if self.state.max_iterations is not None:
+                        self.state.max_epochs = math.ceil(
+                            self.state.max_iterations / self.state.epoch_length
+                        )
+                    break
+
+            self.state.local_iteration = 0
+            self.step_iteration()
+
+            if self.should_terminate or self.should_terminate_single_epoch:
+                self.fire_event(Events.TERMINATE_SINGLE_EPOCH)
+                self.should_terminate_single_epoch = False
+                self.set_data(self.state.dataloader)
+                break
+
+            if self.state.epoch_length is not None and self.state.local_iteration == self.state.epoch_length:
+                break
+
+            if self.state.max_iterations is not None and self.state.global_iteration == self.state.max_iterations:
+                self.should_terminate = True
+                break
+
+        self.fire_event(Events.EPOCH_COMPLETED)
+
+    def step_iteration(self):
+        self.state.local_iteration += 1
+        self.state.global_iteration += 1
+        self.fire_event(Events.ITERATION_STARTED)
+        self.state.output = self._process_function(self.state.batch)
+        self.fire_event(Events.ITERATION_COMPLETED)
+
+    def _internal_run(self):
+        try:
+            self.fire_event(Events.STARTED)
+            while not self.state.is_done():
+                self.step_epoch()
+
+            self.fire_event(Events.COMPLETED)
+        except Exception as e:
+            pass
 
     def set_epoch(self, epoch: int):
         self.state.epoch = epoch
+
+    def set_data(self, data: Iterable):
+        self.state.dataloader = data
+        self._dataloader_iter = iter(self.state.dataloader)
 
     def setup(
         self,
