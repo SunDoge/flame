@@ -1,6 +1,7 @@
 import socket
 import resource
 import logging
+import sys
 
 _logger = logging.getLogger(__name__)
 
@@ -21,6 +22,10 @@ def ulimit_n_max():
     在某些情况下，dataloader会把文件描述符用完
 
     """
+    if not 'linux' in sys.platform:
+        _logger.warning('this is only supported on linux')
+        return
+
     _soft_limit, hard_limit = resource.getrlimit(resource.RLIMIT_NOFILE)
 
     _logger.warning('setting ulimit -n %d', hard_limit)

@@ -5,7 +5,8 @@ from torch import Tensor
 from injector import inject, singleton
 from .utils.attributes import get_device_from_module, get_dtype_from_module
 from .typing_prelude import Model, Optimizer, Criterion, TensorDict
-from torch.cuda.amp import autocast, GradScaler
+from torch.cuda.amp import autocast
+from torch.cuda.amp.grad_scaler import GradScaler
 import torch
 import logging
 
@@ -42,6 +43,12 @@ class BaseProcess:
 
     def update(self):
         pass
+
+    def train(self, mode: bool = True):
+        pass
+
+    def eval(self):
+        self.train(mode=False)
 
 
 @singleton
@@ -113,3 +120,6 @@ class SupervisedProcess(BaseProcess):
         self.grad_scaler.step(self.optimizer)
         self.grad_scaler.update()
         self.optimizer.zero_grad()
+
+    def train(self, mode: bool = True):
+        self.model.train(mode=mode)
