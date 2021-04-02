@@ -43,6 +43,12 @@ class BaseProcess:
     def update(self):
         pass
 
+    def train(self, mode: bool = True):
+        pass
+
+    def eval(self):
+        self.train(mode=False)
+
 
 @singleton
 class SupervisedProcess(BaseProcess):
@@ -113,3 +119,6 @@ class SupervisedProcess(BaseProcess):
         self.grad_scaler.step(self.optimizer)
         self.grad_scaler.update()
         self.optimizer.zero_grad()
+
+    def train(self, mode: bool = True):
+        self.model.train(mode=mode)

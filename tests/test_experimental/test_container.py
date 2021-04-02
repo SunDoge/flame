@@ -1,4 +1,4 @@
-from flame.pytorch.experimental.engines.container import Container
+from flame.pytorch.experimental.engine import Container
 from injector import inject
 
 

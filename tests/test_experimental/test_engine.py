@@ -1,5 +1,5 @@
-from flame.pytorch.experimental.engines.events import State, Events
-from flame.pytorch.experimental.engines.engine import Engine
+from flame.pytorch.experimental.engine import State, Events
+from flame.pytorch.experimental.engine import Engine
 from injector import inject
 
 
