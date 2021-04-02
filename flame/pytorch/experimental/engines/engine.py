@@ -53,6 +53,8 @@ class Engine(Serializable):
         if container is None:
             _logger.debug('Init empty DI container')
             container = Injector()
+        else:
+            container = container.create_child_injector()
 
         state = State()
 
