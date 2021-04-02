@@ -1,0 +1,30 @@
+:mod:`flame.pytorch.experimental.engine.mixins`
+===============================================
+
+.. py:module:: flame.pytorch.experimental.engine.mixins
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.experimental.engine.mixins.Serializable
+
+
+
+.. class:: Serializable
+
+   作为Engine的基类
+
+   .. method:: state_dict(self) -> OrderedDict
+      :abstractmethod:
+
+
+   .. method:: load_state_dict(self, state_dict: Mapping)
+
+
+

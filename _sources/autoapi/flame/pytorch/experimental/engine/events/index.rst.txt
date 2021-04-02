@@ -1,0 +1,196 @@
+:mod:`flame.pytorch.experimental.engine.events`
+===============================================
+
+.. py:module:: flame.pytorch.experimental.engine.events
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.experimental.engine.events.Events
+   flame.pytorch.experimental.engine.events.EventsList
+   flame.pytorch.experimental.engine.events.State
+
+
+
+.. data:: _logger
+   
+
+   
+
+.. class:: Events
+
+   Bases: :class:`enum.Enum`
+
+   Generic enumeration.
+
+   Derive from this class to define new enumerations.
+
+   .. attribute:: EPOCH_STARTED
+      :annotation: = epoch_started
+
+      
+
+   .. attribute:: EPOCH_COMPLETED
+      :annotation: = epoch_completed
+
+      
+
+   .. attribute:: STARTED
+      :annotation: = started
+
+      
+
+   .. attribute:: COMPLETED
+      :annotation: = completed
+
+      
+
+   .. attribute:: ITERATION_STARTED
+      :annotation: = iteration_started
+
+      
+
+   .. attribute:: ITERATION_COMPLETED
+      :annotation: = iteration_completed
+
+      
+
+   .. attribute:: EXCEPTION_RAISED
+      :annotation: = exception_raised
+
+      
+
+   .. attribute:: GET_BATCH_STARTED
+      :annotation: = get_batch_started
+
+      
+
+   .. attribute:: GET_BATCH_COMPLETED
+      :annotation: = get_batch_completed
+
+      
+
+   .. attribute:: DATALOADER_STOP_ITERATION
+      :annotation: = dataloader_stop_iteration
+
+      
+
+   .. attribute:: TERMINATE
+      :annotation: = terminate
+
+      
+
+   .. attribute:: TERMINATE_SINGLE_EPOCH
+      :annotation: = terminate_single_epoch
+
+      
+
+
+.. class:: EventsList
+
+
+   .. method:: _append(self, event: flame.pytorch.experimental.engine.events.Events)
+
+
+   .. method:: __getitem__(self, index: int) -> flame.pytorch.experimental.engine.events.Events
+
+
+   .. method:: __iter__(self) -> Iterator[Events]
+
+
+   .. method:: __len__(self) -> int
+
+
+   .. method:: __or__(self, other: flame.pytorch.experimental.engine.events.Events) -> flame.pytorch.experimental.engine.events.EventsList
+
+
+
+.. class:: State
+
+   .. attribute:: epoch
+      :annotation: :int = 0
+
+      
+
+   .. attribute:: max_epochs
+      :annotation: :Optional[int]
+
+      
+
+   .. attribute:: local_iteration
+      :annotation: :int = 0
+
+      
+
+   .. attribute:: global_iteration
+      :annotation: :int = 0
+
+      
+
+   .. attribute:: epoch_length
+      :annotation: :Optional[int]
+
+      
+
+   .. attribute:: max_iterations
+      :annotation: :Optional[int]
+
+      
+
+   .. attribute:: batch
+      :annotation: :Optional[Any]
+
+      
+
+   .. attribute:: output
+      :annotation: :Optional[Any]
+
+      
+
+   .. attribute:: dataloader
+      :annotation: :Optional[Iterable[Any]]
+
+      
+
+   .. attribute:: metrics
+      :annotation: :Dict[str, Any]
+
+      
+
+   .. method:: update_max_iterations(self)
+
+
+   .. method:: update_local_iteration(self, iteration: int)
+
+
+   .. method:: update_global_iteration(self)
+
+
+   .. method:: is_done_iterations(self) -> bool
+
+
+   .. method:: is_done_epochs(self) -> bool
+
+
+   .. method:: is_done_count(self) -> bool
+
+
+   .. method:: is_done(self) -> bool
+
+
+   .. method:: reset(self)
+
+
+   .. method:: every_iterations(self, n: int) -> bool
+
+
+   .. method:: every_epochs(self, n: int) -> bool
+
+
+

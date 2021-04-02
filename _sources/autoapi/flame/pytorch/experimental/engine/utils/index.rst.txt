@@ -1,0 +1,25 @@
+:mod:`flame.pytorch.experimental.engine.utils`
+==============================================
+
+.. py:module:: flame.pytorch.experimental.engine.utils
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.experimental.engine.utils.every_epochs
+   flame.pytorch.experimental.engine.utils.every_iterations
+
+
+.. function:: every_epochs(func: Callable, n: int = 1)
+
+
+.. function:: every_iterations(func: Optional[Callable] = None, n: int = 1)
+
+

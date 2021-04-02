@@ -52,6 +52,12 @@ Classes
    .. method:: update(self)
 
 
+   .. method:: train(self, mode: bool = True)
+
+
+   .. method:: eval(self)
+
+
 
 .. class:: SupervisedProcess(model: flame.pytorch.typing_prelude.Model, optimizer: flame.pytorch.typing_prelude.Optimizer, criterion: flame.pytorch.typing_prelude.Criterion, grad_scaler: Optional[GradScaler] = None)
 
@@ -84,6 +90,9 @@ Classes
 
 
    .. method:: update(self)
+
+
+   .. method:: train(self, mode: bool = True)
 
 
 

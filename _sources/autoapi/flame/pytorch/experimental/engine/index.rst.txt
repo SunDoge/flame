@@ -1,0 +1,312 @@
+:mod:`flame.pytorch.experimental.engine`
+========================================
+
+.. py:module:: flame.pytorch.experimental.engine
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   container/index.rst
+   engine/index.rst
+   events/index.rst
+   mixins/index.rst
+   utils/index.rst
+
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.experimental.engine.Engine
+   flame.pytorch.experimental.engine.Events
+   flame.pytorch.experimental.engine.EventsList
+   flame.pytorch.experimental.engine.State
+   flame.pytorch.experimental.engine.Container
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.experimental.engine.every_epochs
+   flame.pytorch.experimental.engine.every_iterations
+
+
+.. class:: Engine(process_function: Callable = _default_process_function, container: Optional[Injector] = None)
+
+
+   Bases: :class:`flame.pytorch.experimental.engine.mixins.Serializable`
+
+   作为Engine的基类
+
+   .. method:: add_event_handler(self, event_name: Union[(Events, EventsList)], handler: Callable, *args: Any, **kwargs: Any)
+
+
+   .. method:: has_event_handler(self, handler: Callable, event_name: Optional[Any] = None) -> bool
+
+      FIXME: 实现不是很正确
+
+
+   .. method:: compare_handlers(user_handler: Callable, registered_handler: Callable) -> bool
+      :staticmethod:
+
+      FIXME: 比较不是很准确
+
+
+   .. method:: _fire_event(self, event_name: Any, *event_args, **event_kwargs)
+
+      最好不要用args，顺序很难确定
+
+
+   .. method:: fire_event(self, event_name: Any)
+
+
+   .. method:: step_epoch(self)
+
+
+   .. method:: step_iteration(self)
+
+
+   .. method:: internal_run(self)
+
+
+   .. method:: set_epoch(self, epoch: int)
+
+
+   .. method:: set_data(self, data: Iterable)
+
+
+   .. method:: setup(self, data: Iterable, max_epochs: Optional[int] = None, max_iterations: Optional[int] = None, epoch_length: Optional[int] = None)
+
+
+   .. method:: _start_epoch_loop(self)
+
+
+   .. method:: _start_iteration_loop(self)
+
+
+   .. method:: _setup_engine(self)
+
+      Copy fron ignite engine
+
+      不知道有什么用
+
+
+   .. method:: get_data_length(data: Iterable) -> Optional[int]
+      :staticmethod:
+
+
+   .. method:: run(self, data: Iterable, max_epochs: Optional[int] = None, max_iterations: Optional[int] = None, epoch_length: Optional[int] = None)
+
+
+
+.. class:: Events
+
+   Bases: :class:`enum.Enum`
+
+   Generic enumeration.
+
+   Derive from this class to define new enumerations.
+
+   .. attribute:: EPOCH_STARTED
+      :annotation: = epoch_started
+
+      
+
+   .. attribute:: EPOCH_COMPLETED
+      :annotation: = epoch_completed
+
+      
+
+   .. attribute:: STARTED
+      :annotation: = started
+
+      
+
+   .. attribute:: COMPLETED
+      :annotation: = completed
+
+      
+
+   .. attribute:: ITERATION_STARTED
+      :annotation: = iteration_started
+
+      
+
+   .. attribute:: ITERATION_COMPLETED
+      :annotation: = iteration_completed
+
+      
+
+   .. attribute:: EXCEPTION_RAISED
+      :annotation: = exception_raised
+
+      
+
+   .. attribute:: GET_BATCH_STARTED
+      :annotation: = get_batch_started
+
+      
+
+   .. attribute:: GET_BATCH_COMPLETED
+      :annotation: = get_batch_completed
+
+      
+
+   .. attribute:: DATALOADER_STOP_ITERATION
+      :annotation: = dataloader_stop_iteration
+
+      
+
+   .. attribute:: TERMINATE
+      :annotation: = terminate
+
+      
+
+   .. attribute:: TERMINATE_SINGLE_EPOCH
+      :annotation: = terminate_single_epoch
+
+      
+
+
+.. class:: EventsList
+
+
+   .. method:: _append(self, event: flame.pytorch.experimental.engine.events.Events)
+
+
+   .. method:: __getitem__(self, index: int) -> flame.pytorch.experimental.engine.events.Events
+
+
+   .. method:: __iter__(self) -> Iterator[Events]
+
+
+   .. method:: __len__(self) -> int
+
+
+   .. method:: __or__(self, other: flame.pytorch.experimental.engine.events.Events) -> flame.pytorch.experimental.engine.events.EventsList
+
+
+
+.. class:: State
+
+   .. attribute:: epoch
+      :annotation: :int = 0
+
+      
+
+   .. attribute:: max_epochs
+      :annotation: :Optional[int]
+
+      
+
+   .. attribute:: local_iteration
+      :annotation: :int = 0
+
+      
+
+   .. attribute:: global_iteration
+      :annotation: :int = 0
+
+      
+
+   .. attribute:: epoch_length
+      :annotation: :Optional[int]
+
+      
+
+   .. attribute:: max_iterations
+      :annotation: :Optional[int]
+
+      
+
+   .. attribute:: batch
+      :annotation: :Optional[Any]
+
+      
+
+   .. attribute:: output
+      :annotation: :Optional[Any]
+
+      
+
+   .. attribute:: dataloader
+      :annotation: :Optional[Iterable[Any]]
+
+      
+
+   .. attribute:: metrics
+      :annotation: :Dict[str, Any]
+
+      
+
+   .. method:: update_max_iterations(self)
+
+
+   .. method:: update_local_iteration(self, iteration: int)
+
+
+   .. method:: update_global_iteration(self)
+
+
+   .. method:: is_done_iterations(self) -> bool
+
+
+   .. method:: is_done_epochs(self) -> bool
+
+
+   .. method:: is_done_count(self) -> bool
+
+
+   .. method:: is_done(self) -> bool
+
+
+   .. method:: reset(self)
+
+
+   .. method:: every_iterations(self, n: int) -> bool
+
+
+   .. method:: every_epochs(self, n: int) -> bool
+
+
+
+.. function:: every_epochs(func: Callable, n: int = 1)
+
+
+.. function:: every_iterations(func: Optional[Callable] = None, n: int = 1)
+
+
+.. class:: Container(modules: Any = None, auto_bind: bool = True, parent: Optional[Injector] = None)
+
+
+   Bases: :class:`injector.Injector`
+
+   :param modules: Optional - a configuration module or iterable of configuration modules.
+       Each module will be installed in current :class:`Binder` using :meth:`Binder.install`.
+
+       Consult :meth:`Binder.install` documentation for the details.
+
+   :param auto_bind: Whether to automatically bind missing types.
+   :param parent: Parent injector.
+
+   .. versionadded:: 0.7.5
+       ``use_annotations`` parameter
+
+   .. versionchanged:: 0.13.0
+       ``use_annotations`` parameter is removed
+
+   .. method:: with_injection(self, func: Callable) -> Callable
+
+
+

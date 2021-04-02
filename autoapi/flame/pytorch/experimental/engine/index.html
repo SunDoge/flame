@@ -1,0 +1,1030 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flame.pytorch.experimental.engine &#8212; flame 0.0.1 documentation</title>
+    
+  <link href="../../../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../../../_static/css/index.f6b7ca918bee2f46fd9abac01cfb07d5.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/graphviz.css" />
+    
+  <link rel="preload" as="script" href="../../../../../_static/js/index.1e043a052b0af929e4d8.js">
+
+    <script id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../_static/jquery.js"></script>
+    <script src="../../../../../_static/underscore.js"></script>
+    <script src="../../../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="flame.pytorch.experimental.engine.container" href="container/index.html" />
+    <link rel="prev" title="flame.pytorch.experimental" href="../index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+
+    
+    <a class="navbar-brand" href="../../../../../index.html">
+      <p class="title">flame</p>
+    </a>
+    
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        <li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../../../../index.html">
+  API Reference
+ </a>
+</li>
+
+        
+      </ul>
+
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l2 current active">
+  <a class="reference internal" href="../../../index.html">
+   <code class="xref py py-mod docutils literal notranslate">
+    <span class="pre">
+     flame
+    </span>
+   </code>
+  </a>
+  <ul class="current">
+   <li class="toctree-l3 current active">
+    <a class="reference internal" href="../../index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.pytorch
+      </span>
+     </code>
+    </a>
+    <ul class="current">
+     <li class="toctree-l4 current active">
+      <a class="reference internal" href="../index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.experimental
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
+      <a class="reference internal" href="../../utils/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.utils
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
+      <a class="reference internal" href="../../distributed_training/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.distributed_training
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
+      <a class="reference internal" href="../../engine/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.engine
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
+      <a class="reference internal" href="../../process/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.process
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
+      <a class="reference internal" href="../../typing_prelude/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.typing_prelude
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../../../utils/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.utils
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../../../archiver/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.archiver
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../../../argument/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.argument
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../../../auto_builder/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.auto_builder
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../../../ckcfg/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.ckcfg
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../../../config/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.config
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../../../logging/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.logging
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#submodules">
+   Submodules
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#package-contents">
+   Package Contents
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classes">
+     Classes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions">
+     Functions
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.Engine">
+       Engine
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.Engine.add_event_handler">
+         add_event_handler
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.Engine.has_event_handler">
+         has_event_handler
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.Engine.compare_handlers">
+         compare_handlers
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.Engine._fire_event">
+         _fire_event
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.Engine.fire_event">
+         fire_event
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.Engine.step_epoch">
+         step_epoch
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.Engine.step_iteration">
+         step_iteration
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.Engine.internal_run">
+         internal_run
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.Engine.set_epoch">
+         set_epoch
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.Engine.set_data">
+         set_data
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.Engine.setup">
+         setup
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.Engine._start_epoch_loop">
+         _start_epoch_loop
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.Engine._start_iteration_loop">
+         _start_iteration_loop
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.Engine._setup_engine">
+         _setup_engine
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.Engine.get_data_length">
+         get_data_length
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.Engine.run">
+         run
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.Events">
+       Events
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.Events.EPOCH_STARTED">
+         EPOCH_STARTED
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.Events.EPOCH_COMPLETED">
+         EPOCH_COMPLETED
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.Events.STARTED">
+         STARTED
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.Events.COMPLETED">
+         COMPLETED
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.Events.ITERATION_STARTED">
+         ITERATION_STARTED
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.Events.ITERATION_COMPLETED">
+         ITERATION_COMPLETED
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.Events.EXCEPTION_RAISED">
+         EXCEPTION_RAISED
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.Events.GET_BATCH_STARTED">
+         GET_BATCH_STARTED
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.Events.GET_BATCH_COMPLETED">
+         GET_BATCH_COMPLETED
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.Events.DATALOADER_STOP_ITERATION">
+         DATALOADER_STOP_ITERATION
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.Events.TERMINATE">
+         TERMINATE
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.Events.TERMINATE_SINGLE_EPOCH">
+         TERMINATE_SINGLE_EPOCH
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.EventsList">
+       EventsList
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.EventsList._append">
+         _append
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.EventsList.__getitem__">
+         __getitem__
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.EventsList.__iter__">
+         __iter__
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.EventsList.__len__">
+         __len__
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.EventsList.__or__">
+         __or__
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.State">
+       State
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.State.epoch">
+         epoch
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.State.max_epochs">
+         max_epochs
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.State.local_iteration">
+         local_iteration
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.State.global_iteration">
+         global_iteration
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.State.epoch_length">
+         epoch_length
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.State.max_iterations">
+         max_iterations
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.State.batch">
+         batch
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.State.output">
+         output
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.State.dataloader">
+         dataloader
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.State.metrics">
+         metrics
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.State.update_max_iterations">
+         update_max_iterations
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.State.update_local_iteration">
+         update_local_iteration
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.State.update_global_iteration">
+         update_global_iteration
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.State.is_done_iterations">
+         is_done_iterations
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.State.is_done_epochs">
+         is_done_epochs
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.State.is_done_count">
+         is_done_count
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.State.is_done">
+         is_done
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.State.reset">
+         reset
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.State.every_iterations">
+         every_iterations
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.State.every_epochs">
+         every_epochs
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.every_epochs">
+       every_epochs
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.every_iterations">
+       every_iterations
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.Container">
+       Container
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.Container.with_injection">
+         with_injection
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="module-flame.pytorch.experimental.engine">
+<span id="flame-pytorch-experimental-engine"></span><h1><a class="reference internal" href="#module-flame.pytorch.experimental.engine" title="flame.pytorch.experimental.engine"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.engine</span></code></a><a class="headerlink" href="#module-flame.pytorch.experimental.engine" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="container/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.engine.container</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="engine/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.engine.engine</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="events/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.engine.events</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="mixins/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.engine.mixins</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.engine.utils</span></code></a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="package-contents">
+<h2>Package Contents<a class="headerlink" href="#package-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.experimental.engine.Engine" title="flame.pytorch.experimental.engine.Engine"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Engine</span></code></a></p></td>
+<td><p>作为Engine的基类</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.experimental.engine.Events" title="flame.pytorch.experimental.engine.Events"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Events</span></code></a></p></td>
+<td><p>Generic enumeration.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.experimental.engine.EventsList" title="flame.pytorch.experimental.engine.EventsList"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EventsList</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.experimental.engine.State" title="flame.pytorch.experimental.engine.State"><code class="xref py py-obj docutils literal notranslate"><span class="pre">State</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.experimental.engine.Container" title="flame.pytorch.experimental.engine.Container"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Container</span></code></a></p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">param modules</dt>
+<dd class="field-odd"><p>Optional - a configuration module or iterable of configuration modules.</p>
+</dd>
+</dl>
+</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.experimental.engine.every_epochs" title="flame.pytorch.experimental.engine.every_epochs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">every_epochs</span></code></a>(func: Callable, n: int = 1)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.experimental.engine.every_iterations" title="flame.pytorch.experimental.engine.every_iterations"><code class="xref py py-obj docutils literal notranslate"><span class="pre">every_iterations</span></code></a>(func: Optional[Callable] = None, n: int = 1)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt id="flame.pytorch.experimental.engine.Engine">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.engine.</span></code><code class="sig-name descname"><span class="pre">Engine</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">process_function</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">_default_process_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">container</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Injector</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.Engine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="mixins/index.html#flame.pytorch.experimental.engine.mixins.Serializable" title="flame.pytorch.experimental.engine.mixins.Serializable"><code class="xref py py-class docutils literal notranslate"><span class="pre">flame.pytorch.experimental.engine.mixins.Serializable</span></code></a></p>
+<p>作为Engine的基类</p>
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.Engine.add_event_handler">
+<code class="sig-name descname"><span class="pre">add_event_handler</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#flame.pytorch.experimental.engine.Events" title="flame.pytorch.experimental.engine.Events"><span class="pre">Events</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#flame.pytorch.experimental.engine.EventsList" title="flame.pytorch.experimental.engine.EventsList"><span class="pre">EventsList</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handler</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.Engine.add_event_handler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.Engine.has_event_handler">
+<code class="sig-name descname"><span class="pre">has_event_handler</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handler</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#flame.pytorch.experimental.engine.Engine.has_event_handler" title="Permalink to this definition">¶</a></dt>
+<dd><p>FIXME: 实现不是很正确</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.Engine.compare_handlers">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">compare_handlers</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_handler</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">registered_handler</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#flame.pytorch.experimental.engine.Engine.compare_handlers" title="Permalink to this definition">¶</a></dt>
+<dd><p>FIXME: 比较不是很准确</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.Engine._fire_event">
+<code class="sig-name descname"><span class="pre">_fire_event</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">event_args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">event_kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.Engine._fire_event" title="Permalink to this definition">¶</a></dt>
+<dd><p>最好不要用args，顺序很难确定</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.Engine.fire_event">
+<code class="sig-name descname"><span class="pre">fire_event</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.Engine.fire_event" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.Engine.step_epoch">
+<code class="sig-name descname"><span class="pre">step_epoch</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.Engine.step_epoch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.Engine.step_iteration">
+<code class="sig-name descname"><span class="pre">step_iteration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.Engine.step_iteration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.Engine.internal_run">
+<code class="sig-name descname"><span class="pre">internal_run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.Engine.internal_run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.Engine.set_epoch">
+<code class="sig-name descname"><span class="pre">set_epoch</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epoch</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.Engine.set_epoch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.Engine.set_data">
+<code class="sig-name descname"><span class="pre">set_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Iterable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.Engine.set_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.Engine.setup">
+<code class="sig-name descname"><span class="pre">setup</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Iterable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_epochs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iterations</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epoch_length</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.Engine.setup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.Engine._start_epoch_loop">
+<code class="sig-name descname"><span class="pre">_start_epoch_loop</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.Engine._start_epoch_loop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.Engine._start_iteration_loop">
+<code class="sig-name descname"><span class="pre">_start_iteration_loop</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.Engine._start_iteration_loop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.Engine._setup_engine">
+<code class="sig-name descname"><span class="pre">_setup_engine</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.Engine._setup_engine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy fron ignite engine</p>
+<p>不知道有什么用</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.Engine.get_data_length">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">get_data_length</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Iterable</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#flame.pytorch.experimental.engine.Engine.get_data_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.Engine.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Iterable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_epochs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iterations</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epoch_length</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.Engine.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="flame.pytorch.experimental.engine.Events">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.engine.</span></code><code class="sig-name descname"><span class="pre">Events</span></code><a class="headerlink" href="#flame.pytorch.experimental.engine.Events" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>Generic enumeration.</p>
+<p>Derive from this class to define new enumerations.</p>
+<dl class="py attribute">
+<dt id="flame.pytorch.experimental.engine.Events.EPOCH_STARTED">
+<code class="sig-name descname"><span class="pre">EPOCH_STARTED</span></code><em class="property"> <span class="pre">=</span> <span class="pre">epoch_started</span></em><a class="headerlink" href="#flame.pytorch.experimental.engine.Events.EPOCH_STARTED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="flame.pytorch.experimental.engine.Events.EPOCH_COMPLETED">
+<code class="sig-name descname"><span class="pre">EPOCH_COMPLETED</span></code><em class="property"> <span class="pre">=</span> <span class="pre">epoch_completed</span></em><a class="headerlink" href="#flame.pytorch.experimental.engine.Events.EPOCH_COMPLETED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="flame.pytorch.experimental.engine.Events.STARTED">
+<code class="sig-name descname"><span class="pre">STARTED</span></code><em class="property"> <span class="pre">=</span> <span class="pre">started</span></em><a class="headerlink" href="#flame.pytorch.experimental.engine.Events.STARTED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="flame.pytorch.experimental.engine.Events.COMPLETED">
+<code class="sig-name descname"><span class="pre">COMPLETED</span></code><em class="property"> <span class="pre">=</span> <span class="pre">completed</span></em><a class="headerlink" href="#flame.pytorch.experimental.engine.Events.COMPLETED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="flame.pytorch.experimental.engine.Events.ITERATION_STARTED">
+<code class="sig-name descname"><span class="pre">ITERATION_STARTED</span></code><em class="property"> <span class="pre">=</span> <span class="pre">iteration_started</span></em><a class="headerlink" href="#flame.pytorch.experimental.engine.Events.ITERATION_STARTED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="flame.pytorch.experimental.engine.Events.ITERATION_COMPLETED">
+<code class="sig-name descname"><span class="pre">ITERATION_COMPLETED</span></code><em class="property"> <span class="pre">=</span> <span class="pre">iteration_completed</span></em><a class="headerlink" href="#flame.pytorch.experimental.engine.Events.ITERATION_COMPLETED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="flame.pytorch.experimental.engine.Events.EXCEPTION_RAISED">
+<code class="sig-name descname"><span class="pre">EXCEPTION_RAISED</span></code><em class="property"> <span class="pre">=</span> <span class="pre">exception_raised</span></em><a class="headerlink" href="#flame.pytorch.experimental.engine.Events.EXCEPTION_RAISED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="flame.pytorch.experimental.engine.Events.GET_BATCH_STARTED">
+<code class="sig-name descname"><span class="pre">GET_BATCH_STARTED</span></code><em class="property"> <span class="pre">=</span> <span class="pre">get_batch_started</span></em><a class="headerlink" href="#flame.pytorch.experimental.engine.Events.GET_BATCH_STARTED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="flame.pytorch.experimental.engine.Events.GET_BATCH_COMPLETED">
+<code class="sig-name descname"><span class="pre">GET_BATCH_COMPLETED</span></code><em class="property"> <span class="pre">=</span> <span class="pre">get_batch_completed</span></em><a class="headerlink" href="#flame.pytorch.experimental.engine.Events.GET_BATCH_COMPLETED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="flame.pytorch.experimental.engine.Events.DATALOADER_STOP_ITERATION">
+<code class="sig-name descname"><span class="pre">DATALOADER_STOP_ITERATION</span></code><em class="property"> <span class="pre">=</span> <span class="pre">dataloader_stop_iteration</span></em><a class="headerlink" href="#flame.pytorch.experimental.engine.Events.DATALOADER_STOP_ITERATION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="flame.pytorch.experimental.engine.Events.TERMINATE">
+<code class="sig-name descname"><span class="pre">TERMINATE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">terminate</span></em><a class="headerlink" href="#flame.pytorch.experimental.engine.Events.TERMINATE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="flame.pytorch.experimental.engine.Events.TERMINATE_SINGLE_EPOCH">
+<code class="sig-name descname"><span class="pre">TERMINATE_SINGLE_EPOCH</span></code><em class="property"> <span class="pre">=</span> <span class="pre">terminate_single_epoch</span></em><a class="headerlink" href="#flame.pytorch.experimental.engine.Events.TERMINATE_SINGLE_EPOCH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="flame.pytorch.experimental.engine.EventsList">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.engine.</span></code><code class="sig-name descname"><span class="pre">EventsList</span></code><a class="headerlink" href="#flame.pytorch.experimental.engine.EventsList" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="flame.pytorch.experimental.engine.EventsList._append">
+<code class="sig-name descname"><span class="pre">_append</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="events/index.html#flame.pytorch.experimental.engine.events.Events" title="flame.pytorch.experimental.engine.events.Events"><span class="pre">flame.pytorch.experimental.engine.events.Events</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.EventsList._append" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.EventsList.__getitem__">
+<code class="sig-name descname"><span class="pre">__getitem__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="events/index.html#flame.pytorch.experimental.engine.events.Events" title="flame.pytorch.experimental.engine.events.Events"><span class="pre">flame.pytorch.experimental.engine.events.Events</span></a><a class="headerlink" href="#flame.pytorch.experimental.engine.EventsList.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.EventsList.__iter__">
+<code class="sig-name descname"><span class="pre">__iter__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#flame.pytorch.experimental.engine.Events" title="flame.pytorch.experimental.engine.Events"><span class="pre">Events</span></a><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#flame.pytorch.experimental.engine.EventsList.__iter__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.EventsList.__len__">
+<code class="sig-name descname"><span class="pre">__len__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#flame.pytorch.experimental.engine.EventsList.__len__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.EventsList.__or__">
+<code class="sig-name descname"><span class="pre">__or__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="events/index.html#flame.pytorch.experimental.engine.events.Events" title="flame.pytorch.experimental.engine.events.Events"><span class="pre">flame.pytorch.experimental.engine.events.Events</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="events/index.html#flame.pytorch.experimental.engine.events.EventsList" title="flame.pytorch.experimental.engine.events.EventsList"><span class="pre">flame.pytorch.experimental.engine.events.EventsList</span></a><a class="headerlink" href="#flame.pytorch.experimental.engine.EventsList.__or__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="flame.pytorch.experimental.engine.State">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.engine.</span></code><code class="sig-name descname"><span class="pre">State</span></code><a class="headerlink" href="#flame.pytorch.experimental.engine.State" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt id="flame.pytorch.experimental.engine.State.epoch">
+<code class="sig-name descname"><span class="pre">epoch</span></code><em class="property"> <span class="pre">:int</span> <span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#flame.pytorch.experimental.engine.State.epoch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="flame.pytorch.experimental.engine.State.max_epochs">
+<code class="sig-name descname"><span class="pre">max_epochs</span></code><em class="property"> <span class="pre">:Optional[int]</span></em><a class="headerlink" href="#flame.pytorch.experimental.engine.State.max_epochs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="flame.pytorch.experimental.engine.State.local_iteration">
+<code class="sig-name descname"><span class="pre">local_iteration</span></code><em class="property"> <span class="pre">:int</span> <span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#flame.pytorch.experimental.engine.State.local_iteration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="flame.pytorch.experimental.engine.State.global_iteration">
+<code class="sig-name descname"><span class="pre">global_iteration</span></code><em class="property"> <span class="pre">:int</span> <span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#flame.pytorch.experimental.engine.State.global_iteration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="flame.pytorch.experimental.engine.State.epoch_length">
+<code class="sig-name descname"><span class="pre">epoch_length</span></code><em class="property"> <span class="pre">:Optional[int]</span></em><a class="headerlink" href="#flame.pytorch.experimental.engine.State.epoch_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="flame.pytorch.experimental.engine.State.max_iterations">
+<code class="sig-name descname"><span class="pre">max_iterations</span></code><em class="property"> <span class="pre">:Optional[int]</span></em><a class="headerlink" href="#flame.pytorch.experimental.engine.State.max_iterations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="flame.pytorch.experimental.engine.State.batch">
+<code class="sig-name descname"><span class="pre">batch</span></code><em class="property"> <span class="pre">:Optional[Any]</span></em><a class="headerlink" href="#flame.pytorch.experimental.engine.State.batch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="flame.pytorch.experimental.engine.State.output">
+<code class="sig-name descname"><span class="pre">output</span></code><em class="property"> <span class="pre">:Optional[Any]</span></em><a class="headerlink" href="#flame.pytorch.experimental.engine.State.output" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="flame.pytorch.experimental.engine.State.dataloader">
+<code class="sig-name descname"><span class="pre">dataloader</span></code><em class="property"> <span class="pre">:Optional[Iterable[Any]]</span></em><a class="headerlink" href="#flame.pytorch.experimental.engine.State.dataloader" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="flame.pytorch.experimental.engine.State.metrics">
+<code class="sig-name descname"><span class="pre">metrics</span></code><em class="property"> <span class="pre">:Dict[str,</span> <span class="pre">Any]</span></em><a class="headerlink" href="#flame.pytorch.experimental.engine.State.metrics" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.State.update_max_iterations">
+<code class="sig-name descname"><span class="pre">update_max_iterations</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.State.update_max_iterations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.State.update_local_iteration">
+<code class="sig-name descname"><span class="pre">update_local_iteration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iteration</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.State.update_local_iteration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.State.update_global_iteration">
+<code class="sig-name descname"><span class="pre">update_global_iteration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.State.update_global_iteration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.State.is_done_iterations">
+<code class="sig-name descname"><span class="pre">is_done_iterations</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#flame.pytorch.experimental.engine.State.is_done_iterations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.State.is_done_epochs">
+<code class="sig-name descname"><span class="pre">is_done_epochs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#flame.pytorch.experimental.engine.State.is_done_epochs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.State.is_done_count">
+<code class="sig-name descname"><span class="pre">is_done_count</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#flame.pytorch.experimental.engine.State.is_done_count" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.State.is_done">
+<code class="sig-name descname"><span class="pre">is_done</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#flame.pytorch.experimental.engine.State.is_done" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.State.reset">
+<code class="sig-name descname"><span class="pre">reset</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.State.reset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.State.every_iterations">
+<code class="sig-name descname"><span class="pre">every_iterations</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#flame.pytorch.experimental.engine.State.every_iterations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.State.every_epochs">
+<code class="sig-name descname"><span class="pre">every_epochs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#flame.pytorch.experimental.engine.State.every_epochs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="flame.pytorch.experimental.engine.every_epochs">
+<code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.engine.</span></code><code class="sig-name descname"><span class="pre">every_epochs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.every_epochs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="flame.pytorch.experimental.engine.every_iterations">
+<code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.engine.</span></code><code class="sig-name descname"><span class="pre">every_iterations</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.every_iterations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt id="flame.pytorch.experimental.engine.Container">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.engine.</span></code><code class="sig-name descname"><span class="pre">Container</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modules</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_bind</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Injector</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.Container" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">injector.Injector</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>modules</strong> – <p>Optional - a configuration module or iterable of configuration modules.
+Each module will be installed in current <code class="xref py py-class docutils literal notranslate"><span class="pre">Binder</span></code> using <code class="xref py py-meth docutils literal notranslate"><span class="pre">Binder.install()</span></code>.</p>
+<p>Consult <code class="xref py py-meth docutils literal notranslate"><span class="pre">Binder.install()</span></code> documentation for the details.</p>
+</p></li>
+<li><p><strong>auto_bind</strong> – Whether to automatically bind missing types.</p></li>
+<li><p><strong>parent</strong> – Parent injector.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.7.5: </span><code class="docutils literal notranslate"><span class="pre">use_annotations</span></code> parameter</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 0.13.0: </span><code class="docutils literal notranslate"><span class="pre">use_annotations</span></code> parameter is removed</p>
+</div>
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.Container.with_injection">
+<code class="sig-name descname"><span class="pre">with_injection</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Callable</span><a class="headerlink" href="#flame.pytorch.experimental.engine.Container.with_injection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="../index.html" title="previous page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental</span></code></a>
+    <a class='right-next' id="next-link" href="container/index.html" title="next page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.engine.container</span></code></a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../../../../../_static/js/index.1e043a052b0af929e4d8.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2021, SunDoge.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
