@@ -1,6 +1,9 @@
 from enum import Enum
 from typing import Any, Dict, Iterable, Iterator, List, Optional
 from dataclasses import dataclass, field
+import logging
+
+_logger = logging.getLogger(__name__)
 
 
 class Events(Enum):
@@ -72,6 +75,18 @@ class State:
     dataloader: Optional[Iterable[Any]] = None
     metrics: Dict[str, Any] = field(default_factory=dict)
 
+    def update_max_iterations(self):
+        # 自动计算max_iterations
+        if self.max_epochs is not None and self.epoch_length is not None and self.max_iterations is None:
+            old_max_iterations = self.max_iterations
+            self.max_iterations = self.max_epochs * self.epoch_length
+            _logger.info(
+                'update max_iterations: %s => %s',
+                old_max_iterations, self.max_iterations
+            )
+        else:
+            _logger.warning('max_iterations is not updated')
+
     def update_local_iteration(self, iteration: int):
         self.local_iteration = iteration
 
@@ -92,6 +107,7 @@ class State:
         )
 
     def is_done(self) -> bool:
+        # 终止条件
         return self.is_done_iterations() or self.is_done_count() or self.is_done_epochs()
 
     def reset(self):
@@ -108,3 +124,9 @@ class State:
         self.output = None
         self.dataloader = None
         self.metrics = {}
+
+    def every_iterations(self, n: int) -> bool:
+        return self.global_iteration > 0 and self.global_iteration % n == 0
+
+    def every_epochs(self, n: int) -> bool:
+        return self.epoch > 0 and self.epoch % n == 0
