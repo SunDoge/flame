@@ -26,11 +26,13 @@ Process::
 from typing import Any, Callable, DefaultDict, Iterable, List, Optional, Tuple, Union
 from .mixins import Serializable
 from collections import defaultdict
-from .events import Events, EventsList, State
+from .events import Events, EventsList, State, CallableEventWithFilter
 from injector import Injector
 import logging
 import math
 from .container import get_dependencies
+import functools
+import weakref
 
 _logger = logging.getLogger(__name__)
 
@@ -89,6 +91,13 @@ class Engine(Serializable):
                 self.add_event_handler(e, handler, **kwargs)
 
             return
+
+        if (
+            isinstance(event_name, CallableEventWithFilter)
+            and event_name.filter != CallableEventWithFilter.default_event_filter
+        ):
+            event_filter = event_name.filter
+            handler = self._handler_wrapper(handler, event_name, event_filter)
 
         self._event_handlers[event_name].append((handler, kwargs))
 
@@ -345,3 +354,17 @@ class Engine(Serializable):
         )
 
         self.internal_run()
+
+    def _handler_wrapper(self, handler: Callable, event_name: Any, event_filter: Callable) -> Callable:
+        # signature of the following wrapper will be inspected during registering to check if engine is necessary
+        # we have to build a wrapper with relevant signature : solution is functools.wraps
+        # FIXME
+        @functools.wraps(handler)
+        def wrapper(*args: Any, **kwargs: Any) -> Any:
+            event = self.state.get_event_attrib_value(event_name)
+            if event_filter(self, event):
+                return handler(*args, **kwargs)
+
+        # setup input handler as parent to make has_event_handler work
+        setattr(wrapper, "_parent", weakref.ref(handler))
+        return wrapper
