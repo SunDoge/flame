@@ -75,9 +75,11 @@ class Engine(Serializable):
     def add_event_handler(
         self,
         event_name: Union[Events, EventsList],
-        handler: Callable,
+        handler_factory: Callable,
         *args: Any, **kwargs: Any
     ):
+        handler = self.container.call_with_injection(handler_factory)
+
         if isinstance(event_name, EventsList):
             for e in event_name:
                 self.add_event_handler(e, handler, *args, **kwargs)
@@ -127,9 +129,10 @@ class Engine(Serializable):
         for func, args, kwargs in self._event_handlers[event_name]:
             new_kwargs = {**kwargs, **event_kwargs}
             new_args = event_args + args
-            self.container.call_with_injection(
-                func, args=new_args, kwargs=new_kwargs
-            )
+            # self.container.call_with_injection(
+            #     func, args=new_args, kwargs=new_kwargs
+            # )
+            func(*new_args, **new_kwargs)
 
     def fire_event(self, event_name: Any):
         self._fire_event(event_name)
