@@ -4,26 +4,17 @@ from injector import inject
 
 
 def _func():
-    def f():
-        print('func1')
-
-    return f
+    print('func1')
 
 
 @inject
-def _func_with_engine(engine: Engine):
-    def f(input_engine=None):
-        assert engine is input_engine
-
-    return f
+def _func_with_engine(engine: Engine, input_engine=None):
+    assert engine is input_engine
 
 
 @inject
-def _func_with_state(state: State):
-    def f(input_state=None):
-        assert state is input_state
-
-    return f
+def _func_with_state(state: State, input_state=None):
+    assert state is input_state
 
 
 def test_engine_injection():
