@@ -79,8 +79,10 @@ class Engine(Serializable):
         handler: Callable,
         **kwargs
     ):
+        # 提前解析依赖，提升性能
+        # 如果每次fire event都解析依赖，函数调用速度会从ns变成mus
         kwargs = get_dependencies(self.container, handler, **kwargs)
-        print(kwargs)
+        # print(kwargs)
 
         if isinstance(event_name, EventsList):
             for e in event_name:
