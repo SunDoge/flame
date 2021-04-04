@@ -73,7 +73,7 @@ Functions
 
    作为Engine的基类
 
-   .. method:: add_event_handler(self, event_name: Union[(Events, EventsList)], handler: Callable, *args: Any, **kwargs: Any)
+   .. method:: add_event_handler(self, event_name: Union[(Events, EventsList)], handler: Callable, **kwargs)
 
 
    .. method:: has_event_handler(self, handler: Callable, event_name: Optional[Any] = None) -> bool
@@ -87,7 +87,7 @@ Functions
       FIXME: 比较不是很准确
 
 
-   .. method:: _fire_event(self, event_name: Any, *event_args, **event_kwargs)
+   .. method:: _fire_event(self, event_name: Any)
 
       最好不要用args，顺序很难确定
 

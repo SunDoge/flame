@@ -16,6 +16,14 @@ Classes
 
 
 
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.experimental.engine.container.get_dependencies
+
+
 .. class:: Container(modules: Any = None, auto_bind: bool = True, parent: Optional[Injector] = None)
 
 
@@ -37,5 +45,11 @@ Classes
 
    .. method:: with_injection(self, func: Callable) -> Callable
 
+
+   .. method:: get_dependencies(self, callable: Callable, args=(), kwargs={}) -> Tuple[(Tuple[Any], Dict[str, Any])]
+
+
+
+.. function:: get_dependencies(container: injector.Injector, callable: Callable, **kwargs) -> Dict[(str, Any)]
 
 

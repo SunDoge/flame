@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>flame.pytorch.engine &#8212; flame 0.0.1 documentation</title>
     
   <link href="../../../../_static/css/theme.css" rel="stylesheet" />
@@ -256,16 +257,6 @@
       </a>
       <ul class="nav section-nav flex-column">
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#flame.pytorch.engine.Engine.state">
-         state
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#flame.pytorch.engine.Engine.last_event_name">
-         last_event_name
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#flame.pytorch.engine.Engine.with_engine">
          with_engine
         </a>
@@ -313,11 +304,11 @@
               
               <div>
                 
-  <div class="section" id="module-flame.pytorch.engine">
+  <section id="module-flame.pytorch.engine">
 <span id="flame-pytorch-engine"></span><h1><a class="reference internal" href="#module-flame.pytorch.engine" title="flame.pytorch.engine"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.engine</span></code></a><a class="headerlink" href="#module-flame.pytorch.engine" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-contents">
+<section id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="classes">
+<section id="classes">
 <h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
 <table class="longtable table autosummary">
 <colgroup>
@@ -326,7 +317,7 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.engine.Engine" title="flame.pytorch.engine.Engine"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Engine</span></code></a></p></td>
-<td><p>Runs a given <code class="docutils literal notranslate"><span class="pre">process_function</span></code> over each batch of a dataset, emitting events as it goes.</p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.engine.A" title="flame.pytorch.engine.A"><code class="xref py py-obj docutils literal notranslate"><span class="pre">A</span></code></a></p></td>
 <td><p></p></td>
@@ -337,104 +328,6 @@
 <dt id="flame.pytorch.engine.Engine">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.engine.</span></code><code class="sig-name descname"><span class="pre">Engine</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">process_function</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">injector</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Injector</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.engine.Engine" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ignite.engine.Engine</span></code></p>
-<p>Runs a given <code class="docutils literal notranslate"><span class="pre">process_function</span></code> over each batch of a dataset, emitting events as it goes.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>process_function</strong> – A function receiving a handle to the engine and the current batch
-in each iteration, and returns data to be stored in the engine’s state.</p>
-</dd>
-</dl>
-<dl class="py attribute">
-<dt id="flame.pytorch.engine.Engine.state">
-<code class="sig-name descname"><span class="pre">state</span></code><a class="headerlink" href="#flame.pytorch.engine.Engine.state" title="Permalink to this definition">¶</a></dt>
-<dd><p>object that is used to pass internal and user-defined state between event handlers.
-It is created with the engine and its attributes (e.g. <code class="docutils literal notranslate"><span class="pre">state.iteration</span></code>, <code class="docutils literal notranslate"><span class="pre">state.epoch</span></code> etc) are reset
-on every <code class="xref py py-meth docutils literal notranslate"><span class="pre">run()</span></code>.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt id="flame.pytorch.engine.Engine.last_event_name">
-<code class="sig-name descname"><span class="pre">last_event_name</span></code><a class="headerlink" href="#flame.pytorch.engine.Engine.last_event_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>last event name triggered by the engine.</p>
-</dd></dl>
-
-<p class="rubric">Examples</p>
-<p>Create a basic trainer</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">update_model</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
-    <span class="n">inputs</span><span class="p">,</span> <span class="n">targets</span> <span class="o">=</span> <span class="n">batch</span>
-    <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
-    <span class="n">loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">targets</span><span class="p">)</span>
-    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
-    <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
-
-<span class="n">trainer</span> <span class="o">=</span> <span class="n">Engine</span><span class="p">(</span><span class="n">update_model</span><span class="p">)</span>
-
-<span class="nd">@trainer</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">Events</span><span class="o">.</span><span class="n">ITERATION_COMPLETED</span><span class="p">(</span><span class="n">every</span><span class="o">=</span><span class="mi">100</span><span class="p">))</span>
-<span class="k">def</span> <span class="nf">log_training</span><span class="p">(</span><span class="n">engine</span><span class="p">):</span>
-    <span class="n">batch_loss</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">output</span>
-    <span class="n">lr</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">param_groups</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;lr&#39;</span><span class="p">]</span>
-    <span class="n">e</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">epoch</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">max_epochs</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">iteration</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Epoch </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2"> : </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> - batch loss: </span><span class="si">{</span><span class="n">batch_loss</span><span class="si">}</span><span class="s2">, lr: </span><span class="si">{</span><span class="n">lr</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="n">trainer</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">data_loader</span><span class="p">,</span> <span class="n">max_epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-
-<span class="o">&gt;</span> <span class="n">Epoch</span> <span class="mi">1</span><span class="o">/</span><span class="mi">5</span> <span class="p">:</span> <span class="mi">100</span> <span class="o">-</span> <span class="n">batch</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.10874069479016124</span><span class="p">,</span> <span class="n">lr</span><span class="p">:</span> <span class="mf">0.01</span>
-<span class="o">&gt;</span> <span class="o">...</span>
-<span class="o">&gt;</span> <span class="n">Epoch</span> <span class="mi">2</span><span class="o">/</span><span class="mi">5</span> <span class="p">:</span> <span class="mi">1700</span> <span class="o">-</span> <span class="n">batch</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.4217900575859437</span><span class="p">,</span> <span class="n">lr</span><span class="p">:</span> <span class="mf">0.01</span>
-</pre></div>
-</div>
-<p>Create a basic evaluator to compute metrics</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ignite.metrics</span> <span class="kn">import</span> <span class="n">Accuracy</span>
-
-<span class="k">def</span> <span class="nf">predict_on_batch</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">batch</span><span class="p">)</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
-    <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
-        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">prepare_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">non_blocking</span><span class="o">=</span><span class="n">non_blocking</span><span class="p">)</span>
-        <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">y</span>
-
-<span class="n">evaluator</span> <span class="o">=</span> <span class="n">Engine</span><span class="p">(</span><span class="n">predict_on_batch</span><span class="p">)</span>
-<span class="n">Accuracy</span><span class="p">()</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">evaluator</span><span class="p">,</span> <span class="s2">&quot;val_acc&quot;</span><span class="p">)</span>
-<span class="n">evaluator</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">val_dataloader</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Compute image mean/std on training dataset</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ignite.metrics</span> <span class="kn">import</span> <span class="n">Average</span>
-
-<span class="k">def</span> <span class="nf">compute_mean_std</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
-    <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
-    <span class="n">mean</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">mean2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;mean&quot;</span><span class="p">:</span> <span class="n">mean</span><span class="p">,</span> <span class="s2">&quot;mean^2&quot;</span><span class="p">:</span> <span class="n">mean2</span><span class="p">}</span>
-
-<span class="n">compute_engine</span> <span class="o">=</span> <span class="n">Engine</span><span class="p">(</span><span class="n">compute_mean_std</span><span class="p">)</span>
-<span class="n">img_mean</span> <span class="o">=</span> <span class="n">Average</span><span class="p">(</span><span class="n">output_transform</span><span class="o">=</span><span class="k">lambda</span> <span class="n">output</span><span class="p">:</span> <span class="n">output</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">])</span>
-<span class="n">img_mean</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">compute_engine</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">)</span>
-<span class="n">img_mean2</span> <span class="o">=</span> <span class="n">Average</span><span class="p">(</span><span class="n">output_transform</span><span class="o">=</span><span class="k">lambda</span> <span class="n">output</span><span class="p">:</span> <span class="n">output</span><span class="p">[</span><span class="s1">&#39;mean^2&#39;</span><span class="p">])</span>
-<span class="n">img_mean2</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">compute_engine</span><span class="p">,</span> <span class="s1">&#39;mean2&#39;</span><span class="p">)</span>
-<span class="n">state</span> <span class="o">=</span> <span class="n">compute_engine</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">train_loader</span><span class="p">)</span>
-<span class="n">state</span><span class="o">.</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;std&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;mean2&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">state</span><span class="o">.</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">mean</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<span class="n">std</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;std&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Resume engine’s run from a state. User can load a <cite>state_dict</cite> and run engine starting from loaded state :</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Restore from an epoch</span>
-<span class="n">state_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;epoch&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;max_epochs&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;epoch_length&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_loader</span><span class="p">)}</span>
-<span class="c1"># or an iteration</span>
-<span class="c1"># state_dict = {&quot;iteration&quot;: 500, &quot;max_epochs&quot;: 100, &quot;epoch_length&quot;: len(data_loader)}</span>
-
-<span class="n">trainer</span> <span class="o">=</span> <span class="n">Engine</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="n">trainer</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">state_dict</span><span class="p">)</span>
-<span class="n">trainer</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-</pre></div>
-</div>
 <dl class="py method">
 <dt id="flame.pytorch.engine.Engine.with_engine">
 <em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">with_engine</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">process_function_without_engine</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Callable</span><a class="headerlink" href="#flame.pytorch.engine.Engine.with_engine" title="Permalink to this definition">¶</a></dt>
@@ -525,9 +418,9 @@ events are from <code class="xref py py-class docutils literal notranslate"><spa
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.engine.</span></code><code class="sig-name descname"><span class="pre">A</span></code><a class="headerlink" href="#flame.pytorch.engine.A" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
               </div>
