@@ -30,6 +30,7 @@ from .events import Events, EventsList, State
 from injector import Injector
 import logging
 import math
+from .container import get_dependencies
 
 _logger = logging.getLogger(__name__)
 
@@ -76,15 +77,20 @@ class Engine(Serializable):
         self,
         event_name: Union[Events, EventsList],
         handler: Callable,
-        *args: Any, **kwargs: Any
+        **kwargs
     ):
+        # 提前解析依赖，提升性能
+        # 如果每次fire event都解析依赖，函数调用速度会从ns变成mus
+        kwargs = get_dependencies(self.container, handler, **kwargs)
+        # print(kwargs)
+
         if isinstance(event_name, EventsList):
             for e in event_name:
-                self.add_event_handler(e, handler, *args, **kwargs)
+                self.add_event_handler(e, handler, **kwargs)
 
             return
 
-        self._event_handlers[event_name].append((handler, args, kwargs))
+        self._event_handlers[event_name].append((handler, kwargs))
 
     def has_event_handler(self, handler: Callable, event_name: Optional[Any] = None) -> bool:
         """
@@ -118,18 +124,28 @@ class Engine(Serializable):
         )
         return wrapped == user_handler
 
-    def _fire_event(self, event_name: Any, *event_args, **event_kwargs):
+    # def _fire_event(self, event_name: Any, *event_args, **event_kwargs):
+    #     """
+    #     最好不要用args，顺序很难确定
+    #     """
+    #     _logger.debug(f"firing handlers for event {event_name}")
+    #     self.last_event_name = event_name
+    #     for func, args, kwargs in self._event_handlers[event_name]:
+    #         new_kwargs = {**kwargs, **event_kwargs}
+    #         new_args = event_args + args
+    #         # self.container.call_with_injection(
+    #         #     func, args=new_args, kwargs=new_kwargs
+    #         # )
+    #         func(*new_args, **new_kwargs)
+
+    def _fire_event(self, event_name: Any):
         """
         最好不要用args，顺序很难确定
         """
         _logger.debug(f"firing handlers for event {event_name}")
         self.last_event_name = event_name
-        for func, args, kwargs in self._event_handlers[event_name]:
-            new_kwargs = {**kwargs, **event_kwargs}
-            new_args = event_args + args
-            self.container.call_with_injection(
-                func, args=new_args, kwargs=new_kwargs
-            )
+        for func, kwargs in self._event_handlers[event_name]:
+            func(**kwargs)
 
     def fire_event(self, event_name: Any):
         self._fire_event(event_name)
