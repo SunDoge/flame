@@ -12,10 +12,20 @@ Classes
 
 .. autoapisummary::
 
+   flame.pytorch.experimental.engine.events.CallableEventWithFilter
+   flame.pytorch.experimental.engine.events.EventEnum
    flame.pytorch.experimental.engine.events.Events
    flame.pytorch.experimental.engine.events.EventsList
    flame.pytorch.experimental.engine.events.State
 
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.experimental.engine.events._get_default_event_to_attr
 
 
 .. data:: _logger
@@ -23,13 +33,147 @@ Classes
 
    
 
-.. class:: Events
+.. class:: CallableEventWithFilter(value: str, event_filter: Optional[Callable] = None, name: Optional[str] = None)
 
-   Bases: :class:`enum.Enum`
 
-   Generic enumeration.
+   Single Event containing a filter, specifying whether the event should
+   be run at the current event (if the event type is correct)
 
-   Derive from this class to define new enumerations.
+   :param value: The actual enum value. Only needed for internal use. Do not touch!
+   :param event_filter: A function taking the engine and the current event value as input and returning a
+                        boolean to indicate whether this event should be executed. Defaults to None, which will result to a
+                        function that always returns `True`
+   :param name: The enum-name of the current object. Only needed for internal use. Do not touch!
+
+   .. method:: name(self) -> str
+
+      The name of the Enum member.
+
+
+   .. method:: value(self) -> str
+
+      The value of the Enum member.
+
+
+   .. method:: __call__(self, event_filter: Optional[Callable] = None, every: Optional[int] = None, once: Optional[int] = None) -> flame.pytorch.experimental.engine.events.CallableEventWithFilter
+
+      Makes the event class callable and accepts either an arbitrary callable as filter
+      (which must take in the engine and current event value and return a boolean) or an every or once value
+
+      :param event_filter: a filter function to check if the event should be executed when
+                           the event type was fired
+      :param every: a value specifying how often the event should be fired
+      :param once: a value specifying when the event should be fired (if only once)
+
+      :returns: A new event having the same value but a different filter function
+      :rtype: CallableEventWithFilter
+
+
+   .. method:: every_event_filter(every: int) -> Callable
+      :staticmethod:
+
+      A wrapper for every event filter.
+
+
+   .. method:: once_event_filter(once: int) -> Callable
+      :staticmethod:
+
+      A wrapper for once event filter.
+
+
+   .. method:: default_event_filter(engine: flame.pytorch.experimental.engine.engine.Engine, event: int) -> bool
+      :staticmethod:
+
+      Default event filter.
+
+
+   .. method:: __str__(self) -> str
+
+      Return str(self).
+
+
+   .. method:: __eq__(self, other: Any) -> bool
+
+      Return self==value.
+
+
+   .. method:: __hash__(self) -> int
+
+      Return hash(self).
+
+
+   .. method:: __or__(self, other: Any) -> flame.pytorch.experimental.engine.events.EventsList
+
+
+
+.. class:: EventEnum(value: str, event_filter: Optional[Callable] = None, name: Optional[str] = None)
+
+
+   Bases: :class:`flame.pytorch.experimental.engine.events.CallableEventWithFilter`, :class:`enum.Enum`
+
+   Base class for all :class:`~ignite.engine.events.Events`. User defined custom events should also inherit
+   this class. For example, Custom events based on the loss calculation and backward pass can be created as follows:
+
+       .. code-block:: python
+
+           from ignite.engine import EventEnum
+
+           class BackpropEvents(EventEnum):
+               BACKWARD_STARTED = 'backward_started'
+               BACKWARD_COMPLETED = 'backward_completed'
+               OPTIM_STEP_COMPLETED = 'optim_step_completed'
+
+           def update(engine, batch):
+               # ...
+               loss = criterion(y_pred, y)
+               engine.fire_event(BackpropEvents.BACKWARD_STARTED)
+               loss.backward()
+               engine.fire_event(BackpropEvents.BACKWARD_COMPLETED)
+               optimizer.step()
+               engine.fire_event(BackpropEvents.OPTIM_STEP_COMPLETED)
+               # ...
+
+           trainer = Engine(update)
+           trainer.register_events(*BackpropEvents)
+
+           @trainer.on(BackpropEvents.BACKWARD_STARTED)
+           def function_before_backprop(engine):
+               # ...
+
+
+.. class:: Events(value: str, event_filter: Optional[Callable] = None, name: Optional[str] = None)
+
+
+   Bases: :class:`flame.pytorch.experimental.engine.events.EventEnum`
+
+   Base class for all :class:`~ignite.engine.events.Events`. User defined custom events should also inherit
+   this class. For example, Custom events based on the loss calculation and backward pass can be created as follows:
+
+       .. code-block:: python
+
+           from ignite.engine import EventEnum
+
+           class BackpropEvents(EventEnum):
+               BACKWARD_STARTED = 'backward_started'
+               BACKWARD_COMPLETED = 'backward_completed'
+               OPTIM_STEP_COMPLETED = 'optim_step_completed'
+
+           def update(engine, batch):
+               # ...
+               loss = criterion(y_pred, y)
+               engine.fire_event(BackpropEvents.BACKWARD_STARTED)
+               loss.backward()
+               engine.fire_event(BackpropEvents.BACKWARD_COMPLETED)
+               optimizer.step()
+               engine.fire_event(BackpropEvents.OPTIM_STEP_COMPLETED)
+               # ...
+
+           trainer = Engine(update)
+           trainer.register_events(*BackpropEvents)
+
+           @trainer.on(BackpropEvents.BACKWARD_STARTED)
+           def function_before_backprop(engine):
+               # ...
 
    .. attribute:: EPOCH_STARTED
       :annotation: = epoch_started
@@ -91,6 +235,9 @@ Classes
 
       
 
+   .. method:: __or__(self, other: Any) -> flame.pytorch.experimental.engine.events.EventsList
+
+
 
 .. class:: EventsList
 
@@ -109,6 +256,9 @@ Classes
 
    .. method:: __or__(self, other: flame.pytorch.experimental.engine.events.Events) -> flame.pytorch.experimental.engine.events.EventsList
 
+
+
+.. function:: _get_default_event_to_attr()
 
 
 .. class:: State
@@ -163,6 +313,11 @@ Classes
 
       
 
+   .. attribute:: event_to_attr
+      :annotation: :Dict[Events, str]
+
+      
+
    .. method:: update_max_iterations(self)
 
 
@@ -191,6 +346,14 @@ Classes
 
 
    .. method:: every_epochs(self, n: int) -> bool
+
+
+   .. method:: _update_attrs(self) -> None
+
+
+   .. method:: get_event_attrib_value(self, event_name: Union[(str, Events, CallableEventWithFilter)]) -> int
+
+      Get the value of Event attribute with given `event_name`.
 
 
 

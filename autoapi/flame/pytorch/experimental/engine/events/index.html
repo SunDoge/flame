@@ -250,10 +250,77 @@
     <a class="reference internal nav-link" href="#classes">
      Classes
     </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions">
+     Functions
+    </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.events._logger">
        _logger
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.events.CallableEventWithFilter">
+       CallableEventWithFilter
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.events.CallableEventWithFilter.name">
+         name
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.events.CallableEventWithFilter.value">
+         value
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.events.CallableEventWithFilter.__call__">
+         __call__
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.events.CallableEventWithFilter.every_event_filter">
+         every_event_filter
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.events.CallableEventWithFilter.once_event_filter">
+         once_event_filter
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.events.CallableEventWithFilter.default_event_filter">
+         default_event_filter
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.events.CallableEventWithFilter.__str__">
+         __str__
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.events.CallableEventWithFilter.__eq__">
+         __eq__
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.events.CallableEventWithFilter.__hash__">
+         __hash__
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.events.CallableEventWithFilter.__or__">
+         __or__
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.events.EventEnum">
+       EventEnum
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
@@ -321,6 +388,11 @@
          TERMINATE_SINGLE_EPOCH
         </a>
        </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.events.Events.__or__">
+         __or__
+        </a>
+       </li>
       </ul>
      </li>
      <li class="toc-h4 nav-item toc-entry">
@@ -354,6 +426,11 @@
         </a>
        </li>
       </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.events._get_default_event_to_attr">
+       _get_default_event_to_attr
+      </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.events.State">
@@ -411,6 +488,11 @@
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.events.State.event_to_attr">
+         event_to_attr
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.events.State.update_max_iterations">
          update_max_iterations
         </a>
@@ -460,6 +542,16 @@
          every_epochs
         </a>
        </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.events.State._update_attrs">
+         _update_attrs
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.events.State.get_event_attrib_value">
+         get_event_attrib_value
+        </a>
+       </li>
       </ul>
      </li>
     </ul>
@@ -495,13 +587,33 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.experimental.engine.events.CallableEventWithFilter" title="flame.pytorch.experimental.engine.events.CallableEventWithFilter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CallableEventWithFilter</span></code></a></p></td>
+<td><p>Single Event containing a filter, specifying whether the event should</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.experimental.engine.events.EventEnum" title="flame.pytorch.experimental.engine.events.EventEnum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EventEnum</span></code></a></p></td>
+<td><p>Base class for all <code class="xref py py-class docutils literal notranslate"><span class="pre">Events</span></code>. User defined custom events should also inherit</p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.experimental.engine.events.Events" title="flame.pytorch.experimental.engine.events.Events"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Events</span></code></a></p></td>
-<td><p>Generic enumeration.</p></td>
+<td><p>Base class for all <code class="xref py py-class docutils literal notranslate"><span class="pre">Events</span></code>. User defined custom events should also inherit</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.experimental.engine.events.EventsList" title="flame.pytorch.experimental.engine.events.EventsList"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EventsList</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.experimental.engine.events.State" title="flame.pytorch.experimental.engine.events.State"><code class="xref py py-obj docutils literal notranslate"><span class="pre">State</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.experimental.engine.events._get_default_event_to_attr" title="flame.pytorch.experimental.engine.events._get_default_event_to_attr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_get_default_event_to_attr</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -512,11 +624,167 @@
 <dd></dd></dl>
 
 <dl class="py class">
+<dt id="flame.pytorch.experimental.engine.events.CallableEventWithFilter">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.engine.events.</span></code><code class="sig-name descname"><span class="pre">CallableEventWithFilter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_filter</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.events.CallableEventWithFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Single Event containing a filter, specifying whether the event should
+be run at the current event (if the event type is correct)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> – The actual enum value. Only needed for internal use. Do not touch!</p></li>
+<li><p><strong>event_filter</strong> – A function taking the engine and the current event value as input and returning a
+boolean to indicate whether this event should be executed. Defaults to None, which will result to a
+function that always returns <cite>True</cite></p></li>
+<li><p><strong>name</strong> – The enum-name of the current object. Only needed for internal use. Do not touch!</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.events.CallableEventWithFilter.name">
+<code class="sig-name descname"><span class="pre">name</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#flame.pytorch.experimental.engine.events.CallableEventWithFilter.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the Enum member.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.events.CallableEventWithFilter.value">
+<code class="sig-name descname"><span class="pre">value</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#flame.pytorch.experimental.engine.events.CallableEventWithFilter.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>The value of the Enum member.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.events.CallableEventWithFilter.__call__">
+<code class="sig-name descname"><span class="pre">__call__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_filter</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">every</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">once</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#flame.pytorch.experimental.engine.events.CallableEventWithFilter" title="flame.pytorch.experimental.engine.events.CallableEventWithFilter"><span class="pre">flame.pytorch.experimental.engine.events.CallableEventWithFilter</span></a><a class="headerlink" href="#flame.pytorch.experimental.engine.events.CallableEventWithFilter.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes the event class callable and accepts either an arbitrary callable as filter
+(which must take in the engine and current event value and return a boolean) or an every or once value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>event_filter</strong> – a filter function to check if the event should be executed when
+the event type was fired</p></li>
+<li><p><strong>every</strong> – a value specifying how often the event should be fired</p></li>
+<li><p><strong>once</strong> – a value specifying when the event should be fired (if only once)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A new event having the same value but a different filter function</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#flame.pytorch.experimental.engine.events.CallableEventWithFilter" title="flame.pytorch.experimental.engine.events.CallableEventWithFilter">CallableEventWithFilter</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.events.CallableEventWithFilter.every_event_filter">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">every_event_filter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">every</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Callable</span><a class="headerlink" href="#flame.pytorch.experimental.engine.events.CallableEventWithFilter.every_event_filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for every event filter.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.events.CallableEventWithFilter.once_event_filter">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">once_event_filter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">once</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Callable</span><a class="headerlink" href="#flame.pytorch.experimental.engine.events.CallableEventWithFilter.once_event_filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for once event filter.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.events.CallableEventWithFilter.default_event_filter">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">default_event_filter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">engine</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../engine/index.html#flame.pytorch.experimental.engine.engine.Engine" title="flame.pytorch.experimental.engine.engine.Engine"><span class="pre">flame.pytorch.experimental.engine.engine.Engine</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#flame.pytorch.experimental.engine.events.CallableEventWithFilter.default_event_filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default event filter.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.events.CallableEventWithFilter.__str__">
+<code class="sig-name descname"><span class="pre">__str__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#flame.pytorch.experimental.engine.events.CallableEventWithFilter.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return str(self).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.events.CallableEventWithFilter.__eq__">
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#flame.pytorch.experimental.engine.events.CallableEventWithFilter.__eq__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return self==value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.events.CallableEventWithFilter.__hash__">
+<code class="sig-name descname"><span class="pre">__hash__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#flame.pytorch.experimental.engine.events.CallableEventWithFilter.__hash__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return hash(self).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.events.CallableEventWithFilter.__or__">
+<code class="sig-name descname"><span class="pre">__or__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#flame.pytorch.experimental.engine.events.EventsList" title="flame.pytorch.experimental.engine.events.EventsList"><span class="pre">flame.pytorch.experimental.engine.events.EventsList</span></a><a class="headerlink" href="#flame.pytorch.experimental.engine.events.CallableEventWithFilter.__or__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="flame.pytorch.experimental.engine.events.EventEnum">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.engine.events.</span></code><code class="sig-name descname"><span class="pre">EventEnum</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_filter</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.events.EventEnum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#flame.pytorch.experimental.engine.events.CallableEventWithFilter" title="flame.pytorch.experimental.engine.events.CallableEventWithFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">flame.pytorch.experimental.engine.events.CallableEventWithFilter</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>Base class for all <code class="xref py py-class docutils literal notranslate"><span class="pre">Events</span></code>. User defined custom events should also inherit
+this class. For example, Custom events based on the loss calculation and backward pass can be created as follows:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ignite.engine</span> <span class="kn">import</span> <span class="n">EventEnum</span>
+
+<span class="k">class</span> <span class="nc">BackpropEvents</span><span class="p">(</span><span class="n">EventEnum</span><span class="p">):</span>
+    <span class="n">BACKWARD_STARTED</span> <span class="o">=</span> <span class="s1">&#39;backward_started&#39;</span>
+    <span class="n">BACKWARD_COMPLETED</span> <span class="o">=</span> <span class="s1">&#39;backward_completed&#39;</span>
+    <span class="n">OPTIM_STEP_COMPLETED</span> <span class="o">=</span> <span class="s1">&#39;optim_step_completed&#39;</span>
+
+<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+    <span class="c1"># ...</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">engine</span><span class="o">.</span><span class="n">fire_event</span><span class="p">(</span><span class="n">BackpropEvents</span><span class="o">.</span><span class="n">BACKWARD_STARTED</span><span class="p">)</span>
+    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+    <span class="n">engine</span><span class="o">.</span><span class="n">fire_event</span><span class="p">(</span><span class="n">BackpropEvents</span><span class="o">.</span><span class="n">BACKWARD_COMPLETED</span><span class="p">)</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="n">engine</span><span class="o">.</span><span class="n">fire_event</span><span class="p">(</span><span class="n">BackpropEvents</span><span class="o">.</span><span class="n">OPTIM_STEP_COMPLETED</span><span class="p">)</span>
+    <span class="c1"># ...</span>
+
+<span class="n">trainer</span> <span class="o">=</span> <span class="n">Engine</span><span class="p">(</span><span class="n">update</span><span class="p">)</span>
+<span class="n">trainer</span><span class="o">.</span><span class="n">register_events</span><span class="p">(</span><span class="o">*</span><span class="n">BackpropEvents</span><span class="p">)</span>
+
+<span class="nd">@trainer</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">BackpropEvents</span><span class="o">.</span><span class="n">BACKWARD_STARTED</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">function_before_backprop</span><span class="p">(</span><span class="n">engine</span><span class="p">):</span>
+    <span class="c1"># ...</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py class">
 <dt id="flame.pytorch.experimental.engine.events.Events">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.engine.events.</span></code><code class="sig-name descname"><span class="pre">Events</span></code><a class="headerlink" href="#flame.pytorch.experimental.engine.events.Events" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
-<p>Generic enumeration.</p>
-<p>Derive from this class to define new enumerations.</p>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.engine.events.</span></code><code class="sig-name descname"><span class="pre">Events</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_filter</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.events.Events" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#flame.pytorch.experimental.engine.events.EventEnum" title="flame.pytorch.experimental.engine.events.EventEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">flame.pytorch.experimental.engine.events.EventEnum</span></code></a></p>
+<p>Base class for all <code class="xref py py-class docutils literal notranslate"><span class="pre">Events</span></code>. User defined custom events should also inherit
+this class. For example, Custom events based on the loss calculation and backward pass can be created as follows:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ignite.engine</span> <span class="kn">import</span> <span class="n">EventEnum</span>
+
+<span class="k">class</span> <span class="nc">BackpropEvents</span><span class="p">(</span><span class="n">EventEnum</span><span class="p">):</span>
+    <span class="n">BACKWARD_STARTED</span> <span class="o">=</span> <span class="s1">&#39;backward_started&#39;</span>
+    <span class="n">BACKWARD_COMPLETED</span> <span class="o">=</span> <span class="s1">&#39;backward_completed&#39;</span>
+    <span class="n">OPTIM_STEP_COMPLETED</span> <span class="o">=</span> <span class="s1">&#39;optim_step_completed&#39;</span>
+
+<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+    <span class="c1"># ...</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">engine</span><span class="o">.</span><span class="n">fire_event</span><span class="p">(</span><span class="n">BackpropEvents</span><span class="o">.</span><span class="n">BACKWARD_STARTED</span><span class="p">)</span>
+    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+    <span class="n">engine</span><span class="o">.</span><span class="n">fire_event</span><span class="p">(</span><span class="n">BackpropEvents</span><span class="o">.</span><span class="n">BACKWARD_COMPLETED</span><span class="p">)</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="n">engine</span><span class="o">.</span><span class="n">fire_event</span><span class="p">(</span><span class="n">BackpropEvents</span><span class="o">.</span><span class="n">OPTIM_STEP_COMPLETED</span><span class="p">)</span>
+    <span class="c1"># ...</span>
+
+<span class="n">trainer</span> <span class="o">=</span> <span class="n">Engine</span><span class="p">(</span><span class="n">update</span><span class="p">)</span>
+<span class="n">trainer</span><span class="o">.</span><span class="n">register_events</span><span class="p">(</span><span class="o">*</span><span class="n">BackpropEvents</span><span class="p">)</span>
+
+<span class="nd">@trainer</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">BackpropEvents</span><span class="o">.</span><span class="n">BACKWARD_STARTED</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">function_before_backprop</span><span class="p">(</span><span class="n">engine</span><span class="p">):</span>
+    <span class="c1"># ...</span>
+</pre></div>
+</div>
+</div></blockquote>
 <dl class="py attribute">
 <dt id="flame.pytorch.experimental.engine.events.Events.EPOCH_STARTED">
 <code class="sig-name descname"><span class="pre">EPOCH_STARTED</span></code><em class="property"> <span class="pre">=</span> <span class="pre">epoch_started</span></em><a class="headerlink" href="#flame.pytorch.experimental.engine.events.Events.EPOCH_STARTED" title="Permalink to this definition">¶</a></dt>
@@ -577,6 +845,11 @@
 <code class="sig-name descname"><span class="pre">TERMINATE_SINGLE_EPOCH</span></code><em class="property"> <span class="pre">=</span> <span class="pre">terminate_single_epoch</span></em><a class="headerlink" href="#flame.pytorch.experimental.engine.events.Events.TERMINATE_SINGLE_EPOCH" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.events.Events.__or__">
+<code class="sig-name descname"><span class="pre">__or__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#flame.pytorch.experimental.engine.events.EventsList" title="flame.pytorch.experimental.engine.events.EventsList"><span class="pre">flame.pytorch.experimental.engine.events.EventsList</span></a><a class="headerlink" href="#flame.pytorch.experimental.engine.events.Events.__or__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
@@ -608,6 +881,11 @@
 <dd></dd></dl>
 
 </dd></dl>
+
+<dl class="py function">
+<dt id="flame.pytorch.experimental.engine.events._get_default_event_to_attr">
+<code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.engine.events.</span></code><code class="sig-name descname"><span class="pre">_get_default_event_to_attr</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.events._get_default_event_to_attr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py class">
 <dt id="flame.pytorch.experimental.engine.events.State">
@@ -662,6 +940,11 @@
 <code class="sig-name descname"><span class="pre">metrics</span></code><em class="property"> <span class="pre">:Dict[str,</span> <span class="pre">Any]</span></em><a class="headerlink" href="#flame.pytorch.experimental.engine.events.State.metrics" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="py attribute">
+<dt id="flame.pytorch.experimental.engine.events.State.event_to_attr">
+<code class="sig-name descname"><span class="pre">event_to_attr</span></code><em class="property"> <span class="pre">:Dict[Events,</span> <span class="pre">str]</span></em><a class="headerlink" href="#flame.pytorch.experimental.engine.events.State.event_to_attr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt id="flame.pytorch.experimental.engine.events.State.update_max_iterations">
 <code class="sig-name descname"><span class="pre">update_max_iterations</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.events.State.update_max_iterations" title="Permalink to this definition">¶</a></dt>
@@ -711,6 +994,17 @@
 <dt id="flame.pytorch.experimental.engine.events.State.every_epochs">
 <code class="sig-name descname"><span class="pre">every_epochs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#flame.pytorch.experimental.engine.events.State.every_epochs" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.events.State._update_attrs">
+<code class="sig-name descname"><span class="pre">_update_attrs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#flame.pytorch.experimental.engine.events.State._update_attrs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.engine.events.State.get_event_attrib_value">
+<code class="sig-name descname"><span class="pre">get_event_attrib_value</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#flame.pytorch.experimental.engine.events.Events" title="flame.pytorch.experimental.engine.events.Events"><span class="pre">Events</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="#flame.pytorch.experimental.engine.events.CallableEventWithFilter" title="flame.pytorch.experimental.engine.events.CallableEventWithFilter"><span class="pre">CallableEventWithFilter</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#flame.pytorch.experimental.engine.events.State.get_event_attrib_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of Event attribute with given <cite>event_name</cite>.</p>
+</dd></dl>
 
 </dd></dl>
 

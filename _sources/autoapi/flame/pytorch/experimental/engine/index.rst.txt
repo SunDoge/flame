@@ -33,15 +33,6 @@ Classes
 
 
 
-Functions
-~~~~~~~~~
-
-.. autoapisummary::
-
-   flame.pytorch.experimental.engine.every_epochs
-   flame.pytorch.experimental.engine.every_iterations
-
-
 .. class:: Engine(process_function: Callable = _default_process_function, container: Optional[Injector] = None)
 
 
@@ -109,14 +100,43 @@ Functions
    .. method:: run(self, data: Iterable, max_epochs: Optional[int] = None, max_iterations: Optional[int] = None, epoch_length: Optional[int] = None)
 
 
+   .. method:: _handler_wrapper(self, handler: Callable, event_name: Any, event_filter: Callable) -> Callable
 
-.. class:: Events
 
-   Bases: :class:`enum.Enum`
 
-   Generic enumeration.
+.. class:: Events(value: str, event_filter: Optional[Callable] = None, name: Optional[str] = None)
 
-   Derive from this class to define new enumerations.
+
+   Bases: :class:`flame.pytorch.experimental.engine.events.EventEnum`
+
+   Base class for all :class:`~ignite.engine.events.Events`. User defined custom events should also inherit
+   this class. For example, Custom events based on the loss calculation and backward pass can be created as follows:
+
+       .. code-block:: python
+
+           from ignite.engine import EventEnum
+
+           class BackpropEvents(EventEnum):
+               BACKWARD_STARTED = 'backward_started'
+               BACKWARD_COMPLETED = 'backward_completed'
+               OPTIM_STEP_COMPLETED = 'optim_step_completed'
+
+           def update(engine, batch):
+               # ...
+               loss = criterion(y_pred, y)
+               engine.fire_event(BackpropEvents.BACKWARD_STARTED)
+               loss.backward()
+               engine.fire_event(BackpropEvents.BACKWARD_COMPLETED)
+               optimizer.step()
+               engine.fire_event(BackpropEvents.OPTIM_STEP_COMPLETED)
+               # ...
+
+           trainer = Engine(update)
+           trainer.register_events(*BackpropEvents)
+
+           @trainer.on(BackpropEvents.BACKWARD_STARTED)
+           def function_before_backprop(engine):
+               # ...
 
    .. attribute:: EPOCH_STARTED
       :annotation: = epoch_started
@@ -177,6 +197,9 @@ Functions
       :annotation: = terminate_single_epoch
 
       
+
+   .. method:: __or__(self, other: Any) -> flame.pytorch.experimental.engine.events.EventsList
+
 
 
 .. class:: EventsList
@@ -250,6 +273,11 @@ Functions
 
       
 
+   .. attribute:: event_to_attr
+      :annotation: :Dict[Events, str]
+
+      
+
    .. method:: update_max_iterations(self)
 
 
@@ -280,11 +308,13 @@ Functions
    .. method:: every_epochs(self, n: int) -> bool
 
 
+   .. method:: _update_attrs(self) -> None
 
-.. function:: every_epochs(func: Callable, n: int = 1)
 
+   .. method:: get_event_attrib_value(self, event_name: Union[(str, Events, CallableEventWithFilter)]) -> int
 
-.. function:: every_iterations(func: Optional[Callable] = None, n: int = 1)
+      Get the value of Event attribute with given `event_name`.
+
 
 
 .. class:: Container(modules: Any = None, auto_bind: bool = True, parent: Optional[Injector] = None)

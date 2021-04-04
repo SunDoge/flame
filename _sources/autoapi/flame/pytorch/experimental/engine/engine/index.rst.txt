@@ -133,4 +133,7 @@ Functions
    .. method:: run(self, data: Iterable, max_epochs: Optional[int] = None, max_iterations: Optional[int] = None, epoch_length: Optional[int] = None)
 
 
+   .. method:: _handler_wrapper(self, handler: Callable, event_name: Any, event_filter: Callable) -> Callable
+
+
 
