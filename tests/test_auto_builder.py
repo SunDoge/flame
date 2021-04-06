@@ -47,3 +47,12 @@ def test_build_combination():
     }
     b: B = auto_builder.build_from_config(cfg)
     assert b.a.v == v
+
+
+def test_build_with_args():
+    prefix = __name__
+    cfg = {
+        '_type': f'{prefix}.A',
+    }
+    a: A = auto_builder.build_from_config(cfg, 1)
+    assert a.v == 1
