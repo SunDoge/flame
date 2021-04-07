@@ -9,7 +9,7 @@ T = TypeVar('T')
 
 def cached(func: T) -> T:
     func.__cached__ = True
-    return staticmethod(func)
+    return func
 
 
 def cached_inject(func: T) -> T:
@@ -84,11 +84,11 @@ if __name__ == '__main__':
             super().__init__(injector=injector)
 
         @cached_inject
-        def call_with_a(a: A, input_a=None):
+        def call_with_a(self, a: A, input_a=None):
             print(a)
 
         @cached_inject
-        def call_with_kwargs(a: A, train=False, input_a=None):
+        def call_with_kwargs(self, a: A, train=False, input_a=None):
             print(a)
             print('train', train)
 
@@ -100,5 +100,5 @@ if __name__ == '__main__':
     b.call_with_a()
     b.call_with_kwargs(train=True)
 
-    B.call_with_a(a1)
-    B.call_with_kwargs(a1, train=True)
+    B.call_with_a(None, a1)
+    B.call_with_kwargs(None, a1, train=True)

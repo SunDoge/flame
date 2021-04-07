@@ -16,11 +16,11 @@ class A:
 class C(Container):
 
     @cached_inject
-    def call_with_a(a: A, input_a=None):
+    def call_with_a(self, a: A, input_a=None):
         assert a is input_a
 
     @cached_inject
-    def call_with_kwargs(a: A, input_a=None, train=False):
+    def call_with_kwargs(self, a: A, input_a=None, train=False):
         assert train
         assert a is input_a
 
@@ -32,5 +32,5 @@ def test_c():
     c.call_with_kwargs(input_a=a1, train=True)
 
     a2 = A()
-    C.call_with_a(a2, input_a=a2)
-    C.call_with_kwargs(a2, input_a=a2, train=True)
+    C.call_with_a(None, a2, input_a=a2)
+    C.call_with_kwargs(None, a2, input_a=a2, train=True)
