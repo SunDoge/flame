@@ -87,7 +87,7 @@ print(a.cfg)
 {'train_batch_size': 16, 'val_batch_size': 16}
 ```
 
-依赖注入由几个好处：
+依赖注入有几个好处：
 
 1. 方便测试。函数或类需要声明自己依赖的对象，测试时只需要构造确定数量的对象。
 2. 方便修改。如果不使用依赖注入，修改一个函数的签名的同时，需要修改所有调用该函数的地方。使用依赖注入后，只需要修改函数签名。
@@ -213,4 +213,42 @@ class State:
 
 ### Engine
 
-`Engine`中实现了epoch的循环和iteration的循环。
+`Engine`中实现了epoch的循环和iteration的循环。在循环的特定位置，会执行用户定义的函数。伪代码如下
+
+```
+fire_event STARTED
+
+while epoch <= max_epochs:
+
+    fire_event EPOCH_STARTED
+
+    for batch in dataloader:
+
+        fire_event ITERATION_STARTED
+
+        Run user defined process
+
+        fire_event ITERATION_COMPLETED
+
+    fire_event EPOCH_COMPLETED
+
+fire_event COMPLETED
+```
+
+首先，`Engine`定义了一系列的`Events`。我们可以在特定的事件发生时执行一些方法
+
+```python
+from flame.pytorch.experimental.engine import Engine, Events, State
+from injector import inject 
+
+@inject # 支持自动注入
+def log_iteration(state: State, prefix='Train'):
+    print(f'{prefix} iter: {state.local_iteration}/{state.epoch_length}')
+
+
+
+trainer = Engine()
+trainer.add_event_handler(Events.EPOCH_COMPLETED, log_iteration) # 每个epoch结束时print iteration
+trainer.add_event_handler(Events.ITERATION_COMPLETE(every=10), log_iteration) # 每10个iteration结束时print iteration
+trainer.add_event_handler(Events.ITERATION_STARTED, log_iteration, prefix='Val') # 可以传入kwargs
+```
