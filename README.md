@@ -252,3 +252,14 @@ trainer.add_event_handler(Events.EPOCH_COMPLETED, log_iteration) # 每个epoch�
 trainer.add_event_handler(Events.ITERATION_COMPLETE(every=10), log_iteration) # 每10个iteration结束时print iteration
 trainer.add_event_handler(Events.ITERATION_STARTED, log_iteration, prefix='Val') # 可以传入kwargs
 ```
+
+启动一个`Engine`：
+
+```python
+trainer = Engine()
+trainer.run(dataloader, max_epochs=100)
+
+# 等价于
+trainer.setup(dataloader, max_epochs=100)
+trainer.internal_run() # api可能会变
+```
