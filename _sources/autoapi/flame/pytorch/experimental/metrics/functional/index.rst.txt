@@ -1,0 +1,26 @@
+:mod:`flame.pytorch.experimental.metrics.functional`
+====================================================
+
+.. py:module:: flame.pytorch.experimental.metrics.functional
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.experimental.metrics.functional.topk_accuracy
+
+
+.. function:: topk_accuracy(output: torch.Tensor, target: torch.Tensor, topk: List[int] = (1, )) -> List[Tensor]
+
+   https://github.com/pytorch/examples/blob/master/imagenet/main.py#L411
+
+   :param output: [B, C], for C way classification
+   :param target: [B]
+
+

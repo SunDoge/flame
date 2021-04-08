@@ -6,37 +6,37 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
 
-    <title>flame.pytorch.experimental.engine.utils &#8212; flame 0.0.1 documentation</title>
+    <title>flame.pytorch.experimental.metrics &#8212; flame 0.0.1 documentation</title>
     
-  <link href="../../../../../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../../../../../_static/css/index.f6b7ca918bee2f46fd9abac01cfb07d5.css" rel="stylesheet" />
+  <link href="../../../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../../../_static/css/index.f6b7ca918bee2f46fd9abac01cfb07d5.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
-    href="../../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    href="../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    href="../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    href="../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     
       
 
     
-    <link rel="stylesheet" href="../../../../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../../../../_static/basic.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../../../../_static/graphviz.css" />
+    <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/graphviz.css" />
     
-  <link rel="preload" as="script" href="../../../../../../_static/js/index.1e043a052b0af929e4d8.js">
+  <link rel="preload" as="script" href="../../../../../_static/js/index.1e043a052b0af929e4d8.js">
 
-    <script id="documentation_options" data-url_root="../../../../../../" src="../../../../../../_static/documentation_options.js"></script>
-    <script src="../../../../../../_static/jquery.js"></script>
-    <script src="../../../../../../_static/underscore.js"></script>
-    <script src="../../../../../../_static/doctools.js"></script>
-    <link rel="index" title="Index" href="../../../../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../../../../search.html" />
-    <link rel="next" title="flame.pytorch.experimental.meters" href="../../meters/index.html" />
-    <link rel="prev" title="flame.pytorch.experimental.engine.mixins" href="../mixins/index.html" />
+    <script id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../_static/jquery.js"></script>
+    <script src="../../../../../_static/underscore.js"></script>
+    <script src="../../../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="flame.pytorch.experimental.metrics.functional" href="functional/index.html" />
+    <link rel="prev" title="flame.pytorch.experimental.meters.time_meter" href="../meters/time_meter/index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
   </head>
@@ -46,7 +46,7 @@
 
 
     
-    <a class="navbar-brand" href="../../../../../../index.html">
+    <a class="navbar-brand" href="../../../../../index.html">
       <p class="title">flame</p>
     </a>
     
@@ -59,7 +59,7 @@
     <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
       <ul id="navbar-main-elements" class="navbar-nav mr-auto">
         <li class="toctree-l1 current active nav-item">
- <a class="reference internal nav-link" href="../../../../../index.html">
+ <a class="reference internal nav-link" href="../../../../index.html">
   API Reference
  </a>
 </li>
@@ -79,7 +79,7 @@
           
             
             <!-- Only show if we have sidebars configured, else just a small margin  -->
-            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../../../../search.html" method="get">
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form>
@@ -87,7 +87,7 @@
   <div class="bd-toc-item active">
     <ul class="current nav bd-sidenav">
  <li class="toctree-l2 current active">
-  <a class="reference internal" href="../../../../index.html">
+  <a class="reference internal" href="../../../index.html">
    <code class="xref py py-mod docutils literal notranslate">
     <span class="pre">
      flame
@@ -96,7 +96,7 @@
   </a>
   <ul class="current">
    <li class="toctree-l3 current active">
-    <a class="reference internal" href="../../../index.html">
+    <a class="reference internal" href="../../index.html">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
        flame.pytorch
@@ -105,7 +105,7 @@
     </a>
     <ul class="current">
      <li class="toctree-l4 current active">
-      <a class="reference internal" href="../../index.html">
+      <a class="reference internal" href="../index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.pytorch.experimental
@@ -114,7 +114,7 @@
       </a>
      </li>
      <li class="toctree-l4">
-      <a class="reference internal" href="../../../utils/index.html">
+      <a class="reference internal" href="../../utils/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.pytorch.utils
@@ -123,7 +123,7 @@
       </a>
      </li>
      <li class="toctree-l4">
-      <a class="reference internal" href="../../../distributed_training/index.html">
+      <a class="reference internal" href="../../distributed_training/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.pytorch.distributed_training
@@ -132,7 +132,7 @@
       </a>
      </li>
      <li class="toctree-l4">
-      <a class="reference internal" href="../../../engine/index.html">
+      <a class="reference internal" href="../../engine/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.pytorch.engine
@@ -141,7 +141,7 @@
       </a>
      </li>
      <li class="toctree-l4">
-      <a class="reference internal" href="../../../process/index.html">
+      <a class="reference internal" href="../../process/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.pytorch.process
@@ -150,7 +150,7 @@
       </a>
      </li>
      <li class="toctree-l4">
-      <a class="reference internal" href="../../../typing_prelude/index.html">
+      <a class="reference internal" href="../../typing_prelude/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.pytorch.typing_prelude
@@ -161,7 +161,7 @@
     </ul>
    </li>
    <li class="toctree-l3">
-    <a class="reference internal" href="../../../../utils/index.html">
+    <a class="reference internal" href="../../../utils/index.html">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
        flame.utils
@@ -170,7 +170,7 @@
     </a>
    </li>
    <li class="toctree-l3">
-    <a class="reference internal" href="../../../../archiver/index.html">
+    <a class="reference internal" href="../../../archiver/index.html">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
        flame.archiver
@@ -179,7 +179,7 @@
     </a>
    </li>
    <li class="toctree-l3">
-    <a class="reference internal" href="../../../../argument/index.html">
+    <a class="reference internal" href="../../../argument/index.html">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
        flame.argument
@@ -188,7 +188,7 @@
     </a>
    </li>
    <li class="toctree-l3">
-    <a class="reference internal" href="../../../../auto_builder/index.html">
+    <a class="reference internal" href="../../../auto_builder/index.html">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
        flame.auto_builder
@@ -197,7 +197,7 @@
     </a>
    </li>
    <li class="toctree-l3">
-    <a class="reference internal" href="../../../../ckcfg/index.html">
+    <a class="reference internal" href="../../../ckcfg/index.html">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
        flame.ckcfg
@@ -206,7 +206,7 @@
     </a>
    </li>
    <li class="toctree-l3">
-    <a class="reference internal" href="../../../../config/index.html">
+    <a class="reference internal" href="../../../config/index.html">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
        flame.config
@@ -215,7 +215,7 @@
     </a>
    </li>
    <li class="toctree-l3">
-    <a class="reference internal" href="../../../../logging/index.html">
+    <a class="reference internal" href="../../../logging/index.html">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
        flame.logging
@@ -235,9 +235,19 @@
           
           <div class="d-none d-xl-block col-xl-2 bd-toc">
               
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
 
 <nav id="bd-toc-nav">
-    
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#submodules">
+   Submodules
+  </a>
+ </li>
+</ul>
+
 </nav>
 
 
@@ -253,8 +263,19 @@
               
               <div>
                 
-  <section id="module-flame.pytorch.experimental.engine.utils">
-<span id="flame-pytorch-experimental-engine-utils"></span><h1><a class="reference internal" href="#module-flame.pytorch.experimental.engine.utils" title="flame.pytorch.experimental.engine.utils"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.engine.utils</span></code></a><a class="headerlink" href="#module-flame.pytorch.experimental.engine.utils" title="Permalink to this headline">¶</a></h1>
+  <section id="module-flame.pytorch.experimental.metrics">
+<span id="flame-pytorch-experimental-metrics"></span><h1><a class="reference internal" href="#module-flame.pytorch.experimental.metrics" title="flame.pytorch.experimental.metrics"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.metrics</span></code></a><a class="headerlink" href="#module-flame.pytorch.experimental.metrics" title="Permalink to this headline">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="functional/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.metrics.functional</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="loss_metric/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.metrics.loss_metric</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="metric/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.metrics.metric</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="topk_accuracy/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.metrics.topk_accuracy</span></code></a></li>
+</ul>
+</div>
+</section>
 </section>
 
 
@@ -263,8 +284,8 @@
               
               <div class='prev-next-bottom'>
                 
-    <a class='left-prev' id="prev-link" href="../mixins/index.html" title="previous page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.engine.mixins</span></code></a>
-    <a class='right-next' id="next-link" href="../../meters/index.html" title="next page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.meters</span></code></a>
+    <a class='left-prev' id="prev-link" href="../meters/time_meter/index.html" title="previous page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.meters.time_meter</span></code></a>
+    <a class='right-next' id="next-link" href="functional/index.html" title="next page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.metrics.functional</span></code></a>
 
               </div>
               
@@ -275,7 +296,7 @@
     </div>
 
     
-  <script src="../../../../../../_static/js/index.1e043a052b0af929e4d8.js"></script>
+  <script src="../../../../../_static/js/index.1e043a052b0af929e4d8.js"></script>
 
 
     <footer class="footer mt-5 mt-md-0">

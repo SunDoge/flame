@@ -1,0 +1,64 @@
+:mod:`flame.pytorch.experimental.container.container`
+=====================================================
+
+.. py:module:: flame.pytorch.experimental.container.container
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.experimental.container.container.Container
+   flame.pytorch.experimental.container.container.A
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.experimental.container.container.cached
+   flame.pytorch.experimental.container.container.cached_inject
+   flame.pytorch.experimental.container.container.get_dependencies
+   flame.pytorch.experimental.container.container.cache_injections
+
+
+.. data:: Kwargs
+   
+
+   
+
+.. data:: CachedFunction
+   
+
+   
+
+.. data:: T
+   
+
+   
+
+.. function:: cached(func: T) -> T
+
+
+.. function:: cached_inject(func: T) -> T
+
+
+.. function:: get_dependencies(container: injector.Injector, callable: Callable, **kwargs)
+
+
+.. function:: cache_injections(func: Callable, injector: injector.Injector, self_) -> Callable
+
+
+.. class:: Container(injector: Optional[Injector] = None)
+
+
+
+.. class:: A
+
+

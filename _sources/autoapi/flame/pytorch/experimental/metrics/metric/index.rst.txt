@@ -1,0 +1,46 @@
+:mod:`flame.pytorch.experimental.metrics.metric`
+================================================
+
+.. py:module:: flame.pytorch.experimental.metrics.metric
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.experimental.metrics.metric.Metric
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.experimental.metrics.metric._default_output_transform
+
+
+.. function:: _default_output_transform(x)
+
+
+.. class:: Metric(name: Union[(str, Sequence[str])], output_transform: Callable = _default_output_transform)
+
+
+   .. method:: compute(self, *args, **kwargs)
+
+      计算metric
+
+
+   .. method:: update(self, state: flame.pytorch.experimental.engine.State)
+
+      写入metric
+
+
+   .. method:: attach(self, engine: flame.pytorch.experimental.engine.Engine, event_name: Any = Events.ITERATION_COMPLETED)
+
+
+

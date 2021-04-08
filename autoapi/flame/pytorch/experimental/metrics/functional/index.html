@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
 
-    <title>flame.pytorch.experimental.engine.utils &#8212; flame 0.0.1 documentation</title>
+    <title>flame.pytorch.experimental.metrics.functional &#8212; flame 0.0.1 documentation</title>
     
   <link href="../../../../../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../../../../../_static/css/index.f6b7ca918bee2f46fd9abac01cfb07d5.css" rel="stylesheet" />
@@ -35,8 +35,8 @@
     <script src="../../../../../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../../search.html" />
-    <link rel="next" title="flame.pytorch.experimental.meters" href="../../meters/index.html" />
-    <link rel="prev" title="flame.pytorch.experimental.engine.mixins" href="../mixins/index.html" />
+    <link rel="next" title="flame.pytorch.experimental.metrics.loss_metric" href="../loss_metric/index.html" />
+    <link rel="prev" title="flame.pytorch.experimental.metrics" href="../index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
   </head>
@@ -235,9 +235,33 @@
           
           <div class="d-none d-xl-block col-xl-2 bd-toc">
               
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
 
 <nav id="bd-toc-nav">
-    
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-contents">
+   Module Contents
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions">
+     Functions
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.pytorch.experimental.metrics.functional.topk_accuracy">
+       topk_accuracy
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
 </nav>
 
 
@@ -253,8 +277,39 @@
               
               <div>
                 
-  <section id="module-flame.pytorch.experimental.engine.utils">
-<span id="flame-pytorch-experimental-engine-utils"></span><h1><a class="reference internal" href="#module-flame.pytorch.experimental.engine.utils" title="flame.pytorch.experimental.engine.utils"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.engine.utils</span></code></a><a class="headerlink" href="#module-flame.pytorch.experimental.engine.utils" title="Permalink to this headline">¶</a></h1>
+  <section id="module-flame.pytorch.experimental.metrics.functional">
+<span id="flame-pytorch-experimental-metrics-functional"></span><h1><a class="reference internal" href="#module-flame.pytorch.experimental.metrics.functional" title="flame.pytorch.experimental.metrics.functional"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.metrics.functional</span></code></a><a class="headerlink" href="#module-flame.pytorch.experimental.metrics.functional" title="Permalink to this headline">¶</a></h1>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.experimental.metrics.functional.topk_accuracy" title="flame.pytorch.experimental.metrics.functional.topk_accuracy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">topk_accuracy</span></code></a>(output: torch.Tensor, target: torch.Tensor, topk: List[int] = (1, )) → List[Tensor]</p></td>
+<td><p><a class="reference external" href="https://github.com/pytorch/examples/blob/master/imagenet/main.py#L411">https://github.com/pytorch/examples/blob/master/imagenet/main.py#L411</a></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt id="flame.pytorch.experimental.metrics.functional.topk_accuracy">
+<code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.metrics.functional.</span></code><code class="sig-name descname"><span class="pre">topk_accuracy</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topk</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">(1)</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#flame.pytorch.experimental.metrics.functional.topk_accuracy" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://github.com/pytorch/examples/blob/master/imagenet/main.py#L411">https://github.com/pytorch/examples/blob/master/imagenet/main.py#L411</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>output</strong> – [B, C], for C way classification</p></li>
+<li><p><strong>target</strong> – [B]</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
 </section>
 
 
@@ -263,8 +318,8 @@
               
               <div class='prev-next-bottom'>
                 
-    <a class='left-prev' id="prev-link" href="../mixins/index.html" title="previous page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.engine.mixins</span></code></a>
-    <a class='right-next' id="next-link" href="../../meters/index.html" title="next page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.meters</span></code></a>
+    <a class='left-prev' id="prev-link" href="../index.html" title="previous page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.metrics</span></code></a>
+    <a class='right-next' id="next-link" href="../loss_metric/index.html" title="next page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.metrics.loss_metric</span></code></a>
 
               </div>
               

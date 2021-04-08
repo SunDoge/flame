@@ -31,7 +31,7 @@ Functions
    测试函数签名里面是否存在特定key
 
 
-.. function:: build_from_config(cfg: dict, type_key='_type') -> Any
+.. function:: build_from_config(cfg: dict, *args, type_key='_type') -> Any
 
    默认_type指定路径
 

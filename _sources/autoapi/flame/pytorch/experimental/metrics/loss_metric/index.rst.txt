@@ -1,0 +1,42 @@
+:mod:`flame.pytorch.experimental.metrics.loss_metric`
+=====================================================
+
+.. py:module:: flame.pytorch.experimental.metrics.loss_metric
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.experimental.metrics.loss_metric.LossMetric
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.experimental.metrics.loss_metric._default_output_transform
+
+
+.. function:: _default_output_transform(output: Dict[(str, Any)])
+
+
+.. class:: LossMetric(name: str, output_transform: _default_output_transform)
+
+
+   Bases: :class:`flame.pytorch.experimental.metrics.metric.Metric`
+
+   Loss可能和一些typing命名冲突
+
+   .. method:: compute(self, loss: torch.Tensor) -> torch.Tensor
+
+      计算metric
+
+
+

@@ -1,0 +1,42 @@
+:mod:`flame.pytorch.experimental.meters.time_meter`
+===================================================
+
+.. py:module:: flame.pytorch.experimental.meters.time_meter
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival
+
+
+
+.. class:: EstimatedTimeOfArrival(start_iteration: int, max_iteration: int)
+
+
+   .. method:: update(self)
+
+
+   .. method:: duration(self) -> datetime.datetime
+      :property:
+
+
+   .. method:: remain_time(self) -> datetime.datetime
+      :property:
+
+
+   .. method:: arrival_time(self) -> datetime.datetime
+      :property:
+
+
+   .. method:: __str__(self) -> str
+
+      Return str(self).
+
+
+

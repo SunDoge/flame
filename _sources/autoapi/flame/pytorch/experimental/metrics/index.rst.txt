@@ -1,0 +1,18 @@
+:mod:`flame.pytorch.experimental.metrics`
+=========================================
+
+.. py:module:: flame.pytorch.experimental.metrics
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   functional/index.rst
+   loss_metric/index.rst
+   metric/index.rst
+   topk_accuracy/index.rst
+
+

@@ -10,6 +10,9 @@ Subpackages
    :titlesonly:
    :maxdepth: 3
 
+   container/index.rst
    engine/index.rst
+   meters/index.rst
+   metrics/index.rst
 
 

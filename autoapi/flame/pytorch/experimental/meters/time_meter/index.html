@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
 
-    <title>flame.pytorch.experimental.engine.utils &#8212; flame 0.0.1 documentation</title>
+    <title>flame.pytorch.experimental.meters.time_meter &#8212; flame 0.0.1 documentation</title>
     
   <link href="../../../../../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../../../../../_static/css/index.f6b7ca918bee2f46fd9abac01cfb07d5.css" rel="stylesheet" />
@@ -35,8 +35,8 @@
     <script src="../../../../../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../../search.html" />
-    <link rel="next" title="flame.pytorch.experimental.meters" href="../../meters/index.html" />
-    <link rel="prev" title="flame.pytorch.experimental.engine.mixins" href="../mixins/index.html" />
+    <link rel="next" title="flame.pytorch.experimental.metrics" href="../../metrics/index.html" />
+    <link rel="prev" title="flame.pytorch.experimental.meters.average_meter" href="../average_meter/index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
   </head>
@@ -235,9 +235,60 @@
           
           <div class="d-none d-xl-block col-xl-2 bd-toc">
               
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
 
 <nav id="bd-toc-nav">
-    
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-contents">
+   Module Contents
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classes">
+     Classes
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival">
+       EstimatedTimeOfArrival
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.update">
+         update
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.duration">
+         duration
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.remain_time">
+         remain_time
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.arrival_time">
+         arrival_time
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.__str__">
+         __str__
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
 </nav>
 
 
@@ -253,8 +304,56 @@
               
               <div>
                 
-  <section id="module-flame.pytorch.experimental.engine.utils">
-<span id="flame-pytorch-experimental-engine-utils"></span><h1><a class="reference internal" href="#module-flame.pytorch.experimental.engine.utils" title="flame.pytorch.experimental.engine.utils"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.engine.utils</span></code></a><a class="headerlink" href="#module-flame.pytorch.experimental.engine.utils" title="Permalink to this headline">¶</a></h1>
+  <section id="module-flame.pytorch.experimental.meters.time_meter">
+<span id="flame-pytorch-experimental-meters-time-meter"></span><h1><a class="reference internal" href="#module-flame.pytorch.experimental.meters.time_meter" title="flame.pytorch.experimental.meters.time_meter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.meters.time_meter</span></code></a><a class="headerlink" href="#module-flame.pytorch.experimental.meters.time_meter" title="Permalink to this headline">¶</a></h1>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival" title="flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EstimatedTimeOfArrival</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt id="flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.meters.time_meter.</span></code><code class="sig-name descname"><span class="pre">EstimatedTimeOfArrival</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_iteration</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iteration</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.update">
+<code class="sig-name descname"><span class="pre">update</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.duration">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">duration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">datetime.datetime</span><a class="headerlink" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.duration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.remain_time">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">remain_time</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">datetime.datetime</span><a class="headerlink" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.remain_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.arrival_time">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">arrival_time</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">datetime.datetime</span><a class="headerlink" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.arrival_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.__str__">
+<code class="sig-name descname"><span class="pre">__str__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return str(self).</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
 </section>
 
 
@@ -263,8 +362,8 @@
               
               <div class='prev-next-bottom'>
                 
-    <a class='left-prev' id="prev-link" href="../mixins/index.html" title="previous page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.engine.mixins</span></code></a>
-    <a class='right-next' id="next-link" href="../../meters/index.html" title="next page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.meters</span></code></a>
+    <a class='left-prev' id="prev-link" href="../average_meter/index.html" title="previous page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.meters.average_meter</span></code></a>
+    <a class='right-next' id="next-link" href="../../metrics/index.html" title="next page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.metrics</span></code></a>
 
               </div>
               

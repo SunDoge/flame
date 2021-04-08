@@ -1,0 +1,15 @@
+:mod:`flame.pytorch.experimental.container`
+===========================================
+
+.. py:module:: flame.pytorch.experimental.container
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   container/index.rst
+
+
