@@ -24,7 +24,7 @@ def signature_contains(obj: Callable, key: str) -> bool:
     return key in signature.parameters
 
 
-def build_from_config(cfg: dict, type_key='_type') -> Any:
+def build_from_config(cfg: dict, *args, type_key='_type') -> Any:
     """
     默认_type指定路径
     """
@@ -36,7 +36,7 @@ def build_from_config(cfg: dict, type_key='_type') -> Any:
 
     kwargs = get_kwargs_from_config(cfg, type_key=type_key)
 
-    return obj(**kwargs)
+    return obj(*args, **kwargs)
 
 
 def get_kwargs_from_config(cfg: dict, type_key='_type') -> dict:
