@@ -23,6 +23,7 @@ Criterion = NewType('Criterion', nn.Module)
 Optimizer = Optimizer
 LrScheduler = LrScheduler
 
+Device = NewType('Device', torch.device)
 
 Trainer = NewType('Trainer', Engine)
 Evaluator = NewType('Evaluator', Engine)
