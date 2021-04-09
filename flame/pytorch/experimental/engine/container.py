@@ -1,7 +1,9 @@
-from injector import Injector, get_bindings
-from typing import Any, Callable, Dict, Optional, Tuple
+from injector import Injector, get_bindings, singleton, provider
+from typing import Any, Callable, Dict, Optional, Tuple, TypeVar
 import functools
 import inspect
+
+T = TypeVar('T')
 
 
 class Container(Injector):
@@ -62,3 +64,7 @@ def get_dependencies(container: Injector, callable: Callable, **kwargs) -> Dict[
     dependencies.update(kwargs)
 
     return dependencies
+
+
+def singleton_provider(func: T) -> T:
+    return singleton(provider(func))
