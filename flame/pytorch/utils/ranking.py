@@ -1,4 +1,4 @@
-from typing import Callable
+from typing import Callable, TypeVar
 import torch.distributed as dist
 import functools
 
@@ -15,7 +15,10 @@ def do_nothing(*args, **kwargs) -> FakeObject:
     return FakeObject()
 
 
-def rank0(func):
+T = TypeVar('T')
+
+
+def rank0(func: T) -> T:
     """run func only on rank 0
 
     You can use it as a decorator
@@ -26,7 +29,7 @@ def rank0(func):
         def my_print(*args, **kwargs):
             print(*args, **kwargs)
 
-    
+
     Args:
         func: function or lambda
     """

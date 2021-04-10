@@ -1,5 +1,5 @@
 import logging
-from typing import Any, Callable
+from typing import Any, Callable, Optional
 
 import torch.cuda as torch_cuda
 import torch.distributed as dist
@@ -54,6 +54,7 @@ def start_distributed_training(
     world_size: int = 1,
     dist_backend: str = 'NCCL',
     dist_url: str = 'tcp://127.0.0.1:12345',
+    nprocs: int = 1,
 ):
     """helper function for distributed training
 
@@ -71,7 +72,7 @@ def start_distributed_training(
         return
 
     # CPU + GLOO, nprocs = 1
-    nprocs = num_gpus if num_gpus > 0 else 1
+    # nprocs = num_gpus if num_gpus > 0 else 1
 
     dist_options = DistOptions(
         rank_start=rank_start,
