@@ -128,7 +128,7 @@ class EstimatedTimeOfArrival:
         rate = self.elapsed / self.elapsed_time.total_seconds()
         arrival_time_str = self.arrival_time.strftime('%Y-%m-%d %H:%M:%S')
 
-        fmt_str = f'{self._prefix}: [{self._n}/{self._total}] {rate:.2f}it/s eta: {remaining_time_str}/{arrival_time_str}'
+        fmt_str = f'{self._prefix}: [{self._n}/{self._total}] {rate:.2f}it/s R: {remaining_time_str} A: {arrival_time_str}'
         return fmt_str
 
 
