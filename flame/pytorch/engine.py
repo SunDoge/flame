@@ -1,5 +1,5 @@
-from dataclasses import dataclass
-from typing import Iterable, Optional
+from dataclasses import dataclass, field
+from typing import Any, Dict, Iterable, Optional
 import logging
 
 _logger = logging.getLogger(__name__)
@@ -19,6 +19,9 @@ class IterationState:
 class EpochState:
     epoch: int = 0
     max_epochs: Optional[int] = None
+
+    # 记录best_acc之类的
+    metrics: Dict[str, Any] = field(default_factory=dict)
 
 
 class IterationEngine:
