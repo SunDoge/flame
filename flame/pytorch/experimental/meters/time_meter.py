@@ -117,6 +117,10 @@ class EstimatedTimeOfArrival:
     def elapsed(self) -> int:
         return self._n - self._inital
 
+    @property
+    def rate(self) -> float:
+        return self.elapsed / self.elapsed_time.total_seconds()
+
     def reset(self):
         self._start_time = None
         self._inital = 0
@@ -125,10 +129,9 @@ class EstimatedTimeOfArrival:
     def __str__(self) -> str:
         remaining_time_str = format_timedelta(self.remaining_time)
 
-        rate = self.elapsed / self.elapsed_time.total_seconds()
         arrival_time_str = self.arrival_time.strftime('%Y-%m-%d %H:%M:%S')
 
-        fmt_str = f'{self._prefix}: [{self._n}/{self._total}] {rate:.2f}it/s R={remaining_time_str} A={arrival_time_str}'
+        fmt_str = f'{self._prefix}: [{self._n}/{self._total}] {self.rate:.2f}it/s R={remaining_time_str} A={arrival_time_str}'
         return fmt_str
 
 
