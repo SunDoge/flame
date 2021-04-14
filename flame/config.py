@@ -3,11 +3,12 @@
 """
 
 
-from typing import List
+from typing import List, Tuple
 from .utils import jsonnet
 import json
 import os
 import logging
+import difflib
 
 _logger = logging.getLogger(__name__)
 
@@ -87,3 +88,21 @@ def dump_as_json(cfg: dict, filename: str):
     _logger.info('dumping config to %s', filename)
     with open(filename, 'w') as f:
         json.dump(cfg, f)
+
+
+def parse_config(local_variables: List[str], files_or_snippets: List[str]) -> Tuple[dict, str]:
+    snippet_before = config_snippet([], files_or_snippets[:1])
+    snippet_after = config_snippet(local_variables, files_or_snippets)
+
+    diff = difflib.unified_diff(
+        snippet_before.splitlines(keepends=True),
+        snippet_after.splitlines(keepends=True),
+        fromfile='before.json',
+        tofile='after.json'
+    )
+
+    diff_str = '\n'.join(diff)
+
+    cfg = from_snippet(snippet_after)
+
+    return cfg, diff_str
