@@ -1,7 +1,7 @@
-from flame.pytorch.meters.base_meter import BaseMeter
+from flame.pytorch.meters.base_meter import Meter
 
 
-class MeterA(BaseMeter):
+class MeterA(Meter):
 
     def __init__(self, total: int) -> None:
         super().__init__()

@@ -1,14 +1,14 @@
 
 from numbers import Number
 from typing import Any, Dict
-from .base_meter import BaseMeter
+from .base_meter import Meter
 from flame.pytorch.utils.distributed import is_dist_available_and_initialized, reduce_numbers
 import logging
 
 _logger = logging.getLogger(__name__)
 
 
-class AverageMeter(BaseMeter):
+class AverageMeter(Meter):
 
     def __init__(self, name: str, fmt: str = ':.f') -> None:
         super().__init__()
@@ -65,7 +65,7 @@ class AverageMeter(BaseMeter):
         return fmt_str.format(name=self.name, fmt=self.fmt)
 
 
-class AverageMeterGroup(BaseMeter):
+class AverageMeterGroup(Meter):
 
     def __init__(self, meters: Dict[str, AverageMeter], delimiter: str = "\t") -> None:
         super().__init__()

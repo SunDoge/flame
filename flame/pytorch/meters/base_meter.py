@@ -2,7 +2,7 @@ from typing import Any
 import copy
 
 
-class BaseMeter:
+class Meter:
     """
     不需要了，定义在reset里面就可以了，vscode可以提示
     """

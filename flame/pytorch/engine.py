@@ -26,8 +26,8 @@ class EpochState:
 
 class IterationEngine:
 
-    def __init__(self) -> None:
-        self.state = IterationState()
+    def __init__(self, state: IterationState) -> None:
+        self.state = state
 
     def update_state(self, epoch_length: int, max_iterations: Optional[int] = None):
         self.state.epoch_length = epoch_length
@@ -44,8 +44,8 @@ class IterationEngine:
 
 class EpochEngine:
 
-    def __init__(self) -> None:
-        self.state = EpochState()
+    def __init__(self, state: EpochState) -> None:
+        self.state = state
 
     def update_state(self, max_epochs: int):
         self.state.max_epochs = max_epochs
