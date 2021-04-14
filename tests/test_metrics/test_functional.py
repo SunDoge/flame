@@ -1,4 +1,5 @@
-from flame.pytorch.experimental.metrics import functional as MF
+# from flame.pytorch.experimental.metrics import functional as MF
+from flame.pytorch.metrics import functional as MF
 import torch
 
 
