@@ -1,0 +1,62 @@
+:mod:`flame.pytorch.meters.time_meter`
+======================================
+
+.. py:module:: flame.pytorch.meters.time_meter
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.meters.time_meter.EstimatedTimeOfArrival
+
+
+
+
+.. class:: EstimatedTimeOfArrival(prefix, total, initial = 0)
+
+
+   Bases: :py:obj:`flame.pytorch.meters.base_meter.Meter`
+
+   不需要了，定义在reset里面就可以了，vscode可以提示
+
+   .. method:: update(self, n = 1)
+
+
+   .. method:: remaining_time(self)
+      :property:
+
+
+   .. method:: arrival_time(self)
+      :property:
+
+
+   .. method:: elapsed_time(self)
+      :property:
+
+
+   .. method:: remaining(self)
+      :property:
+
+
+   .. method:: elapsed(self)
+      :property:
+
+
+   .. method:: rate(self)
+      :property:
+
+
+   .. method:: reset(self)
+
+
+   .. method:: __str__(self)
+
+      Return str(self).
+
+
+

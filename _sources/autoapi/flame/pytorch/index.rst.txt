@@ -10,7 +10,10 @@ Subpackages
    :titlesonly:
    :maxdepth: 3
 
+   checkpoint_saver/index.rst
    experimental/index.rst
+   meters/index.rst
+   metrics/index.rst
    utils/index.rst
 
 

@@ -1,0 +1,41 @@
+:mod:`flame.pytorch.checkpoint_saver.best_checkpoint_saver`
+===========================================================
+
+.. py:module:: flame.pytorch.checkpoint_saver.best_checkpoint_saver
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.checkpoint_saver.best_checkpoint_saver.BestCheckpointSaver
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.checkpoint_saver.best_checkpoint_saver._logger
+
+
+.. data:: _logger
+   
+
+   
+
+.. class:: BestCheckpointSaver(name = 'checkpoint.pth.tar', best_name = 'model_best.pth.tar', higher_is_better = True, entries=None)
+
+
+   Bases: :py:obj:`flame.pytorch.checkpoint_saver.base_checkpoint_saver.CheckpointSaver`
+
+   .. method:: save(self, output_dir, is_best = None, metric = None)
+
+
+

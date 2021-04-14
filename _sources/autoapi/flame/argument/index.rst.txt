@@ -32,6 +32,15 @@ Functions
    flame.argument.save_command
 
 
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.argument._logger
+
+
 .. data:: _logger
    
 
@@ -50,7 +59,7 @@ Functions
       
 
    .. attribute:: output_dir
-      :annotation: :Path
+      :annotation: :pathlib.Path
 
       
 
@@ -75,16 +84,16 @@ Functions
       
 
 
-.. function:: add_basic_arguments(parser: argparse.ArgumentParser) -> argparse.ArgumentParser
+.. function:: add_basic_arguments(parser)
 
 
-.. function:: parse_basic_args(parser: Optional[ArgumentParser] = None) -> flame.argument.BasicArgs
+.. function:: parse_basic_args(parser = None)
 
 
-.. function:: get_command() -> str
+.. function:: get_command()
 
 
-.. function:: save_command(filename: str)
+.. function:: save_command(filename)
 
    保存实验命令，包括实验目录，实验用到的环境变量，实验命令
 

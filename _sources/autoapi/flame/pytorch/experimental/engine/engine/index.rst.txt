@@ -48,6 +48,17 @@ Functions
    flame.pytorch.experimental.engine.engine._default_process_function
 
 
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.experimental.engine.engine._logger
+   flame.pytorch.experimental.engine.engine.HandlerTuple
+   flame.pytorch.experimental.engine.engine.EventHandlerDict
+
+
 .. data:: _logger
    
 
@@ -63,36 +74,36 @@ Functions
 
    
 
-.. function:: _default_process_function(batch: Any) -> Any
+.. function:: _default_process_function(batch)
 
 
-.. class:: Engine(process_function: Callable = _default_process_function, container: Optional[Injector] = None)
+.. class:: Engine(process_function = _default_process_function, container = None)
 
 
-   Bases: :class:`flame.pytorch.experimental.engine.mixins.Serializable`
+   Bases: :py:obj:`flame.pytorch.experimental.engine.mixins.Serializable`
 
    作为Engine的基类
 
-   .. method:: add_event_handler(self, event_name: Union[(Events, EventsList)], handler: Callable, **kwargs)
+   .. method:: add_event_handler(self, event_name, handler, **kwargs)
 
 
-   .. method:: has_event_handler(self, handler: Callable, event_name: Optional[Any] = None) -> bool
+   .. method:: has_event_handler(self, handler, event_name = None)
 
       FIXME: 实现不是很正确
 
 
-   .. method:: compare_handlers(user_handler: Callable, registered_handler: Callable) -> bool
+   .. method:: compare_handlers(user_handler, registered_handler)
       :staticmethod:
 
       FIXME: 比较不是很准确
 
 
-   .. method:: _fire_event(self, event_name: Any)
+   .. method:: _fire_event(self, event_name)
 
       最好不要用args，顺序很难确定
 
 
-   .. method:: fire_event(self, event_name: Any)
+   .. method:: fire_event(self, event_name)
 
 
    .. method:: step_epoch(self)
@@ -104,13 +115,13 @@ Functions
    .. method:: internal_run(self)
 
 
-   .. method:: set_epoch(self, epoch: int)
+   .. method:: set_epoch(self, epoch)
 
 
-   .. method:: set_data(self, data: Iterable)
+   .. method:: set_data(self, data)
 
 
-   .. method:: setup(self, data: Iterable, max_epochs: Optional[int] = None, max_iterations: Optional[int] = None, epoch_length: Optional[int] = None)
+   .. method:: setup(self, data, max_epochs = None, max_iterations = None, epoch_length = None)
 
 
    .. method:: _start_epoch_loop(self)
@@ -126,14 +137,14 @@ Functions
       不知道有什么用
 
 
-   .. method:: get_data_length(data: Iterable) -> Optional[int]
+   .. method:: get_data_length(data)
       :staticmethod:
 
 
-   .. method:: run(self, data: Iterable, max_epochs: Optional[int] = None, max_iterations: Optional[int] = None, epoch_length: Optional[int] = None)
+   .. method:: run(self, data, max_epochs = None, max_iterations = None, epoch_length = None)
 
 
-   .. method:: _handler_wrapper(self, handler: Callable, event_name: Any, event_filter: Callable) -> Callable
+   .. method:: _handler_wrapper(self, handler, event_name, event_filter)
 
 
 

@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>flame.auto_builder &#8212; flame 0.0.1 documentation</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet" />
@@ -236,11 +235,11 @@
               
               <div>
                 
-  <section id="module-flame.auto_builder">
+  <div class="section" id="module-flame.auto_builder">
 <span id="flame-auto-builder"></span><h1><a class="reference internal" href="#module-flame.auto_builder" title="flame.auto_builder"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.auto_builder</span></code></a><a class="headerlink" href="#module-flame.auto_builder" title="Permalink to this headline">¶</a></h1>
-<section id="module-contents">
+<div class="section" id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
-<section id="functions">
+<div class="section" id="functions">
 <h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
 <table class="longtable table autosummary">
 <colgroup>
@@ -248,47 +247,47 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.auto_builder.import_from_path" title="flame.auto_builder.import_from_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">import_from_path</span></code></a>(path: str) → Any</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.auto_builder.import_from_path" title="flame.auto_builder.import_from_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">import_from_path</span></code></a>(path)</p></td>
 <td><p>根据路径名自动import</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame.auto_builder.signature_contains" title="flame.auto_builder.signature_contains"><code class="xref py py-obj docutils literal notranslate"><span class="pre">signature_contains</span></code></a>(obj: Callable, key: str) → bool</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.auto_builder.signature_contains" title="flame.auto_builder.signature_contains"><code class="xref py py-obj docutils literal notranslate"><span class="pre">signature_contains</span></code></a>(obj, key)</p></td>
 <td><p>测试函数签名里面是否存在特定key</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.auto_builder.build_from_config" title="flame.auto_builder.build_from_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build_from_config</span></code></a>(cfg: dict, *args, type_key='_type') → Any</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.auto_builder.build_from_config" title="flame.auto_builder.build_from_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build_from_config</span></code></a>(cfg, *args, type_key='_type')</p></td>
 <td><p>默认_type指定路径</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame.auto_builder.get_kwargs_from_config" title="flame.auto_builder.get_kwargs_from_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_kwargs_from_config</span></code></a>(cfg: dict, type_key='_type') → dict</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.auto_builder.get_kwargs_from_config" title="flame.auto_builder.get_kwargs_from_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_kwargs_from_config</span></code></a>(cfg, type_key='_type')</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py function">
 <dt id="flame.auto_builder.import_from_path">
-<code class="sig-prename descclassname"><span class="pre">flame.auto_builder.</span></code><code class="sig-name descname"><span class="pre">import_from_path</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Any</span><a class="headerlink" href="#flame.auto_builder.import_from_path" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">flame.auto_builder.</span></code><code class="sig-name descname"><span class="pre">import_from_path</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.auto_builder.import_from_path" title="Permalink to this definition">¶</a></dt>
 <dd><p>根据路径名自动import</p>
 <p>torch.nn.Conv2d -&gt; torch.nn + Conv2d</p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="flame.auto_builder.signature_contains">
-<code class="sig-prename descclassname"><span class="pre">flame.auto_builder.</span></code><code class="sig-name descname"><span class="pre">signature_contains</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#flame.auto_builder.signature_contains" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">flame.auto_builder.</span></code><code class="sig-name descname"><span class="pre">signature_contains</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.auto_builder.signature_contains" title="Permalink to this definition">¶</a></dt>
 <dd><p>测试函数签名里面是否存在特定key</p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="flame.auto_builder.build_from_config">
-<code class="sig-prename descclassname"><span class="pre">flame.auto_builder.</span></code><code class="sig-name descname"><span class="pre">build_from_config</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'_type'</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Any</span><a class="headerlink" href="#flame.auto_builder.build_from_config" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">flame.auto_builder.</span></code><code class="sig-name descname"><span class="pre">build_from_config</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'_type'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.auto_builder.build_from_config" title="Permalink to this definition">¶</a></dt>
 <dd><p>默认_type指定路径</p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="flame.auto_builder.get_kwargs_from_config">
-<code class="sig-prename descclassname"><span class="pre">flame.auto_builder.</span></code><code class="sig-name descname"><span class="pre">get_kwargs_from_config</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'_type'</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#flame.auto_builder.get_kwargs_from_config" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">flame.auto_builder.</span></code><code class="sig-name descname"><span class="pre">get_kwargs_from_config</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'_type'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.auto_builder.get_kwargs_from_config" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
               </div>
@@ -315,7 +314,7 @@
   <div class="container">
     <p>
           &copy; Copyright 2021, SunDoge.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.4.<br/>
     </p>
   </div>
 </footer>

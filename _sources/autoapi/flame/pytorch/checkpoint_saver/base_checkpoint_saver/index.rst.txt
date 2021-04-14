@@ -1,0 +1,86 @@
+:mod:`flame.pytorch.checkpoint_saver.base_checkpoint_saver`
+===========================================================
+
+.. py:module:: flame.pytorch.checkpoint_saver.base_checkpoint_saver
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.checkpoint_saver.base_checkpoint_saver.CheckpointSaver
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.checkpoint_saver.base_checkpoint_saver.module_to_state_dict
+   flame.pytorch.checkpoint_saver.base_checkpoint_saver.module_load_state_dict
+   flame.pytorch.checkpoint_saver.base_checkpoint_saver.parallel_module_to_state_dict
+   flame.pytorch.checkpoint_saver.base_checkpoint_saver.parallel_module_load_state_dict
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.checkpoint_saver.base_checkpoint_saver.ToStateDict
+   flame.pytorch.checkpoint_saver.base_checkpoint_saver.LoadStateDict
+   flame.pytorch.checkpoint_saver.base_checkpoint_saver.Entry
+
+
+.. data:: ToStateDict
+   
+
+   
+
+.. data:: LoadStateDict
+   
+
+   
+
+.. function:: module_to_state_dict(m)
+
+
+.. function:: module_load_state_dict(m, state)
+
+
+.. function:: parallel_module_to_state_dict(m)
+
+
+.. function:: parallel_module_load_state_dict(m, state)
+
+
+.. data:: Entry
+   
+
+   
+
+.. class:: CheckpointSaver(entries=None)
+
+
+   .. method:: register(self, key, value, to_state_dict, load_state_dict)
+
+
+   .. method:: state_dict(self)
+
+
+   .. method:: load_state_dict(self, state)
+
+
+   .. method:: save(self, filename)
+
+
+   .. method:: load(self, filename)
+
+
+

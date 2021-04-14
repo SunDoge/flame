@@ -1,0 +1,25 @@
+:mod:`flame.pytorch.metrics.loss_metric`
+========================================
+
+.. py:module:: flame.pytorch.metrics.loss_metric
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.metrics.loss_metric.LossMetric
+
+
+
+
+.. class:: LossMetric(output_transform, name = 'loss')
+
+
+   Bases: :py:obj:`flame.pytorch.metrics.base_metric.Metric`
+
+

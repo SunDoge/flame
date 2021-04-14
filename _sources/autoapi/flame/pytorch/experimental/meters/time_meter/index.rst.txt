@@ -12,31 +12,90 @@ Classes
 
 .. autoapisummary::
 
+   flame.pytorch.experimental.meters.time_meter.ExponentialMovingAverage
    flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival
+   flame.pytorch.experimental.meters.time_meter.EpochEta
+   flame.pytorch.experimental.meters.time_meter.IterationEta
 
 
 
-.. class:: EstimatedTimeOfArrival(start_iteration: int, max_iteration: int)
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.experimental.meters.time_meter._logger
 
 
-   .. method:: update(self)
+.. data:: _logger
+   
+
+   
+
+.. class:: ExponentialMovingAverage(smoothing = 0.3)
 
 
-   .. method:: duration(self) -> datetime.datetime
+   .. method:: __call__(self, x = None)
+
+
+
+.. class:: EstimatedTimeOfArrival(total = None, initial = 0, prefix = '')
+
+
+   .. method:: update(self, n = 1)
+
+
+   .. method:: remaining_time(self)
       :property:
 
 
-   .. method:: remain_time(self) -> datetime.datetime
+   .. method:: arrival_time(self)
       :property:
 
 
-   .. method:: arrival_time(self) -> datetime.datetime
+   .. method:: elapsed_time(self)
       :property:
 
 
-   .. method:: __str__(self) -> str
+   .. method:: remaining(self)
+      :property:
+
+
+   .. method:: elapsed(self)
+      :property:
+
+
+   .. method:: rate(self)
+      :property:
+
+
+   .. method:: reset(self)
+
+
+   .. method:: __str__(self)
 
       Return str(self).
+
+
+
+.. class:: EpochEta(total = None, initial = 0, prefix = '')
+
+
+   Bases: :py:obj:`EstimatedTimeOfArrival`
+
+   如果有evaluator，必须放在evaluator之后
+
+   .. method:: attach(self, engine, prefix = 'Epoch')
+
+
+
+.. class:: IterationEta(total = None, initial = 0, prefix = '')
+
+
+   Bases: :py:obj:`EstimatedTimeOfArrival`
+
+   .. method:: attach(self, engine, prefix = 'Train')
 
 
 

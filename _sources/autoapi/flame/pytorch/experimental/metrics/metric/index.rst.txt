@@ -24,10 +24,11 @@ Functions
    flame.pytorch.experimental.metrics.metric._default_output_transform
 
 
+
 .. function:: _default_output_transform(x)
 
 
-.. class:: Metric(name: Union[(str, Sequence[str])], output_transform: Callable = _default_output_transform)
+.. class:: Metric(name, output_transform = _default_output_transform)
 
 
    .. method:: compute(self, *args, **kwargs)
@@ -35,12 +36,12 @@ Functions
       计算metric
 
 
-   .. method:: update(self, state: flame.pytorch.experimental.engine.State)
+   .. method:: update(self, state)
 
       写入metric
 
 
-   .. method:: attach(self, engine: flame.pytorch.experimental.engine.Engine, event_name: Any = Events.ITERATION_COMPLETED)
+   .. method:: attach(self, engine, event_name = Events.ITERATION_COMPLETED)
 
 
 

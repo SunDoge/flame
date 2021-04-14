@@ -18,12 +18,21 @@ Functions
    flame.utils.experiment.make_experiment_dir
 
 
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.utils.experiment._logger
+
+
 .. data:: _logger
    
 
    
 
-.. function:: get_experiment_dir(output_dir: pathlib.Path, experiment_name: str, debug: bool = False) -> pathlib.Path
+.. function:: get_experiment_dir(output_dir, experiment_name, debug = False)
 
    实验默认是release模式，只有指定debug模式的时候，才会生成debug目录
 
@@ -31,10 +40,10 @@ Functions
    e.g. exps/release/000
 
 
-.. function:: get_output_dir_and_experiment_name(experiment_dir: pathlib.Path) -> Tuple[(Path, str)]
+.. function:: get_output_dir_and_experiment_name(experiment_dir)
 
 
-.. function:: make_experiment_dir(experiment_dir: pathlib.Path, yes: bool = False) -> pathlib.Path
+.. function:: make_experiment_dir(experiment_dir, yes = False)
 
    设计失误，应该传入experiment_dir
 

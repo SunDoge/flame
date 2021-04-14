@@ -16,15 +16,16 @@ Classes
 
 
 
+
 .. class:: Serializable
 
    作为Engine的基类
 
-   .. method:: state_dict(self) -> OrderedDict
+   .. method:: state_dict(self)
       :abstractmethod:
 
 
-   .. method:: load_state_dict(self, state_dict: Mapping)
+   .. method:: load_state_dict(self, state_dict)
 
 
 

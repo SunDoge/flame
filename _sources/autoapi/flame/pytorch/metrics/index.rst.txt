@@ -1,0 +1,76 @@
+:mod:`flame.pytorch.metrics`
+============================
+
+.. py:module:: flame.pytorch.metrics
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   base_metric/index.rst
+   batch_size_metric/index.rst
+   copy_metric/index.rst
+   functional/index.rst
+   loss_metric/index.rst
+   topk_accuracy/index.rst
+
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.metrics.Metric
+   flame.pytorch.metrics.MetricList
+   flame.pytorch.metrics.BatchSizeMetric
+   flame.pytorch.metrics.CopyMetric
+   flame.pytorch.metrics.LossMetric
+   flame.pytorch.metrics.TopkAccuracy
+
+
+
+
+.. class:: Metric(name, output_transform, compute_fn = _default_compute_fn)
+
+
+   .. method:: __call__(self, output)
+
+
+
+.. class:: MetricList(metrics)
+
+
+   .. method:: __call__(self, output)
+
+
+
+.. class:: BatchSizeMetric(output_transform, name = 'batch_size')
+
+
+   Bases: :py:obj:`flame.pytorch.metrics.base_metric.Metric`
+
+
+.. class:: CopyMetric(name)
+
+
+   Bases: :py:obj:`flame.pytorch.metrics.base_metric.Metric`
+
+
+.. class:: LossMetric(output_transform, name = 'loss')
+
+
+   Bases: :py:obj:`flame.pytorch.metrics.base_metric.Metric`
+
+
+.. class:: TopkAccuracy(name, output_transform, topk = (1, ), use_jit = False)
+
+
+   Bases: :py:obj:`flame.pytorch.metrics.base_metric.Metric`
+
+

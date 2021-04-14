@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>flame.pytorch.distributed_training &#8212; flame 0.0.1 documentation</title>
     
   <link href="../../../../_static/css/theme.css" rel="stylesheet" />
@@ -105,10 +104,37 @@
     </a>
     <ul class="current">
      <li class="toctree-l4">
+      <a class="reference internal" href="../checkpoint_saver/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.checkpoint_saver
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
       <a class="reference internal" href="../experimental/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.pytorch.experimental
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
+      <a class="reference internal" href="../meters/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.meters
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
+      <a class="reference internal" href="../metrics/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.metrics
         </span>
        </code>
       </a>
@@ -255,6 +281,11 @@
     <a class="reference internal nav-link" href="#functions">
      Functions
     </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#attributes">
+     Attributes
+    </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#flame.pytorch.distributed_training._logger">
@@ -329,11 +360,11 @@
               
               <div>
                 
-  <section id="module-flame.pytorch.distributed_training">
+  <div class="section" id="module-flame.pytorch.distributed_training">
 <span id="flame-pytorch-distributed-training"></span><h1><a class="reference internal" href="#module-flame.pytorch.distributed_training" title="flame.pytorch.distributed_training"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.distributed_training</span></code></a><a class="headerlink" href="#module-flame.pytorch.distributed_training" title="Permalink to this headline">¶</a></h1>
-<section id="module-contents">
+<div class="section" id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
-<section id="classes">
+<div class="section" id="classes">
 <h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
 <table class="longtable table autosummary">
 <colgroup>
@@ -346,8 +377,8 @@
 </tr>
 </tbody>
 </table>
-</section>
-<section id="functions">
+</div>
+<div class="section" id="functions">
 <h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
 <table class="longtable table autosummary">
 <colgroup>
@@ -355,17 +386,31 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.distributed_training._init_process_group_fn" title="flame.pytorch.distributed_training._init_process_group_fn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_init_process_group_fn</span></code></a>(device_id: int, worker_fn: Callable, dist_options: flame.pytorch.distributed_training.DistOptions, *args)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.distributed_training._init_process_group_fn" title="flame.pytorch.distributed_training._init_process_group_fn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_init_process_group_fn</span></code></a>(device_id, worker_fn, dist_options, *args)</p></td>
 <td><p>wrapper function for worker_fn</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.distributed_training.start_distributed_training" title="flame.pytorch.distributed_training.start_distributed_training"><code class="xref py py-obj docutils literal notranslate"><span class="pre">start_distributed_training</span></code></a>(worker_fn: Callable, args: tuple = (), rank_start: int = 0, world_size: int = 1, dist_backend: str = 'NCCL', dist_url: str = 'tcp://127.0.0.1:12345')</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.distributed_training.start_distributed_training" title="flame.pytorch.distributed_training.start_distributed_training"><code class="xref py py-obj docutils literal notranslate"><span class="pre">start_distributed_training</span></code></a>(worker_fn, args = (), rank_start = 0, world_size = 1, dist_backend = 'NCCL', dist_url = 'tcp://127.0.0.1:12345', nprocs = 1)</p></td>
 <td><p>helper function for distributed training</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.distributed_training.get_available_local_dist_url" title="flame.pytorch.distributed_training.get_available_local_dist_url"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_available_local_dist_url</span></code></a>() → str</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.distributed_training.get_available_local_dist_url" title="flame.pytorch.distributed_training.get_available_local_dist_url"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_available_local_dist_url</span></code></a>()</p></td>
 <td><p>helper function for single node distributed training</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.distributed_training.init_cpu_process_group" title="flame.pytorch.distributed_training.init_cpu_process_group"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_cpu_process_group</span></code></a>(rank: int = 0, world_size: int = 1, dist_url: str = 'tcp://127.0.0.1:12345')</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.distributed_training.init_cpu_process_group" title="flame.pytorch.distributed_training.init_cpu_process_group"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_cpu_process_group</span></code></a>(rank = 0, world_size = 1, dist_url = 'tcp://127.0.0.1:12345')</p></td>
 <td><p>helper function for testing distributed training</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.distributed_training._logger" title="flame.pytorch.distributed_training._logger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_logger</span></code></a></p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
@@ -401,7 +446,7 @@
 
 <dl class="py function">
 <dt id="flame.pytorch.distributed_training._init_process_group_fn">
-<code class="sig-prename descclassname"><span class="pre">flame.pytorch.distributed_training.</span></code><code class="sig-name descname"><span class="pre">_init_process_group_fn</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device_id</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">worker_fn</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dist_options</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#flame.pytorch.distributed_training.DistOptions" title="flame.pytorch.distributed_training.DistOptions"><span class="pre">flame.pytorch.distributed_training.DistOptions</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.distributed_training._init_process_group_fn" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">flame.pytorch.distributed_training.</span></code><code class="sig-name descname"><span class="pre">_init_process_group_fn</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">worker_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dist_options</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.distributed_training._init_process_group_fn" title="Permalink to this definition">¶</a></dt>
 <dd><p>wrapper function for worker_fn</p>
 <p>必须定义成可以被pickle的函数。</p>
 <ol class="arabic simple">
@@ -414,7 +459,7 @@
 
 <dl class="py function">
 <dt id="flame.pytorch.distributed_training.start_distributed_training">
-<code class="sig-prename descclassname"><span class="pre">flame.pytorch.distributed_training.</span></code><code class="sig-name descname"><span class="pre">start_distributed_training</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">worker_fn</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">tuple</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rank_start</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">world_size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dist_backend</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'NCCL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dist_url</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'tcp://127.0.0.1:12345'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.distributed_training.start_distributed_training" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">flame.pytorch.distributed_training.</span></code><code class="sig-name descname"><span class="pre">start_distributed_training</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">worker_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rank_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">world_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dist_backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NCCL'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dist_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tcp://127.0.0.1:12345'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nprocs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.distributed_training.start_distributed_training" title="Permalink to this definition">¶</a></dt>
 <dd><p>helper function for distributed training</p>
 <ol class="arabic simple">
 <li><p>get number of GPUs</p></li>
@@ -426,7 +471,7 @@
 
 <dl class="py function">
 <dt id="flame.pytorch.distributed_training.get_available_local_dist_url">
-<code class="sig-prename descclassname"><span class="pre">flame.pytorch.distributed_training.</span></code><code class="sig-name descname"><span class="pre">get_available_local_dist_url</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#flame.pytorch.distributed_training.get_available_local_dist_url" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">flame.pytorch.distributed_training.</span></code><code class="sig-name descname"><span class="pre">get_available_local_dist_url</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.distributed_training.get_available_local_dist_url" title="Permalink to this definition">¶</a></dt>
 <dd><p>helper function for single node distributed training</p>
 <p>Get a local dist url like:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tcp</span><span class="p">:</span><span class="o">//</span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="p">:</span><span class="mi">12345</span>
@@ -436,15 +481,15 @@
 
 <dl class="py function">
 <dt id="flame.pytorch.distributed_training.init_cpu_process_group">
-<code class="sig-prename descclassname"><span class="pre">flame.pytorch.distributed_training.</span></code><code class="sig-name descname"><span class="pre">init_cpu_process_group</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rank</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">world_size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dist_url</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'tcp://127.0.0.1:12345'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.distributed_training.init_cpu_process_group" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">flame.pytorch.distributed_training.</span></code><code class="sig-name descname"><span class="pre">init_cpu_process_group</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rank</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">world_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dist_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tcp://127.0.0.1:12345'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.distributed_training.init_cpu_process_group" title="Permalink to this definition">¶</a></dt>
 <dd><p>helper function for testing distributed training</p>
 <p>测试函数，方便在CPU环境下测试分布式操作，比如测试MoCo的shuffle bn。
 不要在生产环境中使用。</p>
 </dd></dl>
 
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
               </div>
@@ -471,7 +516,7 @@
   <div class="container">
     <p>
           &copy; Copyright 2021, SunDoge.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.4.<br/>
     </p>
   </div>
 </footer>

@@ -13,5 +13,7 @@ Submodules
    experiment/index.rst
    jsonnet/index.rst
    operating_system/index.rst
+   rich_formatter/index.rst
+   timing/index.rst
 
 

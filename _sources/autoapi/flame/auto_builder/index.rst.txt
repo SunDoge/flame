@@ -19,23 +19,24 @@ Functions
    flame.auto_builder.get_kwargs_from_config
 
 
-.. function:: import_from_path(path: str) -> Any
+
+.. function:: import_from_path(path)
 
    根据路径名自动import
 
    torch.nn.Conv2d -> torch.nn + Conv2d
 
 
-.. function:: signature_contains(obj: Callable, key: str) -> bool
+.. function:: signature_contains(obj, key)
 
    测试函数签名里面是否存在特定key
 
 
-.. function:: build_from_config(cfg: dict, *args, type_key='_type') -> Any
+.. function:: build_from_config(cfg, *args, type_key='_type')
 
    默认_type指定路径
 
 
-.. function:: get_kwargs_from_config(cfg: dict, type_key='_type') -> dict
+.. function:: get_kwargs_from_config(cfg, type_key='_type')
 
 

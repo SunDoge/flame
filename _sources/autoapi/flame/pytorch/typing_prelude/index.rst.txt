@@ -16,6 +16,33 @@ Classes
 
 
 
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.typing_prelude.TrainDataset
+   flame.pytorch.typing_prelude.ValDataset
+   flame.pytorch.typing_prelude.TestDataset
+   flame.pytorch.typing_prelude.TrainLoader
+   flame.pytorch.typing_prelude.ValLoader
+   flame.pytorch.typing_prelude.TestLoader
+   flame.pytorch.typing_prelude.RootConfig
+   flame.pytorch.typing_prelude.ExperimentDir
+   flame.pytorch.typing_prelude.Criterion
+   flame.pytorch.typing_prelude.Optimizer
+   flame.pytorch.typing_prelude.LrScheduler
+   flame.pytorch.typing_prelude.Device
+   flame.pytorch.typing_prelude.Trainer
+   flame.pytorch.typing_prelude.Evaluator
+   flame.pytorch.typing_prelude.TrainState
+   flame.pytorch.typing_prelude.ValState
+   flame.pytorch.typing_prelude.TestState
+   flame.pytorch.typing_prelude.TensorDict
+   flame.pytorch.typing_prelude.TensorList
+
+
 .. data:: TrainDataset
    
 
@@ -31,17 +58,17 @@ Classes
 
    
 
-.. data:: TrainDataLoader
+.. data:: TrainLoader
    
 
    
 
-.. data:: ValDataLoader
+.. data:: ValLoader
    
 
    
 
-.. data:: TestDataLoader
+.. data:: TestLoader
    
 
    
@@ -71,6 +98,11 @@ Classes
 
    
 
+.. data:: Device
+   
+
+   
+
 .. data:: Trainer
    
 
@@ -81,10 +113,25 @@ Classes
 
    
 
+.. data:: TrainState
+   
+
+   
+
+.. data:: ValState
+   
+
+   
+
+.. data:: TestState
+   
+
+   
+
 .. class:: Model
 
 
-   Bases: :class:`torch.nn.Module`
+   Bases: :py:obj:`torch.nn.Module`
 
    Base class for all neural network modules.
 
@@ -114,7 +161,7 @@ Classes
    :vartype training: bool
 
    .. attribute:: module
-      :annotation: :nn.Module
+      :annotation: :torch.nn.Module
 
       
 

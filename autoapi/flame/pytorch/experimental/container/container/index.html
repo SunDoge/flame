@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>flame.pytorch.experimental.container.container &#8212; flame 0.0.1 documentation</title>
     
   <link href="../../../../../../_static/css/theme.css" rel="stylesheet" />
@@ -104,11 +103,38 @@
      </code>
     </a>
     <ul class="current">
+     <li class="toctree-l4">
+      <a class="reference internal" href="../../../checkpoint_saver/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.checkpoint_saver
+        </span>
+       </code>
+      </a>
+     </li>
      <li class="toctree-l4 current active">
       <a class="reference internal" href="../../index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.pytorch.experimental
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
+      <a class="reference internal" href="../../../meters/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.meters
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
+      <a class="reference internal" href="../../../metrics/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.metrics
         </span>
        </code>
       </a>
@@ -255,6 +281,11 @@
     <a class="reference internal nav-link" href="#functions">
      Functions
     </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#attributes">
+     Attributes
+    </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#flame.pytorch.experimental.container.container.Kwargs">
@@ -322,11 +353,11 @@
               
               <div>
                 
-  <section id="module-flame.pytorch.experimental.container.container">
+  <div class="section" id="module-flame.pytorch.experimental.container.container">
 <span id="flame-pytorch-experimental-container-container"></span><h1><a class="reference internal" href="#module-flame.pytorch.experimental.container.container" title="flame.pytorch.experimental.container.container"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.container.container</span></code></a><a class="headerlink" href="#module-flame.pytorch.experimental.container.container" title="Permalink to this headline">¶</a></h1>
-<section id="module-contents">
+<div class="section" id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
-<section id="classes">
+<div class="section" id="classes">
 <h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
 <table class="longtable table autosummary">
 <colgroup>
@@ -342,8 +373,8 @@
 </tr>
 </tbody>
 </table>
-</section>
-<section id="functions">
+</div>
+<div class="section" id="functions">
 <h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
 <table class="longtable table autosummary">
 <colgroup>
@@ -351,16 +382,36 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.experimental.container.container.cached" title="flame.pytorch.experimental.container.container.cached"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cached</span></code></a>(func: T) → T</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.experimental.container.container.cached" title="flame.pytorch.experimental.container.container.cached"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cached</span></code></a>(func)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.experimental.container.container.cached_inject" title="flame.pytorch.experimental.container.container.cached_inject"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cached_inject</span></code></a>(func: T) → T</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.experimental.container.container.cached_inject" title="flame.pytorch.experimental.container.container.cached_inject"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cached_inject</span></code></a>(func)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.experimental.container.container.get_dependencies" title="flame.pytorch.experimental.container.container.get_dependencies"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_dependencies</span></code></a>(container: injector.Injector, callable: Callable, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.experimental.container.container.get_dependencies" title="flame.pytorch.experimental.container.container.get_dependencies"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_dependencies</span></code></a>(container, callable, **kwargs)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.experimental.container.container.cache_injections" title="flame.pytorch.experimental.container.container.cache_injections"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cache_injections</span></code></a>(func: Callable, injector: injector.Injector, self_) → Callable</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.experimental.container.container.cache_injections" title="flame.pytorch.experimental.container.container.cache_injections"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cache_injections</span></code></a>(func, injector, self_)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.experimental.container.container.Kwargs" title="flame.pytorch.experimental.container.container.Kwargs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Kwargs</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.experimental.container.container.CachedFunction" title="flame.pytorch.experimental.container.container.CachedFunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CachedFunction</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.experimental.container.container.T" title="flame.pytorch.experimental.container.container.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -382,27 +433,27 @@
 
 <dl class="py function">
 <dt id="flame.pytorch.experimental.container.container.cached">
-<code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.container.container.</span></code><code class="sig-name descname"><span class="pre">cached</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#flame.pytorch.experimental.container.container.T" title="flame.pytorch.experimental.container.container.T"><span class="pre">T</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#flame.pytorch.experimental.container.container.T" title="flame.pytorch.experimental.container.container.T"><span class="pre">T</span></a><a class="headerlink" href="#flame.pytorch.experimental.container.container.cached" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.container.container.</span></code><code class="sig-name descname"><span class="pre">cached</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.container.container.cached" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt id="flame.pytorch.experimental.container.container.cached_inject">
-<code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.container.container.</span></code><code class="sig-name descname"><span class="pre">cached_inject</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#flame.pytorch.experimental.container.container.T" title="flame.pytorch.experimental.container.container.T"><span class="pre">T</span></a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#flame.pytorch.experimental.container.container.T" title="flame.pytorch.experimental.container.container.T"><span class="pre">T</span></a><a class="headerlink" href="#flame.pytorch.experimental.container.container.cached_inject" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.container.container.</span></code><code class="sig-name descname"><span class="pre">cached_inject</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.container.container.cached_inject" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt id="flame.pytorch.experimental.container.container.get_dependencies">
-<code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.container.container.</span></code><code class="sig-name descname"><span class="pre">get_dependencies</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">container</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">injector.Injector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callable</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.container.container.get_dependencies" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.container.container.</span></code><code class="sig-name descname"><span class="pre">get_dependencies</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">container</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callable</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.container.container.get_dependencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt id="flame.pytorch.experimental.container.container.cache_injections">
-<code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.container.container.</span></code><code class="sig-name descname"><span class="pre">cache_injections</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">injector</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">injector.Injector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">self_</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Callable</span><a class="headerlink" href="#flame.pytorch.experimental.container.container.cache_injections" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.container.container.</span></code><code class="sig-name descname"><span class="pre">cache_injections</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">injector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">self_</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.container.container.cache_injections" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py class">
 <dt id="flame.pytorch.experimental.container.container.Container">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.container.container.</span></code><code class="sig-name descname"><span class="pre">Container</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">injector</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Injector</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.container.container.Container" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.container.container.</span></code><code class="sig-name descname"><span class="pre">Container</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">injector</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.container.container.Container" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py class">
@@ -410,9 +461,9 @@
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.container.container.</span></code><code class="sig-name descname"><span class="pre">A</span></code><a class="headerlink" href="#flame.pytorch.experimental.container.container.A" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
               </div>
@@ -439,7 +490,7 @@
   <div class="container">
     <p>
           &copy; Copyright 2021, SunDoge.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.4.<br/>
     </p>
   </div>
 </footer>

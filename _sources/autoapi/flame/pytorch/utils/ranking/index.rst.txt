@@ -25,14 +25,28 @@ Functions
    flame.pytorch.utils.ranking.rank0
 
 
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.utils.ranking.T
+
+
 .. class:: FakeObject
 
-   .. method:: __getattr__(self, _name: str) -> Callable
+   .. method:: __getattr__(self, _name)
 
 
 
-.. function:: do_nothing(*args, **kwargs) -> flame.pytorch.utils.ranking.FakeObject
+.. function:: do_nothing(*args, **kwargs)
 
+
+.. data:: T
+   
+
+   
 
 .. function:: rank0(func)
 

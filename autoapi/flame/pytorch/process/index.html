@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>flame.pytorch.process &#8212; flame 0.0.1 documentation</title>
     
   <link href="../../../../_static/css/theme.css" rel="stylesheet" />
@@ -105,10 +104,37 @@
     </a>
     <ul class="current">
      <li class="toctree-l4">
+      <a class="reference internal" href="../checkpoint_saver/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.checkpoint_saver
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
       <a class="reference internal" href="../experimental/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.pytorch.experimental
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
+      <a class="reference internal" href="../meters/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.meters
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
+      <a class="reference internal" href="../metrics/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.metrics
         </span>
        </code>
       </a>
@@ -250,6 +276,11 @@
     <a class="reference internal nav-link" href="#classes">
      Classes
     </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#attributes">
+     Attributes
+    </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#flame.pytorch.process._logger">
@@ -346,11 +377,11 @@
               
               <div>
                 
-  <section id="module-flame.pytorch.process">
+  <div class="section" id="module-flame.pytorch.process">
 <span id="flame-pytorch-process"></span><h1><a class="reference internal" href="#module-flame.pytorch.process" title="flame.pytorch.process"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.process</span></code></a><a class="headerlink" href="#module-flame.pytorch.process" title="Permalink to this headline">¶</a></h1>
-<section id="module-contents">
+<div class="section" id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
-<section id="classes">
+<div class="section" id="classes">
 <h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
 <table class="longtable table autosummary">
 <colgroup>
@@ -366,6 +397,20 @@
 </tr>
 </tbody>
 </table>
+</div>
+<div class="section" id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.process._logger" title="flame.pytorch.process._logger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_logger</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
 <dl class="py data">
 <dt id="flame.pytorch.process._logger">
 <code class="sig-prename descclassname"><span class="pre">flame.pytorch.process.</span></code><code class="sig-name descname"><span class="pre">_logger</span></code><a class="headerlink" href="#flame.pytorch.process._logger" title="Permalink to this definition">¶</a></dt>
@@ -376,7 +421,7 @@
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.process.</span></code><code class="sig-name descname"><span class="pre">BaseProcess</span></code><a class="headerlink" href="#flame.pytorch.process.BaseProcess" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="py method">
 <dt id="flame.pytorch.process.BaseProcess.forward">
-<code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="p"><span class="pre">,</span> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#flame.pytorch.process.BaseProcess.forward" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.process.BaseProcess.forward" title="Permalink to this definition">¶</a></dt>
 <dd><p>forward wrapper</p>
 <p>处理数据并计算loss，决定返回哪些数据。</p>
 <dl class="field-list simple">
@@ -400,12 +445,12 @@ output: 其他不需要backward的内容</p>
 
 <dl class="py method">
 <dt id="flame.pytorch.process.BaseProcess.training_step">
-<code class="sig-name descname"><span class="pre">training_step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Any</span><a class="headerlink" href="#flame.pytorch.process.BaseProcess.training_step" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">training_step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.process.BaseProcess.training_step" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="flame.pytorch.process.BaseProcess.validation_step">
-<code class="sig-name descname"><span class="pre">validation_step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Any</span><a class="headerlink" href="#flame.pytorch.process.BaseProcess.validation_step" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">validation_step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.process.BaseProcess.validation_step" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -415,7 +460,7 @@ output: 其他不需要backward的内容</p>
 
 <dl class="py method">
 <dt id="flame.pytorch.process.BaseProcess.train">
-<code class="sig-name descname"><span class="pre">train</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.process.BaseProcess.train" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">train</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.process.BaseProcess.train" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -427,11 +472,11 @@ output: 其他不需要backward的内容</p>
 
 <dl class="py class">
 <dt id="flame.pytorch.process.SupervisedProcess">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.process.</span></code><code class="sig-name descname"><span class="pre">SupervisedProcess</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../typing_prelude/index.html#flame.pytorch.typing_prelude.Model" title="flame.pytorch.typing_prelude.Model"><span class="pre">flame.pytorch.typing_prelude.Model</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../typing_prelude/index.html#flame.pytorch.typing_prelude.Optimizer" title="flame.pytorch.typing_prelude.Optimizer"><span class="pre">flame.pytorch.typing_prelude.Optimizer</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">criterion</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../typing_prelude/index.html#flame.pytorch.typing_prelude.Criterion" title="flame.pytorch.typing_prelude.Criterion"><span class="pre">flame.pytorch.typing_prelude.Criterion</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">grad_scaler</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">GradScaler</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.process.SupervisedProcess" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#flame.pytorch.process.BaseProcess" title="flame.pytorch.process.BaseProcess"><code class="xref py py-class docutils literal notranslate"><span class="pre">flame.pytorch.process.BaseProcess</span></code></a></p>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.process.</span></code><code class="sig-name descname"><span class="pre">SupervisedProcess</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">criterion</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grad_scaler</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.process.SupervisedProcess" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#flame.pytorch.process.BaseProcess" title="flame.pytorch.process.BaseProcess"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseProcess</span></code></a></p>
 <dl class="py method">
 <dt id="flame.pytorch.process.SupervisedProcess.forward">
-<code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="p"><span class="pre">,</span> </span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="p"><span class="pre">,</span> </span><span class="pre">TensorDict</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#flame.pytorch.process.SupervisedProcess.forward" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.process.SupervisedProcess.forward" title="Permalink to this definition">¶</a></dt>
 <dd><p>forward wrapper</p>
 <p>处理数据并计算loss，决定返回哪些数据。</p>
 <dl class="field-list simple">
@@ -455,12 +500,12 @@ output: 其他不需要backward的内容</p>
 
 <dl class="py method">
 <dt id="flame.pytorch.process.SupervisedProcess.training_step">
-<code class="sig-name descname"><span class="pre">training_step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Any</span><a class="headerlink" href="#flame.pytorch.process.SupervisedProcess.training_step" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">training_step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.process.SupervisedProcess.training_step" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="flame.pytorch.process.SupervisedProcess.validation_step">
-<code class="sig-name descname"><span class="pre">validation_step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Any</span><a class="headerlink" href="#flame.pytorch.process.SupervisedProcess.validation_step" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">validation_step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.process.SupervisedProcess.validation_step" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -470,14 +515,14 @@ output: 其他不需要backward的内容</p>
 
 <dl class="py method">
 <dt id="flame.pytorch.process.SupervisedProcess.train">
-<code class="sig-name descname"><span class="pre">train</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.process.SupervisedProcess.train" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">train</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.process.SupervisedProcess.train" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
               </div>
@@ -504,7 +549,7 @@ output: 其他不需要backward的内容</p>
   <div class="container">
     <p>
           &copy; Copyright 2021, SunDoge.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.4.<br/>
     </p>
   </div>
 </footer>

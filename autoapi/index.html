@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>API Reference &#8212; flame 0.0.1 documentation</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
@@ -123,13 +122,19 @@
               
               <div>
                 
-  <section id="api-reference">
+  <div class="section" id="api-reference">
 <h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h1>
 <p>This page contains auto-generated API reference documentation <a class="footnote-reference brackets" href="#f1" id="id1">1</a>.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="flame/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame</span></code></a><ul>
 <li class="toctree-l2"><a class="reference internal" href="flame/pytorch/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="flame/pytorch/checkpoint_saver/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.checkpoint_saver</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flame/pytorch/checkpoint_saver/base_checkpoint_saver/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.checkpoint_saver.base_checkpoint_saver</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flame/pytorch/checkpoint_saver/best_checkpoint_saver/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.checkpoint_saver.best_checkpoint_saver</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flame/pytorch/checkpoint_saver/periodic_checkpoint_saver/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.checkpoint_saver.periodic_checkpoint_saver</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="flame/pytorch/experimental/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="flame/pytorch/experimental/container/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.container</span></code></a><ul>
 <li class="toctree-l5"><a class="reference internal" href="flame/pytorch/experimental/container/container/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.container.container</span></code></a></li>
@@ -145,6 +150,7 @@
 </li>
 <li class="toctree-l4"><a class="reference internal" href="flame/pytorch/experimental/meters/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.meters</span></code></a><ul>
 <li class="toctree-l5"><a class="reference internal" href="flame/pytorch/experimental/meters/average_meter/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.meters.average_meter</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="flame/pytorch/experimental/meters/progress/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.meters.progress</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="flame/pytorch/experimental/meters/time_meter/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.meters.time_meter</span></code></a></li>
 </ul>
 </li>
@@ -157,8 +163,25 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="flame/pytorch/meters/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.meters</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flame/pytorch/meters/average_meter/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.meters.average_meter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flame/pytorch/meters/base_meter/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.meters.base_meter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flame/pytorch/meters/smoothed_value/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.meters.smoothed_value</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flame/pytorch/meters/time_meter/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.meters.time_meter</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="flame/pytorch/metrics/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.metrics</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="flame/pytorch/metrics/base_metric/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.metrics.base_metric</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flame/pytorch/metrics/batch_size_metric/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.metrics.batch_size_metric</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flame/pytorch/metrics/copy_metric/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.metrics.copy_metric</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flame/pytorch/metrics/functional/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.metrics.functional</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flame/pytorch/metrics/loss_metric/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.metrics.loss_metric</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flame/pytorch/metrics/topk_accuracy/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.metrics.topk_accuracy</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="flame/pytorch/utils/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.utils</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="flame/pytorch/utils/attributes/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.utils.attributes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="flame/pytorch/utils/distributed/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.utils.distributed</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="flame/pytorch/utils/ranking/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.utils.ranking</span></code></a></li>
 </ul>
 </li>
@@ -172,6 +195,8 @@
 <li class="toctree-l3"><a class="reference internal" href="flame/utils/experiment/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.utils.experiment</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="flame/utils/jsonnet/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.utils.jsonnet</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="flame/utils/operating_system/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.utils.operating_system</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flame/utils/rich_formatter/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.utils.rich_formatter</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="flame/utils/timing/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.utils.timing</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="flame/archiver/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.archiver</span></code></a></li>
@@ -189,7 +214,7 @@
 <dd><p>Created with <a class="reference external" href="https://github.com/readthedocs/sphinx-autoapi">sphinx-autoapi</a></p>
 </dd>
 </dl>
-</section>
+</div>
 
 
               </div>
@@ -216,7 +241,7 @@
   <div class="container">
     <p>
           &copy; Copyright 2021, SunDoge.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.4.<br/>
     </p>
   </div>
 </footer>

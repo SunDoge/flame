@@ -22,12 +22,27 @@ Functions
 .. autoapisummary::
 
    flame.pytorch.experimental.engine.container.get_dependencies
+   flame.pytorch.experimental.engine.container.singleton_provider
 
 
-.. class:: Container(modules: Any = None, auto_bind: bool = True, parent: Optional[Injector] = None)
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.experimental.engine.container.T
 
 
-   Bases: :class:`injector.Injector`
+.. data:: T
+   
+
+   
+
+.. class:: Container(modules = None, auto_bind = True, parent = None)
+
+
+   Bases: :py:obj:`injector.Injector`
 
    :param modules: Optional - a configuration module or iterable of configuration modules.
        Each module will be installed in current :class:`Binder` using :meth:`Binder.install`.
@@ -43,13 +58,16 @@ Functions
    .. versionchanged:: 0.13.0
        ``use_annotations`` parameter is removed
 
-   .. method:: with_injection(self, func: Callable) -> Callable
+   .. method:: with_injection(self, func)
 
 
-   .. method:: get_dependencies(self, callable: Callable, args=(), kwargs={}) -> Tuple[(Tuple[Any], Dict[str, Any])]
+   .. method:: get_dependencies(self, callable, args=(), kwargs={})
 
 
 
-.. function:: get_dependencies(container: injector.Injector, callable: Callable, **kwargs) -> Dict[(str, Any)]
+.. function:: get_dependencies(container, callable, **kwargs)
+
+
+.. function:: singleton_provider(func)
 
 

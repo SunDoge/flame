@@ -17,14 +17,15 @@ Functions
    flame.utils.jsonnet.evaluate_snippet
 
 
-.. function:: evaluate_file(filename: str, **kwargs) -> str
+
+.. function:: evaluate_file(filename, **kwargs)
 
    eval file
 
    :param filename: jsonnet file
 
 
-.. function:: evaluate_snippet(filename: str, expr: str, **kwargs) -> str
+.. function:: evaluate_snippet(filename, expr, **kwargs)
 
    eval snippet
 

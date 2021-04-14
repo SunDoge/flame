@@ -1,0 +1,11 @@
+:mod:`flame.pytorch.meters.smoothed_value`
+==========================================
+
+.. py:module:: flame.pytorch.meters.smoothed_value
+
+.. autoapi-nested-parse::
+
+   https://github.com/pytorch/vision/blob/master/references/classification/utils.py#L13
+
+
+

@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>flame.logging &#8212; flame 0.0.1 documentation</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet" />
@@ -193,6 +192,11 @@
     <a class="reference internal nav-link" href="#functions">
      Functions
     </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#attributes">
+     Attributes
+    </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#flame.logging._logger">
@@ -255,11 +259,11 @@
               
               <div>
                 
-  <section id="module-flame.logging">
+  <div class="section" id="module-flame.logging">
 <span id="flame-logging"></span><h1><a class="reference internal" href="#module-flame.logging" title="flame.logging"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.logging</span></code></a><a class="headerlink" href="#module-flame.logging" title="Permalink to this headline">¶</a></h1>
-<section id="module-contents">
+<div class="section" id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
-<section id="functions">
+<div class="section" id="functions">
 <h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
 <table class="longtable table autosummary">
 <colgroup>
@@ -273,19 +277,39 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#flame.logging.set_excepthook" title="flame.logging.set_excepthook"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_excepthook</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.logging.get_file_handler" title="flame.logging.get_file_handler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_file_handler</span></code></a>(filename: str, fmt: str = FILE_FORMAT)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.logging.get_file_handler" title="flame.logging.get_file_handler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_file_handler</span></code></a>(filename, fmt = FILE_FORMAT)</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#flame.logging.get_console_handler" title="flame.logging.get_console_handler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_console_handler</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.logging.init_logger" title="flame.logging.init_logger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_logger</span></code></a>(rank: int = 0, filename: Optional[str] = None, debug: bool = False)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.logging.init_logger" title="flame.logging.init_logger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_logger</span></code></a>(rank = 0, filename = None, debug = False)</p></td>
 <td><p><dl class="field-list simple">
 <dt class="field-odd">param rank</dt>
 <dd class="field-odd"><p>目前只有rank0会输出到console和log file</p>
 </dd>
 </dl>
 </p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.logging._logger" title="flame.logging._logger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_logger</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.logging.FILE_FORMAT" title="flame.logging.FILE_FORMAT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FILE_FORMAT</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.logging.CONSOLE_FORMAT" title="flame.logging.CONSOLE_FORMAT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CONSOLE_FORMAT</span></code></a></p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
@@ -301,7 +325,7 @@
 
 <dl class="py data">
 <dt id="flame.logging.CONSOLE_FORMAT">
-<code class="sig-prename descclassname"><span class="pre">flame.logging.</span></code><code class="sig-name descname"><span class="pre">CONSOLE_FORMAT</span></code><em class="property"> <span class="pre">=</span> <span class="pre">%(message)s</span></em><a class="headerlink" href="#flame.logging.CONSOLE_FORMAT" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">flame.logging.</span></code><code class="sig-name descname"><span class="pre">CONSOLE_FORMAT</span></code><em class="property"> <span class="pre">=</span> <span class="pre">%(asctime)s</span> <span class="pre">%(levelname)-8s:</span> <span class="pre">%(message)s</span></em><a class="headerlink" href="#flame.logging.CONSOLE_FORMAT" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
@@ -317,7 +341,7 @@
 
 <dl class="py function">
 <dt id="flame.logging.get_file_handler">
-<code class="sig-prename descclassname"><span class="pre">flame.logging.</span></code><code class="sig-name descname"><span class="pre">get_file_handler</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">FILE_FORMAT</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.logging.get_file_handler" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">flame.logging.</span></code><code class="sig-name descname"><span class="pre">get_file_handler</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">FILE_FORMAT</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.logging.get_file_handler" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
@@ -327,7 +351,7 @@
 
 <dl class="py function">
 <dt id="flame.logging.init_logger">
-<code class="sig-prename descclassname"><span class="pre">flame.logging.</span></code><code class="sig-name descname"><span class="pre">init_logger</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rank</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.logging.init_logger" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">flame.logging.</span></code><code class="sig-name descname"><span class="pre">init_logger</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rank</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.logging.init_logger" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>rank</strong> – 目前只有rank0会输出到console和log file</p>
@@ -335,9 +359,9 @@
 </dl>
 </dd></dl>
 
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
               </div>
@@ -363,7 +387,7 @@
   <div class="container">
     <p>
           &copy; Copyright 2021, SunDoge.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.4.<br/>
     </p>
   </div>
 </footer>

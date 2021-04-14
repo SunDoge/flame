@@ -1,0 +1,25 @@
+:mod:`flame.pytorch.metrics.topk_accuracy`
+==========================================
+
+.. py:module:: flame.pytorch.metrics.topk_accuracy
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.metrics.topk_accuracy.TopkAccuracy
+
+
+
+
+.. class:: TopkAccuracy(name, output_transform, topk = (1, ), use_jit = False)
+
+
+   Bases: :py:obj:`flame.pytorch.metrics.base_metric.Metric`
+
+

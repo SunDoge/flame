@@ -20,6 +20,17 @@ Functions
    flame.logging.init_logger
 
 
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.logging._logger
+   flame.logging.FILE_FORMAT
+   flame.logging.CONSOLE_FORMAT
+
+
 .. data:: _logger
    
 
@@ -31,7 +42,7 @@ Functions
    
 
 .. data:: CONSOLE_FORMAT
-   :annotation: = %(message)s
+   :annotation: = %(asctime)s %(levelname)-8s: %(message)s
 
    
 
@@ -43,13 +54,13 @@ Functions
 .. function:: set_excepthook()
 
 
-.. function:: get_file_handler(filename: str, fmt: str = FILE_FORMAT)
+.. function:: get_file_handler(filename, fmt = FILE_FORMAT)
 
 
 .. function:: get_console_handler()
 
 
-.. function:: init_logger(rank: int = 0, filename: Optional[str] = None, debug: bool = False)
+.. function:: init_logger(rank = 0, filename = None, debug = False)
 
    :param rank: 目前只有rank0会输出到console和log file
 

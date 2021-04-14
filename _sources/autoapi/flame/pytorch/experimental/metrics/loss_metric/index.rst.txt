@@ -24,17 +24,18 @@ Functions
    flame.pytorch.experimental.metrics.loss_metric._default_output_transform
 
 
-.. function:: _default_output_transform(output: Dict[(str, Any)])
+
+.. function:: _default_output_transform(output)
 
 
-.. class:: LossMetric(name: str, output_transform: _default_output_transform)
+.. class:: LossMetric(name, output_transform)
 
 
-   Bases: :class:`flame.pytorch.experimental.metrics.metric.Metric`
+   Bases: :py:obj:`flame.pytorch.experimental.metrics.metric.Metric`
 
    Loss可能和一些typing命名冲突
 
-   .. method:: compute(self, loss: torch.Tensor) -> torch.Tensor
+   .. method:: compute(self, loss)
 
       计算metric
 

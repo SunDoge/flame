@@ -11,6 +11,7 @@ Submodules
    :maxdepth: 1
 
    attributes/index.rst
+   distributed/index.rst
    ranking/index.rst
 
 
@@ -26,6 +27,7 @@ Functions
    flame.pytorch.utils.rank0
    flame.pytorch.utils.get_learning_rate_from_optimizer
    flame.pytorch.utils.get_first_parameter_or_buffer
+
 
 
 .. function:: rank0(func)
@@ -44,13 +46,13 @@ Functions
    :param func: function or lambda
 
 
-.. function:: get_learning_rate_from_optimizer(optimizer: torch.optim.Optimizer) -> float
+.. function:: get_learning_rate_from_optimizer(optimizer)
 
    Get learning rate from optimizer
 
 
 
-.. function:: get_first_parameter_or_buffer(module: torch.nn.Module) -> torch.Tensor
+.. function:: get_first_parameter_or_buffer(module)
 
    Get first parameter or buffer from module
 

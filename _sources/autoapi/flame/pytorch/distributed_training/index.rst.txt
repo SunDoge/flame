@@ -27,6 +27,15 @@ Functions
    flame.pytorch.distributed_training.init_cpu_process_group
 
 
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.distributed_training._logger
+
+
 .. data:: _logger
    
 
@@ -55,7 +64,7 @@ Functions
       
 
 
-.. function:: _init_process_group_fn(device_id: int, worker_fn: Callable, dist_options: flame.pytorch.distributed_training.DistOptions, *args)
+.. function:: _init_process_group_fn(device_id, worker_fn, dist_options, *args)
 
    wrapper function for worker_fn
 
@@ -67,7 +76,7 @@ Functions
    4. call worker_fn
 
 
-.. function:: start_distributed_training(worker_fn: Callable, args: tuple = (), rank_start: int = 0, world_size: int = 1, dist_backend: str = 'NCCL', dist_url: str = 'tcp://127.0.0.1:12345')
+.. function:: start_distributed_training(worker_fn, args = (), rank_start = 0, world_size = 1, dist_backend = 'NCCL', dist_url = 'tcp://127.0.0.1:12345', nprocs = 1)
 
    helper function for distributed training
 
@@ -77,7 +86,7 @@ Functions
    4. call worker_fn with args
 
 
-.. function:: get_available_local_dist_url() -> str
+.. function:: get_available_local_dist_url()
 
    helper function for single node distributed training
 
@@ -87,7 +96,7 @@ Functions
 
 
 
-.. function:: init_cpu_process_group(rank: int = 0, world_size: int = 1, dist_url: str = 'tcp://127.0.0.1:12345')
+.. function:: init_cpu_process_group(rank = 0, world_size = 1, dist_url = 'tcp://127.0.0.1:12345')
 
    helper function for testing distributed training
 

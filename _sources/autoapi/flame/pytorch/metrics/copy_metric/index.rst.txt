@@ -1,0 +1,25 @@
+:mod:`flame.pytorch.metrics.copy_metric`
+========================================
+
+.. py:module:: flame.pytorch.metrics.copy_metric
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.metrics.copy_metric.CopyMetric
+
+
+
+
+.. class:: CopyMetric(name)
+
+
+   Bases: :py:obj:`flame.pytorch.metrics.base_metric.Metric`
+
+

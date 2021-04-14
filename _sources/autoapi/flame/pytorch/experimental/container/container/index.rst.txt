@@ -28,6 +28,17 @@ Functions
    flame.pytorch.experimental.container.container.cache_injections
 
 
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.experimental.container.container.Kwargs
+   flame.pytorch.experimental.container.container.CachedFunction
+   flame.pytorch.experimental.container.container.T
+
+
 .. data:: Kwargs
    
 
@@ -43,19 +54,19 @@ Functions
 
    
 
-.. function:: cached(func: T) -> T
+.. function:: cached(func)
 
 
-.. function:: cached_inject(func: T) -> T
+.. function:: cached_inject(func)
 
 
-.. function:: get_dependencies(container: injector.Injector, callable: Callable, **kwargs)
+.. function:: get_dependencies(container, callable, **kwargs)
 
 
-.. function:: cache_injections(func: Callable, injector: injector.Injector, self_) -> Callable
+.. function:: cache_injections(func, injector, self_)
 
 
-.. class:: Container(injector: Optional[Injector] = None)
+.. class:: Container(injector = None)
 
 
 

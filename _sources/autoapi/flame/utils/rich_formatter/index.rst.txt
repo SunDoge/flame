@@ -1,0 +1,35 @@
+:mod:`flame.utils.rich_formatter`
+=================================
+
+.. py:module:: flame.utils.rich_formatter
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.utils.rich_formatter.rich_format
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.utils.rich_formatter.T
+
+
+.. data:: T
+   
+
+   
+
+.. function:: rich_format(obj)
+
+

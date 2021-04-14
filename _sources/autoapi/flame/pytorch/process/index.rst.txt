@@ -17,6 +17,15 @@ Classes
 
 
 
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.process._logger
+
+
 .. data:: _logger
    
 
@@ -24,7 +33,7 @@ Classes
 
 .. class:: BaseProcess
 
-   .. method:: forward(self, batch: Any) -> Tuple[(Tensor, Any)]
+   .. method:: forward(self, batch)
 
       forward wrapper
 
@@ -43,28 +52,28 @@ Classes
               return loss, {'loss': loss, 'pred': pred, 'label': label}
 
 
-   .. method:: training_step(self, batch: Any) -> Any
+   .. method:: training_step(self, batch)
 
 
-   .. method:: validation_step(self, batch: Any) -> Any
+   .. method:: validation_step(self, batch)
 
 
    .. method:: update(self)
 
 
-   .. method:: train(self, mode: bool = True)
+   .. method:: train(self, mode = True)
 
 
    .. method:: eval(self)
 
 
 
-.. class:: SupervisedProcess(model: flame.pytorch.typing_prelude.Model, optimizer: flame.pytorch.typing_prelude.Optimizer, criterion: flame.pytorch.typing_prelude.Criterion, grad_scaler: Optional[GradScaler] = None)
+.. class:: SupervisedProcess(model, optimizer, criterion, grad_scaler = None)
 
 
-   Bases: :class:`flame.pytorch.process.BaseProcess`
+   Bases: :py:obj:`BaseProcess`
 
-   .. method:: forward(self, batch: Tuple[(Tensor, Tensor)]) -> Tuple[(Tensor, TensorDict)]
+   .. method:: forward(self, batch)
 
       forward wrapper
 
@@ -83,16 +92,16 @@ Classes
               return loss, {'loss': loss, 'pred': pred, 'label': label}
 
 
-   .. method:: training_step(self, batch: Any) -> Any
+   .. method:: training_step(self, batch)
 
 
-   .. method:: validation_step(self, batch: Any) -> Any
+   .. method:: validation_step(self, batch)
 
 
    .. method:: update(self)
 
 
-   .. method:: train(self, mode: bool = True)
+   .. method:: train(self, mode = True)
 
 
 

@@ -1,0 +1,35 @@
+:mod:`flame.pytorch.meters.base_meter`
+======================================
+
+.. py:module:: flame.pytorch.meters.base_meter
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.meters.base_meter.Meter
+
+
+
+
+.. class:: Meter
+
+   不需要了，定义在reset里面就可以了，vscode可以提示
+
+   .. method:: reset(self)
+
+
+   .. method:: sync(self)
+
+
+   .. method:: __str__(self)
+
+      Return str(self).
+
+
+

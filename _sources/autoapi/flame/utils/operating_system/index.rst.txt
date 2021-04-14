@@ -17,12 +17,21 @@ Functions
    flame.utils.operating_system.ulimit_n_max
 
 
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.utils.operating_system._logger
+
+
 .. data:: _logger
    
 
    
 
-.. function:: find_free_port() -> int
+.. function:: find_free_port()
 
    find a free port for distributed training automatically
 

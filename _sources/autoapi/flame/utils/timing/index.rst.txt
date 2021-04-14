@@ -1,0 +1,26 @@
+:mod:`flame.utils.timing`
+=========================
+
+.. py:module:: flame.utils.timing
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.utils.timing.format_timedelta
+
+
+
+.. function:: format_timedelta(delta, show_microsecond = False)
+
+   格式化timedelta
+
+   默认不显示microsecond
+
+

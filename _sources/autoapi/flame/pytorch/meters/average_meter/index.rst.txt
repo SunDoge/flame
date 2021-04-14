@@ -1,0 +1,84 @@
+:mod:`flame.pytorch.meters.average_meter`
+=========================================
+
+.. py:module:: flame.pytorch.meters.average_meter
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.meters.average_meter.AverageMeter
+   flame.pytorch.meters.average_meter.AverageMeterGroup
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.meters.average_meter._logger
+
+
+.. data:: _logger
+   
+
+   
+
+.. class:: AverageMeter(name, fmt = ':.f')
+
+
+   Bases: :py:obj:`flame.pytorch.meters.base_meter.Meter`
+
+   不需要了，定义在reset里面就可以了，vscode可以提示
+
+   .. method:: reset(self)
+
+
+   .. method:: reset_local(self)
+
+
+   .. method:: update(self, val, n = 1)
+
+
+   .. method:: sync(self)
+
+
+   .. method:: avg(self)
+      :property:
+
+
+   .. method:: __str__(self)
+
+      Return str(self).
+
+
+
+.. class:: AverageMeterGroup(meters, delimiter = '\t')
+
+
+   Bases: :py:obj:`flame.pytorch.meters.base_meter.Meter`
+
+   不需要了，定义在reset里面就可以了，vscode可以提示
+
+   .. method:: update(self, output, n = 1)
+
+
+   .. method:: sync(self)
+
+
+   .. method:: reset(self)
+
+
+   .. method:: __str__(self)
+
+      Return str(self).
+
+
+

@@ -1,0 +1,49 @@
+:mod:`flame.pytorch.metrics.base_metric`
+========================================
+
+.. py:module:: flame.pytorch.metrics.base_metric
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.metrics.base_metric.Metric
+   flame.pytorch.metrics.base_metric.MetricList
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.metrics.base_metric._to_number
+   flame.pytorch.metrics.base_metric._default_compute_fn
+
+
+
+.. function:: _to_number(x)
+
+
+.. function:: _default_compute_fn(*args)
+
+
+.. class:: Metric(name, output_transform, compute_fn = _default_compute_fn)
+
+
+   .. method:: __call__(self, output)
+
+
+
+.. class:: MetricList(metrics)
+
+
+   .. method:: __call__(self, output)
+
+
+

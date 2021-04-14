@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>flame.pytorch.experimental.meters.time_meter &#8212; flame 0.0.1 documentation</title>
     
   <link href="../../../../../../_static/css/theme.css" rel="stylesheet" />
@@ -36,7 +35,7 @@
     <link rel="index" title="Index" href="../../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../../search.html" />
     <link rel="next" title="flame.pytorch.experimental.metrics" href="../../metrics/index.html" />
-    <link rel="prev" title="flame.pytorch.experimental.meters.average_meter" href="../average_meter/index.html" />
+    <link rel="prev" title="flame.pytorch.experimental.meters.progress" href="../progress/index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
   </head>
@@ -104,11 +103,38 @@
      </code>
     </a>
     <ul class="current">
+     <li class="toctree-l4">
+      <a class="reference internal" href="../../../checkpoint_saver/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.checkpoint_saver
+        </span>
+       </code>
+      </a>
+     </li>
      <li class="toctree-l4 current active">
       <a class="reference internal" href="../../index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.pytorch.experimental
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
+      <a class="reference internal" href="../../../meters/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.meters
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
+      <a class="reference internal" href="../../../metrics/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.metrics
         </span>
        </code>
       </a>
@@ -250,7 +276,29 @@
     <a class="reference internal nav-link" href="#classes">
      Classes
     </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#attributes">
+     Attributes
+    </a>
     <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.pytorch.experimental.meters.time_meter._logger">
+       _logger
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.pytorch.experimental.meters.time_meter.ExponentialMovingAverage">
+       ExponentialMovingAverage
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.meters.time_meter.ExponentialMovingAverage.__call__">
+         __call__
+        </a>
+       </li>
+      </ul>
+     </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival">
        EstimatedTimeOfArrival
@@ -262,13 +310,8 @@
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.duration">
-         duration
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.remain_time">
-         remain_time
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.remaining_time">
+         remaining_time
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
@@ -277,8 +320,57 @@
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.elapsed_time">
+         elapsed_time
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.remaining">
+         remaining
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.elapsed">
+         elapsed
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.rate">
+         rate
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.reset">
+         reset
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.__str__">
          __str__
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.pytorch.experimental.meters.time_meter.EpochEta">
+       EpochEta
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.meters.time_meter.EpochEta.attach">
+         attach
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.pytorch.experimental.meters.time_meter.IterationEta">
+       IterationEta
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.experimental.meters.time_meter.IterationEta.attach">
+         attach
         </a>
        </li>
       </ul>
@@ -304,11 +396,11 @@
               
               <div>
                 
-  <section id="module-flame.pytorch.experimental.meters.time_meter">
+  <div class="section" id="module-flame.pytorch.experimental.meters.time_meter">
 <span id="flame-pytorch-experimental-meters-time-meter"></span><h1><a class="reference internal" href="#module-flame.pytorch.experimental.meters.time_meter" title="flame.pytorch.experimental.meters.time_meter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.meters.time_meter</span></code></a><a class="headerlink" href="#module-flame.pytorch.experimental.meters.time_meter" title="Permalink to this headline">¶</a></h1>
-<section id="module-contents">
+<div class="section" id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
-<section id="classes">
+<div class="section" id="classes">
 <h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
 <table class="longtable table autosummary">
 <colgroup>
@@ -316,45 +408,126 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival" title="flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EstimatedTimeOfArrival</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.experimental.meters.time_meter.ExponentialMovingAverage" title="flame.pytorch.experimental.meters.time_meter.ExponentialMovingAverage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ExponentialMovingAverage</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival" title="flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EstimatedTimeOfArrival</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.experimental.meters.time_meter.EpochEta" title="flame.pytorch.experimental.meters.time_meter.EpochEta"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EpochEta</span></code></a></p></td>
+<td><p>如果有evaluator，必须放在evaluator之后</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.experimental.meters.time_meter.IterationEta" title="flame.pytorch.experimental.meters.time_meter.IterationEta"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IterationEta</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="section" id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.experimental.meters.time_meter._logger" title="flame.pytorch.experimental.meters.time_meter._logger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_logger</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt id="flame.pytorch.experimental.meters.time_meter._logger">
+<code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.meters.time_meter.</span></code><code class="sig-name descname"><span class="pre">_logger</span></code><a class="headerlink" href="#flame.pytorch.experimental.meters.time_meter._logger" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt id="flame.pytorch.experimental.meters.time_meter.ExponentialMovingAverage">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.meters.time_meter.</span></code><code class="sig-name descname"><span class="pre">ExponentialMovingAverage</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">smoothing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.meters.time_meter.ExponentialMovingAverage" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="flame.pytorch.experimental.meters.time_meter.ExponentialMovingAverage.__call__">
+<code class="sig-name descname"><span class="pre">__call__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.meters.time_meter.ExponentialMovingAverage.__call__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 <dl class="py class">
 <dt id="flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.meters.time_meter.</span></code><code class="sig-name descname"><span class="pre">EstimatedTimeOfArrival</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_iteration</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iteration</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.meters.time_meter.</span></code><code class="sig-name descname"><span class="pre">EstimatedTimeOfArrival</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="py method">
 <dt id="flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.update">
-<code class="sig-name descname"><span class="pre">update</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.update" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">update</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.update" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.duration">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">duration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">datetime.datetime</span><a class="headerlink" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.duration" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.remain_time">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">remain_time</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">datetime.datetime</span><a class="headerlink" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.remain_time" title="Permalink to this definition">¶</a></dt>
+<dt id="flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.remaining_time">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">remaining_time</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.remaining_time" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.arrival_time">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">arrival_time</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">datetime.datetime</span><a class="headerlink" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.arrival_time" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">arrival_time</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.arrival_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.elapsed_time">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">elapsed_time</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.elapsed_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.remaining">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">remaining</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.remaining" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.elapsed">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">elapsed</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.elapsed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.rate">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">rate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.rate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.reset">
+<code class="sig-name descname"><span class="pre">reset</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.reset" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.__str__">
-<code class="sig-name descname"><span class="pre">__str__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.__str__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__str__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival.__str__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return str(self).</p>
 </dd></dl>
 
 </dd></dl>
 
-</section>
-</section>
-</section>
+<dl class="py class">
+<dt id="flame.pytorch.experimental.meters.time_meter.EpochEta">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.meters.time_meter.</span></code><code class="sig-name descname"><span class="pre">EpochEta</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.meters.time_meter.EpochEta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival" title="flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EstimatedTimeOfArrival</span></code></a></p>
+<p>如果有evaluator，必须放在evaluator之后</p>
+<dl class="py method">
+<dt id="flame.pytorch.experimental.meters.time_meter.EpochEta.attach">
+<code class="sig-name descname"><span class="pre">attach</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Epoch'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.meters.time_meter.EpochEta.attach" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="flame.pytorch.experimental.meters.time_meter.IterationEta">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.meters.time_meter.</span></code><code class="sig-name descname"><span class="pre">IterationEta</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">total</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.meters.time_meter.IterationEta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival" title="flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EstimatedTimeOfArrival</span></code></a></p>
+<dl class="py method">
+<dt id="flame.pytorch.experimental.meters.time_meter.IterationEta.attach">
+<code class="sig-name descname"><span class="pre">attach</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Train'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.meters.time_meter.IterationEta.attach" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
 
 
               </div>
@@ -362,7 +535,7 @@
               
               <div class='prev-next-bottom'>
                 
-    <a class='left-prev' id="prev-link" href="../average_meter/index.html" title="previous page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.meters.average_meter</span></code></a>
+    <a class='left-prev' id="prev-link" href="../progress/index.html" title="previous page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.meters.progress</span></code></a>
     <a class='right-next' id="next-link" href="../../metrics/index.html" title="next page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.metrics</span></code></a>
 
               </div>
@@ -381,7 +554,7 @@
   <div class="container">
     <p>
           &copy; Copyright 2021, SunDoge.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.4.<br/>
     </p>
   </div>
 </footer>

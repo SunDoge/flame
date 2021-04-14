@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>flame.pytorch.experimental.engine.container &#8212; flame 0.0.1 documentation</title>
     
   <link href="../../../../../../_static/css/theme.css" rel="stylesheet" />
@@ -104,11 +103,38 @@
      </code>
     </a>
     <ul class="current">
+     <li class="toctree-l4">
+      <a class="reference internal" href="../../../checkpoint_saver/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.checkpoint_saver
+        </span>
+       </code>
+      </a>
+     </li>
      <li class="toctree-l4 current active">
       <a class="reference internal" href="../../index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.pytorch.experimental
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
+      <a class="reference internal" href="../../../meters/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.meters
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
+      <a class="reference internal" href="../../../metrics/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.metrics
         </span>
        </code>
       </a>
@@ -255,7 +281,17 @@
     <a class="reference internal nav-link" href="#functions">
      Functions
     </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#attributes">
+     Attributes
+    </a>
     <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.container.T">
+       T
+      </a>
+     </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.container.Container">
        Container
@@ -276,6 +312,11 @@
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.container.get_dependencies">
        get_dependencies
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.pytorch.experimental.engine.container.singleton_provider">
+       singleton_provider
       </a>
      </li>
     </ul>
@@ -299,11 +340,11 @@
               
               <div>
                 
-  <section id="module-flame.pytorch.experimental.engine.container">
+  <div class="section" id="module-flame.pytorch.experimental.engine.container">
 <span id="flame-pytorch-experimental-engine-container"></span><h1><a class="reference internal" href="#module-flame.pytorch.experimental.engine.container" title="flame.pytorch.experimental.engine.container"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.engine.container</span></code></a><a class="headerlink" href="#module-flame.pytorch.experimental.engine.container" title="Permalink to this headline">¶</a></h1>
-<section id="module-contents">
+<div class="section" id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
-<section id="classes">
+<div class="section" id="classes">
 <h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
 <table class="longtable table autosummary">
 <colgroup>
@@ -321,8 +362,8 @@
 </tr>
 </tbody>
 </table>
-</section>
-<section id="functions">
+</div>
+<div class="section" id="functions">
 <h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
 <table class="longtable table autosummary">
 <colgroup>
@@ -330,15 +371,37 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.experimental.engine.container.get_dependencies" title="flame.pytorch.experimental.engine.container.get_dependencies"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_dependencies</span></code></a>(container: injector.Injector, callable: Callable, **kwargs) → Dict[(str, Any)]</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.experimental.engine.container.get_dependencies" title="flame.pytorch.experimental.engine.container.get_dependencies"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_dependencies</span></code></a>(container, callable, **kwargs)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.experimental.engine.container.singleton_provider" title="flame.pytorch.experimental.engine.container.singleton_provider"><code class="xref py py-obj docutils literal notranslate"><span class="pre">singleton_provider</span></code></a>(func)</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="section" id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.experimental.engine.container.T" title="flame.pytorch.experimental.engine.container.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt id="flame.pytorch.experimental.engine.container.T">
+<code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.engine.container.</span></code><code class="sig-name descname"><span class="pre">T</span></code><a class="headerlink" href="#flame.pytorch.experimental.engine.container.T" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py class">
 <dt id="flame.pytorch.experimental.engine.container.Container">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.engine.container.</span></code><code class="sig-name descname"><span class="pre">Container</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modules</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_bind</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Injector</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.container.Container" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">injector.Injector</span></code></p>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.engine.container.</span></code><code class="sig-name descname"><span class="pre">Container</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modules</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_bind</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.container.Container" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">injector.Injector</span></code></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -359,24 +422,29 @@ Each module will be installed in current <code class="xref py py-class docutils 
 </div>
 <dl class="py method">
 <dt id="flame.pytorch.experimental.engine.container.Container.with_injection">
-<code class="sig-name descname"><span class="pre">with_injection</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Callable</span><a class="headerlink" href="#flame.pytorch.experimental.engine.container.Container.with_injection" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">with_injection</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.container.Container.with_injection" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt id="flame.pytorch.experimental.engine.container.Container.get_dependencies">
-<code class="sig-name descname"><span class="pre">get_dependencies</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callable</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#flame.pytorch.experimental.engine.container.Container.get_dependencies" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_dependencies</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.container.Container.get_dependencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py function">
 <dt id="flame.pytorch.experimental.engine.container.get_dependencies">
-<code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.engine.container.</span></code><code class="sig-name descname"><span class="pre">get_dependencies</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">container</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">injector.Injector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callable</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#flame.pytorch.experimental.engine.container.get_dependencies" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.engine.container.</span></code><code class="sig-name descname"><span class="pre">get_dependencies</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">container</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callable</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.container.get_dependencies" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
-</section>
-</section>
+<dl class="py function">
+<dt id="flame.pytorch.experimental.engine.container.singleton_provider">
+<code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.engine.container.</span></code><code class="sig-name descname"><span class="pre">singleton_provider</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.container.singleton_provider" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+</div>
 
 
               </div>
@@ -403,7 +471,7 @@ Each module will be installed in current <code class="xref py py-class docutils 
   <div class="container">
     <p>
           &copy; Copyright 2021, SunDoge.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.4.<br/>
     </p>
   </div>
 </footer>

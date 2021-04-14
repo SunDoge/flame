@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>flame.pytorch.engine &#8212; flame 0.0.1 documentation</title>
     
   <link href="../../../../_static/css/theme.css" rel="stylesheet" />
@@ -105,10 +104,37 @@
     </a>
     <ul class="current">
      <li class="toctree-l4">
+      <a class="reference internal" href="../checkpoint_saver/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.checkpoint_saver
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
       <a class="reference internal" href="../experimental/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.pytorch.experimental
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
+      <a class="reference internal" href="../meters/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.meters
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
+      <a class="reference internal" href="../metrics/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.metrics
         </span>
        </code>
       </a>
@@ -250,38 +276,99 @@
     <a class="reference internal nav-link" href="#classes">
      Classes
     </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#attributes">
+     Attributes
+    </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.pytorch.engine.Engine">
-       Engine
+      <a class="reference internal nav-link" href="#flame.pytorch.engine._logger">
+       _logger
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.pytorch.engine.IterationState">
+       IterationState
       </a>
       <ul class="nav section-nav flex-column">
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#flame.pytorch.engine.Engine.with_engine">
-         with_engine
+        <a class="reference internal nav-link" href="#flame.pytorch.engine.IterationState.iteration">
+         iteration
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#flame.pytorch.engine.Engine.add_event_handler">
-         add_event_handler
+        <a class="reference internal nav-link" href="#flame.pytorch.engine.IterationState.max_iterations">
+         max_iterations
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#flame.pytorch.engine.Engine._fire_event">
-         _fire_event
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#flame.pytorch.engine.Engine.iter_counter">
-         iter_counter
+        <a class="reference internal nav-link" href="#flame.pytorch.engine.IterationState.epoch_length">
+         epoch_length
         </a>
        </li>
       </ul>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.pytorch.engine.A">
-       A
+      <a class="reference internal nav-link" href="#flame.pytorch.engine.EpochState">
+       EpochState
       </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.engine.EpochState.epoch">
+         epoch
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.engine.EpochState.max_epochs">
+         max_epochs
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.engine.EpochState.metrics">
+         metrics
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.pytorch.engine.IterationEngine">
+       IterationEngine
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.engine.IterationEngine.update_state">
+         update_state
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.engine.IterationEngine.enumerate">
+         enumerate
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.engine.IterationEngine.every_n_iterations">
+         every_n_iterations
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.pytorch.engine.EpochEngine">
+       EpochEngine
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.engine.EpochEngine.update_state">
+         update_state
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.engine.EpochEngine.every_n_epochs">
+         every_n_epochs
+        </a>
+       </li>
+      </ul>
      </li>
     </ul>
    </li>
@@ -304,11 +391,11 @@
               
               <div>
                 
-  <section id="module-flame.pytorch.engine">
+  <div class="section" id="module-flame.pytorch.engine">
 <span id="flame-pytorch-engine"></span><h1><a class="reference internal" href="#module-flame.pytorch.engine" title="flame.pytorch.engine"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.engine</span></code></a><a class="headerlink" href="#module-flame.pytorch.engine" title="Permalink to this headline">¶</a></h1>
-<section id="module-contents">
+<div class="section" id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
-<section id="classes">
+<div class="section" id="classes">
 <h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
 <table class="longtable table autosummary">
 <colgroup>
@@ -316,111 +403,117 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.engine.Engine" title="flame.pytorch.engine.Engine"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Engine</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.engine.IterationState" title="flame.pytorch.engine.IterationState"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IterationState</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.engine.A" title="flame.pytorch.engine.A"><code class="xref py py-obj docutils literal notranslate"><span class="pre">A</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.engine.EpochState" title="flame.pytorch.engine.EpochState"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EpochState</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.engine.IterationEngine" title="flame.pytorch.engine.IterationEngine"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IterationEngine</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.engine.EpochEngine" title="flame.pytorch.engine.EpochEngine"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EpochEngine</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
-<dl class="py class">
-<dt id="flame.pytorch.engine.Engine">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.engine.</span></code><code class="sig-name descname"><span class="pre">Engine</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">process_function</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">injector</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Injector</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.engine.Engine" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ignite.engine.Engine</span></code></p>
-<dl class="py method">
-<dt id="flame.pytorch.engine.Engine.with_engine">
-<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">with_engine</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">process_function_without_engine</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Callable</span><a class="headerlink" href="#flame.pytorch.engine.Engine.with_engine" title="Permalink to this definition">¶</a></dt>
-<dd><p>Helper function</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="flame.pytorch.engine.Engine.add_event_handler">
-<code class="sig-name descname"><span class="pre">add_event_handler</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handler</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">ignite.engine.RemovableEventHandle</span><a class="headerlink" href="#flame.pytorch.engine.Engine.add_event_handler" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add an event handler to be executed when the specified event is fired.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>event_name</strong> – An event or a list of events to attach the handler. Valid events are
-from <code class="xref py py-class docutils literal notranslate"><span class="pre">Events</span></code> or any <code class="docutils literal notranslate"><span class="pre">event_name</span></code> added by
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">register_events()</span></code>.</p></li>
-<li><p><strong>handler</strong> – the callable event handler that should be invoked. No restrictions on its signature.
-The first argument can be optionally <cite>engine</cite>, the <code class="xref py py-class docutils literal notranslate"><span class="pre">Engine</span></code> object,
-handler is bound to.</p></li>
-<li><p><strong>args</strong> – optional args to be passed to <code class="docutils literal notranslate"><span class="pre">handler</span></code>.</p></li>
-<li><p><strong>kwargs</strong> – optional keyword args to be passed to <code class="docutils literal notranslate"><span class="pre">handler</span></code>.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">RemovableEventHandle</span></code>, which can be used to remove the handler.</p>
-</dd>
-</dl>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Note that other arguments can be passed to the handler in addition to the <cite>*args</cite> and  <cite>**kwargs</cite>
-passed here, for example during <code class="xref py py-attr docutils literal notranslate"><span class="pre">EXCEPTION_RAISED</span></code>.</p>
 </div>
-<p>Example usage:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">engine</span> <span class="o">=</span> <span class="n">Engine</span><span class="p">(</span><span class="n">process_function</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">print_epoch</span><span class="p">(</span><span class="n">engine</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Epoch: </span><span class="si">{</span><span class="n">engine</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">epoch</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="n">engine</span><span class="o">.</span><span class="n">add_event_handler</span><span class="p">(</span><span class="n">Events</span><span class="o">.</span><span class="n">EPOCH_COMPLETED</span><span class="p">,</span> <span class="n">print_epoch</span><span class="p">)</span>
-
-<span class="n">events_list</span> <span class="o">=</span> <span class="n">Events</span><span class="o">.</span><span class="n">EPOCH_COMPLETED</span> <span class="o">|</span> <span class="n">Events</span><span class="o">.</span><span class="n">COMPLETED</span>
-
-<span class="k">def</span> <span class="nf">execute_something</span><span class="p">():</span>
-    <span class="c1"># do some thing not related to engine</span>
-    <span class="k">pass</span>
-
-<span class="n">engine</span><span class="o">.</span><span class="n">add_event_handler</span><span class="p">(</span><span class="n">events_list</span><span class="p">,</span> <span class="n">execute_something</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Since v0.3.0, Events become more flexible and allow to pass an event filter to the Engine.
-See <code class="xref py py-class docutils literal notranslate"><span class="pre">Events</span></code> for more details.</p>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt id="flame.pytorch.engine.Engine._fire_event">
-<code class="sig-name descname"><span class="pre">_fire_event</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">event_args</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">event_kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#flame.pytorch.engine.Engine._fire_event" title="Permalink to this definition">¶</a></dt>
-<dd><p>Execute all the handlers associated with given event.</p>
-<p>This method executes all handlers associated with the event
-<cite>event_name</cite>. Optional positional and keyword arguments can be used to
-pass arguments to <strong>all</strong> handlers added with this event. These
-arguments updates arguments passed using <code class="xref py py-meth docutils literal notranslate"><span class="pre">add_event_handler()</span></code>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>event_name</strong> – event for which the handlers should be executed. Valid
-events are from <code class="xref py py-class docutils literal notranslate"><span class="pre">Events</span></code> or any <cite>event_name</cite> added by
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">register_events()</span></code>.</p></li>
-<li><p><strong>*event_args</strong> – optional args to be passed to all handlers.</p></li>
-<li><p><strong>**event_kwargs</strong> – optional keyword args to be passed to all handlers.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="flame.pytorch.engine.Engine.iter_counter">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">iter_counter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.engine.Engine.iter_counter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get current iter number, 1 base</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="flame.pytorch.engine.A">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.engine.</span></code><code class="sig-name descname"><span class="pre">A</span></code><a class="headerlink" href="#flame.pytorch.engine.A" title="Permalink to this definition">¶</a></dt>
+<div class="section" id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.engine._logger" title="flame.pytorch.engine._logger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_logger</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt id="flame.pytorch.engine._logger">
+<code class="sig-prename descclassname"><span class="pre">flame.pytorch.engine.</span></code><code class="sig-name descname"><span class="pre">_logger</span></code><a class="headerlink" href="#flame.pytorch.engine._logger" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
-</section>
-</section>
+<dl class="py class">
+<dt id="flame.pytorch.engine.IterationState">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.engine.</span></code><code class="sig-name descname"><span class="pre">IterationState</span></code><a class="headerlink" href="#flame.pytorch.engine.IterationState" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt id="flame.pytorch.engine.IterationState.iteration">
+<code class="sig-name descname"><span class="pre">iteration</span></code><em class="property"> <span class="pre">:int</span> <span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#flame.pytorch.engine.IterationState.iteration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="flame.pytorch.engine.IterationState.max_iterations">
+<code class="sig-name descname"><span class="pre">max_iterations</span></code><em class="property"> <span class="pre">:Optional[int]</span></em><a class="headerlink" href="#flame.pytorch.engine.IterationState.max_iterations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="flame.pytorch.engine.IterationState.epoch_length">
+<code class="sig-name descname"><span class="pre">epoch_length</span></code><em class="property"> <span class="pre">:Optional[int]</span></em><a class="headerlink" href="#flame.pytorch.engine.IterationState.epoch_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="flame.pytorch.engine.EpochState">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.engine.</span></code><code class="sig-name descname"><span class="pre">EpochState</span></code><a class="headerlink" href="#flame.pytorch.engine.EpochState" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt id="flame.pytorch.engine.EpochState.epoch">
+<code class="sig-name descname"><span class="pre">epoch</span></code><em class="property"> <span class="pre">:int</span> <span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#flame.pytorch.engine.EpochState.epoch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="flame.pytorch.engine.EpochState.max_epochs">
+<code class="sig-name descname"><span class="pre">max_epochs</span></code><em class="property"> <span class="pre">:Optional[int]</span></em><a class="headerlink" href="#flame.pytorch.engine.EpochState.max_epochs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="flame.pytorch.engine.EpochState.metrics">
+<code class="sig-name descname"><span class="pre">metrics</span></code><em class="property"> <span class="pre">:Dict[str,</span> <span class="pre">Any]</span></em><a class="headerlink" href="#flame.pytorch.engine.EpochState.metrics" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="flame.pytorch.engine.IterationEngine">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.engine.</span></code><code class="sig-name descname"><span class="pre">IterationEngine</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.engine.IterationEngine" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="flame.pytorch.engine.IterationEngine.update_state">
+<code class="sig-name descname"><span class="pre">update_state</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epoch_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iterations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.engine.IterationEngine.update_state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.engine.IterationEngine.enumerate">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">enumerate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.engine.IterationEngine.enumerate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.engine.IterationEngine.every_n_iterations">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">every_n_iterations</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.engine.IterationEngine.every_n_iterations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="flame.pytorch.engine.EpochEngine">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.engine.</span></code><code class="sig-name descname"><span class="pre">EpochEngine</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.engine.EpochEngine" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="flame.pytorch.engine.EpochEngine.update_state">
+<code class="sig-name descname"><span class="pre">update_state</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_epochs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.engine.EpochEngine.update_state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.engine.EpochEngine.every_n_epochs">
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">every_n_epochs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epoch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.engine.EpochEngine.every_n_epochs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
 
 
               </div>
@@ -447,7 +540,7 @@ events are from <code class="xref py py-class docutils literal notranslate"><spa
   <div class="container">
     <p>
           &copy; Copyright 2021, SunDoge.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.4.<br/>
     </p>
   </div>
 </footer>

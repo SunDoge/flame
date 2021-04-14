@@ -16,7 +16,8 @@ Functions
    flame.pytorch.experimental.metrics.functional.topk_accuracy
 
 
-.. function:: topk_accuracy(output: torch.Tensor, target: torch.Tensor, topk: List[int] = (1, )) -> List[Tensor]
+
+.. function:: topk_accuracy(output, target, topk = (1, ))
 
    https://github.com/pytorch/examples/blob/master/imagenet/main.py#L411
 

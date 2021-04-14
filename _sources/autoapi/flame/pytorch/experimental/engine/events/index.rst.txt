@@ -28,12 +28,21 @@ Functions
    flame.pytorch.experimental.engine.events._get_default_event_to_attr
 
 
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.experimental.engine.events._logger
+
+
 .. data:: _logger
    
 
    
 
-.. class:: CallableEventWithFilter(value: str, event_filter: Optional[Callable] = None, name: Optional[str] = None)
+.. class:: CallableEventWithFilter(value, event_filter = None, name = None)
 
 
    Single Event containing a filter, specifying whether the event should
@@ -45,17 +54,17 @@ Functions
                         function that always returns `True`
    :param name: The enum-name of the current object. Only needed for internal use. Do not touch!
 
-   .. method:: name(self) -> str
+   .. method:: name(self)
 
       The name of the Enum member.
 
 
-   .. method:: value(self) -> str
+   .. method:: value(self)
 
       The value of the Enum member.
 
 
-   .. method:: __call__(self, event_filter: Optional[Callable] = None, every: Optional[int] = None, once: Optional[int] = None) -> flame.pytorch.experimental.engine.events.CallableEventWithFilter
+   .. method:: __call__(self, event_filter = None, every = None, once = None)
 
       Makes the event class callable and accepts either an arbitrary callable as filter
       (which must take in the engine and current event value and return a boolean) or an every or once value
@@ -69,47 +78,47 @@ Functions
       :rtype: CallableEventWithFilter
 
 
-   .. method:: every_event_filter(every: int) -> Callable
+   .. method:: every_event_filter(every)
       :staticmethod:
 
       A wrapper for every event filter.
 
 
-   .. method:: once_event_filter(once: int) -> Callable
+   .. method:: once_event_filter(once)
       :staticmethod:
 
       A wrapper for once event filter.
 
 
-   .. method:: default_event_filter(engine: flame.pytorch.experimental.engine.engine.Engine, event: int) -> bool
+   .. method:: default_event_filter(engine, event)
       :staticmethod:
 
       Default event filter.
 
 
-   .. method:: __str__(self) -> str
+   .. method:: __str__(self)
 
       Return str(self).
 
 
-   .. method:: __eq__(self, other: Any) -> bool
+   .. method:: __eq__(self, other)
 
       Return self==value.
 
 
-   .. method:: __hash__(self) -> int
+   .. method:: __hash__(self)
 
       Return hash(self).
 
 
-   .. method:: __or__(self, other: Any) -> flame.pytorch.experimental.engine.events.EventsList
+   .. method:: __or__(self, other)
 
 
 
-.. class:: EventEnum(value: str, event_filter: Optional[Callable] = None, name: Optional[str] = None)
+.. class:: EventEnum(value, event_filter = None, name = None)
 
 
-   Bases: :class:`flame.pytorch.experimental.engine.events.CallableEventWithFilter`, :class:`enum.Enum`
+   Bases: :py:obj:`CallableEventWithFilter`, :py:obj:`enum.Enum`
 
    Base class for all :class:`~ignite.engine.events.Events`. User defined custom events should also inherit
    this class. For example, Custom events based on the loss calculation and backward pass can be created as follows:
@@ -141,10 +150,10 @@ Functions
                # ...
 
 
-.. class:: Events(value: str, event_filter: Optional[Callable] = None, name: Optional[str] = None)
+.. class:: Events(value, event_filter = None, name = None)
 
 
-   Bases: :class:`flame.pytorch.experimental.engine.events.EventEnum`
+   Bases: :py:obj:`EventEnum`
 
    Base class for all :class:`~ignite.engine.events.Events`. User defined custom events should also inherit
    this class. For example, Custom events based on the loss calculation and backward pass can be created as follows:
@@ -235,26 +244,26 @@ Functions
 
       
 
-   .. method:: __or__(self, other: Any) -> flame.pytorch.experimental.engine.events.EventsList
+   .. method:: __or__(self, other)
 
 
 
 .. class:: EventsList
 
 
-   .. method:: _append(self, event: flame.pytorch.experimental.engine.events.Events)
+   .. method:: _append(self, event)
 
 
-   .. method:: __getitem__(self, index: int) -> flame.pytorch.experimental.engine.events.Events
+   .. method:: __getitem__(self, index)
 
 
-   .. method:: __iter__(self) -> Iterator[Events]
+   .. method:: __iter__(self)
 
 
-   .. method:: __len__(self) -> int
+   .. method:: __len__(self)
 
 
-   .. method:: __or__(self, other: flame.pytorch.experimental.engine.events.Events) -> flame.pytorch.experimental.engine.events.EventsList
+   .. method:: __or__(self, other)
 
 
 
@@ -321,37 +330,37 @@ Functions
    .. method:: update_max_iterations(self)
 
 
-   .. method:: update_local_iteration(self, iteration: int)
+   .. method:: update_local_iteration(self, iteration)
 
 
    .. method:: update_global_iteration(self)
 
 
-   .. method:: is_done_iterations(self) -> bool
+   .. method:: is_done_iterations(self)
 
 
-   .. method:: is_done_epochs(self) -> bool
+   .. method:: is_done_epochs(self)
 
 
-   .. method:: is_done_count(self) -> bool
+   .. method:: is_done_count(self)
 
 
-   .. method:: is_done(self) -> bool
+   .. method:: is_done(self)
 
 
    .. method:: reset(self)
 
 
-   .. method:: every_iterations(self, n: int) -> bool
+   .. method:: every_iterations(self, n)
 
 
-   .. method:: every_epochs(self, n: int) -> bool
+   .. method:: every_epochs(self, n)
 
 
-   .. method:: _update_attrs(self) -> None
+   .. method:: _update_attrs(self)
 
 
-   .. method:: get_event_attrib_value(self, event_name: Union[(str, Events, CallableEventWithFilter)]) -> int
+   .. method:: get_event_attrib_value(self, event_name)
 
       Get the value of Event attribute with given `event_name`.
 

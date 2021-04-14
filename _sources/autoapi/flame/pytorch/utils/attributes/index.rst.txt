@@ -19,20 +19,21 @@ Functions
    flame.pytorch.utils.attributes.get_learning_rate_from_optimizer
 
 
-.. function:: get_first_parameter_or_buffer(module: torch.nn.Module) -> torch.Tensor
+
+.. function:: get_first_parameter_or_buffer(module)
 
    Get first parameter or buffer from module
 
 
 
 
-.. function:: get_device_from_module(module: torch.nn.Module) -> torch.device
+.. function:: get_device_from_module(module)
 
 
-.. function:: get_dtype_from_module(module: torch.nn.Module) -> torch.dtype
+.. function:: get_dtype_from_module(module)
 
 
-.. function:: get_learning_rate_from_optimizer(optimizer: torch.optim.Optimizer) -> float
+.. function:: get_learning_rate_from_optimizer(optimizer)
 
    Get learning rate from optimizer
 
