@@ -1,9 +1,7 @@
-
-
-from typing import Callable, Any, Dict, List, Sequence, Tuple, Union
 from numbers import Number
+from typing import Any, Callable, Dict, List, Sequence, Tuple, Union
+
 from torch import Tensor
-from torch._C import R
 
 
 def _to_number(x) -> Number:
