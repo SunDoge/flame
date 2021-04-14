@@ -1,4 +1,4 @@
-from typing import Any, Optional, TypeVar
+from typing import Any, Optional
 from .base_checkpoint_saver import CheckpointSaver
 import operator
 import os

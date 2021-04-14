@@ -63,6 +63,7 @@ def add_basic_arguments(parser: ArgumentParser) -> ArgumentParser:
     )
     return parser
 
+
 def parse_basic_args(parser: Optional[ArgumentParser] = None) -> BasicArgs:
     if parser is None:
         parser = ArgumentParser()

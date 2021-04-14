@@ -5,7 +5,7 @@ import torch
 from torch.nn import Module
 from torch.nn.parallel import DistributedDataParallel, DataParallel
 from flame.pytorch.typing_prelude import Optimizer, LrScheduler
-from dataclasses import dataclass
+
 
 ToStateDict = Callable[[Any], dict]
 LoadStateDict = Callable[[Any, dict], Any]
