@@ -31,7 +31,7 @@ Attributes
 
    
 
-.. class:: AverageMeter(name, fmt = ':.f')
+.. class:: AverageMeter(name, fmt = ':f')
 
 
    Bases: :py:obj:`flame.pytorch.meters.base_meter.Meter`
@@ -67,7 +67,7 @@ Attributes
 
    不需要了，定义在reset里面就可以了，vscode可以提示
 
-   .. method:: update(self, output, n = 1)
+   .. method:: update(self, metrics, n = 1)
 
 
    .. method:: sync(self)

@@ -15,3 +15,35 @@ Submodules
    periodic_checkpoint_saver/index.rst
 
 
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.checkpoint_saver.PeriodicCheckpointSaver
+   flame.pytorch.checkpoint_saver.BestCheckpointSaver
+
+
+
+
+.. class:: PeriodicCheckpointSaver(every, fmt = 'checkpoint_{:04d}.pth.tar', entries=None)
+
+
+   Bases: :py:obj:`flame.pytorch.checkpoint_saver.base_checkpoint_saver.CheckpointSaver`
+
+   .. method:: save(self, output_dir, epoch)
+
+
+
+.. class:: BestCheckpointSaver(name = 'checkpoint.pth.tar', best_name = 'model_best.pth.tar', higher_is_better = True, entries=None)
+
+
+   Bases: :py:obj:`flame.pytorch.checkpoint_saver.base_checkpoint_saver.CheckpointSaver`
+
+   .. method:: save(self, output_dir, is_best = None, metric = None)
+
+
+

@@ -34,8 +34,6 @@ Attributes
    flame.pytorch.typing_prelude.Optimizer
    flame.pytorch.typing_prelude.LrScheduler
    flame.pytorch.typing_prelude.Device
-   flame.pytorch.typing_prelude.Trainer
-   flame.pytorch.typing_prelude.Evaluator
    flame.pytorch.typing_prelude.TrainState
    flame.pytorch.typing_prelude.ValState
    flame.pytorch.typing_prelude.TestState
@@ -103,16 +101,6 @@ Attributes
 
    
 
-.. data:: Trainer
-   
-
-   
-
-.. data:: Evaluator
-   
-
-   
-
 .. data:: TrainState
    
 
@@ -128,7 +116,7 @@ Attributes
 
    
 
-.. class:: Model
+.. class:: Model(module)
 
 
    Bases: :py:obj:`torch.nn.Module`
@@ -160,10 +148,8 @@ Attributes
                    evaluation mode.
    :vartype training: bool
 
-   .. attribute:: module
-      :annotation: :torch.nn.Module
+   .. method:: forward(self, *args, **kwargs)
 
-      
 
 
 .. data:: TensorDict

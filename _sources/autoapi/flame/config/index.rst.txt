@@ -24,6 +24,7 @@ Functions
    flame.config._process_local_variable
    flame.config._process_file_or_snippet
    flame.config.dump_as_json
+   flame.config.parse_config
 
 
 
@@ -79,5 +80,8 @@ Attributes
 .. function:: dump_as_json(cfg, filename)
 
    保存config为json文件。jsonnet可以直接读取json文件。
+
+
+.. function:: parse_config(local_variables, files_or_snippets)
 
 

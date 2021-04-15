@@ -167,6 +167,15 @@
       </a>
      </li>
      <li class="toctree-l4">
+      <a class="reference internal" href="../../experiment/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.experiment
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
       <a class="reference internal" href="../../process/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
@@ -413,7 +422,7 @@
 
 <dl class="py class">
 <dt id="flame.pytorch.meters.average_meter.AverageMeter">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.meters.average_meter.</span></code><code class="sig-name descname"><span class="pre">AverageMeter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">':.f'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.average_meter.AverageMeter" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.meters.average_meter.</span></code><code class="sig-name descname"><span class="pre">AverageMeter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">':f'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.average_meter.AverageMeter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="../base_meter/index.html#flame.pytorch.meters.base_meter.Meter" title="flame.pytorch.meters.base_meter.Meter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">flame.pytorch.meters.base_meter.Meter</span></code></a></p>
 <p>不需要了，定义在reset里面就可以了，vscode可以提示</p>
 <dl class="py method">
@@ -456,7 +465,7 @@
 <p>不需要了，定义在reset里面就可以了，vscode可以提示</p>
 <dl class="py method">
 <dt id="flame.pytorch.meters.average_meter.AverageMeterGroup.update">
-<code class="sig-name descname"><span class="pre">update</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.average_meter.AverageMeterGroup.update" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">update</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.average_meter.AverageMeterGroup.update" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">

@@ -25,6 +25,7 @@ Submodules
 
    distributed_training/index.rst
    engine/index.rst
+   experiment/index.rst
    process/index.rst
    typing_prelude/index.rst
 

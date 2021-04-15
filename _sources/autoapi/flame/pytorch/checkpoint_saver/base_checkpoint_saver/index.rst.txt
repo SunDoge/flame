@@ -33,10 +33,16 @@ Attributes
 
 .. autoapisummary::
 
+   flame.pytorch.checkpoint_saver.base_checkpoint_saver._logger
    flame.pytorch.checkpoint_saver.base_checkpoint_saver.ToStateDict
    flame.pytorch.checkpoint_saver.base_checkpoint_saver.LoadStateDict
    flame.pytorch.checkpoint_saver.base_checkpoint_saver.Entry
 
+
+.. data:: _logger
+   
+
+   
 
 .. data:: ToStateDict
    
@@ -68,7 +74,7 @@ Attributes
 .. class:: CheckpointSaver(entries=None)
 
 
-   .. method:: register(self, key, value, to_state_dict, load_state_dict)
+   .. method:: register(self, key, to_state_dict, load_state_dict)
 
 
    .. method:: state_dict(self)

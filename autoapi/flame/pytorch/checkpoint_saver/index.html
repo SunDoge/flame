@@ -167,6 +167,15 @@
       </a>
      </li>
      <li class="toctree-l4">
+      <a class="reference internal" href="../experiment/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.experiment
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
       <a class="reference internal" href="../process/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
@@ -272,6 +281,44 @@
    Submodules
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#package-contents">
+   Package Contents
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classes">
+     Classes
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.pytorch.checkpoint_saver.PeriodicCheckpointSaver">
+       PeriodicCheckpointSaver
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.checkpoint_saver.PeriodicCheckpointSaver.save">
+         save
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.pytorch.checkpoint_saver.BestCheckpointSaver">
+       BestCheckpointSaver
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.checkpoint_saver.BestCheckpointSaver.save">
+         save
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
 </ul>
 
 </nav>
@@ -299,6 +346,48 @@
 <li class="toctree-l1"><a class="reference internal" href="best_checkpoint_saver/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.checkpoint_saver.best_checkpoint_saver</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="periodic_checkpoint_saver/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.checkpoint_saver.periodic_checkpoint_saver</span></code></a></li>
 </ul>
+</div>
+</div>
+<div class="section" id="package-contents">
+<h2>Package Contents<a class="headerlink" href="#package-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.checkpoint_saver.PeriodicCheckpointSaver" title="flame.pytorch.checkpoint_saver.PeriodicCheckpointSaver"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PeriodicCheckpointSaver</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.checkpoint_saver.BestCheckpointSaver" title="flame.pytorch.checkpoint_saver.BestCheckpointSaver"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BestCheckpointSaver</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt id="flame.pytorch.checkpoint_saver.PeriodicCheckpointSaver">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.checkpoint_saver.</span></code><code class="sig-name descname"><span class="pre">PeriodicCheckpointSaver</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">every</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'checkpoint_{:04d}.pth.tar'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.checkpoint_saver.PeriodicCheckpointSaver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="base_checkpoint_saver/index.html#flame.pytorch.checkpoint_saver.base_checkpoint_saver.CheckpointSaver" title="flame.pytorch.checkpoint_saver.base_checkpoint_saver.CheckpointSaver"><code class="xref py py-obj docutils literal notranslate"><span class="pre">flame.pytorch.checkpoint_saver.base_checkpoint_saver.CheckpointSaver</span></code></a></p>
+<dl class="py method">
+<dt id="flame.pytorch.checkpoint_saver.PeriodicCheckpointSaver.save">
+<code class="sig-name descname"><span class="pre">save</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epoch</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.checkpoint_saver.PeriodicCheckpointSaver.save" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="flame.pytorch.checkpoint_saver.BestCheckpointSaver">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.checkpoint_saver.</span></code><code class="sig-name descname"><span class="pre">BestCheckpointSaver</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'checkpoint.pth.tar'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">best_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'model_best.pth.tar'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">higher_is_better</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.checkpoint_saver.BestCheckpointSaver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="base_checkpoint_saver/index.html#flame.pytorch.checkpoint_saver.base_checkpoint_saver.CheckpointSaver" title="flame.pytorch.checkpoint_saver.base_checkpoint_saver.CheckpointSaver"><code class="xref py py-obj docutils literal notranslate"><span class="pre">flame.pytorch.checkpoint_saver.base_checkpoint_saver.CheckpointSaver</span></code></a></p>
+<dl class="py method">
+<dt id="flame.pytorch.checkpoint_saver.BestCheckpointSaver.save">
+<code class="sig-name descname"><span class="pre">save</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_best</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.checkpoint_saver.BestCheckpointSaver.save" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 </div>
 </div>

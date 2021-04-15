@@ -17,3 +17,19 @@ Submodules
    timing/index.rst
 
 
+Package Contents
+----------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.utils.rich_format
+
+
+
+.. function:: rich_format(obj)
+
+

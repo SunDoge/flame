@@ -30,7 +30,7 @@ Functions
 .. function:: _to_number(x)
 
 
-.. function:: _default_compute_fn(*args)
+.. function:: _default_compute_fn(x)
 
 
 .. class:: Metric(name, output_transform, compute_fn = _default_compute_fn)

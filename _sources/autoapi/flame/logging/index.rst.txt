@@ -42,7 +42,7 @@ Attributes
    
 
 .. data:: CONSOLE_FORMAT
-   :annotation: = %(asctime)s %(levelname)-8s: %(message)s
+   :annotation: = %(message)s
 
    
 

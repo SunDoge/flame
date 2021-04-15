@@ -27,11 +27,19 @@ Classes
    .. method:: update(self, n = 1)
 
 
+   .. method:: remaining_seconds(self)
+      :property:
+
+
    .. method:: remaining_time(self)
       :property:
 
 
    .. method:: arrival_time(self)
+      :property:
+
+
+   .. method:: elapsed_seconds(self)
       :property:
 
 

@@ -167,6 +167,15 @@
       </a>
      </li>
      <li class="toctree-l4">
+      <a class="reference internal" href="../experiment/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.experiment
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
       <a class="reference internal" href="../process/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
@@ -343,16 +352,6 @@
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.pytorch.typing_prelude.Trainer">
-       Trainer
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.pytorch.typing_prelude.Evaluator">
-       Evaluator
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#flame.pytorch.typing_prelude.TrainState">
        TrainState
       </a>
@@ -373,8 +372,8 @@
       </a>
       <ul class="nav section-nav flex-column">
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#flame.pytorch.typing_prelude.Model.module">
-         module
+        <a class="reference internal nav-link" href="#flame.pytorch.typing_prelude.Model.forward">
+         forward
         </a>
        </li>
       </ul>
@@ -472,12 +471,6 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.Device" title="flame.pytorch.typing_prelude.Device"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Device</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.Trainer" title="flame.pytorch.typing_prelude.Trainer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Trainer</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.Evaluator" title="flame.pytorch.typing_prelude.Evaluator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evaluator</span></code></a></p></td>
-<td><p></p></td>
-</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.TrainState" title="flame.pytorch.typing_prelude.TrainState"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TrainState</span></code></a></p></td>
 <td><p></p></td>
 </tr>
@@ -556,16 +549,6 @@
 <dd></dd></dl>
 
 <dl class="py data">
-<dt id="flame.pytorch.typing_prelude.Trainer">
-<code class="sig-prename descclassname"><span class="pre">flame.pytorch.typing_prelude.</span></code><code class="sig-name descname"><span class="pre">Trainer</span></code><a class="headerlink" href="#flame.pytorch.typing_prelude.Trainer" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py data">
-<dt id="flame.pytorch.typing_prelude.Evaluator">
-<code class="sig-prename descclassname"><span class="pre">flame.pytorch.typing_prelude.</span></code><code class="sig-name descname"><span class="pre">Evaluator</span></code><a class="headerlink" href="#flame.pytorch.typing_prelude.Evaluator" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py data">
 <dt id="flame.pytorch.typing_prelude.TrainState">
 <code class="sig-prename descclassname"><span class="pre">flame.pytorch.typing_prelude.</span></code><code class="sig-name descname"><span class="pre">TrainState</span></code><a class="headerlink" href="#flame.pytorch.typing_prelude.TrainState" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -582,7 +565,7 @@
 
 <dl class="py class">
 <dt id="flame.pytorch.typing_prelude.Model">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.typing_prelude.</span></code><code class="sig-name descname"><span class="pre">Model</span></code><a class="headerlink" href="#flame.pytorch.typing_prelude.Model" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.typing_prelude.</span></code><code class="sig-name descname"><span class="pre">Model</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.typing_prelude.Model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">torch.nn.Module</span></code></p>
 <p>Base class for all neural network modules.</p>
 <p>Your models should also subclass this class.</p>
@@ -610,9 +593,9 @@ parameters converted too when you call <code class="xref py py-meth docutils lit
 evaluation mode.</p>
 </dd>
 </dl>
-<dl class="py attribute">
-<dt id="flame.pytorch.typing_prelude.Model.module">
-<code class="sig-name descname"><span class="pre">module</span></code><em class="property"> <span class="pre">:torch.nn.Module</span></em><a class="headerlink" href="#flame.pytorch.typing_prelude.Model.module" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt id="flame.pytorch.typing_prelude.Model.forward">
+<code class="sig-name descname"><span class="pre">forward</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.typing_prelude.Model.forward" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
