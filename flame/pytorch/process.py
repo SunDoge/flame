@@ -90,10 +90,12 @@ class SupervisedProcess(BaseProcess):
             pred = self.model(data)
             loss = self.criterion(pred, label)
 
+        batch_size = data.size(0)
         output = {
             'pred': pred,
             'label': label,
             'loss': loss,
+            'batch_size': batch_size,
         }
 
         return loss, output

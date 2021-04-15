@@ -6,13 +6,13 @@ from torch import Tensor
 
 def _to_number(x) -> Number:
     if isinstance(x, Tensor):
-        return x.tolist()
+        return x.item()
     else:
         return x
 
 
-def _default_compute_fn(*args) -> Any:
-    return args
+def _default_compute_fn(x) -> Any:
+    return x
 
 
 class Metric:
