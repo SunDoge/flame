@@ -14,10 +14,12 @@ class TopkAccuracy(Metric):
         topk: Sequence[str] = (1,),
         use_jit: bool = False,
     ) -> None:
-
+       
         if use_jit:
-            topk_accuracy = torch.jit.script(topk_accuracy)
+            compute_fn = torch.jit.script(topk_accuracy)
+        else:
+            compute_fn = topk_accuracy
 
-        compute_fn = functools.partial(topk_accuracy, topk=topk)
+        compute_fn = functools.partial(compute_fn, topk=topk)
 
         super().__init__(name, output_transform, compute_fn)

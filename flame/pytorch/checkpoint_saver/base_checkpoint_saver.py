@@ -5,7 +5,10 @@ import torch
 from torch.nn import Module
 from torch.nn.parallel import DistributedDataParallel, DataParallel
 from flame.pytorch.typing_prelude import Optimizer, LrScheduler
-from dataclasses import dataclass
+import logging
+
+_logger = logging.getLogger(__name__)
+
 
 ToStateDict = Callable[[Any], dict]
 LoadStateDict = Callable[[Any, dict], Any]
@@ -62,8 +65,8 @@ class CheckpointSaver:
     #     self._to_state_dict[type_] = to_state_dict
     #     self._load_state_dict[type_] = load_state_dict
 
-    def register(self, key: str, value: Any, to_state_dict: ToStateDict, load_state_dict: LoadStateDict):
-        self.entries.append((key, value, to_state_dict, load_state_dict))
+    def register(self, key: str, to_state_dict: ToStateDict, load_state_dict: LoadStateDict):
+        self.entries.append(Entry(key, to_state_dict, load_state_dict))
 
     def state_dict(self) -> dict:
         state = {}
@@ -77,6 +80,7 @@ class CheckpointSaver:
             load_state_dict(state[key])
 
     def save(self, filename: str):
+        _logger.info('save checkpoint to: %s', filename)
         torch.save(self.state_dict(), filename)
 
     def load(self, filename: str):

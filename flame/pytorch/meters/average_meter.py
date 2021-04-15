@@ -10,7 +10,7 @@ _logger = logging.getLogger(__name__)
 
 class AverageMeter(Meter):
 
-    def __init__(self, name: str, fmt: str = ':.f') -> None:
+    def __init__(self, name: str, fmt: str = ':f') -> None:
         super().__init__()
 
         self.name = name
@@ -62,7 +62,8 @@ class AverageMeter(Meter):
 
     def __str__(self) -> str:
         fmt_str = '{name} {val' + self.fmt + '} ({avg' + self.fmt + '})'
-        return fmt_str.format(name=self.name, fmt=self.fmt)
+        # _logger.debug('fmt_str: %s', fmt_str)
+        return fmt_str.format(name=self.name, val=self.val, avg=self.avg)
 
 
 class AverageMeterGroup(Meter):
@@ -72,9 +73,9 @@ class AverageMeterGroup(Meter):
         self.meters = meters
         self.delimiter = delimiter
 
-    def update(self, output: Dict[str, Any], n: int = 1):
+    def update(self, metrics: Dict[str, Any], n: int = 1):
         for key, meter in self.meters.items():
-            value = output[key]
+            value = metrics[key]
             meter.update(value, n=n)
 
     def sync(self):

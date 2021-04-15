@@ -10,10 +10,10 @@ class CopyMetric(Metric):
     ) -> None:
 
         if isinstance(name, str):
-            def output_transform(output: dict):
-                return {name: output[name]}
+            def output_transform(output: dict) -> tuple:
+                return output[name],
         else:
-            def output_transform(output: dict):
-                return {n: output[n] for n in name}
+            def output_transform(output: dict) -> tuple:
+                return [output[n] for n in name],
 
         super().__init__(name, output_transform)
