@@ -17,6 +17,9 @@ class DistOptions:
     dist_backend: str = 'NCCL'
     dist_url: str = 'tcp://127.0.0.1:12345'
 
+    def get_rank(self, proc_id: int) -> int:
+        return self.rank_start + proc_id
+
 
 def _init_process_group_fn(device_id: int, worker_fn: Callable, dist_options: DistOptions, *args):
     """wrapper function for worker_fn

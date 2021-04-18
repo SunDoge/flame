@@ -1,4 +1,4 @@
-from typing import Any, Optional
+from typing import Any, Optional, TypeVar, Tuple
 from .base_checkpoint_saver import CheckpointSaver
 import operator
 import os
@@ -6,6 +6,8 @@ import shutil
 import logging
 
 _logger = logging.getLogger(__name__)
+
+T = TypeVar('T')
 
 
 class BestCheckpointSaver(CheckpointSaver):
@@ -20,21 +22,19 @@ class BestCheckpointSaver(CheckpointSaver):
         super().__init__(entries=entries)
         self.name = name
         self.best_name = best_name
-        self.best_metric = None
         self.higher_is_better = higher_is_better
+        self.comparator = operator.ge if self.higher_is_better else operator.le
 
-    def save(self, output_dir: str, is_best: Optional[bool] = None, metric: Any = None) -> bool:
-        # 至少一个不为None
-        assert not all(x is None for x in [is_best, metric])
+    def is_best(self, metric: T, best_metric: Optional[T]) -> bool:
+        if best_metric is None:
+            return True
+        else:
+            return self.comparator(metric, best_metric)
 
-        if is_best is None:
-            comparator = operator.ge if self.higher_is_better else operator.le
-            if self.best_metric is None:
-                self.best_metric = metric
-            is_best = comparator(metric, self.best_metric)
-
-            if is_best:
-                self.best_metric = metric
+    def save(self, output_dir: str, is_best: bool = False):
+        """
+        在save checkpoint之前，best metric就应该被更新。所以没法在这里计算is_best
+        """
 
         filename = os.path.join(output_dir, self.name)
         super().save(filename)
