@@ -1,8 +1,12 @@
-from .utils.distributed import get_rank_safe
+from .utils.distributed import get_rank_safe, get_device_by_backend
 from injector import Module, provider, singleton
 from flame.argument import BasicArgs, add_basic_arguments
-from .typing_prelude import ExperimentDir, RootConfig
+from .typing_prelude import Device, ExperimentDir, RootConfig
 import flame
+import logging
+import torch
+
+_logger = logging.getLogger(__name__)
 
 
 class BaseModule(Module):
@@ -10,13 +14,19 @@ class BaseModule(Module):
     @singleton
     @provider
     def configure_args(self) -> BasicArgs:
-        args = add_basic_arguments().parse_known_args()
+        args, _ = add_basic_arguments().parse_known_args()
         return args
 
     @singleton
     @provider
-    def configure_cfg(self, args: BasicArgs) -> RootConfig:
-        cfg = flame.config.parse_config(args.local, args.config)
+    def configure_cfg(self, args: BasicArgs, experiment_dir: ExperimentDir) -> RootConfig:
+        cfg, diff = flame.config.parse_config(args.local, args.config)
+        _logger.info('Diff: \n%s', diff)
+
+        _logger.debug('Config: \n%s', cfg)
+
+        flame.config.dump_as_json(cfg, experiment_dir / 'config.json')
+
         return cfg
 
     @singleton
@@ -36,3 +46,8 @@ class BaseModule(Module):
         )
 
         return experiment_dir
+
+    @singleton
+    @provider
+    def configure_device(self) -> Device:
+        return torch.device('cuda' if torch.cuda.is_available() else 'cpu')

@@ -43,11 +43,13 @@ def add_basic_arguments(parser: Optional[ArgumentParser] = None) -> ArgumentPars
     parser.add_argument(
         '-o', '--output-dir',
         type=Path,
+        default=Path('exps'),
         help='dir to host all your experiments'
     )
     parser.add_argument(
         '-e', '--experiment-name',
         type=str,
+        default='000',
         help='experiment name'
     )
     parser.add_argument(
@@ -55,11 +57,11 @@ def add_basic_arguments(parser: Optional[ArgumentParser] = None) -> ArgumentPars
         action='store_true',
         help='activate debug mode'
     )
-    parser.add_argument(
-        '--world-size',
-        type=int, default=1,
-        help='number of GPUs/processes for distributed training'
-    )
+    # parser.add_argument(
+    #     '--world-size',
+    #     type=int, default=1,
+    #     help='number of GPUs/processes for distributed training'
+    # )
     parser.add_argument(
         '-y', '--yes',
         action='store_true',

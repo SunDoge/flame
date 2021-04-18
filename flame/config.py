@@ -87,7 +87,7 @@ def dump_as_json(cfg: dict, filename: str):
     """
     _logger.info('dumping config to %s', filename)
     with open(filename, 'w') as f:
-        json.dump(cfg, f)
+        json.dump(cfg, f, indent=2)
 
 
 def parse_config(local_variables: List[str], files_or_snippets: List[str]) -> Tuple[dict, str]:

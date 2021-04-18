@@ -7,14 +7,14 @@ from typing import Tuple
 _logger = logging.getLogger(__name__)
 
 
-def get_experiment_dir(output_dir: Path, experiment_name: str, debug: bool = False) -> Path:
+def get_experiment_dir(output_dir: Path, experiment_name: str, debug: bool = False, with_timestamp: bool = False) -> Path:
     """
     实验默认是release模式，只有指定debug模式的时候，才会生成debug目录
 
     experiment_dir = output_dir / release or debug / experiment_name
     e.g. exps/release/000
     """
-    if debug:
+    if with_timestamp:
         # FIXME: 这里的操作不利于测试
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
         experiment_name = experiment_name + '.' + timestamp
@@ -50,7 +50,7 @@ def make_experiment_dir(experiment_dir: Path, yes: bool = False) -> Path:
                 experiment_dir
             )
             target_debug_dir = get_experiment_dir(
-                output_dir, experiment_name, debug=True
+                output_dir, experiment_name, debug=True, with_timestamp=True
             )
 
             target_debug_dir.parent.mkdir(parents=True, exist_ok=True)

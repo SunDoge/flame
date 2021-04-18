@@ -15,6 +15,7 @@ _logger = logging.getLogger(__name__)
 
 @dataclass
 class DistOptions:
+    dist: bool = False
     rank_start: int = 0
     world_size: int = 1
     dist_backend: str = 'nccl'
@@ -36,9 +37,11 @@ def get_dist_options() -> DistOptions:
     parser.add_argument('--dist-backend', type=str, default='nccl')
     parser.add_argument('--dist-host', type=str, default='127.0.0.1')
     parser.add_argument('--dist-port', type=int, default=12345)
+    parser.add_argument('--dist', action='store_true')
 
     args, _ = parser.parse_known_args()
-    dist_options = DistOptions(args.__dict__)
+
+    dist_options = DistOptions(**args.__dict__)
     return dist_options
 
 
@@ -63,6 +66,8 @@ def _init_process_group_fn(proc_id: int, worker_fn: Callable, dist_options: Dist
         world_size=dist_options.world_size,
         rank=rank
     )
+
+    print('init process group')
 
     if torch_cuda.is_available():
         _logger.info('set cuda_device=%d', proc_id)
