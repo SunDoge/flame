@@ -54,23 +54,23 @@ def _init_process_group_fn(proc_id: int, worker_fn: Callable, dist_options: Dist
     4. call worker_fn
 
     """
-    if dist_options.dist:
-        print('start distributed training')
-        rank = dist_options.get_rank(proc_id)
-        print(f'=> rank: {rank}')
 
-        dist.init_process_group(
-            backend=dist_options.dist_backend,
-            init_method=dist_options.dist_url,
-            world_size=dist_options.world_size,
-            rank=rank
-        )
+    print('start distributed training')
+    rank = dist_options.get_rank(proc_id)
+    print(f'=> rank: {rank}')
 
-        print('init process group')
+    dist.init_process_group(
+        backend=dist_options.dist_backend,
+        init_method=dist_options.dist_url,
+        world_size=dist_options.world_size,
+        rank=rank
+    )
 
-        if torch.cuda.is_available():
-            _logger.info('set cuda_device=%d', proc_id)
-            torch.cuda.set_device(proc_id)
+    print('init process group')
+
+    if torch.cuda.is_available():
+        _logger.info('set cuda_device=%d', proc_id)
+        torch.cuda.set_device(proc_id)
 
     worker_fn(*args)
 
@@ -151,3 +151,13 @@ def init_cpu_process_group(
         rank=rank,
         world_size=world_size,
     )
+
+
+def start_training(worker_fn: Callable, args: tuple = (), nprocs=None):
+    flame.logging.init_logger()
+    dist_options = get_dist_options()
+    if dist_options.dist:
+        start_distributed_training(
+            worker_fn, dist_options, args=args, nprocs=nprocs)
+    else:
+        worker_fn(*args)
