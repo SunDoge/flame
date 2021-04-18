@@ -25,7 +25,11 @@ class BasicArgs:
     world_size: int
 
 
-def add_basic_arguments(parser: ArgumentParser) -> ArgumentParser:
+def add_basic_arguments(parser: Optional[ArgumentParser] = None) -> ArgumentParser:
+
+    if parser is None:
+        parser = ArgumentParser()
+
     parser.add_argument(
         '-c', '--config',
         type=str, action='append', default=[],
