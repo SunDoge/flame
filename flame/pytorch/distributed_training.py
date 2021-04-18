@@ -17,7 +17,7 @@ _logger = logging.getLogger(__name__)
 class DistOptions:
     rank_start: int = 0
     world_size: int = 1
-    dist_backend: str = 'NCCL'
+    dist_backend: str = 'nccl'
     dist_host: str = '127.0.0.1'
     dist_port: int = 12345
 
