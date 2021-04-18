@@ -63,7 +63,8 @@ def init_logger(rank: int = 0, filename: Optional[str] = None, debug: bool = Fal
 
     logging.basicConfig(
         level=level,
-        handlers=handlers
+        handlers=handlers,
+        force=True,
     )
 
     set_excepthook()

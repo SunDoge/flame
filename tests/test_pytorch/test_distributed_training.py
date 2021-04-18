@@ -9,14 +9,19 @@ def _assert_x_eq_1(x: int):
 
 def test_start_distributed_training_on_cpu():
     port = flame.utils.operating_system.find_free_port()
-    dist_url = f'tcp://127.0.0.1:{port}'
+    # dist_url = f'tcp://127.0.0.1:{port}'
 
     distributed_training.start_distributed_training(
         _assert_x_eq_1,
         args=(1,),
-        dist_backend='GLOO',
-        dist_url=dist_url
+        dist_options=distributed_training.DistOptions(
+            dist=True,
+            dist_backend='gloo',
+            dist_port=port,
+        ),
     )
+
+    dist.destroy_process_group()
 
 
 def test_local_dist_url():
@@ -29,3 +34,5 @@ def test_init_cpu_process_group():
     )
 
     assert dist.get_rank() == 0
+
+    dist.destroy_process_group()

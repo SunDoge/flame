@@ -7,7 +7,7 @@ def test_experiment_dir():
     experiment_name = '000'
 
     debug_exp_dir = experiment.get_experiment_dir(
-        output_dir, experiment_name, debug=True)
+        output_dir, experiment_name, debug=True, with_timestamp=True)
 
     debug_exp_dir_str, _timestamp = str(debug_exp_dir).split('.')
 

@@ -10,6 +10,13 @@ def is_dist_available_and_initialized() -> bool:
     return dist.is_available() and dist.is_initialized()
 
 
+def get_rank_safe() -> int:
+    if is_dist_available_and_initialized():
+        return dist.get_rank()
+    else:
+        return 0
+
+
 @functools.lru_cache(maxsize=1)
 def get_device_by_backend() -> torch.device:
     return torch.device('cuda' if dist.get_backend() == 'nccl' else 'cpu')
