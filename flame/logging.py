@@ -33,7 +33,7 @@ def get_file_handler(filename: str, fmt: str = FILE_FORMAT):
 
 def get_console_handler():
     formatter = logging.Formatter(CONSOLE_FORMAT)
-    console_handler = RichHandler(rich_tracebacks=True)
+    console_handler = RichHandler()
     # console_handler = logging.StreamHandler(stream=sys.stdout)
     console_handler.setFormatter(formatter)
     return console_handler

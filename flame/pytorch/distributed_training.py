@@ -106,11 +106,16 @@ def start_distributed_training(
 
         _logger.info('nprocs = %d', nprocs)
 
-    mp.spawn(
-        _init_process_group_fn,
-        args=(worker_fn, dist_options, *args),
-        nprocs=nprocs
-    )
+    if nprocs == 1:
+        _logger.debug('nprocs==1, disable multiprocessing')
+        _init_process_group_fn(0, worker_fn, dist_options, *args)
+    else:
+        _logger.debug('nprocs==%d, enable multiprocessing', nprocs)
+        mp.spawn(
+            _init_process_group_fn,
+            args=(worker_fn, dist_options, *args),
+            nprocs=nprocs
+        )
 
 
 def get_available_local_dist_url() -> str:
