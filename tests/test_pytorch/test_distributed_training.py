@@ -14,8 +14,9 @@ def test_start_distributed_training_on_cpu():
     distributed_training.start_distributed_training(
         _assert_x_eq_1,
         args=(1,),
-        dist_backend='GLOO',
-        dist_url=dist_url
+        dist_options=distributed_training.DistOptions(
+            dist_backend='gloo'
+        )
     )
 
 

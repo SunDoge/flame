@@ -103,7 +103,7 @@ def start_distributed_training(
 
     mp.spawn(
         _init_process_group_fn,
-        args=(worker_fn, dist_options, args),
+        args=(worker_fn, dist_options, *args),
         nprocs=nprocs
     )
 
