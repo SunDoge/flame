@@ -42,8 +42,10 @@ def make_experiment_dir(experiment_dir: Path, yes: bool = False) -> Path:
 
         if yes:
             choice = 'yes'
+        # else:
+        #     choice = input()
         else:
-            choice = input()
+            choice = 'no'
 
         if choice.lower() in {'y', 'yes'}:
             output_dir, experiment_name = get_output_dir_and_experiment_name(

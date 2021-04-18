@@ -1,14 +1,12 @@
 import logging
 from typing import Any, Callable, Optional
 
-import torch.cuda as torch_cuda
 import torch.distributed as dist
 import torch.multiprocessing as mp
 from dataclasses import dataclass
 import flame
 import argparse
-import functools
-from flame.utils.experiment import get_experiment_dir, make_experiment_dir
+import torch
 
 _logger = logging.getLogger(__name__)
 
@@ -56,22 +54,23 @@ def _init_process_group_fn(proc_id: int, worker_fn: Callable, dist_options: Dist
     4. call worker_fn
 
     """
+    if dist_options.dist:
+        print('start distributed training')
+        rank = dist_options.get_rank(proc_id)
+        print(f'=> rank: {rank}')
 
-    rank = dist_options.get_rank(proc_id)
-    print(f'=> rank: {rank}')
+        dist.init_process_group(
+            backend=dist_options.dist_backend,
+            init_method=dist_options.dist_url,
+            world_size=dist_options.world_size,
+            rank=rank
+        )
 
-    dist.init_process_group(
-        backend=dist_options.dist_backend,
-        init_method=dist_options.dist_url,
-        world_size=dist_options.world_size,
-        rank=rank
-    )
+        print('init process group')
 
-    print('init process group')
-
-    if torch_cuda.is_available():
-        _logger.info('set cuda_device=%d', proc_id)
-        torch_cuda.set_device(proc_id)
+        if torch.cuda.is_available():
+            _logger.info('set cuda_device=%d', proc_id)
+            torch.cuda.set_device(proc_id)
 
     worker_fn(*args)
 
@@ -97,7 +96,7 @@ def start_distributed_training(
     if nprocs is None:
         _logger.info('nprocs is None, start inferring nprocs')
         if dist_options.dist_backend.lower() == 'nccl':
-            nprocs = torch_cuda.device_count()
+            nprocs = torch.cuda.device_count()
             if nprocs == 0:
                 _logger.error('no gpu for distributed training, stop')
                 return
