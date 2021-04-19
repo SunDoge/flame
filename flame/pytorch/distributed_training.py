@@ -97,12 +97,16 @@ def start_distributed_training(
         _logger.info('nprocs is None, start inferring nprocs')
         if dist_options.dist_backend.lower() == 'nccl':
             nprocs = torch.cuda.device_count()
+
             if nprocs == 0:
                 _logger.error('no gpu for distributed training, stop')
                 return
         else:
             nprocs = 1
 
+        _logger.info('change world_size: %d => %d',
+                     dist_options.world_size, nprocs)
+        dist_options.world_size = nprocs
         _logger.info('nprocs = %d', nprocs)
 
     if nprocs == 1:

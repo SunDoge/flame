@@ -10,10 +10,15 @@ from torch.optim.lr_scheduler import _LRScheduler as LrScheduler
 import torch
 from .engine import EpochState, IterationState
 from flame.argument import BasicArgs
+from torch.utils.data.sampler import Sampler
 
 TrainDataset = NewType('TrainDataset', Dataset)
 ValDataset = NewType('ValDataset', Dataset)
 TestDataset = NewType('TestDataset', Dataset)
+
+TrainSampler = NewType('TrainSampler', Sampler)
+ValSampler = NewType('ValSampler', Sampler)
+TestSampler = NewType('TestSampler', Sampler)
 
 TrainLoader = NewType('TrainLoader', DataLoader)
 ValLoader = NewType('ValLoader', DataLoader)
