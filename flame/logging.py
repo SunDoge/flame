@@ -39,12 +39,18 @@ def get_console_handler():
     return console_handler
 
 
-def init_logger(rank: int = 0, filename: Optional[str] = None, debug: bool = False):
+def init_logger(rank: int = 0, filename: Optional[str] = None, debug: bool = False, force: bool = False):
     """
 
     Args:
         rank: 目前只有rank0会输出到console和log file
     """
+
+    if force:
+        root_logger = logging.getLogger()
+        for h in root_logger.handlers:
+            root_logger.removeHandler(h)
+            h.close()
 
     # 如果不是main process，设置level后退出
     if rank != 0:
@@ -64,7 +70,6 @@ def init_logger(rank: int = 0, filename: Optional[str] = None, debug: bool = Fal
     logging.basicConfig(
         level=level,
         handlers=handlers,
-        force=True,
     )
 
     set_excepthook()

@@ -42,7 +42,7 @@ class BaseModule(Module):
                 experiment_dir, yes=args.yes
             )
         flame.logging.init_logger(
-            rank=rank, filename=experiment_dir / 'experiment.log'
+            rank=rank, filename=experiment_dir / 'experiment.log', force=True
         )
 
         return experiment_dir
