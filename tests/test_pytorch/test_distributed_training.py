@@ -18,6 +18,9 @@ def test_start_distributed_training_on_cpu():
             dist=True,
             dist_backend='gloo',
             dist_port=port,
+            rank_start=0,
+            world_size=1,
+            dist_host='127.0.0.1'
         ),
     )
 

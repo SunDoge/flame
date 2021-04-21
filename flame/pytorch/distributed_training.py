@@ -7,21 +7,61 @@ from dataclasses import dataclass
 import flame
 import argparse
 import torch
+from flame.utils.operating_system import find_free_port
+import typed_args as ta
 
 _logger = logging.getLogger(__name__)
 
 
+# @dataclass
+# class DistOptions():
+#     dist: bool = False
+#     rank_start: int = 0
+#     world_size: int = 1
+#     dist_backend: str = 'nccl'
+#     dist_host: str = '127.0.0.1'
+#     dist_port: str = 'auto'
+
+#     @property
+#     def dist_url(self) -> str:
+#         assert self.dist_port != 'auto'
+#         return 'tcp://{host}:{port}'.format(host=self.dist_host, port=self.dist_port)
+
+#     def get_rank(self, proc_id: int) -> int:
+#         return self.rank_start + proc_id
+
 @dataclass
-class DistOptions:
-    dist: bool = False
-    rank_start: int = 0
-    world_size: int = 1
-    dist_backend: str = 'nccl'
-    dist_host: str = '127.0.0.1'
-    dist_port: int = 12345
+class DistOptions(ta.TypedArgs):
+    dist: bool = ta.add_argument(
+        '--dist', action='store_true',
+        help='activate distributed mode'
+    )
+    rank_start: int = ta.add_argument(
+        '--rank-start', type=int, default=0,
+        help='当前 node 的 rank 起始值'
+    )
+    world_size: Optional[int] = ta.add_argument(
+        '--world-size', type=int,
+        help='如果不指定，自动计算'
+    )
+    dist_backend: str = ta.add_argument(
+        '--dist-backend', type=str, default='nccl',
+        choices=['nccl', 'gloo'],
+    )
+    dist_host: str = ta.add_argument(
+        '--dist-host', type=str, default='127.0.0.1',
+    )
+    dist_port: Optional[int] = ta.add_argument(
+        '--dist-port', type=int,
+    )
+    nprocs: Optional[int] = ta.add_argument(
+        '--nprocs', type=int,
+        help='number of processes'
+    )
 
     @property
     def dist_url(self) -> str:
+        assert self.dist_port
         return 'tcp://{host}:{port}'.format(host=self.dist_host, port=self.dist_port)
 
     def get_rank(self, proc_id: int) -> int:
@@ -29,17 +69,24 @@ class DistOptions:
 
 
 def get_dist_options() -> DistOptions:
-    parser = argparse.ArgumentParser(prog='distributed launcher')
-    parser.add_argument('--rank-start', type=int, default=0)
-    parser.add_argument('--world-size', type=int, default=1)
-    parser.add_argument('--dist-backend', type=str, default='nccl')
-    parser.add_argument('--dist-host', type=str, default='127.0.0.1')
-    parser.add_argument('--dist-port', type=int, default=12345)
-    parser.add_argument('--dist', action='store_true')
+    # parser = argparse.ArgumentParser(prog='distributed launcher')
+    # parser.add_argument('--rank-start', type=int, default=0)
+    # parser.add_argument('--world-size', type=int, default=1)
+    # parser.add_argument('--dist-backend', type=str, default='nccl')
+    # parser.add_argument('--dist-host', type=str, default='127.0.0.1')
+    # parser.add_argument('--dist-port', type=str, default='auto')
+    # parser.add_argument('--dist', action='store_true')
 
-    args, _ = parser.parse_known_args()
+    # args, _ = parser.parse_known_args()
+    # dist_options = DistOptions(**args.__dict__)
 
-    dist_options = DistOptions(**args.__dict__)
+    dist_options, _ = DistOptions.from_known_args()
+    dist_options: DistOptions
+
+    if dist_options.dist_port is None:
+        dist_options.dist_port = str(find_free_port())
+        _logger.info('Find a free port: %s', dist_options.dist_port)
+
     return dist_options
 
 
@@ -79,7 +126,6 @@ def start_distributed_training(
     worker_fn: Callable,
     dist_options: DistOptions,
     args: tuple = (),
-    nprocs: Optional[int] = None,
 ):
     """helper function for distributed training
 
@@ -93,31 +139,32 @@ def start_distributed_training(
     # CPU + GLOO, nprocs = 1
     # nprocs = num_gpus if num_gpus > 0 else 1
 
-    if nprocs is None:
+    if dist_options.nprocs is None:
         _logger.info('nprocs is None, start inferring nprocs')
         if dist_options.dist_backend.lower() == 'nccl':
-            nprocs = torch.cuda.device_count()
+            dist_options.nprocs = torch.cuda.device_count()
 
-            if nprocs == 0:
+            if dist_options.nprocs == 0:
                 _logger.error('no gpu for distributed training, stop')
                 return
         else:
-            nprocs = 1
+            dist_options.nprocs = 1
 
         _logger.info('change world_size: %d => %d',
-                     dist_options.world_size, nprocs)
-        dist_options.world_size = nprocs
-        _logger.info('nprocs = %d', nprocs)
+                     dist_options.world_size, dist_options.nprocs)
+        dist_options.world_size = dist_options.nprocs
+        _logger.info('nprocs = %d', dist_options.nprocs)
 
-    if nprocs == 1:
+    if dist_options.nprocs == 1:
         _logger.debug('nprocs==1, disable multiprocessing')
         _init_process_group_fn(0, worker_fn, dist_options, *args)
     else:
-        _logger.debug('nprocs==%d, enable multiprocessing', nprocs)
+        _logger.debug('nprocs==%d, enable multiprocessing',
+                      dist_options.nprocs)
         mp.spawn(
             _init_process_group_fn,
             args=(worker_fn, dist_options, *args),
-            nprocs=nprocs
+            nprocs=dist_options.nprocs
         )
 
 
@@ -157,11 +204,11 @@ def init_cpu_process_group(
     )
 
 
-def start_training(worker_fn: Callable, args: tuple = (), nprocs=None):
+def start_training(worker_fn: Callable, args: tuple = ()):
     flame.logging.init_logger()
     dist_options = get_dist_options()
     if dist_options.dist:
         start_distributed_training(
-            worker_fn, dist_options, args=args, nprocs=nprocs)
+            worker_fn, dist_options, args=args)
     else:
         worker_fn(*args)
