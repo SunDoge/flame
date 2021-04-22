@@ -10,7 +10,7 @@ rich = "^9.13.0"
 jsonnet-binary = "^0.17.0"
 injector = "^0.18.4"
 tqdm = "^4.60.0"
-typed-args = "0.5.0a1"
+typed-args = "0.5.0a2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

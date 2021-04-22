@@ -150,7 +150,7 @@ def start_distributed_training(
         else:
             dist_options.nprocs = 1
 
-        _logger.info('change world_size: %d => %d',
+        _logger.info('change world_size: %s => %d',
                      dist_options.world_size, dist_options.nprocs)
         dist_options.world_size = dist_options.nprocs
         _logger.info('nprocs = %d', dist_options.nprocs)

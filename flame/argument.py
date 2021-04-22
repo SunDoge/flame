@@ -10,8 +10,23 @@ import shlex
 import sys
 import os
 import logging
+import typed_args as ta
+from dataclasses import dataclass
 
 _logger = logging.getLogger(__name__)
+
+# @dataclass
+# class _BasicArgs(ta.TypedArgs):
+#     config: List[str] = ta.add_argument(
+#         '-c', '--config', type=str, action='append',
+#         default=[],
+#         help='config file or snippet',
+#     )
+#     local: List[str] = ta.add_argument(
+#         '-l', '--local', type=str, action='append',
+#         default=[],
+
+#     )
 
 
 class BasicArgs:

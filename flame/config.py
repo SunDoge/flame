@@ -91,7 +91,7 @@ def dump_as_json(cfg: dict, filename: str):
 
 
 def parse_config(local_variables: List[str], files_or_snippets: List[str]) -> Tuple[dict, str]:
-    snippet_before = config_snippet([], files_or_snippets[:1])
+    snippet_before = config_snippet(local_variables, files_or_snippets[:1])
     snippet_after = config_snippet(local_variables, files_or_snippets)
 
     json_before = jsonnet.evaluate_snippet('snippet', snippet_before)
