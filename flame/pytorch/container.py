@@ -1,6 +1,6 @@
 from .utils.distributed import get_rank_safe, get_device_by_backend
 from injector import Module, provider, singleton
-from flame.argument import BasicArgs, add_basic_arguments
+from flame.argument import BasicArgs
 from .typing_prelude import Device, ExperimentDir, RootConfig
 import flame
 import logging
@@ -14,7 +14,7 @@ class BaseModule(Module):
     @singleton
     @provider
     def configure_args(self) -> BasicArgs:
-        args, _ = add_basic_arguments().parse_known_args()
+        args, _ = BasicArgs.from_known_args()
         return args
 
     @singleton
@@ -43,6 +43,9 @@ class BaseModule(Module):
             )
         flame.logging.init_logger(
             rank=rank, filename=experiment_dir / 'experiment.log', force=True
+        )
+        flame.argument.save_command(
+            experiment_dir / 'run.sh'
         )
 
         return experiment_dir
