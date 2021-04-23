@@ -1,4 +1,8 @@
-from .utils.distributed import get_rank_safe, get_device_by_backend
+"""
+方法全部以build为前缀，和detection一致
+"""
+
+from .utils.distributed import get_rank_safe
 from injector import Module, provider, singleton
 from flame.argument import BasicArgs
 from .typing_prelude import Device, ExperimentDir, RootConfig
@@ -13,13 +17,13 @@ class BaseModule(Module):
 
     @singleton
     @provider
-    def configure_args(self) -> BasicArgs:
+    def build_args(self) -> BasicArgs:
         args, _ = BasicArgs.from_known_args()
         return args
 
     @singleton
     @provider
-    def configure_cfg(self, args: BasicArgs, experiment_dir: ExperimentDir) -> RootConfig:
+    def build_cfg(self, args: BasicArgs, experiment_dir: ExperimentDir) -> RootConfig:
         cfg, diff = flame.config.parse_config(args.local, args.config)
         _logger.info('Diff: \n%s', diff)
 
@@ -31,7 +35,7 @@ class BaseModule(Module):
 
     @singleton
     @provider
-    def configure_experiment_dir(self, args: BasicArgs) -> ExperimentDir:
+    def build_experiment_dir(self, args: BasicArgs) -> ExperimentDir:
         experiment_dir = flame.utils.experiment.get_experiment_dir(
             args.output_dir, args.experiment_name, debug=args.debug
         )
@@ -52,5 +56,5 @@ class BaseModule(Module):
 
     @singleton
     @provider
-    def configure_device(self) -> Device:
+    def build_device(self) -> Device:
         return torch.device('cuda' if torch.cuda.is_available() else 'cpu')
