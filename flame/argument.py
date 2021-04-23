@@ -10,22 +10,64 @@ import shlex
 import sys
 import os
 import logging
+import typed_args as ta
+from dataclasses import dataclass
 
 _logger = logging.getLogger(__name__)
 
 
-class BasicArgs:
+@dataclass
+class BasicArgs(ta.TypedArgs):
+    config: List[str] = ta.add_argument(
+        '-c', '--config', type=str, action='append',
+        default=[],
+        help='config file or snippet',
+    )
+    local: List[str] = ta.add_argument(
+        '-l', '--local', type=str, action='append',
+        default=[],
+        help='local variables'
+    )
+    output_dir: Path = ta.add_argument(
+        '-o', '--output-dir',
+        type=Path,
+        default=Path('exps'),
+        help='dir to host all your experiments'
+    )
+    experiment_name: str = ta.add_argument(
+        '-e', '--experiment-name',
+        type=str,
+        default='000',
+        help='experiment name'
+    )
+    debug: bool = ta.add_argument(
+        '-d', '--debug',
+        action='store_true',
+        help='activate debug mode'
+    )
+    yes: bool = ta.add_argument(
+        '-y', '--yes',
+        action='store_true',
+        help='to skip some steps'
+    )
 
-    config: List[str]
-    local: List[str]
-    output_dir: Path
-    experiment_name: str
-    debug: bool
-    yes: bool
-    world_size: int
+
+# class BasicArgs:
+
+#     config: List[str]
+#     local: List[str]
+#     output_dir: Path
+#     experiment_name: str
+#     debug: bool
+#     yes: bool
+#     world_size: int
 
 
-def add_basic_arguments(parser: ArgumentParser) -> ArgumentParser:
+def add_basic_arguments(parser: Optional[ArgumentParser] = None) -> ArgumentParser:
+
+    if parser is None:
+        parser = ArgumentParser()
+
     parser.add_argument(
         '-c', '--config',
         type=str, action='append', default=[],
@@ -39,11 +81,13 @@ def add_basic_arguments(parser: ArgumentParser) -> ArgumentParser:
     parser.add_argument(
         '-o', '--output-dir',
         type=Path,
+        default=Path('exps'),
         help='dir to host all your experiments'
     )
     parser.add_argument(
         '-e', '--experiment-name',
         type=str,
+        default='000',
         help='experiment name'
     )
     parser.add_argument(
@@ -51,11 +95,11 @@ def add_basic_arguments(parser: ArgumentParser) -> ArgumentParser:
         action='store_true',
         help='activate debug mode'
     )
-    parser.add_argument(
-        '--world-size',
-        type=int, default=1,
-        help='number of GPUs/processes for distributed training'
-    )
+    # parser.add_argument(
+    #     '--world-size',
+    #     type=int, default=1,
+    #     help='number of GPUs/processes for distributed training'
+    # )
     parser.add_argument(
         '-y', '--yes',
         action='store_true',

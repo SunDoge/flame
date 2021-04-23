@@ -87,22 +87,25 @@ def dump_as_json(cfg: dict, filename: str):
     """
     _logger.info('dumping config to %s', filename)
     with open(filename, 'w') as f:
-        json.dump(cfg, f)
+        json.dump(cfg, f, indent=2)
 
 
 def parse_config(local_variables: List[str], files_or_snippets: List[str]) -> Tuple[dict, str]:
-    snippet_before = config_snippet([], files_or_snippets[:1])
+    snippet_before = config_snippet(local_variables, files_or_snippets[:1])
     snippet_after = config_snippet(local_variables, files_or_snippets)
 
+    json_before = jsonnet.evaluate_snippet('snippet', snippet_before)
+    json_after = jsonnet.evaluate_snippet('snippet', snippet_after)
+
     diff = difflib.unified_diff(
-        snippet_before.splitlines(keepends=True),
-        snippet_after.splitlines(keepends=True),
+        json_before.splitlines(keepends=True),
+        json_after.splitlines(keepends=True),
         fromfile='before.json',
         tofile='after.json'
     )
 
     diff_str = '\n'.join(diff)
 
-    cfg = from_snippet(snippet_after)
+    cfg = json.loads(json_after)
 
     return cfg, diff_str
