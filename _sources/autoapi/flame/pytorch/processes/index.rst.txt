@@ -1,0 +1,161 @@
+:mod:`flame.pytorch.processes`
+==============================
+
+.. py:module:: flame.pytorch.processes
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   amp_process/index.rst
+   process/index.rst
+   supervised_process/index.rst
+
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.processes.Process
+   flame.pytorch.processes.AmpProcess
+   flame.pytorch.processes.SupervisedProcess
+   flame.pytorch.processes.SupervisedAmpProcess
+
+
+
+
+.. class:: Process
+
+   .. method:: forward(self, batch)
+
+      forward wrapper
+
+      处理数据并计算loss，决定返回哪些数据。
+
+      :returns: 必须包含loss和batch_size
+      :rtype: output
+
+      example::
+
+          def forward(self, batch):
+              image, label = batch
+              pred = self.model(image)
+              loss = self.criterion(pred, label)
+              return self.output(loss=loss, batch_size=labe.size(0), pred=pred, label=label)
+
+
+   .. method:: training_step(self, batch)
+
+
+   .. method:: validation_step(self, batch)
+
+
+   .. method:: update(self)
+
+
+   .. method:: train(self, mode = True)
+
+
+   .. method:: eval(self)
+
+
+   .. method:: output(loss = None, batch_size = None, **kwargs)
+      :staticmethod:
+
+
+   .. method:: infer_dtype(module)
+      :staticmethod:
+
+      通过model推断dtype
+
+
+   .. method:: infer_device(module)
+      :staticmethod:
+
+      通过model推断device
+
+
+
+.. class:: AmpProcess(scaler)
+
+
+   Bases: :py:obj:`flame.pytorch.processes.process.Process`
+
+   .. method:: training_step(self, batch)
+
+
+   .. method:: is_amp_enabled(self)
+
+
+
+.. class:: SupervisedProcess(model, optimizer, criterion)
+
+
+   Bases: :py:obj:`flame.pytorch.processes.process.Process`
+
+   .. method:: forward(self, batch)
+
+      forward wrapper
+
+      处理数据并计算loss，决定返回哪些数据。
+
+      :returns: 必须包含loss和batch_size
+      :rtype: output
+
+      example::
+
+          def forward(self, batch):
+              image, label = batch
+              pred = self.model(image)
+              loss = self.criterion(pred, label)
+              return self.output(loss=loss, batch_size=labe.size(0), pred=pred, label=label)
+
+
+   .. method:: train(self, mode = True)
+
+
+   .. method:: update(self)
+
+      为了兼容gradient accumulation，将zero_grad放最后
+
+
+
+.. class:: SupervisedAmpProcess(model, optimizer, criterion, scaler)
+
+
+   Bases: :py:obj:`flame.pytorch.processes.amp_process.AmpProcess`
+
+   .. method:: forward(self, batch)
+
+      forward wrapper
+
+      处理数据并计算loss，决定返回哪些数据。
+
+      :returns: 必须包含loss和batch_size
+      :rtype: output
+
+      example::
+
+          def forward(self, batch):
+              image, label = batch
+              pred = self.model(image)
+              loss = self.criterion(pred, label)
+              return self.output(loss=loss, batch_size=labe.size(0), pred=pred, label=label)
+
+
+   .. method:: train(self, mode = True)
+
+
+   .. method:: update(self)
+
+      为了兼容gradient accumulation，将zero_grad放最后
+
+
+

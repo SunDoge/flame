@@ -60,7 +60,7 @@ Attributes
 .. function:: get_console_handler()
 
 
-.. function:: init_logger(rank = 0, filename = None, debug = False)
+.. function:: init_logger(rank = 0, filename = None, debug = False, force = False)
 
    :param rank: 目前只有rank0会输出到console和log file
 

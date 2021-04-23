@@ -23,9 +23,15 @@ Attributes
 .. autoapisummary::
 
    flame.pytorch.checkpoint_saver.best_checkpoint_saver._logger
+   flame.pytorch.checkpoint_saver.best_checkpoint_saver.T
 
 
 .. data:: _logger
+   
+
+   
+
+.. data:: T
    
 
    
@@ -35,7 +41,12 @@ Attributes
 
    Bases: :py:obj:`flame.pytorch.checkpoint_saver.base_checkpoint_saver.CheckpointSaver`
 
-   .. method:: save(self, output_dir, is_best = None, metric = None)
+   .. method:: is_best(self, metric, best_metric)
+
+
+   .. method:: save(self, output_dir, is_best = False)
+
+      在save checkpoint之前，best metric就应该被更新。所以没法在这里计算is_best
 
 
 

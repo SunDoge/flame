@@ -25,18 +25,25 @@ Attributes
    flame.pytorch.typing_prelude.TrainDataset
    flame.pytorch.typing_prelude.ValDataset
    flame.pytorch.typing_prelude.TestDataset
+   flame.pytorch.typing_prelude.TrainSampler
+   flame.pytorch.typing_prelude.ValSampler
+   flame.pytorch.typing_prelude.TestSampler
    flame.pytorch.typing_prelude.TrainLoader
    flame.pytorch.typing_prelude.ValLoader
    flame.pytorch.typing_prelude.TestLoader
+   flame.pytorch.typing_prelude.BasicArgs
    flame.pytorch.typing_prelude.RootConfig
    flame.pytorch.typing_prelude.ExperimentDir
    flame.pytorch.typing_prelude.Criterion
    flame.pytorch.typing_prelude.Optimizer
    flame.pytorch.typing_prelude.LrScheduler
+   flame.pytorch.typing_prelude.Process
    flame.pytorch.typing_prelude.Device
+   flame.pytorch.typing_prelude.Dtype
    flame.pytorch.typing_prelude.TrainState
    flame.pytorch.typing_prelude.ValState
    flame.pytorch.typing_prelude.TestState
+   flame.pytorch.typing_prelude.EpochState
    flame.pytorch.typing_prelude.TensorDict
    flame.pytorch.typing_prelude.TensorList
 
@@ -56,6 +63,21 @@ Attributes
 
    
 
+.. data:: TrainSampler
+   
+
+   
+
+.. data:: ValSampler
+   
+
+   
+
+.. data:: TestSampler
+   
+
+   
+
 .. data:: TrainLoader
    
 
@@ -67,6 +89,11 @@ Attributes
    
 
 .. data:: TestLoader
+   
+
+   
+
+.. data:: BasicArgs
    
 
    
@@ -96,7 +123,17 @@ Attributes
 
    
 
+.. data:: Process
+   
+
+   
+
 .. data:: Device
+   
+
+   
+
+.. data:: Dtype
    
 
    
@@ -116,37 +153,17 @@ Attributes
 
    
 
+.. data:: EpochState
+   
+
+   
+
 .. class:: Model(module)
 
 
    Bases: :py:obj:`torch.nn.Module`
 
-   Base class for all neural network modules.
-
-   Your models should also subclass this class.
-
-   Modules can also contain other Modules, allowing to nest them in
-   a tree structure. You can assign the submodules as regular attributes::
-
-       import torch.nn as nn
-       import torch.nn.functional as F
-
-       class Model(nn.Module):
-           def __init__(self):
-               super(Model, self).__init__()
-               self.conv1 = nn.Conv2d(1, 20, 5)
-               self.conv2 = nn.Conv2d(20, 20, 5)
-
-           def forward(self, x):
-               x = F.relu(self.conv1(x))
-               return F.relu(self.conv2(x))
-
-   Submodules assigned in this way will be registered, and will have their
-   parameters converted too when you call :meth:`to`, etc.
-
-   :ivar training: Boolean represents whether this module is in training or
-                   evaluation mode.
-   :vartype training: bool
+   模拟 DataParallel 和 DistributedDataParallel
 
    .. method:: forward(self, *args, **kwargs)
 

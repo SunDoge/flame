@@ -14,6 +14,7 @@ Subpackages
    experimental/index.rst
    meters/index.rst
    metrics/index.rst
+   processes/index.rst
    utils/index.rst
 
 
@@ -23,9 +24,11 @@ Submodules
    :titlesonly:
    :maxdepth: 1
 
+   container/index.rst
    distributed_training/index.rst
    engine/index.rst
    experiment/index.rst
+   preparation/index.rst
    process/index.rst
    typing_prelude/index.rst
 

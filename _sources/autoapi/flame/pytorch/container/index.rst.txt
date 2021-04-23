@@ -1,0 +1,51 @@
+:mod:`flame.pytorch.container`
+==============================
+
+.. py:module:: flame.pytorch.container
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.container.BaseModule
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.container._logger
+
+
+.. data:: _logger
+   
+
+   
+
+.. class:: BaseModule
+
+   Bases: :py:obj:`injector.Module`
+
+   Configures injector and providers.
+
+   .. method:: configure_args(self)
+
+
+   .. method:: configure_cfg(self, args, experiment_dir)
+
+
+   .. method:: configure_experiment_dir(self, args)
+
+
+   .. method:: configure_device(self)
+
+
+

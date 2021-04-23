@@ -244,11 +244,6 @@
          yes
         </a>
        </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#flame.argument.BasicArgs.world_size">
-         world_size
-        </a>
-       </li>
       </ul>
      </li>
      <li class="toc-h4 nav-item toc-entry">
@@ -319,7 +314,7 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.argument.add_basic_arguments" title="flame.argument.add_basic_arguments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_basic_arguments</span></code></a>(parser)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.argument.add_basic_arguments" title="flame.argument.add_basic_arguments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_basic_arguments</span></code></a>(parser = None)</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#flame.argument.parse_basic_args" title="flame.argument.parse_basic_args"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse_basic_args</span></code></a>(parser = None)</p></td>
@@ -355,7 +350,8 @@
 <dl class="py class">
 <dt id="flame.argument.BasicArgs">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.argument.</span></code><code class="sig-name descname"><span class="pre">BasicArgs</span></code><a class="headerlink" href="#flame.argument.BasicArgs" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="py attribute">
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">typed_args.TypedArgs</span></code></p>
+<dl class="py attribute">
 <dt id="flame.argument.BasicArgs.config">
 <code class="sig-name descname"><span class="pre">config</span></code><em class="property"> <span class="pre">:List[str]</span></em><a class="headerlink" href="#flame.argument.BasicArgs.config" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -385,16 +381,11 @@
 <code class="sig-name descname"><span class="pre">yes</span></code><em class="property"> <span class="pre">:bool</span></em><a class="headerlink" href="#flame.argument.BasicArgs.yes" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py attribute">
-<dt id="flame.argument.BasicArgs.world_size">
-<code class="sig-name descname"><span class="pre">world_size</span></code><em class="property"> <span class="pre">:int</span></em><a class="headerlink" href="#flame.argument.BasicArgs.world_size" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 </dd></dl>
 
 <dl class="py function">
 <dt id="flame.argument.add_basic_arguments">
-<code class="sig-prename descclassname"><span class="pre">flame.argument.</span></code><code class="sig-name descname"><span class="pre">add_basic_arguments</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.argument.add_basic_arguments" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">flame.argument.</span></code><code class="sig-name descname"><span class="pre">add_basic_arguments</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.argument.add_basic_arguments" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">

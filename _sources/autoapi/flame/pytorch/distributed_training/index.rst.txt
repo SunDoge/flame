@@ -21,10 +21,12 @@ Functions
 
 .. autoapisummary::
 
+   flame.pytorch.distributed_training.get_dist_options
    flame.pytorch.distributed_training._init_process_group_fn
    flame.pytorch.distributed_training.start_distributed_training
    flame.pytorch.distributed_training.get_available_local_dist_url
    flame.pytorch.distributed_training.init_cpu_process_group
+   flame.pytorch.distributed_training.start_training
 
 
 
@@ -43,28 +45,55 @@ Attributes
 
 .. class:: DistOptions
 
+   Bases: :py:obj:`typed_args.TypedArgs`
+
+   .. attribute:: dist
+      :annotation: :bool
+
+      
+
    .. attribute:: rank_start
-      :annotation: :int = 0
+      :annotation: :int
 
       
 
    .. attribute:: world_size
-      :annotation: :int = 1
+      :annotation: :Optional[int]
 
       
 
    .. attribute:: dist_backend
-      :annotation: :str = NCCL
+      :annotation: :str
 
       
 
-   .. attribute:: dist_url
-      :annotation: :str = tcp://127.0.0.1:12345
+   .. attribute:: dist_host
+      :annotation: :str
 
       
 
+   .. attribute:: dist_port
+      :annotation: :Optional[int]
 
-.. function:: _init_process_group_fn(device_id, worker_fn, dist_options, *args)
+      
+
+   .. attribute:: nprocs
+      :annotation: :Optional[int]
+
+      
+
+   .. method:: dist_url(self)
+      :property:
+
+
+   .. method:: get_rank(self, proc_id)
+
+
+
+.. function:: get_dist_options()
+
+
+.. function:: _init_process_group_fn(proc_id, worker_fn, dist_options, *args)
 
    wrapper function for worker_fn
 
@@ -76,7 +105,7 @@ Attributes
    4. call worker_fn
 
 
-.. function:: start_distributed_training(worker_fn, args = (), rank_start = 0, world_size = 1, dist_backend = 'NCCL', dist_url = 'tcp://127.0.0.1:12345', nprocs = 1)
+.. function:: start_distributed_training(worker_fn, dist_options, args = ())
 
    helper function for distributed training
 
@@ -102,5 +131,8 @@ Attributes
 
    测试函数，方便在CPU环境下测试分布式操作，比如测试MoCo的shuffle bn。
    不要在生产环境中使用。
+
+
+.. function:: start_training(worker_fn, args = ())
 
 

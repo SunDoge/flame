@@ -1,0 +1,84 @@
+:mod:`flame.pytorch.processes.process`
+======================================
+
+.. py:module:: flame.pytorch.processes.process
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.processes.process.Process
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.processes.process._logger
+
+
+.. data:: _logger
+   
+
+   
+
+.. class:: Process
+
+   .. method:: forward(self, batch)
+
+      forward wrapper
+
+      处理数据并计算loss，决定返回哪些数据。
+
+      :returns: 必须包含loss和batch_size
+      :rtype: output
+
+      example::
+
+          def forward(self, batch):
+              image, label = batch
+              pred = self.model(image)
+              loss = self.criterion(pred, label)
+              return self.output(loss=loss, batch_size=labe.size(0), pred=pred, label=label)
+
+
+   .. method:: training_step(self, batch)
+
+
+   .. method:: validation_step(self, batch)
+
+
+   .. method:: update(self)
+
+
+   .. method:: train(self, mode = True)
+
+
+   .. method:: eval(self)
+
+
+   .. method:: output(loss = None, batch_size = None, **kwargs)
+      :staticmethod:
+
+
+   .. method:: infer_dtype(module)
+      :staticmethod:
+
+      通过model推断dtype
+
+
+   .. method:: infer_device(module)
+      :staticmethod:
+
+      通过model推断device
+
+
+

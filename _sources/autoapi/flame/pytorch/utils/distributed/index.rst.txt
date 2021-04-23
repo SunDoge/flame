@@ -14,12 +14,16 @@ Functions
 .. autoapisummary::
 
    flame.pytorch.utils.distributed.is_dist_available_and_initialized
+   flame.pytorch.utils.distributed.get_rank_safe
    flame.pytorch.utils.distributed.get_device_by_backend
    flame.pytorch.utils.distributed.reduce_numbers
 
 
 
 .. function:: is_dist_available_and_initialized()
+
+
+.. function:: get_rank_safe()
 
 
 .. function:: get_device_by_backend()

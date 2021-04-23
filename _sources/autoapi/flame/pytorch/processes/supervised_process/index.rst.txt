@@ -1,0 +1,84 @@
+:mod:`flame.pytorch.processes.supervised_process`
+=================================================
+
+.. py:module:: flame.pytorch.processes.supervised_process
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.processes.supervised_process.SupervisedProcess
+   flame.pytorch.processes.supervised_process.SupervisedAmpProcess
+
+
+
+
+.. class:: SupervisedProcess(model, optimizer, criterion)
+
+
+   Bases: :py:obj:`flame.pytorch.processes.process.Process`
+
+   .. method:: forward(self, batch)
+
+      forward wrapper
+
+      处理数据并计算loss，决定返回哪些数据。
+
+      :returns: 必须包含loss和batch_size
+      :rtype: output
+
+      example::
+
+          def forward(self, batch):
+              image, label = batch
+              pred = self.model(image)
+              loss = self.criterion(pred, label)
+              return self.output(loss=loss, batch_size=labe.size(0), pred=pred, label=label)
+
+
+   .. method:: train(self, mode = True)
+
+
+   .. method:: update(self)
+
+      为了兼容gradient accumulation，将zero_grad放最后
+
+
+
+.. class:: SupervisedAmpProcess(model, optimizer, criterion, scaler)
+
+
+   Bases: :py:obj:`flame.pytorch.processes.amp_process.AmpProcess`
+
+   .. method:: forward(self, batch)
+
+      forward wrapper
+
+      处理数据并计算loss，决定返回哪些数据。
+
+      :returns: 必须包含loss和batch_size
+      :rtype: output
+
+      example::
+
+          def forward(self, batch):
+              image, label = batch
+              pred = self.model(image)
+              loss = self.criterion(pred, label)
+              return self.output(loss=loss, batch_size=labe.size(0), pred=pred, label=label)
+
+
+   .. method:: train(self, mode = True)
+
+
+   .. method:: update(self)
+
+      为了兼容gradient accumulation，将zero_grad放最后
+
+
+

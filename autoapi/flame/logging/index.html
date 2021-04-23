@@ -283,7 +283,7 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#flame.logging.get_console_handler" title="flame.logging.get_console_handler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_console_handler</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.logging.init_logger" title="flame.logging.init_logger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_logger</span></code></a>(rank = 0, filename = None, debug = False)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.logging.init_logger" title="flame.logging.init_logger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_logger</span></code></a>(rank = 0, filename = None, debug = False, force = False)</p></td>
 <td><p><dl class="field-list simple">
 <dt class="field-odd">param rank</dt>
 <dd class="field-odd"><p>目前只有rank0会输出到console和log file</p>
@@ -351,7 +351,7 @@
 
 <dl class="py function">
 <dt id="flame.logging.init_logger">
-<code class="sig-prename descclassname"><span class="pre">flame.logging.</span></code><code class="sig-name descname"><span class="pre">init_logger</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rank</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.logging.init_logger" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">flame.logging.</span></code><code class="sig-name descname"><span class="pre">init_logger</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rank</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.logging.init_logger" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>rank</strong> – 目前只有rank0会输出到console和log file</p>

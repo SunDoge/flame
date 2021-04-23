@@ -139,11 +139,29 @@
        </code>
       </a>
      </li>
+     <li class="toctree-l4">
+      <a class="reference internal" href="../../processes/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.processes
+        </span>
+       </code>
+      </a>
+     </li>
      <li class="toctree-l4 current active">
       <a class="reference internal" href="../index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.pytorch.utils
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
+      <a class="reference internal" href="../../container/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.container
         </span>
        </code>
       </a>
@@ -171,6 +189,15 @@
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.pytorch.experiment
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
+      <a class="reference internal" href="../../preparation/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.preparation
         </span>
        </code>
       </a>
@@ -292,6 +319,11 @@
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.pytorch.utils.distributed.get_rank_safe">
+       get_rank_safe
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#flame.pytorch.utils.distributed.get_device_by_backend">
        get_device_by_backend
       </a>
@@ -337,10 +369,13 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.utils.distributed.is_dist_available_and_initialized" title="flame.pytorch.utils.distributed.is_dist_available_and_initialized"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_dist_available_and_initialized</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.utils.distributed.get_device_by_backend" title="flame.pytorch.utils.distributed.get_device_by_backend"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_device_by_backend</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.utils.distributed.get_rank_safe" title="flame.pytorch.utils.distributed.get_rank_safe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_rank_safe</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.utils.distributed.reduce_numbers" title="flame.pytorch.utils.distributed.reduce_numbers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reduce_numbers</span></code></a>(nums, op=ReduceOp.SUM)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.utils.distributed.get_device_by_backend" title="flame.pytorch.utils.distributed.get_device_by_backend"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_device_by_backend</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.utils.distributed.reduce_numbers" title="flame.pytorch.utils.distributed.reduce_numbers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reduce_numbers</span></code></a>(nums, op=ReduceOp.SUM)</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -348,6 +383,11 @@
 <dl class="py function">
 <dt id="flame.pytorch.utils.distributed.is_dist_available_and_initialized">
 <code class="sig-prename descclassname"><span class="pre">flame.pytorch.utils.distributed.</span></code><code class="sig-name descname"><span class="pre">is_dist_available_and_initialized</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.utils.distributed.is_dist_available_and_initialized" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="flame.pytorch.utils.distributed.get_rank_safe">
+<code class="sig-prename descclassname"><span class="pre">flame.pytorch.utils.distributed.</span></code><code class="sig-name descname"><span class="pre">get_rank_safe</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.utils.distributed.get_rank_safe" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">

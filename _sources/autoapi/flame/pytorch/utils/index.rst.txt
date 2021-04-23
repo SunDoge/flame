@@ -13,6 +13,7 @@ Submodules
    attributes/index.rst
    distributed/index.rst
    ranking/index.rst
+   spawn/index.rst
 
 
 Package Contents

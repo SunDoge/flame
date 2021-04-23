@@ -32,7 +32,7 @@ Attributes
 
    
 
-.. function:: get_experiment_dir(output_dir, experiment_name, debug = False)
+.. function:: get_experiment_dir(output_dir, experiment_name, debug = False, with_timestamp = False)
 
    实验默认是release模式，只有指定debug模式的时候，才会生成debug目录
 

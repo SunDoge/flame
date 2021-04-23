@@ -1,0 +1,101 @@
+:mod:`flame.pytorch.preparation`
+================================
+
+.. py:module:: flame.pytorch.preparation
+
+.. autoapi-nested-parse::
+
+   初始化主进程：
+
+   1. parse args
+   2. 根据 args 生成 experiment dir
+   3. 如果当前是主进程，创建 experiment dir
+   4. 如果当前是主进程，init logging and set logfile
+   5. 构建 root_container with Args, ExperimentDir
+
+   初始化多个进程：
+
+   1. 用户可以指定 nprocs，如果没有指定，用 device_count
+   2. 创建 n processes, 调用主进程初始化帮助函数，传入 device_id (process id)
+   3. 帮助函数init_process_group，设置 current_device，再调用 初始化主进程 方法
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.preparation.DistOptions
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.preparation.main_worker_helper
+   flame.pytorch.preparation.distributed_helper
+   flame.pytorch.preparation.spawn_process
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.preparation._logger
+
+
+.. data:: _logger
+   
+
+   
+
+.. class:: DistOptions
+
+   .. attribute:: rank_start
+      :annotation: :int = 0
+
+      
+
+   .. attribute:: world_size
+      :annotation: :int = 1
+
+      
+
+   .. attribute:: dist_backend
+      :annotation: :str = NCCL
+
+      
+
+   .. attribute:: dist_url
+      :annotation: :str = tcp://127.0.0.1:12345
+
+      
+
+   .. attribute:: nprocs
+      :annotation: :int = 1
+
+      
+
+   .. method:: get_rank(self, proc_id)
+
+
+
+.. function:: main_worker_helper(args, main_worker)
+
+
+.. function:: distributed_helper(user_func, proc_id, dist_options)
+
+   传入一个user_func，user_func和单进程没有任何区别，函数功能和launch是一样的
+
+
+.. function:: spawn_process(func, dist_options)
+
+

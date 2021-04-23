@@ -48,6 +48,8 @@ Attributes
 
 .. class:: BasicArgs
 
+   Bases: :py:obj:`typed_args.TypedArgs`
+
    .. attribute:: config
       :annotation: :List[str]
 
@@ -78,13 +80,8 @@ Attributes
 
       
 
-   .. attribute:: world_size
-      :annotation: :int
 
-      
-
-
-.. function:: add_basic_arguments(parser)
+.. function:: add_basic_arguments(parser = None)
 
 
 .. function:: parse_basic_args(parser = None)
