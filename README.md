@@ -112,7 +112,8 @@ class SupervisedProcess:
 
     def training_step(self, batch):
         # 训练过程包括forward和backward，不包括update optimizer，这一步可以定义为模板
-        loss, output = self.forward_step(batch)
+        output = self.forward_step(batch)
+        loss = output['loss']
         loss.backward()
 
         return output
@@ -120,7 +121,7 @@ class SupervisedProcess:
     def validation_step(self, batch):
         # 推理过程不需要用到loss，只需要返回output，这一步可以定义为模板
         with torch.no_grad():
-            _loss, output = self.forward_step(batch)
+            output = self.forward_step(batch)
         
         return output
 
@@ -134,14 +135,10 @@ class SupervisedProcess:
 
         loss = criterion(pred, label)
 
-        # output可以是dict，也可以是tuple，用户自行决定
-        output = {
-            'pred': pred,
-            'label': label,
-            'loss': loss,
-        }
+        # 在forward step需要计算出batch size，后续有很多步骤需要batch size
+        batch_size = image.size(0)
 
-        return loss, output # 虽然output里面已经有loss了，但是backward用的是第一个返回值，output里的loss一般用于log
+        return self.output(loss=loss, batch_size=batch_size, pred=pred, label=label)
 
 
     def update(self):
@@ -186,80 +183,6 @@ for batch in dataloader:
 
 目前用到的`State`如下
 
-```python
-@dataclass
-class State:
-    # For epoch engine
-    epoch: int = 0 # 当前epoch
-    max_epochs: Optional[int] = None # 总的epoch
-
-    # For iteration engine
-    local_iteration: int = 0 # 在一个epoch中，当前的iteration。通常用来监控一个epoch已经学了多少。
-    global_iteration: int = 0 # 在整个训练过程中，当前的iteration。用于部分scheduler或gradient accumulation。
-
-    # dataloader的长度，和local_iteration相关
-    epoch_length: Optional[int] = None
-
-    # 最多跑多少iter，和global_iteration相关
-    max_iterations: Optional[int] = None
-
-    batch: Optional[Any] = None  # model input
-    output: Optional[Any] = None  # model output
-    dataloader: Optional[Iterable[Any]] = None
-    metrics: Dict[str, Any] = field(default_factory=dict) # 记录loss，accuracy之类的metrics
-```
-
-`State`可以通过依赖注入自动注入到需要访问当前训练状态的函数中。
-
 ### Engine
 
-`Engine`中实现了epoch的循环和iteration的循环。在循环的特定位置，会执行用户定义的函数。伪代码如下
-
-```
-fire_event STARTED
-
-while epoch <= max_epochs:
-
-    fire_event EPOCH_STARTED
-
-    for batch in dataloader:
-
-        fire_event ITERATION_STARTED
-
-        Run user defined process
-
-        fire_event ITERATION_COMPLETED
-
-    fire_event EPOCH_COMPLETED
-
-fire_event COMPLETED
-```
-
-首先，`Engine`定义了一系列的`Events`。我们可以在特定的事件发生时执行一些方法
-
-```python
-from flame.pytorch.experimental.engine import Engine, Events, State
-from injector import inject 
-
-@inject # 支持自动注入
-def log_iteration(state: State, prefix='Train'):
-    print(f'{prefix} iter: {state.local_iteration}/{state.epoch_length}')
-
-
-
-trainer = Engine()
-trainer.add_event_handler(Events.EPOCH_COMPLETED, log_iteration) # 每个epoch结束时print iteration
-trainer.add_event_handler(Events.ITERATION_COMPLETE(every=10), log_iteration) # 每10个iteration结束时print iteration
-trainer.add_event_handler(Events.ITERATION_STARTED, log_iteration, prefix='Val') # 可以传入kwargs
-```
-
-启动一个`Engine`：
-
-```python
-trainer = Engine()
-trainer.run(dataloader, max_epochs=100)
-
-# 等价于
-trainer.setup(dataloader, max_epochs=100)
-trainer.internal_run() # api可能会变
-```
+pass
