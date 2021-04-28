@@ -1,34 +1,16 @@
 import logging
+from dataclasses import dataclass
 from typing import Any, Callable, Optional
 
+import flame
+import torch
 import torch.distributed as dist
 import torch.multiprocessing as mp
-from dataclasses import dataclass
-import flame
-import argparse
-import torch
-from flame.utils.operating_system import find_free_port
 import typed_args as ta
+from flame.utils.operating_system import find_free_port
 
 _logger = logging.getLogger(__name__)
 
-
-# @dataclass
-# class DistOptions():
-#     dist: bool = False
-#     rank_start: int = 0
-#     world_size: int = 1
-#     dist_backend: str = 'nccl'
-#     dist_host: str = '127.0.0.1'
-#     dist_port: str = 'auto'
-
-#     @property
-#     def dist_url(self) -> str:
-#         assert self.dist_port != 'auto'
-#         return 'tcp://{host}:{port}'.format(host=self.dist_host, port=self.dist_port)
-
-#     def get_rank(self, proc_id: int) -> int:
-#         return self.rank_start + proc_id
 
 @dataclass
 class DistOptions(ta.TypedArgs):
@@ -138,7 +120,6 @@ def start_distributed_training(
 
     # CPU + GLOO, nprocs = 1
     # nprocs = num_gpus if num_gpus > 0 else 1
-
     if dist_options.nprocs is None:
         _logger.info('nprocs is None, start inferring nprocs')
         if dist_options.dist_backend.lower() == 'nccl':
@@ -155,6 +136,7 @@ def start_distributed_training(
         dist_options.world_size = dist_options.nprocs
         _logger.info('nprocs = %d', dist_options.nprocs)
 
+    # 根据nprocs决定是否启动multiprocess
     if dist_options.nprocs == 1:
         _logger.debug('nprocs==1, disable multiprocessing')
         _init_process_group_fn(0, worker_fn, dist_options, *args)

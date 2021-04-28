@@ -2,16 +2,15 @@
 我先用标准库，后面再考虑要不要用typed-args
 """
 
-import argparse
-from typing import List, Optional
-from pathlib import Path
-from argparse import ArgumentParser
+import logging
+import os
 import shlex
 import sys
-import os
-import logging
-import typed_args as ta
 from dataclasses import dataclass
+from pathlib import Path
+from typing import List
+
+import typed_args as ta
 
 _logger = logging.getLogger(__name__)
 
@@ -50,72 +49,6 @@ class BasicArgs(ta.TypedArgs):
         action='store_true',
         help='to skip some steps'
     )
-
-
-# class BasicArgs:
-
-#     config: List[str]
-#     local: List[str]
-#     output_dir: Path
-#     experiment_name: str
-#     debug: bool
-#     yes: bool
-#     world_size: int
-
-
-def add_basic_arguments(parser: Optional[ArgumentParser] = None) -> ArgumentParser:
-
-    if parser is None:
-        parser = ArgumentParser()
-
-    parser.add_argument(
-        '-c', '--config',
-        type=str, action='append', default=[],
-        help='config file or snippet'
-    )
-    parser.add_argument(
-        '-l', '--local',
-        type=str, action='append', default=[],
-        help='local variables'
-    )
-    parser.add_argument(
-        '-o', '--output-dir',
-        type=Path,
-        default=Path('exps'),
-        help='dir to host all your experiments'
-    )
-    parser.add_argument(
-        '-e', '--experiment-name',
-        type=str,
-        default='000',
-        help='experiment name'
-    )
-    parser.add_argument(
-        '-d', '--debug',
-        action='store_true',
-        help='activate debug mode'
-    )
-    # parser.add_argument(
-    #     '--world-size',
-    #     type=int, default=1,
-    #     help='number of GPUs/processes for distributed training'
-    # )
-    parser.add_argument(
-        '-y', '--yes',
-        action='store_true',
-        help='to skip some steps'
-    )
-    return parser
-
-
-def parse_basic_args(parser: Optional[ArgumentParser] = None) -> BasicArgs:
-    if parser is None:
-        parser = ArgumentParser()
-
-    parser = add_basic_arguments(parser)
-    args = parser.parse_args()
-
-    return args
 
 
 def get_command() -> str:
