@@ -194,24 +194,6 @@
       </a>
      </li>
      <li class="toctree-l4">
-      <a class="reference internal" href="../preparation/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         flame.pytorch.preparation
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l4">
-      <a class="reference internal" href="../process/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         flame.pytorch.process
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l4">
       <a class="reference internal" href="../typing_prelude/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
@@ -281,6 +263,24 @@
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
        flame.logging
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../../registry/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.registry
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../../zip_importer/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.zip_importer
       </span>
      </code>
     </a>
@@ -538,19 +538,37 @@
 <dl class="py method">
 <dt id="flame.pytorch.distributed_training.DistOptions.dist_url">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">dist_url</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.distributed_training.DistOptions.dist_url" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="flame.pytorch.distributed_training.DistOptions.get_rank">
 <code class="sig-name descname"><span class="pre">get_rank</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">proc_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.distributed_training.DistOptions.get_rank" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>proc_id</strong> (<em>int</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
 <dl class="py function">
 <dt id="flame.pytorch.distributed_training.get_dist_options">
 <code class="sig-prename descclassname"><span class="pre">flame.pytorch.distributed_training.</span></code><code class="sig-name descname"><span class="pre">get_dist_options</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.distributed_training.get_dist_options" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#flame.pytorch.distributed_training.DistOptions" title="flame.pytorch.distributed_training.DistOptions">DistOptions</a></p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="flame.pytorch.distributed_training._init_process_group_fn">
@@ -563,6 +581,15 @@
 <li><p>set cuda device if cuda is available</p></li>
 <li><p>call worker_fn</p></li>
 </ol>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>proc_id</strong> (<em>int</em>) – </p></li>
+<li><p><strong>worker_fn</strong> (<em>Callable</em>) – </p></li>
+<li><p><strong>dist_options</strong> (<a class="reference internal" href="#flame.pytorch.distributed_training.DistOptions" title="flame.pytorch.distributed_training.DistOptions"><em>DistOptions</em></a>) – </p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -575,6 +602,15 @@
 <li><p>init_process_group</p></li>
 <li><p>call worker_fn with args</p></li>
 </ol>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>worker_fn</strong> (<em>Callable</em>) – </p></li>
+<li><p><strong>dist_options</strong> (<a class="reference internal" href="#flame.pytorch.distributed_training.DistOptions" title="flame.pytorch.distributed_training.DistOptions"><em>DistOptions</em></a>) – </p></li>
+<li><p><strong>args</strong> (<em>tuple</em>) – </p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -585,6 +621,11 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tcp</span><span class="p">:</span><span class="o">//</span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span><span class="p">:</span><span class="mi">12345</span>
 </pre></div>
 </div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -593,12 +634,29 @@
 <dd><p>helper function for testing distributed training</p>
 <p>测试函数，方便在CPU环境下测试分布式操作，比如测试MoCo的shuffle bn。
 不要在生产环境中使用。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rank</strong> (<em>int</em>) – </p></li>
+<li><p><strong>world_size</strong> (<em>int</em>) – </p></li>
+<li><p><strong>dist_url</strong> (<em>str</em>) – </p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="flame.pytorch.distributed_training.start_training">
 <code class="sig-prename descclassname"><span class="pre">flame.pytorch.distributed_training.</span></code><code class="sig-name descname"><span class="pre">start_training</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">worker_fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.distributed_training.start_training" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>worker_fn</strong> (<em>Callable</em>) – </p></li>
+<li><p><strong>args</strong> (<em>tuple</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 </div>

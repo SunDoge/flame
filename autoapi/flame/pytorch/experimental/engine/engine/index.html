@@ -194,24 +194,6 @@
       </a>
      </li>
      <li class="toctree-l4">
-      <a class="reference internal" href="../../../preparation/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         flame.pytorch.preparation
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l4">
-      <a class="reference internal" href="../../../process/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         flame.pytorch.process
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l4">
       <a class="reference internal" href="../../../typing_prelude/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
@@ -281,6 +263,24 @@
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
        flame.logging
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../../../../registry/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.registry
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../../../../zip_importer/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.zip_importer
       </span>
      </code>
     </a>
@@ -545,7 +545,15 @@
 <dl class="py function">
 <dt id="flame.pytorch.experimental.engine.engine._default_process_function">
 <code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.engine.engine.</span></code><code class="sig-name descname"><span class="pre">_default_process_function</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">batch</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.engine._default_process_function" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>batch</strong> (<em>Any</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Any</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py class">
 <dt id="flame.pytorch.experimental.engine.engine.Engine">
@@ -555,30 +563,70 @@
 <dl class="py method">
 <dt id="flame.pytorch.experimental.engine.engine.Engine.add_event_handler">
 <code class="sig-name descname"><span class="pre">add_event_handler</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handler</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.engine.Engine.add_event_handler" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>event_name</strong> (<em>Union</em><em>[</em><a class="reference internal" href="../events/index.html#flame.pytorch.experimental.engine.events.Events" title="flame.pytorch.experimental.engine.events.Events"><em>flame.pytorch.experimental.engine.events.Events</em></a><em>, </em><a class="reference internal" href="../events/index.html#flame.pytorch.experimental.engine.events.EventsList" title="flame.pytorch.experimental.engine.events.EventsList"><em>flame.pytorch.experimental.engine.events.EventsList</em></a><em>]</em>) – </p></li>
+<li><p><strong>handler</strong> (<em>Callable</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="flame.pytorch.experimental.engine.engine.Engine.has_event_handler">
 <code class="sig-name descname"><span class="pre">has_event_handler</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handler</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.engine.Engine.has_event_handler" title="Permalink to this definition">¶</a></dt>
 <dd><p>FIXME: 实现不是很正确</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>handler</strong> (<em>Callable</em>) – </p></li>
+<li><p><strong>event_name</strong> (<em>Optional</em><em>[</em><em>Any</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="flame.pytorch.experimental.engine.engine.Engine.compare_handlers">
 <em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">compare_handlers</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_handler</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">registered_handler</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.engine.Engine.compare_handlers" title="Permalink to this definition">¶</a></dt>
 <dd><p>FIXME: 比较不是很准确</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>user_handler</strong> (<em>Callable</em>) – </p></li>
+<li><p><strong>registered_handler</strong> (<em>Callable</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="flame.pytorch.experimental.engine.engine.Engine._fire_event">
 <code class="sig-name descname"><span class="pre">_fire_event</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.engine.Engine._fire_event" title="Permalink to this definition">¶</a></dt>
 <dd><p>最好不要用args，顺序很难确定</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>event_name</strong> (<em>Any</em>) – </p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="flame.pytorch.experimental.engine.engine.Engine.fire_event">
 <code class="sig-name descname"><span class="pre">fire_event</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.engine.Engine.fire_event" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>event_name</strong> (<em>Any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="flame.pytorch.experimental.engine.engine.Engine.step_epoch">
@@ -598,17 +646,37 @@
 <dl class="py method">
 <dt id="flame.pytorch.experimental.engine.engine.Engine.set_epoch">
 <code class="sig-name descname"><span class="pre">set_epoch</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epoch</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.engine.Engine.set_epoch" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>epoch</strong> (<em>int</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="flame.pytorch.experimental.engine.engine.Engine.set_data">
 <code class="sig-name descname"><span class="pre">set_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.engine.Engine.set_data" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>Iterable</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="flame.pytorch.experimental.engine.engine.Engine.setup">
 <code class="sig-name descname"><span class="pre">setup</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_epochs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iterations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epoch_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.engine.Engine.setup" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>Iterable</em>) – </p></li>
+<li><p><strong>max_epochs</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
+<li><p><strong>max_iterations</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
+<li><p><strong>epoch_length</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="flame.pytorch.experimental.engine.engine.Engine._start_epoch_loop">
@@ -630,17 +698,47 @@
 <dl class="py method">
 <dt id="flame.pytorch.experimental.engine.engine.Engine.get_data_length">
 <em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">get_data_length</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.engine.Engine.get_data_length" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>Iterable</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Optional[int]</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="flame.pytorch.experimental.engine.engine.Engine.run">
 <code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_epochs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iterations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epoch_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.engine.Engine.run" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>Iterable</em>) – </p></li>
+<li><p><strong>max_epochs</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
+<li><p><strong>max_iterations</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
+<li><p><strong>epoch_length</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="flame.pytorch.experimental.engine.engine.Engine._handler_wrapper">
 <code class="sig-name descname"><span class="pre">_handler_wrapper</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handler</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_filter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.engine.Engine._handler_wrapper" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>handler</strong> (<em>Callable</em>) – </p></li>
+<li><p><strong>event_name</strong> (<em>Any</em>) – </p></li>
+<li><p><strong>event_filter</strong> (<em>Callable</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Callable</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 

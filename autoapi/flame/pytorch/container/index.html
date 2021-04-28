@@ -194,24 +194,6 @@
       </a>
      </li>
      <li class="toctree-l4">
-      <a class="reference internal" href="../preparation/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         flame.pytorch.preparation
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l4">
-      <a class="reference internal" href="../process/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         flame.pytorch.process
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l4">
       <a class="reference internal" href="../typing_prelude/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
@@ -285,6 +267,24 @@
      </code>
     </a>
    </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../../registry/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.registry
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../../zip_importer/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.zip_importer
+      </span>
+     </code>
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -329,23 +329,23 @@
       </a>
       <ul class="nav section-nav flex-column">
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#flame.pytorch.container.BaseModule.configure_args">
-         configure_args
+        <a class="reference internal nav-link" href="#flame.pytorch.container.BaseModule.create_args">
+         create_args
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#flame.pytorch.container.BaseModule.configure_cfg">
-         configure_cfg
+        <a class="reference internal nav-link" href="#flame.pytorch.container.BaseModule.create_cfg">
+         create_cfg
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#flame.pytorch.container.BaseModule.configure_experiment_dir">
-         configure_experiment_dir
+        <a class="reference internal nav-link" href="#flame.pytorch.container.BaseModule.create_experiment_dir">
+         create_experiment_dir
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#flame.pytorch.container.BaseModule.configure_device">
-         configure_device
+        <a class="reference internal nav-link" href="#flame.pytorch.container.BaseModule.create_device">
+         create_device
         </a>
        </li>
       </ul>
@@ -373,6 +373,7 @@
                 
   <div class="section" id="module-flame.pytorch.container">
 <span id="flame-pytorch-container"></span><h1><a class="reference internal" href="#module-flame.pytorch.container" title="flame.pytorch.container"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.container</span></code></a><a class="headerlink" href="#module-flame.pytorch.container" title="Permalink to this headline">¶</a></h1>
+<p>方法全部以build为前缀，和detection一致</p>
 <div class="section" id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="classes">
@@ -413,24 +414,53 @@
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">injector.Module</span></code></p>
 <p>Configures injector and providers.</p>
 <dl class="py method">
-<dt id="flame.pytorch.container.BaseModule.configure_args">
-<code class="sig-name descname"><span class="pre">configure_args</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.container.BaseModule.configure_args" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="flame.pytorch.container.BaseModule.create_args">
+<code class="sig-name descname"><span class="pre">create_args</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.container.BaseModule.create_args" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../../argument/index.html#flame.argument.BasicArgs" title="flame.argument.BasicArgs">flame.argument.BasicArgs</a></p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
-<dt id="flame.pytorch.container.BaseModule.configure_cfg">
-<code class="sig-name descname"><span class="pre">configure_cfg</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment_dir</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.container.BaseModule.configure_cfg" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="flame.pytorch.container.BaseModule.create_cfg">
+<code class="sig-name descname"><span class="pre">create_cfg</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment_dir</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.container.BaseModule.create_cfg" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> (<a class="reference internal" href="../../argument/index.html#flame.argument.BasicArgs" title="flame.argument.BasicArgs"><em>flame.argument.BasicArgs</em></a>) – </p></li>
+<li><p><strong>experiment_dir</strong> (<em>flame.pytorch.typing_prelude.ExperimentDir</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>flame.pytorch.typing_prelude.RootConfig</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
-<dt id="flame.pytorch.container.BaseModule.configure_experiment_dir">
-<code class="sig-name descname"><span class="pre">configure_experiment_dir</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.container.BaseModule.configure_experiment_dir" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="flame.pytorch.container.BaseModule.create_experiment_dir">
+<code class="sig-name descname"><span class="pre">create_experiment_dir</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.container.BaseModule.create_experiment_dir" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<a class="reference internal" href="../../argument/index.html#flame.argument.BasicArgs" title="flame.argument.BasicArgs"><em>flame.argument.BasicArgs</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>flame.pytorch.typing_prelude.ExperimentDir</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
-<dt id="flame.pytorch.container.BaseModule.configure_device">
-<code class="sig-name descname"><span class="pre">configure_device</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.container.BaseModule.configure_device" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="flame.pytorch.container.BaseModule.create_device">
+<code class="sig-name descname"><span class="pre">create_device</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.container.BaseModule.create_device" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>flame.pytorch.typing_prelude.Device</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 

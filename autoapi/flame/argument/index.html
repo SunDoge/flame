@@ -166,6 +166,24 @@
      </code>
     </a>
    </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../registry/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.registry
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../zip_importer/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.zip_importer
+      </span>
+     </code>
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -247,16 +265,6 @@
       </ul>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.argument.add_basic_arguments">
-       add_basic_arguments
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.argument.parse_basic_args">
-       parse_basic_args
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#flame.argument.get_command">
        get_command
       </a>
@@ -314,12 +322,6 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.argument.add_basic_arguments" title="flame.argument.add_basic_arguments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_basic_arguments</span></code></a>(parser = None)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame.argument.parse_basic_args" title="flame.argument.parse_basic_args"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse_basic_args</span></code></a>(parser = None)</p></td>
-<td><p></p></td>
-</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame.argument.get_command" title="flame.argument.get_command"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_command</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
@@ -384,19 +386,14 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="flame.argument.add_basic_arguments">
-<code class="sig-prename descclassname"><span class="pre">flame.argument.</span></code><code class="sig-name descname"><span class="pre">add_basic_arguments</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.argument.add_basic_arguments" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="flame.argument.parse_basic_args">
-<code class="sig-prename descclassname"><span class="pre">flame.argument.</span></code><code class="sig-name descname"><span class="pre">parse_basic_args</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.argument.parse_basic_args" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
 <dt id="flame.argument.get_command">
 <code class="sig-prename descclassname"><span class="pre">flame.argument.</span></code><code class="sig-name descname"><span class="pre">get_command</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flame.argument.get_command" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="flame.argument.save_command">
@@ -404,7 +401,7 @@
 <dd><p>保存实验命令，包括实验目录，实验用到的环境变量，实验命令</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>filename</strong> – e.g. experiment_dir / run.sh</p>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – e.g. experiment_dir / run.sh</p>
 </dd>
 </dl>
 </dd></dl>

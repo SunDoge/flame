@@ -194,24 +194,6 @@
       </a>
      </li>
      <li class="toctree-l4">
-      <a class="reference internal" href="../../preparation/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         flame.pytorch.preparation
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l4">
-      <a class="reference internal" href="../../process/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         flame.pytorch.process
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l4">
       <a class="reference internal" href="../../typing_prelude/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
@@ -281,6 +263,24 @@
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
        flame.logging
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../../../registry/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.registry
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../../../zip_importer/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.zip_importer
       </span>
      </code>
     </a>
@@ -414,6 +414,9 @@
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>output</p>
 </dd>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>batch</strong> (<em>Tuple</em><em>[</em><em>torch.tensor.Tensor</em><em>, </em><em>torch.tensor.Tensor</em><em>]</em>) – </p>
+</dd>
 </dl>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
@@ -428,7 +431,12 @@
 <dl class="py method">
 <dt id="flame.pytorch.processes.supervised_process.SupervisedProcess.train">
 <code class="sig-name descname"><span class="pre">train</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.processes.supervised_process.SupervisedProcess.train" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mode</strong> (<em>bool</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="flame.pytorch.processes.supervised_process.SupervisedProcess.update">
@@ -454,6 +462,9 @@
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>output</p>
 </dd>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>batch</strong> (<em>Tuple</em><em>[</em><em>torch.tensor.Tensor</em><em>, </em><em>torch.tensor.Tensor</em><em>]</em>) – </p>
+</dd>
 </dl>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
@@ -468,7 +479,12 @@
 <dl class="py method">
 <dt id="flame.pytorch.processes.supervised_process.SupervisedAmpProcess.train">
 <code class="sig-name descname"><span class="pre">train</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.processes.supervised_process.SupervisedAmpProcess.train" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mode</strong> (<em>bool</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="flame.pytorch.processes.supervised_process.SupervisedAmpProcess.update">

@@ -9,3 +9,38 @@
 
 
 
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.archiver.git_ls_files
+   flame.archiver.zip_files
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.archiver.file_list
+
+
+.. function:: git_ls_files()
+
+   https://stackoverflow.com/questions/2766600/git-archive-of-repository-with-uncommitted-changes/63092214#63092214
+
+
+.. function:: zip_files(file_list, filename)
+
+
+.. data:: file_list
+   
+
+   
+

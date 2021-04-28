@@ -194,24 +194,6 @@
       </a>
      </li>
      <li class="toctree-l4">
-      <a class="reference internal" href="../../../preparation/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         flame.pytorch.preparation
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l4">
-      <a class="reference internal" href="../../../process/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         flame.pytorch.process
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l4">
       <a class="reference internal" href="../../../typing_prelude/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
@@ -281,6 +263,24 @@
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
        flame.logging
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../../../../registry/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.registry
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../../../../zip_importer/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.zip_importer
       </span>
      </code>
     </a>
@@ -363,9 +363,13 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>output</strong> – [B, C], for C way classification</p></li>
-<li><p><strong>target</strong> – [B]</p></li>
+<li><p><strong>output</strong> (<em>torch.Tensor</em>) – [B, C], for C way classification</p></li>
+<li><p><strong>target</strong> (<em>torch.Tensor</em>) – [B]</p></li>
+<li><p><strong>topk</strong> (<em>List</em><em>[</em><em>int</em><em>]</em>) – </p></li>
 </ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[torch.Tensor]</p>
 </dd>
 </dl>
 </dd></dl>

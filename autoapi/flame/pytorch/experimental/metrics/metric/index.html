@@ -194,24 +194,6 @@
       </a>
      </li>
      <li class="toctree-l4">
-      <a class="reference internal" href="../../../preparation/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         flame.pytorch.preparation
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l4">
-      <a class="reference internal" href="../../../process/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         flame.pytorch.process
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l4">
       <a class="reference internal" href="../../../typing_prelude/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
@@ -281,6 +263,24 @@
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
        flame.logging
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../../../../registry/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.registry
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../../../../zip_importer/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.zip_importer
       </span>
      </code>
     </a>
@@ -415,12 +415,25 @@
 <dt id="flame.pytorch.experimental.metrics.metric.Metric.update">
 <code class="sig-name descname"><span class="pre">update</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.metrics.metric.Metric.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>写入metric</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state</strong> (<a class="reference internal" href="../../engine/index.html#flame.pytorch.experimental.engine.State" title="flame.pytorch.experimental.engine.State"><em>flame.pytorch.experimental.engine.State</em></a>) – </p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="flame.pytorch.experimental.metrics.metric.Metric.attach">
 <code class="sig-name descname"><span class="pre">attach</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">engine</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Events.ITERATION_COMPLETED</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.metrics.metric.Metric.attach" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>engine</strong> (<a class="reference internal" href="../../engine/index.html#flame.pytorch.experimental.engine.Engine" title="flame.pytorch.experimental.engine.Engine"><em>flame.pytorch.experimental.engine.Engine</em></a>) – </p></li>
+<li><p><strong>event_name</strong> (<em>Any</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 

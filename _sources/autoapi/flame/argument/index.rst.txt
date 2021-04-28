@@ -26,8 +26,6 @@ Functions
 
 .. autoapisummary::
 
-   flame.argument.add_basic_arguments
-   flame.argument.parse_basic_args
    flame.argument.get_command
    flame.argument.save_command
 
@@ -79,12 +77,6 @@ Attributes
       :annotation: :bool
 
       
-
-
-.. function:: add_basic_arguments(parser = None)
-
-
-.. function:: parse_basic_args(parser = None)
 
 
 .. function:: get_command()

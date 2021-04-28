@@ -26,6 +26,8 @@ Submodules
    ckcfg/index.rst
    config/index.rst
    logging/index.rst
+   registry/index.rst
+   zip_importer/index.rst
 
 
 Package Contents

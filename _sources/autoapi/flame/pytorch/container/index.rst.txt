@@ -3,6 +3,11 @@
 
 .. py:module:: flame.pytorch.container
 
+.. autoapi-nested-parse::
+
+   方法全部以build为前缀，和detection一致
+
+
 
 Module Contents
 ---------------
@@ -36,16 +41,16 @@ Attributes
 
    Configures injector and providers.
 
-   .. method:: configure_args(self)
+   .. method:: create_args(self)
 
 
-   .. method:: configure_cfg(self, args, experiment_dir)
+   .. method:: create_cfg(self, args, experiment_dir)
 
 
-   .. method:: configure_experiment_dir(self, args)
+   .. method:: create_experiment_dir(self, args)
 
 
-   .. method:: configure_device(self)
+   .. method:: create_device(self)
 
 
 

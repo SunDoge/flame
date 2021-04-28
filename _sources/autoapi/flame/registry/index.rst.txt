@@ -1,0 +1,68 @@
+:mod:`flame.registry`
+=====================
+
+.. py:module:: flame.registry
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.registry.Registry
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.registry._logger
+
+
+.. data:: _logger
+   
+
+   
+
+.. class:: Registry(name, parent = None)
+
+
+   Bases: :py:obj:`Iterable`\ [\ :py:obj:`Tuple`\ [\ :py:obj:`str`\ , :py:obj:`Callable`\ ]\ ]
+
+   .. method:: _do_register(self, name, func)
+
+
+   .. method:: register(self, func = None)
+
+
+   .. method:: get(self, name)
+
+
+   .. method:: __contains__(self, key)
+
+
+   .. method:: __repr__(self)
+
+      Return repr(self).
+
+
+   .. method:: __iter__(self)
+
+
+   .. method:: replace(self, name, func)
+
+
+   .. method:: _to_name(cls)
+      :staticmethod:
+
+
+   .. method:: build_from_cfg(self, cfg, *args, type_key = '_type')
+
+
+

@@ -1,0 +1,26 @@
+:mod:`flame.zip_importer`
+=========================
+
+.. py:module:: flame.zip_importer
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.zip_importer.import_any
+   flame.zip_importer.import_from_zip
+
+
+
+.. function:: import_any(module_name, object_name = None)
+
+
+.. function:: import_from_zip(zip_file, module_name, object_name = None)
+
+

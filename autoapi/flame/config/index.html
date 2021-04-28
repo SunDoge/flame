@@ -166,6 +166,24 @@
      </code>
     </a>
    </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../registry/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.registry
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../zip_importer/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.zip_importer
+      </span>
+     </code>
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -319,6 +337,14 @@
 <dt id="flame.config.from_file">
 <code class="sig-prename descclassname"><span class="pre">flame.config.</span></code><code class="sig-name descname"><span class="pre">from_file</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.config.from_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>读取jsonnet格式的config</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -328,9 +354,12 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>expr</strong> – jsonnet expression</p></li>
-<li><p><strong>filename</strong> – fake file name for snippet</p></li>
+<li><p><strong>expr</strong> (<em>str</em>) – jsonnet expression</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – fake file name for snippet</p></li>
 </ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
 </dd>
 </dl>
 </dd></dl>
@@ -350,28 +379,74 @@
 <span class="n">files_or_snippets</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{a:1}</span><span class="s2">&quot;</span> <span class="o">-&gt;</span> <span class="p">({</span><span class="n">a</span><span class="p">:</span><span class="mi">1</span><span class="p">}),</span> <span class="s2">&quot;a.jsonnet&quot;</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kn">import</span> <span class="s2">&quot;a.jsonnet&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>local_variables</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+<li><p><strong>files_or_snippets</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="flame.config._process_local_variable">
 <code class="sig-prename descclassname"><span class="pre">flame.config.</span></code><code class="sig-name descname"><span class="pre">_process_local_variable</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">local_variable</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.config._process_local_variable" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>local_variable</strong> (<em>str</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="flame.config._process_file_or_snippet">
 <code class="sig-prename descclassname"><span class="pre">flame.config.</span></code><code class="sig-name descname"><span class="pre">_process_file_or_snippet</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_or_snippet</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.config._process_file_or_snippet" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file_or_snippet</strong> (<em>str</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="flame.config.dump_as_json">
 <code class="sig-prename descclassname"><span class="pre">flame.config.</span></code><code class="sig-name descname"><span class="pre">dump_as_json</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.config.dump_as_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>保存config为json文件。jsonnet可以直接读取json文件。</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cfg</strong> (<em>dict</em>) – </p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – </p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="flame.config.parse_config">
 <code class="sig-prename descclassname"><span class="pre">flame.config.</span></code><code class="sig-name descname"><span class="pre">parse_config</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">local_variables</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files_or_snippets</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.config.parse_config" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>local_variables</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+<li><p><strong>files_or_snippets</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Tuple[dict, str]</p>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 </div>

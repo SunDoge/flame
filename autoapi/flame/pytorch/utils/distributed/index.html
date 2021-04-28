@@ -194,24 +194,6 @@
       </a>
      </li>
      <li class="toctree-l4">
-      <a class="reference internal" href="../../preparation/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         flame.pytorch.preparation
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l4">
-      <a class="reference internal" href="../../process/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         flame.pytorch.process
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l4">
       <a class="reference internal" href="../../typing_prelude/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
@@ -281,6 +263,24 @@
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
        flame.logging
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../../../registry/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.registry
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../../../zip_importer/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.zip_importer
       </span>
      </code>
     </a>
@@ -383,22 +383,45 @@
 <dl class="py function">
 <dt id="flame.pytorch.utils.distributed.is_dist_available_and_initialized">
 <code class="sig-prename descclassname"><span class="pre">flame.pytorch.utils.distributed.</span></code><code class="sig-name descname"><span class="pre">is_dist_available_and_initialized</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.utils.distributed.is_dist_available_and_initialized" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="flame.pytorch.utils.distributed.get_rank_safe">
 <code class="sig-prename descclassname"><span class="pre">flame.pytorch.utils.distributed.</span></code><code class="sig-name descname"><span class="pre">get_rank_safe</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.utils.distributed.get_rank_safe" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="flame.pytorch.utils.distributed.get_device_by_backend">
 <code class="sig-prename descclassname"><span class="pre">flame.pytorch.utils.distributed.</span></code><code class="sig-name descname"><span class="pre">get_device_by_backend</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.utils.distributed.get_device_by_backend" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>torch.device</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="flame.pytorch.utils.distributed.reduce_numbers">
 <code class="sig-prename descclassname"><span class="pre">flame.pytorch.utils.distributed.</span></code><code class="sig-name descname"><span class="pre">reduce_numbers</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nums</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">ReduceOp.SUM</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.utils.distributed.reduce_numbers" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>nums</strong> (<em>List</em><em>[</em><em>numbers.Number</em><em>]</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[numbers.Number]</p>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 </div>

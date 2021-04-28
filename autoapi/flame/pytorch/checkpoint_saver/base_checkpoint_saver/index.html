@@ -194,24 +194,6 @@
       </a>
      </li>
      <li class="toctree-l4">
-      <a class="reference internal" href="../../preparation/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         flame.pytorch.preparation
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l4">
-      <a class="reference internal" href="../../process/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         flame.pytorch.process
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l4">
       <a class="reference internal" href="../../typing_prelude/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
@@ -281,6 +263,24 @@
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
        flame.logging
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../../../registry/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.registry
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../../../zip_importer/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.zip_importer
       </span>
      </code>
     </a>
@@ -497,22 +497,54 @@
 <dl class="py function">
 <dt id="flame.pytorch.checkpoint_saver.base_checkpoint_saver.module_to_state_dict">
 <code class="sig-prename descclassname"><span class="pre">flame.pytorch.checkpoint_saver.base_checkpoint_saver.</span></code><code class="sig-name descname"><span class="pre">module_to_state_dict</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.checkpoint_saver.base_checkpoint_saver.module_to_state_dict" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>m</strong> (<em>torch.nn.Module</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="flame.pytorch.checkpoint_saver.base_checkpoint_saver.module_load_state_dict">
 <code class="sig-prename descclassname"><span class="pre">flame.pytorch.checkpoint_saver.base_checkpoint_saver.</span></code><code class="sig-name descname"><span class="pre">module_load_state_dict</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.checkpoint_saver.base_checkpoint_saver.module_load_state_dict" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>m</strong> (<em>torch.nn.Module</em>) – </p></li>
+<li><p><strong>state</strong> (<em>dict</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="flame.pytorch.checkpoint_saver.base_checkpoint_saver.parallel_module_to_state_dict">
 <code class="sig-prename descclassname"><span class="pre">flame.pytorch.checkpoint_saver.base_checkpoint_saver.</span></code><code class="sig-name descname"><span class="pre">parallel_module_to_state_dict</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.checkpoint_saver.base_checkpoint_saver.parallel_module_to_state_dict" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>m</strong> (<em>torch.nn.parallel.DataParallel</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="flame.pytorch.checkpoint_saver.base_checkpoint_saver.parallel_module_load_state_dict">
 <code class="sig-prename descclassname"><span class="pre">flame.pytorch.checkpoint_saver.base_checkpoint_saver.</span></code><code class="sig-name descname"><span class="pre">parallel_module_load_state_dict</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.checkpoint_saver.base_checkpoint_saver.parallel_module_load_state_dict" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>m</strong> (<em>torch.nn.parallel.DataParallel</em>) – </p></li>
+<li><p><strong>state</strong> (<em>dict</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py data">
 <dt id="flame.pytorch.checkpoint_saver.base_checkpoint_saver.Entry">
@@ -525,27 +557,56 @@
 <dd><dl class="py method">
 <dt id="flame.pytorch.checkpoint_saver.base_checkpoint_saver.CheckpointSaver.register">
 <code class="sig-name descname"><span class="pre">register</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_state_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_state_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.checkpoint_saver.base_checkpoint_saver.CheckpointSaver.register" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<em>str</em>) – </p></li>
+<li><p><strong>to_state_dict</strong> (<em>ToStateDict</em>) – </p></li>
+<li><p><strong>load_state_dict</strong> (<em>LoadStateDict</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="flame.pytorch.checkpoint_saver.base_checkpoint_saver.CheckpointSaver.state_dict">
 <code class="sig-name descname"><span class="pre">state_dict</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.checkpoint_saver.base_checkpoint_saver.CheckpointSaver.state_dict" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="flame.pytorch.checkpoint_saver.base_checkpoint_saver.CheckpointSaver.load_state_dict">
 <code class="sig-name descname"><span class="pre">load_state_dict</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.checkpoint_saver.base_checkpoint_saver.CheckpointSaver.load_state_dict" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state</strong> (<em>dict</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="flame.pytorch.checkpoint_saver.base_checkpoint_saver.CheckpointSaver.save">
 <code class="sig-name descname"><span class="pre">save</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.checkpoint_saver.base_checkpoint_saver.CheckpointSaver.save" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="flame.pytorch.checkpoint_saver.base_checkpoint_saver.CheckpointSaver.load">
 <code class="sig-name descname"><span class="pre">load</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.checkpoint_saver.base_checkpoint_saver.CheckpointSaver.load" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 

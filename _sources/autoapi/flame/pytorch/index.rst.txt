@@ -28,8 +28,6 @@ Submodules
    distributed_training/index.rst
    engine/index.rst
    experiment/index.rst
-   preparation/index.rst
-   process/index.rst
    typing_prelude/index.rst
 
 
