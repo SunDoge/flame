@@ -1,6 +1,7 @@
-from typing import Any, Callable, Dict, Iterable, Iterator, Optional, Tuple, Union
+from typing import Any, Callable, Dict, Iterable, Iterator, Optional, Tuple, Union, TypeVar
 from tabulate import tabulate
 import logging
+
 
 _logger = logging.getLogger(__name__)
 
@@ -23,9 +24,9 @@ class Registry(Iterable[Tuple[str, Callable]]):
 
     def register(self, func: Optional[Callable] = None):
         if func is None:
-            def deco(func_or_class: Callable):
+            def deco(func_or_class):
                 name = func_or_class.__name__
-                self._do_register(name, func)
+                self._do_register(name, func_or_class)
                 return func_or_class
 
             return deco
