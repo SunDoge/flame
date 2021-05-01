@@ -98,10 +98,11 @@ def _init_process_group_fn(local_rank: int, worker_fn: Callable, dist_options: D
     print('init process group')
 
     if torch.cuda.is_available():
-        _logger.info('set cuda_device=%d', local_rank)
+        # _logger.info('set cuda_device=%d', local_rank)
+        print('set cuda device=', local_rank)
         torch.cuda.set_device(local_rank)
-        
-    worker_fn(*args, local_rank=local_rank)
+
+    worker_fn(local_rank, *args)
 
 
 def start_distributed_training(
@@ -193,4 +194,4 @@ def start_training(worker_fn: Callable, args: tuple = ()):
         start_distributed_training(
             worker_fn, dist_options, args=args)
     else:
-        worker_fn(*args)
+        worker_fn(0, *args)

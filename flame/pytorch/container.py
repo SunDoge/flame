@@ -18,7 +18,7 @@ _logger = logging.getLogger(__name__)
 
 class RootModule(Module):
 
-    def __init__(self, local_rank: int = 0) -> None:
+    def __init__(self, local_rank: int) -> None:
         super().__init__()
         self.local_rank = local_rank
 

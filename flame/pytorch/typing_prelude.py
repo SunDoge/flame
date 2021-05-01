@@ -7,16 +7,16 @@ from torch import Tensor, nn
 from torch.optim import Optimizer
 from torch.optim.lr_scheduler import _LRScheduler as LrScheduler
 from torch.utils.data import DataLoader, Dataset
-from torch.utils.data.sampler import Sampler
+from torch.utils.data.distributed import DistributedSampler
 
 
 TrainDataset = NewType('TrainDataset', Dataset)
 ValDataset = NewType('ValDataset', Dataset)
 TestDataset = NewType('TestDataset', Dataset)
 
-TrainSampler = NewType('TrainSampler', Sampler)
-ValSampler = NewType('ValSampler', Sampler)
-TestSampler = NewType('TestSampler', Sampler)
+TrainSampler = NewType('TrainSampler', DistributedSampler)
+ValSampler = NewType('ValSampler', DistributedSampler)
+TestSampler = NewType('TestSampler', DistributedSampler)
 
 TrainLoader = NewType('TrainLoader', DataLoader)
 ValLoader = NewType('ValLoader', DataLoader)

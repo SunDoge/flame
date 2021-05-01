@@ -32,4 +32,4 @@ class AmpProcess(Process):
         return self.scaler.is_enabled()
 
     def autocast(self):
-        return autocast(self.is_amp_enabled)
+        return autocast(enabled=self.is_amp_enabled())
