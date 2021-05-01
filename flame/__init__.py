@@ -1,7 +1,4 @@
-from . import auto_builder
-from . import config
-from . import argument
-from . import utils
-from . import logging
+from . import (archiver, argument, auto_builder, config, logging, utils,
+               zip_importer)
 
 __version__ = '0.1.0'

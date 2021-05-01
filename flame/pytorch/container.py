@@ -9,13 +9,18 @@ import torch
 from flame.argument import BasicArgs
 from injector import Module, provider, singleton
 
-from .typing_prelude import Device, ExperimentDir, RootConfig
+from .typing_prelude import Device, ExperimentDir, LocalRank, RootConfig, TestDataset, TestSampler, TrainDataset, TrainSampler, ValDataset, ValSampler
 from .utils.distributed import get_rank_safe
+from torch.utils.data.distributed import DistributedSampler
 
 _logger = logging.getLogger(__name__)
 
 
-class BaseModule(Module):
+class RootModule(Module):
+
+    def __init__(self, local_rank: int = 0) -> None:
+        super().__init__()
+        self.local_rank = local_rank
 
     @singleton
     @provider
@@ -25,7 +30,7 @@ class BaseModule(Module):
 
     @singleton
     @provider
-    def create_cfg(self, args: BasicArgs, experiment_dir: ExperimentDir) -> RootConfig:
+    def create_config(self, args: BasicArgs, experiment_dir: ExperimentDir) -> RootConfig:
         cfg, diff = flame.config.parse_config(args.local, args.config)
         _logger.info('Diff: \n%s', diff)
 
@@ -45,14 +50,22 @@ class BaseModule(Module):
         rank = get_rank_safe()
         if rank == 0:
             flame.utils.experiment.make_experiment_dir(
-                experiment_dir, yes=args.yes
+                experiment_dir, 
+                yes=args.yes
+            )
+            flame.archiver.make_archive(
+                experiment_dir / 'code.zip'
+            )
+            flame.argument.save_command(
+                experiment_dir / 'run.sh'
             )
         flame.logging.init_logger(
-            rank=rank, filename=experiment_dir / 'experiment.log', force=True
+            rank=rank,
+            filename=experiment_dir / 'experiment.log',
+            force=True,
+            debug=args.debug
         )
-        flame.argument.save_command(
-            experiment_dir / 'run.sh'
-        )
+        
 
         return experiment_dir
 
@@ -60,3 +73,10 @@ class BaseModule(Module):
     @provider
     def create_device(self) -> Device:
         return torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
+    @singleton
+    @provider
+    def create_local_rank(self) -> LocalRank:
+        return self.local_rank
+
+    

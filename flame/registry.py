@@ -22,17 +22,17 @@ class Registry(Iterable[Tuple[str, Callable]]):
 
         self._func_mapping[name] = func
 
-    def register(self, func: Optional[Callable] = None):
+    def register(self, func: Optional[Callable] = None, name: Optional[str] = None):
         if func is None:
             def deco(func_or_class):
-                name = func_or_class.__name__
-                self._do_register(name, func_or_class)
+                func_name = func_or_class.__name__ if name is None else name
+                self._do_register(func_name, func_or_class)
                 return func_or_class
 
             return deco
         else:
-            name = func.__name__
-            self._do_register(name, func)
+            func_name = func.__name__ if name is None else name
+            self._do_register(func_name, func)
 
     def get(self, name: str) -> Callable:
         ret = self._func_mapping.get(name)
@@ -99,3 +99,6 @@ class Registry(Iterable[Tuple[str, Callable]]):
                 kwargs[key] = value
 
         return func(*args, **kwargs)
+
+    def create_child_registry(self, name: str) -> 'Registry':
+        return Registry(name, parent=self)

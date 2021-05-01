@@ -9,8 +9,6 @@ from torch.optim.lr_scheduler import _LRScheduler as LrScheduler
 from torch.utils.data import DataLoader, Dataset
 from torch.utils.data.sampler import Sampler
 
-from .engine import EpochState, IterationState
-from .processes import Process
 
 TrainDataset = NewType('TrainDataset', Dataset)
 ValDataset = NewType('ValDataset', Dataset)
@@ -32,19 +30,13 @@ Criterion = NewType('Criterion', nn.Module)
 Optimizer = Optimizer
 LrScheduler = LrScheduler
 
-Process = Process
-
 Device = NewType('Device', torch.device)
 Dtype = NewType('Dtype', torch.dtype)
+Rank = NewType('Rank', int)
+LocalRank = NewType('LocalRank', int)
 
 # Trainer = NewType('Trainer', Engine)
 # Evaluator = NewType('Evaluator', Engine)
-
-
-TrainState = NewType('TrainState', IterationState)
-ValState = NewType('ValState', IterationState)
-TestState = NewType('TestState', IterationState)
-EpochState = EpochState
 
 
 class Model(nn.Module):
