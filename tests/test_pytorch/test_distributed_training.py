@@ -3,7 +3,7 @@ import flame
 import torch.distributed as dist
 
 
-def _assert_x_eq_1(x: int):
+def _assert_x_eq_1(x: int, local_rank=0):
     assert x == 1
 
 

@@ -17,11 +17,16 @@ class State:
             else:
                 ret[key] = value
 
+        return ret
+
     def load_state_dict(self, state: dict):
         for key, value in state.items():
             if isinstance(value, dict):
-                state: State = getattr(self, key)
-                state.load_state_dict(value)
+                state = getattr(self, key)
+                if isinstance(state, State):
+                    state.load_state_dict(value)
+                else:
+                    setattr(self, key, value)
             else:
                 setattr(self, key, value)
 
