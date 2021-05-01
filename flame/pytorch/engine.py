@@ -10,6 +10,8 @@ _logger = logging.getLogger(__name__)
 class State:
 
     def state_dict(self) -> dict:
+        """将 State 序列化成 nested dict
+        """
         ret = {}
         for key, value in self.__dict__.items():
             if isinstance(value, State):
@@ -19,8 +21,10 @@ class State:
 
         return ret
 
-    def load_state_dict(self, state: dict):
-        for key, value in state.items():
+    def load_state_dict(self, state_dict: dict):
+        """将 nested dict 加载回 State
+        """
+        for key, value in state_dict.items():
             if isinstance(value, dict):
                 state = getattr(self, key)
                 if isinstance(state, State):
