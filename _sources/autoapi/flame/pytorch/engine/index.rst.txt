@@ -12,10 +12,10 @@ Classes
 
 .. autoapisummary::
 
+   flame.pytorch.engine.State
    flame.pytorch.engine.IterationState
    flame.pytorch.engine.EpochState
-   flame.pytorch.engine.IterationEngine
-   flame.pytorch.engine.EpochEngine
+   flame.pytorch.engine.Engine
 
 
 
@@ -33,7 +33,22 @@ Attributes
 
    
 
+.. class:: State
+
+   .. method:: state_dict(self)
+
+      将 State 序列化成 nested dict
+
+
+   .. method:: load_state_dict(self, state_dict)
+
+      将 nested dict 加载回 State
+
+
+
 .. class:: IterationState
+
+   Bases: :py:obj:`State`
 
    .. attribute:: iteration
       :annotation: :int = 0
@@ -53,6 +68,8 @@ Attributes
 
 .. class:: EpochState
 
+   Bases: :py:obj:`State`
+
    .. attribute:: epoch
       :annotation: :int = 0
 
@@ -68,30 +85,38 @@ Attributes
 
       
 
+   .. attribute:: train_state
+      :annotation: :IterationState
 
-.. class:: IterationEngine(state)
+      
+
+   .. attribute:: val_state
+      :annotation: :IterationState
+
+      
+
+   .. attribute:: test_state
+      :annotation: :IterationState
+
+      
 
 
-   .. method:: update_state(self, epoch_length, max_iterations = None)
-
+.. class:: Engine
 
    .. method:: enumerate(iterable)
       :staticmethod:
 
 
-   .. method:: every_n_iterations(i, n = 1)
+   .. method:: every(i, n = 1)
       :staticmethod:
 
 
-
-.. class:: EpochEngine(state)
-
-
-   .. method:: update_state(self, max_epochs)
+   .. method:: step(self, state, epoch)
+      :abstractmethod:
 
 
-   .. method:: every_n_epochs(epoch, n = 1)
-      :staticmethod:
+   .. method:: run(self)
+      :abstractmethod:
 
 
 

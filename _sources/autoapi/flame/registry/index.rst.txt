@@ -38,7 +38,7 @@ Attributes
    .. method:: _do_register(self, name, func)
 
 
-   .. method:: register(self, func = None)
+   .. method:: register(self, func = None, name = None)
 
 
    .. method:: get(self, name)
@@ -63,6 +63,9 @@ Attributes
 
 
    .. method:: build_from_cfg(self, cfg, *args, type_key = '_type')
+
+
+   .. method:: create_child_registry(self, name)
 
 
 

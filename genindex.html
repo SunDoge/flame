@@ -236,10 +236,10 @@
         <li><a href="autoapi/flame/pytorch/experimental/metrics/metric/index.html#flame.pytorch.experimental.metrics.metric._default_output_transform">(in module flame.pytorch.experimental.metrics.metric)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="autoapi/flame/pytorch/experimental/engine/engine/index.html#flame.pytorch.experimental.engine.engine._default_process_function">_default_process_function() (in module flame.pytorch.experimental.engine.engine)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="autoapi/flame/registry/index.html#flame.registry.Registry._do_register">_do_register() (flame.registry.Registry method)</a>
 </li>
       <li><a href="autoapi/flame/pytorch/experimental/engine/index.html#flame.pytorch.experimental.engine.Engine._fire_event">_fire_event() (flame.pytorch.experimental.engine.Engine method)</a>
@@ -258,9 +258,11 @@
       </ul></li>
       <li><a href="autoapi/flame/pytorch/distributed_training/index.html#flame.pytorch.distributed_training._init_process_group_fn">_init_process_group_fn() (in module flame.pytorch.distributed_training)</a>
 </li>
-      <li><a href="autoapi/flame/argument/index.html#flame.argument._logger">_logger (in module flame.argument)</a>
+      <li><a href="autoapi/flame/archiver/index.html#flame.archiver._logger">_logger (in module flame.archiver)</a>
 
       <ul>
+        <li><a href="autoapi/flame/argument/index.html#flame.argument._logger">(in module flame.argument)</a>
+</li>
         <li><a href="autoapi/flame/config/index.html#flame.config._logger">(in module flame.config)</a>
 </li>
         <li><a href="autoapi/flame/logging/index.html#flame.logging._logger">(in module flame.logging)</a>
@@ -288,6 +290,8 @@
         <li><a href="autoapi/flame/pytorch/processes/amp_process/index.html#flame.pytorch.processes.amp_process._logger">(in module flame.pytorch.processes.amp_process)</a>
 </li>
         <li><a href="autoapi/flame/pytorch/processes/process/index.html#flame.pytorch.processes.process._logger">(in module flame.pytorch.processes.process)</a>
+</li>
+        <li><a href="autoapi/flame/pytorch/utils/cudnn/index.html#flame.pytorch.utils.cudnn._logger">(in module flame.pytorch.utils.cudnn)</a>
 </li>
         <li><a href="autoapi/flame/registry/index.html#flame.registry._logger">(in module flame.registry)</a>
 </li>
@@ -370,6 +374,12 @@
 </li>
       <li><a href="autoapi/flame/pytorch/experimental/meters/progress/index.html#flame.pytorch.experimental.meters.progress.ProgressBarHandler.attach_iteration">attach_iteration() (flame.pytorch.experimental.meters.progress.ProgressBarHandler method)</a>
 </li>
+      <li><a href="autoapi/flame/pytorch/processes/amp_process/index.html#flame.pytorch.processes.amp_process.AmpProcess.autocast">autocast() (flame.pytorch.processes.amp_process.AmpProcess method)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/processes/index.html#flame.pytorch.processes.AmpProcess.autocast">(flame.pytorch.processes.AmpProcess method)</a>
+</li>
+      </ul></li>
       <li><a href="autoapi/flame/pytorch/meters/index.html#flame.pytorch.meters.AverageMeter">AverageMeter (class in flame.pytorch.meters)</a>
 
       <ul>
@@ -394,8 +404,6 @@
 <h2 id="B">B</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/flame/pytorch/container/index.html#flame.pytorch.container.BaseModule">BaseModule (class in flame.pytorch.container)</a>
-</li>
       <li><a href="autoapi/flame/argument/index.html#flame.argument.BasicArgs">BasicArgs (class in flame.argument)</a>
 
       <ul>
@@ -408,14 +416,14 @@
         <li><a href="autoapi/flame/pytorch/experimental/engine/index.html#flame.pytorch.experimental.engine.State.batch">(flame.pytorch.experimental.engine.State attribute)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="autoapi/flame/pytorch/metrics/index.html#flame.pytorch.metrics.BatchSizeMetric">BatchSizeMetric (class in flame.pytorch.metrics)</a>
 
       <ul>
         <li><a href="autoapi/flame/pytorch/metrics/batch_size_metric/index.html#flame.pytorch.metrics.batch_size_metric.BatchSizeMetric">(class in flame.pytorch.metrics.batch_size_metric)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="autoapi/flame/pytorch/checkpoint_saver/index.html#flame.pytorch.checkpoint_saver.BestCheckpointSaver">BestCheckpointSaver (class in flame.pytorch.checkpoint_saver)</a>
 
       <ul>
@@ -462,10 +470,10 @@
         <li><a href="autoapi/flame/pytorch/experimental/metrics/metric/index.html#flame.pytorch.experimental.metrics.metric.Metric.compute">(flame.pytorch.experimental.metrics.metric.Metric method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="autoapi/flame/argument/index.html#flame.argument.BasicArgs.config">config (flame.argument.BasicArgs attribute)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="autoapi/flame/config/index.html#flame.config.config_snippet">config_snippet() (in module flame.config)</a>
 </li>
       <li><a href="autoapi/flame/logging/index.html#flame.logging.CONSOLE_FORMAT">CONSOLE_FORMAT (in module flame.logging)</a>
@@ -484,13 +492,17 @@
         <li><a href="autoapi/flame/pytorch/metrics/copy_metric/index.html#flame.pytorch.metrics.copy_metric.CopyMetric">(class in flame.pytorch.metrics.copy_metric)</a>
 </li>
       </ul></li>
-      <li><a href="autoapi/flame/pytorch/container/index.html#flame.pytorch.container.BaseModule.create_args">create_args() (flame.pytorch.container.BaseModule method)</a>
+      <li><a href="autoapi/flame/pytorch/container/index.html#flame.pytorch.container.RootModule.create_args">create_args() (flame.pytorch.container.RootModule method)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/container/index.html#flame.pytorch.container.BaseModule.create_cfg">create_cfg() (flame.pytorch.container.BaseModule method)</a>
+      <li><a href="autoapi/flame/registry/index.html#flame.registry.Registry.create_child_registry">create_child_registry() (flame.registry.Registry method)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/container/index.html#flame.pytorch.container.BaseModule.create_device">create_device() (flame.pytorch.container.BaseModule method)</a>
+      <li><a href="autoapi/flame/pytorch/container/index.html#flame.pytorch.container.RootModule.create_config">create_config() (flame.pytorch.container.RootModule method)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/container/index.html#flame.pytorch.container.BaseModule.create_experiment_dir">create_experiment_dir() (flame.pytorch.container.BaseModule method)</a>
+      <li><a href="autoapi/flame/pytorch/container/index.html#flame.pytorch.container.RootModule.create_device">create_device() (flame.pytorch.container.RootModule method)</a>
+</li>
+      <li><a href="autoapi/flame/pytorch/container/index.html#flame.pytorch.container.RootModule.create_experiment_dir">create_experiment_dir() (flame.pytorch.container.RootModule method)</a>
+</li>
+      <li><a href="autoapi/flame/pytorch/container/index.html#flame.pytorch.container.RootModule.create_local_rank">create_local_rank() (flame.pytorch.container.RootModule method)</a>
 </li>
       <li><a href="autoapi/flame/pytorch/typing_prelude/index.html#flame.pytorch.typing_prelude.Criterion">Criterion (in module flame.pytorch.typing_prelude)</a>
 </li>
@@ -566,15 +578,17 @@
         <li><a href="autoapi/flame/pytorch/meters/time_meter/index.html#flame.pytorch.meters.time_meter.EstimatedTimeOfArrival.elapsed_time">(flame.pytorch.meters.time_meter.EstimatedTimeOfArrival property)</a>
 </li>
       </ul></li>
-      <li><a href="autoapi/flame/pytorch/experimental/engine/index.html#flame.pytorch.experimental.engine.Engine">Engine (class in flame.pytorch.experimental.engine)</a>
+      <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.Engine">Engine (class in flame.pytorch.engine)</a>
 
       <ul>
+        <li><a href="autoapi/flame/pytorch/experimental/engine/index.html#flame.pytorch.experimental.engine.Engine">(class in flame.pytorch.experimental.engine)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/experimental/engine/engine/index.html#flame.pytorch.experimental.engine.engine.Engine">(class in flame.pytorch.experimental.engine.engine)</a>
 </li>
       </ul></li>
       <li><a href="autoapi/flame/pytorch/checkpoint_saver/base_checkpoint_saver/index.html#flame.pytorch.checkpoint_saver.base_checkpoint_saver.Entry">Entry (in module flame.pytorch.checkpoint_saver.base_checkpoint_saver)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.IterationEngine.enumerate">enumerate() (flame.pytorch.engine.IterationEngine static method)</a>
+      <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.Engine.enumerate">enumerate() (flame.pytorch.engine.Engine static method)</a>
 </li>
       <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.EpochState.epoch">epoch (flame.pytorch.engine.EpochState attribute)</a>
 
@@ -604,16 +618,10 @@
         <li><a href="autoapi/flame/pytorch/experimental/engine/events/index.html#flame.pytorch.experimental.engine.events.Events.EPOCH_STARTED">(flame.pytorch.experimental.engine.events.Events attribute)</a>
 </li>
       </ul></li>
-      <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.EpochEngine">EpochEngine (class in flame.pytorch.engine)</a>
-</li>
       <li><a href="autoapi/flame/pytorch/experimental/meters/time_meter/index.html#flame.pytorch.experimental.meters.time_meter.EpochEta">EpochEta (class in flame.pytorch.experimental.meters.time_meter)</a>
 </li>
       <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.EpochState">EpochState (class in flame.pytorch.engine)</a>
-
-      <ul>
-        <li><a href="autoapi/flame/pytorch/typing_prelude/index.html#flame.pytorch.typing_prelude.EpochState">(in module flame.pytorch.typing_prelude)</a>
 </li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="autoapi/flame/pytorch/experimental/meters/time_meter/index.html#flame.pytorch.experimental.meters.time_meter.EstimatedTimeOfArrival">EstimatedTimeOfArrival (class in flame.pytorch.experimental.meters.time_meter)</a>
@@ -656,6 +664,8 @@
         <li><a href="autoapi/flame/pytorch/experimental/engine/events/index.html#flame.pytorch.experimental.engine.events.EventsList">(class in flame.pytorch.experimental.engine.events)</a>
 </li>
       </ul></li>
+      <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.Engine.every">every() (flame.pytorch.engine.Engine static method)</a>
+</li>
       <li><a href="autoapi/flame/pytorch/experimental/engine/events/index.html#flame.pytorch.experimental.engine.events.State.every_epochs">every_epochs() (flame.pytorch.experimental.engine.events.State method)</a>
 
       <ul>
@@ -670,10 +680,6 @@
         <li><a href="autoapi/flame/pytorch/experimental/engine/index.html#flame.pytorch.experimental.engine.State.every_iterations">(flame.pytorch.experimental.engine.State method)</a>
 </li>
       </ul></li>
-      <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.EpochEngine.every_n_epochs">every_n_epochs() (flame.pytorch.engine.EpochEngine static method)</a>
-</li>
-      <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.IterationEngine.every_n_iterations">every_n_iterations() (flame.pytorch.engine.IterationEngine static method)</a>
-</li>
       <li><a href="autoapi/flame/pytorch/experimental/engine/index.html#flame.pytorch.experimental.engine.Events.EXCEPTION_RAISED">EXCEPTION_RAISED (flame.pytorch.experimental.engine.Events attribute)</a>
 
       <ul>
@@ -937,8 +943,6 @@
         <li><a href="autoapi/flame/pytorch/experimental/metrics/metric/index.html#module-flame.pytorch.experimental.metrics.metric">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     flame.pytorch.experimental.metrics.topk_accuracy
 
@@ -946,6 +950,8 @@
         <li><a href="autoapi/flame/pytorch/experimental/metrics/topk_accuracy/index.html#module-flame.pytorch.experimental.metrics.topk_accuracy">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     flame.pytorch.meters
 
@@ -1077,6 +1083,13 @@
 
       <ul>
         <li><a href="autoapi/flame/pytorch/utils/attributes/index.html#module-flame.pytorch.utils.attributes">module</a>
+</li>
+      </ul></li>
+      <li>
+    flame.pytorch.utils.cudnn
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/utils/cudnn/index.html#module-flame.pytorch.utils.cudnn">module</a>
 </li>
       </ul></li>
       <li>
@@ -1330,10 +1343,10 @@
         <li><a href="autoapi/flame/pytorch/checkpoint_saver/index.html#flame.pytorch.checkpoint_saver.BestCheckpointSaver.is_best">(flame.pytorch.checkpoint_saver.BestCheckpointSaver method)</a>
 </li>
       </ul></li>
-      <li><a href="autoapi/flame/pytorch/utils/distributed/index.html#flame.pytorch.utils.distributed.is_dist_available_and_initialized">is_dist_available_and_initialized() (in module flame.pytorch.utils.distributed)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/flame/pytorch/utils/distributed/index.html#flame.pytorch.utils.distributed.is_dist_available_and_initialized">is_dist_available_and_initialized() (in module flame.pytorch.utils.distributed)</a>
+</li>
       <li><a href="autoapi/flame/pytorch/experimental/engine/events/index.html#flame.pytorch.experimental.engine.events.State.is_done">is_done() (flame.pytorch.experimental.engine.events.State method)</a>
 
       <ul>
@@ -1372,8 +1385,6 @@
         <li><a href="autoapi/flame/pytorch/experimental/engine/events/index.html#flame.pytorch.experimental.engine.events.Events.ITERATION_STARTED">(flame.pytorch.experimental.engine.events.Events attribute)</a>
 </li>
       </ul></li>
-      <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.IterationEngine">IterationEngine (class in flame.pytorch.engine)</a>
-</li>
       <li><a href="autoapi/flame/pytorch/experimental/meters/time_meter/index.html#flame.pytorch.experimental.meters.time_meter.IterationEta">IterationEta (class in flame.pytorch.experimental.meters.time_meter)</a>
 </li>
       <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.IterationState">IterationState (class in flame.pytorch.engine)</a>
@@ -1405,6 +1416,8 @@
       <li><a href="autoapi/flame/pytorch/checkpoint_saver/base_checkpoint_saver/index.html#flame.pytorch.checkpoint_saver.base_checkpoint_saver.CheckpointSaver.load_state_dict">load_state_dict() (flame.pytorch.checkpoint_saver.base_checkpoint_saver.CheckpointSaver method)</a>
 
       <ul>
+        <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.State.load_state_dict">(flame.pytorch.engine.State method)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/experimental/engine/mixins/index.html#flame.pytorch.experimental.engine.mixins.Serializable.load_state_dict">(flame.pytorch.experimental.engine.mixins.Serializable method)</a>
 </li>
       </ul></li>
@@ -1420,6 +1433,8 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/flame/pytorch/typing_prelude/index.html#flame.pytorch.typing_prelude.LocalRank">LocalRank (in module flame.pytorch.typing_prelude)</a>
+</li>
       <li><a href="autoapi/flame/logging/index.html#flame.logging.log_hook">log_hook() (in module flame.logging)</a>
 </li>
       <li><a href="autoapi/flame/pytorch/experimental/metrics/loss_metric/index.html#flame.pytorch.experimental.metrics.loss_metric.LossMetric">LossMetric (class in flame.pytorch.experimental.metrics.loss_metric)</a>
@@ -1439,6 +1454,8 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="autoapi/flame/ckcfg/index.html#flame.ckcfg.main">main() (in module flame.ckcfg)</a>
+</li>
+      <li><a href="autoapi/flame/archiver/index.html#flame.archiver.make_archive">make_archive() (in module flame.archiver)</a>
 </li>
       <li><a href="autoapi/flame/utils/experiment/index.html#flame.utils.experiment.make_experiment_dir">make_experiment_dir() (in module flame.utils.experiment)</a>
 </li>
@@ -1594,6 +1611,8 @@
 </li>
         <li><a href="autoapi/flame/pytorch/utils/attributes/index.html#module-flame.pytorch.utils.attributes">flame.pytorch.utils.attributes</a>
 </li>
+        <li><a href="autoapi/flame/pytorch/utils/cudnn/index.html#module-flame.pytorch.utils.cudnn">flame.pytorch.utils.cudnn</a>
+</li>
         <li><a href="autoapi/flame/pytorch/utils/distributed/index.html#module-flame.pytorch.utils.distributed">flame.pytorch.utils.distributed</a>
 </li>
         <li><a href="autoapi/flame/pytorch/utils/ranking/index.html#module-flame.pytorch.utils.ranking">flame.pytorch.utils.ranking</a>
@@ -1688,8 +1707,6 @@
       <ul>
         <li><a href="autoapi/flame/pytorch/processes/process/index.html#flame.pytorch.processes.process.Process">(class in flame.pytorch.processes.process)</a>
 </li>
-        <li><a href="autoapi/flame/pytorch/typing_prelude/index.html#flame.pytorch.typing_prelude.Process">(in module flame.pytorch.typing_prelude)</a>
-</li>
       </ul></li>
       <li><a href="autoapi/flame/pytorch/utils/spawn/index.html#flame.pytorch.utils.spawn.ProcessContext">ProcessContext (class in flame.pytorch.utils.spawn)</a>
 </li>
@@ -1701,6 +1718,8 @@
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/flame/pytorch/typing_prelude/index.html#flame.pytorch.typing_prelude.Rank">Rank (in module flame.pytorch.typing_prelude)</a>
+</li>
       <li><a href="autoapi/flame/pytorch/utils/index.html#flame.pytorch.utils.rank0">rank0() (in module flame.pytorch.utils)</a>
 
       <ul>
@@ -1789,9 +1808,13 @@
       </ul></li>
       <li><a href="autoapi/flame/pytorch/typing_prelude/index.html#flame.pytorch.typing_prelude.RootConfig">RootConfig (in module flame.pytorch.typing_prelude)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/experimental/engine/index.html#flame.pytorch.experimental.engine.Engine.run">run() (flame.pytorch.experimental.engine.Engine method)</a>
+      <li><a href="autoapi/flame/pytorch/container/index.html#flame.pytorch.container.RootModule">RootModule (class in flame.pytorch.container)</a>
+</li>
+      <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.Engine.run">run() (flame.pytorch.engine.Engine method)</a>
 
       <ul>
+        <li><a href="autoapi/flame/pytorch/experimental/engine/index.html#flame.pytorch.experimental.engine.Engine.run">(flame.pytorch.experimental.engine.Engine method)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/experimental/engine/engine/index.html#flame.pytorch.experimental.engine.engine.Engine.run">(flame.pytorch.experimental.engine.engine.Engine method)</a>
 </li>
       </ul></li>
@@ -1817,6 +1840,12 @@
 </li>
       <li><a href="autoapi/flame/pytorch/experimental/engine/mixins/index.html#flame.pytorch.experimental.engine.mixins.Serializable">Serializable (class in flame.pytorch.experimental.engine.mixins)</a>
 </li>
+      <li><a href="autoapi/flame/pytorch/utils/index.html#flame.pytorch.utils.set_cudnn_benchmark">set_cudnn_benchmark() (in module flame.pytorch.utils)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/utils/cudnn/index.html#flame.pytorch.utils.cudnn.set_cudnn_benchmark">(in module flame.pytorch.utils.cudnn)</a>
+</li>
+      </ul></li>
       <li><a href="autoapi/flame/pytorch/experimental/engine/index.html#flame.pytorch.experimental.engine.Engine.set_data">set_data() (flame.pytorch.experimental.engine.Engine method)</a>
 
       <ul>
@@ -1861,18 +1890,24 @@
         <li><a href="autoapi/flame/pytorch/experimental/engine/events/index.html#flame.pytorch.experimental.engine.events.Events.STARTED">(flame.pytorch.experimental.engine.events.Events attribute)</a>
 </li>
       </ul></li>
-      <li><a href="autoapi/flame/pytorch/experimental/engine/index.html#flame.pytorch.experimental.engine.State">State (class in flame.pytorch.experimental.engine)</a>
+      <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.State">State (class in flame.pytorch.engine)</a>
 
       <ul>
+        <li><a href="autoapi/flame/pytorch/experimental/engine/index.html#flame.pytorch.experimental.engine.State">(class in flame.pytorch.experimental.engine)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/experimental/engine/events/index.html#flame.pytorch.experimental.engine.events.State">(class in flame.pytorch.experimental.engine.events)</a>
 </li>
       </ul></li>
       <li><a href="autoapi/flame/pytorch/checkpoint_saver/base_checkpoint_saver/index.html#flame.pytorch.checkpoint_saver.base_checkpoint_saver.CheckpointSaver.state_dict">state_dict() (flame.pytorch.checkpoint_saver.base_checkpoint_saver.CheckpointSaver method)</a>
 
       <ul>
+        <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.State.state_dict">(flame.pytorch.engine.State method)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/experimental/engine/mixins/index.html#flame.pytorch.experimental.engine.mixins.Serializable.state_dict">(flame.pytorch.experimental.engine.mixins.Serializable method)</a>
 </li>
       </ul></li>
+      <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.Engine.step">step() (flame.pytorch.engine.Engine method)</a>
+</li>
       <li><a href="autoapi/flame/pytorch/experimental/engine/index.html#flame.pytorch.experimental.engine.Engine.step_epoch">step_epoch() (flame.pytorch.experimental.engine.Engine method)</a>
 
       <ul>
@@ -1943,13 +1978,13 @@
         <li><a href="autoapi/flame/pytorch/experimental/engine/events/index.html#flame.pytorch.experimental.engine.events.Events.TERMINATE_SINGLE_EPOCH">(flame.pytorch.experimental.engine.events.Events attribute)</a>
 </li>
       </ul></li>
+      <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.EpochState.test_state">test_state (flame.pytorch.engine.EpochState attribute)</a>
+</li>
       <li><a href="autoapi/flame/pytorch/typing_prelude/index.html#flame.pytorch.typing_prelude.TestDataset">TestDataset (in module flame.pytorch.typing_prelude)</a>
 </li>
       <li><a href="autoapi/flame/pytorch/typing_prelude/index.html#flame.pytorch.typing_prelude.TestLoader">TestLoader (in module flame.pytorch.typing_prelude)</a>
 </li>
       <li><a href="autoapi/flame/pytorch/typing_prelude/index.html#flame.pytorch.typing_prelude.TestSampler">TestSampler (in module flame.pytorch.typing_prelude)</a>
-</li>
-      <li><a href="autoapi/flame/pytorch/typing_prelude/index.html#flame.pytorch.typing_prelude.TestState">TestState (in module flame.pytorch.typing_prelude)</a>
 </li>
       <li><a href="autoapi/flame/pytorch/experimental/metrics/functional/index.html#flame.pytorch.experimental.metrics.functional.topk_accuracy">topk_accuracy() (in module flame.pytorch.experimental.metrics.functional)</a>
 
@@ -1981,6 +2016,8 @@
         <li><a href="autoapi/flame/pytorch/processes/index.html#flame.pytorch.processes.SupervisedProcess.train">(flame.pytorch.processes.SupervisedProcess method)</a>
 </li>
       </ul></li>
+      <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.EpochState.train_state">train_state (flame.pytorch.engine.EpochState attribute)</a>
+</li>
       <li><a href="autoapi/flame/pytorch/typing_prelude/index.html#flame.pytorch.typing_prelude.TrainDataset">TrainDataset (in module flame.pytorch.typing_prelude)</a>
 </li>
       <li><a href="autoapi/flame/pytorch/processes/amp_process/index.html#flame.pytorch.processes.amp_process.AmpProcess.training_step">training_step() (flame.pytorch.processes.amp_process.AmpProcess method)</a>
@@ -1996,8 +2033,6 @@
       <li><a href="autoapi/flame/pytorch/typing_prelude/index.html#flame.pytorch.typing_prelude.TrainLoader">TrainLoader (in module flame.pytorch.typing_prelude)</a>
 </li>
       <li><a href="autoapi/flame/pytorch/typing_prelude/index.html#flame.pytorch.typing_prelude.TrainSampler">TrainSampler (in module flame.pytorch.typing_prelude)</a>
-</li>
-      <li><a href="autoapi/flame/pytorch/typing_prelude/index.html#flame.pytorch.typing_prelude.TrainState">TrainState (in module flame.pytorch.typing_prelude)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -2057,18 +2092,14 @@
         <li><a href="autoapi/flame/pytorch/experimental/engine/index.html#flame.pytorch.experimental.engine.State.update_max_iterations">(flame.pytorch.experimental.engine.State method)</a>
 </li>
       </ul></li>
-      <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.EpochEngine.update_state">update_state() (flame.pytorch.engine.EpochEngine method)</a>
-
-      <ul>
-        <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.IterationEngine.update_state">(flame.pytorch.engine.IterationEngine method)</a>
-</li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="V">V</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.EpochState.val_state">val_state (flame.pytorch.engine.EpochState attribute)</a>
+</li>
       <li><a href="autoapi/flame/pytorch/typing_prelude/index.html#flame.pytorch.typing_prelude.ValDataset">ValDataset (in module flame.pytorch.typing_prelude)</a>
 </li>
       <li><a href="autoapi/flame/pytorch/processes/index.html#flame.pytorch.processes.Process.validation_step">validation_step() (flame.pytorch.processes.Process method)</a>
@@ -2082,8 +2113,6 @@
       <li><a href="autoapi/flame/pytorch/typing_prelude/index.html#flame.pytorch.typing_prelude.ValLoader">ValLoader (in module flame.pytorch.typing_prelude)</a>
 </li>
       <li><a href="autoapi/flame/pytorch/typing_prelude/index.html#flame.pytorch.typing_prelude.ValSampler">ValSampler (in module flame.pytorch.typing_prelude)</a>
-</li>
-      <li><a href="autoapi/flame/pytorch/typing_prelude/index.html#flame.pytorch.typing_prelude.ValState">ValState (in module flame.pytorch.typing_prelude)</a>
 </li>
       <li><a href="autoapi/flame/pytorch/experimental/engine/events/index.html#flame.pytorch.experimental.engine.events.CallableEventWithFilter.value">value() (flame.pytorch.experimental.engine.events.CallableEventWithFilter method)</a>
 </li>

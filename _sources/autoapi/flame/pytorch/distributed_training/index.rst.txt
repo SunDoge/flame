@@ -86,14 +86,14 @@ Attributes
       :property:
 
 
-   .. method:: get_rank(self, proc_id)
+   .. method:: get_rank(self, local_rank)
 
 
 
 .. function:: get_dist_options()
 
 
-.. function:: _init_process_group_fn(proc_id, worker_fn, dist_options, *args)
+.. function:: _init_process_group_fn(local_rank, worker_fn, dist_options, *args)
 
    wrapper function for worker_fn
 

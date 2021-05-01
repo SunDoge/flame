@@ -20,6 +20,7 @@ Functions
 
    flame.archiver.git_ls_files
    flame.archiver.zip_files
+   flame.archiver.make_archive
 
 
 
@@ -28,8 +29,14 @@ Attributes
 
 .. autoapisummary::
 
+   flame.archiver._logger
    flame.archiver.file_list
 
+
+.. data:: _logger
+   
+
+   
 
 .. function:: git_ls_files()
 
@@ -37,6 +44,9 @@ Attributes
 
 
 .. function:: zip_files(file_list, filename)
+
+
+.. function:: make_archive(filename)
 
 
 .. data:: file_list

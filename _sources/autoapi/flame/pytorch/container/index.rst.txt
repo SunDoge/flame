@@ -17,7 +17,7 @@ Classes
 
 .. autoapisummary::
 
-   flame.pytorch.container.BaseModule
+   flame.pytorch.container.RootModule
 
 
 
@@ -35,7 +35,8 @@ Attributes
 
    
 
-.. class:: BaseModule
+.. class:: RootModule(local_rank)
+
 
    Bases: :py:obj:`injector.Module`
 
@@ -44,13 +45,16 @@ Attributes
    .. method:: create_args(self)
 
 
-   .. method:: create_cfg(self, args, experiment_dir)
+   .. method:: create_config(self, args, experiment_dir)
 
 
    .. method:: create_experiment_dir(self, args)
 
 
    .. method:: create_device(self)
+
+
+   .. method:: create_local_rank(self)
 
 
 

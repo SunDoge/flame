@@ -94,6 +94,9 @@ Classes
    .. method:: is_amp_enabled(self)
 
 
+   .. method:: autocast(self)
+
+
 
 .. class:: SupervisedProcess(model, optimizer, criterion)
 

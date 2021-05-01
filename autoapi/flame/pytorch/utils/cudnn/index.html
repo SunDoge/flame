@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>flame.pytorch.utils.attributes &#8212; flame 0.0.1 documentation</title>
+    <title>flame.pytorch.utils.cudnn &#8212; flame 0.0.1 documentation</title>
     
   <link href="../../../../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../../../../_static/css/index.f6b7ca918bee2f46fd9abac01cfb07d5.css" rel="stylesheet" />
@@ -34,8 +34,8 @@
     <script src="../../../../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
-    <link rel="next" title="flame.pytorch.utils.cudnn" href="../cudnn/index.html" />
-    <link rel="prev" title="flame.pytorch.utils" href="../index.html" />
+    <link rel="next" title="flame.pytorch.utils.distributed" href="../distributed/index.html" />
+    <link rel="prev" title="flame.pytorch.utils.attributes" href="../attributes/index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
   </head>
@@ -312,25 +312,20 @@
     <a class="reference internal nav-link" href="#functions">
      Functions
     </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#attributes">
+     Attributes
+    </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.pytorch.utils.attributes.get_first_parameter_or_buffer">
-       get_first_parameter_or_buffer
+      <a class="reference internal nav-link" href="#flame.pytorch.utils.cudnn._logger">
+       _logger
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.pytorch.utils.attributes.get_device_from_module">
-       get_device_from_module
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.pytorch.utils.attributes.get_dtype_from_module">
-       get_dtype_from_module
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.pytorch.utils.attributes.get_learning_rate_from_optimizer">
-       get_learning_rate_from_optimizer
+      <a class="reference internal nav-link" href="#flame.pytorch.utils.cudnn.set_cudnn_benchmark">
+       set_cudnn_benchmark
       </a>
      </li>
     </ul>
@@ -354,8 +349,8 @@
               
               <div>
                 
-  <div class="section" id="module-flame.pytorch.utils.attributes">
-<span id="flame-pytorch-utils-attributes"></span><h1><a class="reference internal" href="#module-flame.pytorch.utils.attributes" title="flame.pytorch.utils.attributes"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.utils.attributes</span></code></a><a class="headerlink" href="#module-flame.pytorch.utils.attributes" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-flame.pytorch.utils.cudnn">
+<span id="flame-pytorch-utils-cudnn"></span><h1><a class="reference internal" href="#module-flame.pytorch.utils.cudnn" title="flame.pytorch.utils.cudnn"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.utils.cudnn</span></code></a><a class="headerlink" href="#module-flame.pytorch.utils.cudnn" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="functions">
@@ -366,73 +361,34 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.utils.attributes.get_first_parameter_or_buffer" title="flame.pytorch.utils.attributes.get_first_parameter_or_buffer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_first_parameter_or_buffer</span></code></a>(module)</p></td>
-<td><p>Get first parameter or buffer from module</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.utils.attributes.get_device_from_module" title="flame.pytorch.utils.attributes.get_device_from_module"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_device_from_module</span></code></a>(module)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.utils.cudnn.set_cudnn_benchmark" title="flame.pytorch.utils.cudnn.set_cudnn_benchmark"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_cudnn_benchmark</span></code></a>()</p></td>
 <td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.utils.attributes.get_dtype_from_module" title="flame.pytorch.utils.attributes.get_dtype_from_module"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_dtype_from_module</span></code></a>(module)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.utils.attributes.get_learning_rate_from_optimizer" title="flame.pytorch.utils.attributes.get_learning_rate_from_optimizer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_learning_rate_from_optimizer</span></code></a>(optimizer)</p></td>
-<td><p>Get learning rate from optimizer</p></td>
 </tr>
 </tbody>
 </table>
-<dl class="py function">
-<dt id="flame.pytorch.utils.attributes.get_first_parameter_or_buffer">
-<code class="sig-prename descclassname"><span class="pre">flame.pytorch.utils.attributes.</span></code><code class="sig-name descname"><span class="pre">get_first_parameter_or_buffer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.utils.attributes.get_first_parameter_or_buffer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get first parameter or buffer from module</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>module</strong> (<em>torch.nn.Module</em>) – </p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>torch.Tensor</p>
-</dd>
-</dl>
-</dd></dl>
+</div>
+<div class="section" id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.utils.cudnn._logger" title="flame.pytorch.utils.cudnn._logger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_logger</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt id="flame.pytorch.utils.cudnn._logger">
+<code class="sig-prename descclassname"><span class="pre">flame.pytorch.utils.cudnn.</span></code><code class="sig-name descname"><span class="pre">_logger</span></code><a class="headerlink" href="#flame.pytorch.utils.cudnn._logger" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py function">
-<dt id="flame.pytorch.utils.attributes.get_device_from_module">
-<code class="sig-prename descclassname"><span class="pre">flame.pytorch.utils.attributes.</span></code><code class="sig-name descname"><span class="pre">get_device_from_module</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.utils.attributes.get_device_from_module" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>module</strong> (<em>torch.nn.Module</em>) – </p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>torch.device</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="flame.pytorch.utils.attributes.get_dtype_from_module">
-<code class="sig-prename descclassname"><span class="pre">flame.pytorch.utils.attributes.</span></code><code class="sig-name descname"><span class="pre">get_dtype_from_module</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.utils.attributes.get_dtype_from_module" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>module</strong> (<em>torch.nn.Module</em>) – </p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>torch.dtype</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="flame.pytorch.utils.attributes.get_learning_rate_from_optimizer">
-<code class="sig-prename descclassname"><span class="pre">flame.pytorch.utils.attributes.</span></code><code class="sig-name descname"><span class="pre">get_learning_rate_from_optimizer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.utils.attributes.get_learning_rate_from_optimizer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get learning rate from optimizer</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>optimizer</strong> (<em>torch.optim.Optimizer</em>) – </p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
+<dt id="flame.pytorch.utils.cudnn.set_cudnn_benchmark">
+<code class="sig-prename descclassname"><span class="pre">flame.pytorch.utils.cudnn.</span></code><code class="sig-name descname"><span class="pre">set_cudnn_benchmark</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.utils.cudnn.set_cudnn_benchmark" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </div>
 </div>
@@ -444,8 +400,8 @@
               
               <div class='prev-next-bottom'>
                 
-    <a class='left-prev' id="prev-link" href="../index.html" title="previous page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.utils</span></code></a>
-    <a class='right-next' id="next-link" href="../cudnn/index.html" title="next page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.utils.cudnn</span></code></a>
+    <a class='left-prev' id="prev-link" href="../attributes/index.html" title="previous page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.utils.attributes</span></code></a>
+    <a class='right-next' id="next-link" href="../distributed/index.html" title="next page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.utils.distributed</span></code></a>
 
               </div>
               

@@ -37,13 +37,10 @@ Attributes
    flame.pytorch.typing_prelude.Criterion
    flame.pytorch.typing_prelude.Optimizer
    flame.pytorch.typing_prelude.LrScheduler
-   flame.pytorch.typing_prelude.Process
    flame.pytorch.typing_prelude.Device
    flame.pytorch.typing_prelude.Dtype
-   flame.pytorch.typing_prelude.TrainState
-   flame.pytorch.typing_prelude.ValState
-   flame.pytorch.typing_prelude.TestState
-   flame.pytorch.typing_prelude.EpochState
+   flame.pytorch.typing_prelude.Rank
+   flame.pytorch.typing_prelude.LocalRank
    flame.pytorch.typing_prelude.TensorDict
    flame.pytorch.typing_prelude.TensorList
 
@@ -123,11 +120,6 @@ Attributes
 
    
 
-.. data:: Process
-   
-
-   
-
 .. data:: Device
    
 
@@ -138,22 +130,12 @@ Attributes
 
    
 
-.. data:: TrainState
+.. data:: Rank
    
 
    
 
-.. data:: ValState
-   
-
-   
-
-.. data:: TestState
-   
-
-   
-
-.. data:: EpochState
+.. data:: LocalRank
    
 
    

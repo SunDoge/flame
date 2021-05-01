@@ -41,4 +41,7 @@ Attributes
    .. method:: is_amp_enabled(self)
 
 
+   .. method:: autocast(self)
+
+
 
