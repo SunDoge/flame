@@ -7,13 +7,16 @@ import subprocess
 import zipfile
 from typing import List
 from zipfile import ZipFile
+import logging
+
+_logger = logging.getLogger(__name__)
 
 
 def git_ls_files() -> List[str]:
     """
     https://stackoverflow.com/questions/2766600/git-archive-of-repository-with-uncommitted-changes/63092214#63092214
     """
-    cmd = 'git ls-files --others --exclude-standard --cached'
+    cmd = 'git ls-files --others --exclude-standard'
     output = subprocess.check_output(shlex.split(cmd))
     output_str = output.decode()
     return output_str.split('\n')[:-1]  # 字符串的最后有一个\n
@@ -23,6 +26,13 @@ def zip_files(file_list: List[str], filename: str):
     with ZipFile(filename, mode='w', compression=zipfile.ZIP_DEFLATED) as f:
         for file_path in file_list:
             f.write(file_path)
+
+    _logger.info('save %d files to %s', len(file_list), filename)
+
+
+def make_archive(filename: str):
+    file_list = git_ls_files()
+    zip_files(file_list, filename)
 
 
 if __name__ == '__main__':

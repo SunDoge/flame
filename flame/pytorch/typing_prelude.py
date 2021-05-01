@@ -7,18 +7,16 @@ from torch import Tensor, nn
 from torch.optim import Optimizer
 from torch.optim.lr_scheduler import _LRScheduler as LrScheduler
 from torch.utils.data import DataLoader, Dataset
-from torch.utils.data.sampler import Sampler
+from torch.utils.data.distributed import DistributedSampler
 
-from .engine import EpochState, IterationState
-from .processes import Process
 
 TrainDataset = NewType('TrainDataset', Dataset)
 ValDataset = NewType('ValDataset', Dataset)
 TestDataset = NewType('TestDataset', Dataset)
 
-TrainSampler = NewType('TrainSampler', Sampler)
-ValSampler = NewType('ValSampler', Sampler)
-TestSampler = NewType('TestSampler', Sampler)
+TrainSampler = NewType('TrainSampler', DistributedSampler)
+ValSampler = NewType('ValSampler', DistributedSampler)
+TestSampler = NewType('TestSampler', DistributedSampler)
 
 TrainLoader = NewType('TrainLoader', DataLoader)
 ValLoader = NewType('ValLoader', DataLoader)
@@ -32,19 +30,13 @@ Criterion = NewType('Criterion', nn.Module)
 Optimizer = Optimizer
 LrScheduler = LrScheduler
 
-Process = Process
-
 Device = NewType('Device', torch.device)
 Dtype = NewType('Dtype', torch.dtype)
+Rank = NewType('Rank', int)
+LocalRank = NewType('LocalRank', int)
 
 # Trainer = NewType('Trainer', Engine)
 # Evaluator = NewType('Evaluator', Engine)
-
-
-TrainState = NewType('TrainState', IterationState)
-ValState = NewType('ValState', IterationState)
-TestState = NewType('TestState', IterationState)
-EpochState = EpochState
 
 
 class Model(nn.Module):

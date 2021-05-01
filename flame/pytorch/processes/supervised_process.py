@@ -81,7 +81,7 @@ class SupervisedAmpProcess(AmpProcess):
         data = data.to(self.device, non_blocking=True)
         label = label.to(self.device, non_blocking=True)
 
-        with autocast(enabled=self.is_amp_enabled()):
+        with self.autocast():
             pred = self.model(data)
             loss = self.criterion(pred, label)
 

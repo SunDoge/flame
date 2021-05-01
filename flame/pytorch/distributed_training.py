@@ -46,8 +46,8 @@ class DistOptions(ta.TypedArgs):
         assert self.dist_port
         return 'tcp://{host}:{port}'.format(host=self.dist_host, port=self.dist_port)
 
-    def get_rank(self, proc_id: int) -> int:
-        return self.rank_start + proc_id
+    def get_rank(self, local_rank: int) -> int:
+        return self.rank_start + local_rank
 
 
 def get_dist_options() -> DistOptions:
@@ -72,7 +72,7 @@ def get_dist_options() -> DistOptions:
     return dist_options
 
 
-def _init_process_group_fn(proc_id: int, worker_fn: Callable, dist_options: DistOptions, *args):
+def _init_process_group_fn(local_rank: int, worker_fn: Callable, dist_options: DistOptions, *args):
     """wrapper function for worker_fn
 
     必须定义成可以被pickle的函数。
@@ -85,7 +85,7 @@ def _init_process_group_fn(proc_id: int, worker_fn: Callable, dist_options: Dist
     """
 
     print('start distributed training')
-    rank = dist_options.get_rank(proc_id)
+    rank = dist_options.get_rank(local_rank)
     print(f'=> rank: {rank}')
 
     dist.init_process_group(
@@ -98,10 +98,11 @@ def _init_process_group_fn(proc_id: int, worker_fn: Callable, dist_options: Dist
     print('init process group')
 
     if torch.cuda.is_available():
-        _logger.info('set cuda_device=%d', proc_id)
-        torch.cuda.set_device(proc_id)
+        # _logger.info('set cuda_device=%d', local_rank)
+        print('set cuda device=', local_rank)
+        torch.cuda.set_device(local_rank)
 
-    worker_fn(*args)
+    worker_fn(local_rank, *args)
 
 
 def start_distributed_training(
@@ -193,4 +194,4 @@ def start_training(worker_fn: Callable, args: tuple = ()):
         start_distributed_training(
             worker_fn, dist_options, args=args)
     else:
-        worker_fn(*args)
+        worker_fn(0, *args)
