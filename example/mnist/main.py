@@ -1,3 +1,9 @@
+"""
+Debug模式测试
+python -m example.mnist.main -c example/mnist/pytorch_example.jsonnet -dy
+"""
+
+
 from flame.pytorch.experimental.compact_engine.engine import BaseEngine
 from torch.utils.data.dataloader import DataLoader
 
@@ -21,7 +27,7 @@ class MnistModule(RootModule):
     @provider
     def create_data_loader(self, cfg: Config, split: str = 'train') -> DataLoader:
         stage: Stage = getattr(cfg, split)
-        
+
         transform = flame.auto_builder.build_from_config(
             stage.transform
         )
@@ -38,17 +44,22 @@ class MnistModule(RootModule):
     @singleton
     @provider
     def create_criterion(self, cfg: Config) -> Criterion:
+        # TODO
         pass
 
     @singleton
     @provider
     def create_optimizer(self, cfg: Config, model: Model) -> Optimizer:
+        # TODO
         pass
 
     @singleton
     @provider
     def create_model(self, cfg: Config) -> Model:
-        pass
+        # TODO
+        model = flame.auto_builder.build_from_config(
+            cfg.model
+        )
 
 
 def main():
@@ -58,11 +69,8 @@ def main():
 def main_worker(local_rank: int):
     container = Injector(MnistModule(local_rank))
     loader_builder = container.get(CallableAssistedBuilder[DataLoader])
-   
-    
-    train_loader = loader_builder.build(split='train')
-    exit(0)
 
+    train_loader = loader_builder.build(split='train')
     val_loader = loader_builder.build(split='val')
     cfg = container.get(Config)
     engine: BaseEngine = build_from_config_with_container(

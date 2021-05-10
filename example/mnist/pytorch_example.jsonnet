@@ -48,5 +48,14 @@ local Transform = {
   engine: {
       _type: 'example.mnist.model.NetEngine',
   },
+  model: {
+    # TODO
+  },
+  criterion: {
+    # TODO
+  },
+  optimizer: {
+    # TODO
+  },
   max_epochs: 10,
 }
