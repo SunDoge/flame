@@ -1,7 +1,6 @@
 from flame.registry import Registry
 import pytest
 
-
 def test_registry():
     """
     https://github.com/facebookresearch/fvcore/blob/f08e0c3764ed15dc7344a2a1722e58427c923369/tests/test_common.py#L201

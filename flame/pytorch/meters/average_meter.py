@@ -89,3 +89,5 @@ class AverageMeterGroup(Meter):
     def __str__(self) -> str:
         fmt_str = self.delimiter.join([str(m) for m in self.meters.values()])
         return fmt_str
+
+
