@@ -35,7 +35,7 @@ def create_data_loader(
     if pin_memory and persistent_workers:
         torch_version: str = torch.__version__
         major_version, minor_version, patch_version = map(
-            int, torch_version.split('.')
+            int, torch_version.split('+')[0].split('.')
         )
         assert major_version >= 1 and minor_version >= 8, "pytorch version lower than 1.8 has bug for pin_menory and persistent_workers"
 

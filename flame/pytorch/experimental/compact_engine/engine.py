@@ -3,6 +3,8 @@
 from dataclasses import dataclass
 import dataclasses
 
+from pydantic.schema import model_schema
+
 
 from flame.pytorch.meters.average_meter import AverageMeterGroup
 
@@ -27,6 +29,7 @@ class State:
     epoch: int = 0
     training: bool = False
     mode: str = 'train'
+    epoch_length: Optional[int] = None
 
     def reset(self):
         for field in self.__dataclass_fields__.values():
@@ -67,7 +70,7 @@ class BaseEngine:
     # def _iteration(self, i: int, batch, mode: str):
     #     pass
 
-    def _loop(self, data_loader: Iterable, step_fn: Callable[[Any, int]]):
+    def _loop(self, data_loader: Iterable, step_fn: Callable[[Any, int], None]):
         for batch_idx, batch in enumerate(data_loader, start=1):
             if self.state.training:
                 self.state.step += 1
@@ -134,6 +137,11 @@ class BaseEngine:
         self.state.epoch += 1
         self.state.mode = mode
 
+        if epoch_length is None:
+            self.state.epoch_length = self._auto_infer_epoch_length(
+                loader
+            )
+
         self._auto_set_epoch(loader, self.state.epoch)
 
         self.training_loop(
@@ -143,6 +151,11 @@ class BaseEngine:
     def validate(self, loader: Iterable, epoch_length: Optional[int] = None, mode: str = 'val'):
         self.state.training = False
         self.state.mode = mode
+
+        if epoch_length is None:
+            self.state.epoch_length = self._auto_infer_epoch_length(
+                loader
+            )
 
         with torch.no_grad():
             self.validation_loop(

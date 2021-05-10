@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import Dict, List, NewType
+from typing import Any, Callable, Dict, List, NewType
 
 import torch
 from flame.argument import BasicArgs
@@ -13,6 +13,11 @@ from torch.utils.data.distributed import DistributedSampler
 TrainDataset = NewType('TrainDataset', Dataset)
 ValDataset = NewType('ValDataset', Dataset)
 TestDataset = NewType('TestDataset', Dataset)
+
+TrainTransform = NewType('TrainTransform', nn.Module)
+ValTransform = NewType('ValTransform', nn.Module)
+TestTransform = NewType('TestTransform', nn.Module)
+
 
 TrainSampler = NewType('TrainSampler', DistributedSampler)
 ValSampler = NewType('ValSampler', DistributedSampler)
