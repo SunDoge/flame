@@ -54,6 +54,16 @@ def get_kwargs_from_config(cfg: dict, type_key='_type') -> dict:
             kwargs[arg_key] = new_arg_value
             continue
 
+        if isinstance(arg_value, list):
+            new_arg_value = []
+            for item in arg_value:
+                new_arg_value.append(
+                    build_from_config(item, type_key=type_key)
+                )
+
+            kwargs[arg_key] = new_arg_value
+            continue
+
         kwargs[arg_key] = arg_value
 
     return kwargs

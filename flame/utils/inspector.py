@@ -64,5 +64,6 @@ def generate_function(path: str) -> str:
 
 
 if __name__ == '__main__':
-    output = generate_function('flame.config.from_snippet')
+    # output = generate_function('flame.config.from_snippet')
+    output = generate_function('torchvision.transforms.RandomResizedCrop')
     print(output)
