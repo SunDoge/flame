@@ -28,6 +28,9 @@ def build_from_config(cfg: dict, *args, type_key='_type', **kwargs) -> Any:
     """
     默认_type指定路径
     """
+    if not isinstance(cfg, dict):
+        return cfg
+
     assert type_key in cfg, f'no path_key: `{type_key}` found in config {cfg}'
 
     obj = import_from_path(cfg[type_key])
@@ -55,7 +58,7 @@ def get_kwargs_from_config(cfg: dict, type_key='_type') -> dict:
             kwargs[arg_key] = new_arg_value
             continue
 
-        if isinstance(arg_value, list) and type_key in arg_value:
+        if isinstance(arg_value, list):
             new_arg_value = []
             for item in arg_value:
                 new_arg_value.append(

@@ -1,4 +1,4 @@
-from threading import active_count
+
 from flame.pytorch.meters.average_meter import AverageMeter, AverageMeterGroup
 from flame.pytorch.experimental.compact_engine.engine import BaseEngine, BaseEngineConfig
 from typing import Callable, Tuple
@@ -41,12 +41,13 @@ class Net(nn.Module):
         return output
 
 
+@inject
 class NetEngine(BaseEngine):
 
     device: Device
     criterion: Callable[[Tensor, Tensor], Tensor]
+    cfg: BaseEngineConfig
 
-    @inject
     def __init__(
         self,
         model: Model,
@@ -56,7 +57,9 @@ class NetEngine(BaseEngine):
         device: Device,
         cfg: BaseEngineConfig,
     ):
-        super().__init__(**locals())
+        kwargs = locals()
+        kwargs.pop('self')
+        super().__init__(**kwargs)
 
         self.meters = AverageMeterGroup({
             'loss': AverageMeter('loss'),
@@ -78,12 +81,17 @@ class NetEngine(BaseEngine):
             pred, target, topk=(1, 5)
         )
         self.meters.update({
-            'loss': loss,
-            'acc1': acc1,
-            'acc5': acc5,
+            'loss': loss.item(),
+            'acc1': acc1.item(),
+            'acc5': acc5.item(),
         }, n=batch_size)
 
         if self.every_n_steps(self.cfg.log_interval):
             _logger.info(
                 f'{self.state.mode}\t{self.meters}'
             )
+
+        return self.output(
+            loss=loss,
+            batch_size=batch_size,
+        )

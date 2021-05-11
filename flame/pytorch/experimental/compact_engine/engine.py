@@ -3,12 +3,10 @@
 from dataclasses import dataclass
 import dataclasses
 
-from pydantic.schema import model_schema
-
 
 from flame.pytorch.meters.average_meter import AverageMeterGroup
 
-from typing import Any, Callable, Dict, Iterable, NamedTuple, Optional, Tuple
+from typing import Any, Callable, ClassVar, Dict, Iterable, NamedTuple, Optional, Tuple
 import logging
 from enum import Enum
 
@@ -19,6 +17,7 @@ import torch
 from torch import nn, Tensor
 from flame.pytorch.typing_prelude import Optimizer, LrScheduler, Model
 from pydantic import BaseModel
+import pydantic
 
 _logger = logging.getLogger(__name__)
 
@@ -45,6 +44,7 @@ class Mode(Enum):
 
 
 class BaseEngineConfig(BaseModel):
+    type: str = pydantic.Field(alias='_type')
     update_interval: int = 1  # optimizer更新频率，用来控制梯度lei ji
     log_interval: int = 10
     max_norm: float = -1.  # 如果大于0，就开始clip
@@ -66,6 +66,9 @@ class BaseEngine:
         """
         for key, value in kwargs.items():
             setattr(self, key, value)
+
+        self.state = State()
+        self.cfg = self.__annotations__['cfg'](**self.cfg)
 
     # def _iteration(self, i: int, batch, mode: str):
     #     pass
@@ -145,7 +148,7 @@ class BaseEngine:
         self._auto_set_epoch(loader, self.state.epoch)
 
         self.training_loop(
-            functools.partial(self._loop, loader)
+            functools.partial(self._loop, loader, self.training_step)
         )
 
     def validate(self, loader: Iterable, epoch_length: Optional[int] = None, mode: str = 'val'):
@@ -159,7 +162,7 @@ class BaseEngine:
 
         with torch.no_grad():
             self.validation_loop(
-                functools.partial(self._loop, loader)
+                functools.partial(self._loop, loader, self.validation_step)
             )
 
     @staticmethod

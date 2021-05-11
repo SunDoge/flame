@@ -9,8 +9,13 @@ class Stage(BaseModel):
     dataset: dict
 
 
+
 class Config(BaseModel):
     train: Stage
     val: Stage
     engine: BaseEngineConfig
     max_epochs: int
+    optimizer: dict
+    model: dict
+    criterion: dict
+    scheduler: dict

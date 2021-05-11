@@ -4,6 +4,8 @@
 
 import logging
 
+from pydantic.main import BaseModel
+
 import flame
 import torch
 from flame.argument import BasicArgs
@@ -107,9 +109,9 @@ def build_from_config_with_container(container: Injector, cfg: dict, type_key='_
         type_path
     )
     if inspect.isclass(type_factory):
-        assisted_builder = ClassAssistedBuilder(type_factory)
+        assisted_builder = ClassAssistedBuilder[type_factory]
     elif inspect.isfunction(type_factory):
-        assisted_builder = CallableAssistedBuilder(type_factory)
+        assisted_builder = CallableAssistedBuilder[type_factory]
     else:
         raise Exception()
 

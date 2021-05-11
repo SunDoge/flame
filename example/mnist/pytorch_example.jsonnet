@@ -49,13 +49,21 @@ local Transform = {
       _type: 'example.mnist.model.NetEngine',
   },
   model: {
-    # TODO
+    _type: 'example.mnist.model.Net'
   },
   criterion: {
     # TODO
+    _type: 'torch.nn.CrossEntropyLoss',
   },
   optimizer: {
     # TODO
+    _type: 'torch.optim.Adadelta',
+    lr: 1.0,
+  },
+  scheduler: {
+    _type: 'torch.optim.lr_scheduler.StepLR',
+    step_size: 1,
+    gamma: 0.7,
   },
   max_epochs: 10,
 }
