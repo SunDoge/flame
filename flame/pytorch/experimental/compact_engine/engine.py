@@ -6,7 +6,7 @@ import dataclasses
 
 from flame.pytorch.meters.average_meter import AverageMeterGroup
 
-from typing import Any, Callable, ClassVar, Dict, Iterable, NamedTuple, Optional, Tuple
+from typing import Any, Callable, Iterable, Optional, Tuple
 import logging
 from enum import Enum
 
@@ -80,7 +80,10 @@ class BaseEngine:
 
             step_fn(batch, batch_idx)
 
-        _logger.debug('epoch %s finished', self.state.epoch)
+        _logger.info('epoch %s finished', self.state.epoch)
+        _logger.info(
+            f'{self.state.mode} complete: {self.meters}'
+        )
 
     def prepare_data(self, batch: Any) -> Tuple[Any, int]:
         """
@@ -92,10 +95,13 @@ class BaseEngine:
 
     def training_loop(self, next: Callable):
         # model.train()
+        self.model.train()
         next()
+
         # log something
 
     def validation_loop(self, next: Callable):
+        self.model.eval()
         next()
 
     def forward(self, batch, batch_idx: int) -> dict:
