@@ -21,6 +21,8 @@ import pydantic
 
 _logger = logging.getLogger(__name__)
 
+Middleware = Callable[[Callable], Any]
+
 
 @dataclass
 class State:
@@ -29,6 +31,8 @@ class State:
     training: bool = False
     mode: str = 'train'
     epoch_length: Optional[int] = None
+    batch: Optional[Any] = None
+    output: Optional[Any] = None
 
     def reset(self):
         for field in self.__dataclass_fields__.values():
@@ -141,7 +145,13 @@ class BaseEngine:
         }
         return output
 
-    def train(self, loader: Iterable, epoch_length: Optional[int] = None, mode: str = 'train'):
+    def start_training(
+        self,
+        loader: Iterable,
+        next: Callable,
+        epoch_length: Optional[int] = None,
+        mode: str = 'train'
+    ):
         self.state.training = True
         self.state.epoch += 1
         self.state.mode = mode
@@ -153,11 +163,19 @@ class BaseEngine:
 
         self._auto_set_epoch(loader, self.state.epoch)
 
-        self.training_loop(
-            functools.partial(self._loop, loader, self.training_step)
-        )
+        # self.training_loop(
+        #     functools.partial(self._loop, loader, self.training_step)
+        # )
 
-    def validate(self, loader: Iterable, epoch_length: Optional[int] = None, mode: str = 'val'):
+        next()
+
+    def start_validation(
+        self,
+        loader: Iterable,
+        next: Callable,
+        epoch_length: Optional[int] = None,
+        mode: str = 'val'
+    ):
         self.state.training = False
         self.state.mode = mode
 
@@ -167,9 +185,21 @@ class BaseEngine:
             )
 
         with torch.no_grad():
-            self.validation_loop(
-                functools.partial(self._loop, loader, self.validation_step)
-            )
+            # self.validation_loop(
+            #     functools.partial(self._loop, loader, self.validation_step)
+            # )
+            next()
+
+    def train(self, loader: Iterable, epoch_length: Optional[int] = None, mode: str = 'train'):
+        start_training = functools.partial(
+            self.start_training, loader, epoch_length=epoch_length, mode=mode
+        )
+
+        fn = self.compose(
+            start_training,
+            self.training_loop,
+
+        )
 
     @staticmethod
     def _auto_set_epoch(loader: DataLoader, epoch: int):
@@ -194,3 +224,13 @@ class BaseEngine:
 
     def unfinished(self, max_epochs: int) -> bool:
         return self.state.epoch < max_epochs
+
+    @staticmethod
+    def compose(*middlewars: Middleware) -> Callable[[]]:
+
+        def fn(): pass
+
+        for middleware in middlewars[::-1]:
+            fn = functools.partial(middleware, fn)
+
+        return fn
