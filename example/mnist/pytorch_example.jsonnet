@@ -47,7 +47,9 @@ local Transform = {
   },
   engine: {
     _type: 'example.mnist.model.NetEngine',
-    max_epochs: $.max_epochs,
+    cfg: {
+      max_epochs: $.max_epochs,
+    },
   },
   model: {
     _type: 'example.mnist.model.Net',

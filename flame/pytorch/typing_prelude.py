@@ -68,3 +68,4 @@ class Model(nn.Module):
 
 TensorDict = Dict[str, Tensor]
 TensorList = List[Tensor]
+Checkpoint = NewType('Checkpoint', dict)

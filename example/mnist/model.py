@@ -122,7 +122,7 @@ class NetEngine(BaseEngine):
         train_loader = self.data_loader_builder.build(split='train')
         val_loader = self.data_loader_builder.build(split='val')
 
-        self.epoch_eta = EstimatedTimeOfArrival(self.state.max_epochs)
+        self.epoch_eta = EstimatedTimeOfArrival(self.cfg.max_epochs)
         while self.unfinished():
             self.train(train_loader)
             self.validate(val_loader)
