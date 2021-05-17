@@ -1,23 +1,23 @@
 
 
-from dataclasses import dataclass
 import dataclasses
-
-
-from flame.pytorch.meters.average_meter import AverageMeterGroup
-
-from typing import Any, Callable, Iterable, Optional, Tuple
+import functools
 import logging
+from dataclasses import dataclass
 from enum import Enum
+from typing import Any, Callable, Iterable, Optional, Tuple
 
+import pydantic
+import torch
+from flame.pytorch.meters.average_meter import AverageMeterGroup
+from flame.pytorch.typing_prelude import (Criterion, LrScheduler, Model,
+                                          Optimizer)
+from flame.pytorch.meters import EstimatedTimeOfArrival
+from pydantic import BaseModel
+from torch import Tensor, nn
 from torch.utils.data import DataLoader
 from torch.utils.data.distributed import DistributedSampler
-import functools
-import torch
-from torch import nn, Tensor
-from flame.pytorch.typing_prelude import Criterion, Optimizer, LrScheduler, Model
-from pydantic import BaseModel
-import pydantic
+
 
 _logger = logging.getLogger(__name__)
 
@@ -35,6 +35,7 @@ class State:
     batch_idx: int = 0
     output: Optional[Any] = None
     loader: Optional[Iterable] = None
+    eta: Optional[EstimatedTimeOfArrival] = None
 
     def reset(self):
         for field in self.__dataclass_fields__.values():
@@ -94,6 +95,13 @@ class BaseEngine:
     #     pass
 
     def loop(self, next: Callable):
+
+        eta = EstimatedTimeOfArrival(
+            self.state.mode,
+            self.state.epoch_length,
+        )
+        self.state.eta = eta
+
         # FIXME: 这里不应该用enumerate，应该根据epoch_length来循环，后面有空再改
         for batch_idx, batch in enumerate(self.state.loader, start=1):
             if self.state.training:
@@ -262,3 +270,7 @@ class BaseEngine:
             fn = functools.partial(middleware, fn)
 
         return fn
+
+
+    def run(self):
+        pass

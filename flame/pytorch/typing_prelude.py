@@ -29,6 +29,7 @@ TestLoader = NewType('TestLoader', DataLoader)
 
 BasicArgs = BasicArgs
 RootConfig = NewType('RootConfig', dict)
+DictConfig = NewType('DictConfig', dict)
 ExperimentDir = NewType('ExperimentDir', Path)
 
 Criterion = NewType('Criterion', nn.Module)
