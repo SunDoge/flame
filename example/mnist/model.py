@@ -1,4 +1,5 @@
 
+from flame.pytorch.meters.time_meter import EstimatedTimeOfArrival
 import logging
 from typing import Callable, Tuple
 
@@ -7,8 +8,10 @@ import torch.nn.functional as F
 from example.mnist.config import Config
 from flame.pytorch.container import CallableAssistedBuilder
 from flame.pytorch.experimental.compact_engine.amp_engine import AmpEngine
-from flame.pytorch.experimental.compact_engine.engine import (BaseEngine,
-                                                              BaseEngineConfig)
+# from flame.pytorch.experimental.compact_engine.engine import (BaseEngine,
+#                                                               BaseEngineConfig)
+
+from flame.pytorch.experimental.compact_engine.engine_v2 import BaseEngine, State
 from flame.pytorch.meters.average_meter import AverageMeter, AverageMeterGroup
 from flame.pytorch.metrics.functional import topk_accuracy
 from flame.pytorch.typing_prelude import (Criterion, Device, LrScheduler,
@@ -55,25 +58,29 @@ class NetEngine(BaseEngine):
 
     def __init__(
         self,
+        state: State,
         model: Model,
         optimizer: Optimizer,
         criterion: Criterion,
-        scaler: GradScaler,
+        # scaler: GradScaler,
         device: Device,
         data_loader_builder: CallableAssistedBuilder[DataLoader],
-        max_epochs: int,
+        cfg: dict,
     ):
         super().__init__(
+            # model=model,
+            # optimizer=optimizer,
+            # criterion=criterion,
             model=model,
             optimizer=optimizer,
-            criterion=criterion,
+            cfg=cfg,
+            state=state
         )
 
-        _logger.info('max_epochs: %s', max_epochs)
-        self.scaler = scaler
+        # self.scaler = scaler
         self.device = device
         self.data_loader_builder = data_loader_builder
-        self.max_epochs = max_epochs
+        self.criterion = criterion
 
         self.meters = AverageMeterGroup({
             'loss': AverageMeter('loss'),
@@ -81,10 +88,10 @@ class NetEngine(BaseEngine):
             'acc5': AverageMeter('acc5')
         })
 
-    def forward(self, next) -> dict:
+    def forward(self, batch: Tuple[Tensor, Tensor], batch_idx: int) -> dict:
         data, target = map(
             lambda x: x.to(self.device, non_blocking=True),
-            self.state.batch
+            batch
         )
         pred = self.model(data)
         loss = self.criterion(pred, target)
@@ -100,13 +107,13 @@ class NetEngine(BaseEngine):
             'acc5': acc5.item(),
         }, n=batch_size)
 
-        self.state.eta.update(batch_size)
-        if self.every_n_steps(self.log_interval):
+        self.step_eta.update(batch_size)
+        if self.every_n_steps(self.cfg.print_freq):
             _logger.info(
-                f'{self.state.eta}\t{self.meters}'
+                f'{self.step_eta}\t{self.meters}'
             )
 
-        self.output(
+        return self.output(
             loss=loss,
             batch_size=batch_size,
         )
@@ -115,6 +122,10 @@ class NetEngine(BaseEngine):
         train_loader = self.data_loader_builder.build(split='train')
         val_loader = self.data_loader_builder.build(split='val')
 
-        while self.unfinished(self.max_epochs):
+        self.epoch_eta = EstimatedTimeOfArrival(self.state.max_epochs)
+        while self.unfinished():
             self.train(train_loader)
             self.validate(val_loader)
+            self.epoch_eta.update()
+
+            _logger.info(f'epoch complete {self.epoch_eta}\t')

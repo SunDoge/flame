@@ -5,7 +5,8 @@ python -m example.mnist.main -c example/mnist/pytorch_example.jsonnet -dy
 
 
 from flame.pytorch.meters.time_meter import EstimatedTimeOfArrival
-from flame.pytorch.experimental.compact_engine.engine import BaseEngine, BaseEngineConfig
+# from flame.pytorch.experimental.compact_engine.engine import BaseEngine, BaseEngineConfig, State
+from flame.pytorch.experimental.compact_engine.engine_v2 import BaseEngine, State
 from torch.utils.data.dataloader import DataLoader
 
 import flame
@@ -80,10 +81,15 @@ class MnistModule(RootModule):
             cfg.scheduler, optimizer
         )
 
+    # @singleton
+    # @provider
+    # def create_engine_config(self, cfg: RootConfig) -> BaseEngineConfig:
+    #     return cfg['engine']
+
     @singleton
     @provider
-    def create_engine_config(self, cfg: RootConfig) -> BaseEngineConfig:
-        return cfg['engine']
+    def create_engine_state(self,) -> State:
+        return State()
 
 
 def main():
