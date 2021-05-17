@@ -1,19 +1,22 @@
 
-from flame.pytorch.container import CallableAssistedBuilder
-from example.mnist.config import Config
-from torch.utils.data.dataloader import DataLoader
-from flame.pytorch.meters.average_meter import AverageMeter, AverageMeterGroup
-from flame.pytorch.experimental.compact_engine.engine import BaseEngine, BaseEngineConfig
-from typing import Callable, Tuple
-from torch import nn, Tensor
-from torch.cuda.amp.grad_scaler import GradScaler
-import torch.nn.functional as F
-import torch
-from flame.pytorch.experimental.compact_engine.amp_engine import AmpEngine
-from injector import ClassAssistedBuilder, inject
-from flame.pytorch.typing_prelude import Device, Model, Optimizer, LrScheduler, Criterion
 import logging
+from typing import Callable, Tuple
+
+import torch
+import torch.nn.functional as F
+from example.mnist.config import Config
+from flame.pytorch.container import CallableAssistedBuilder
+from flame.pytorch.experimental.compact_engine.amp_engine import AmpEngine
+from flame.pytorch.experimental.compact_engine.engine import (BaseEngine,
+                                                              BaseEngineConfig)
+from flame.pytorch.meters.average_meter import AverageMeter, AverageMeterGroup
 from flame.pytorch.metrics.functional import topk_accuracy
+from flame.pytorch.typing_prelude import (Criterion, Device, LrScheduler,
+                                          Model, Optimizer)
+from injector import ClassAssistedBuilder, inject
+from torch import Tensor, nn
+from torch.cuda.amp.grad_scaler import GradScaler
+from torch.utils.data.dataloader import DataLoader
 
 _logger = logging.getLogger(__name__)
 
@@ -58,17 +61,19 @@ class NetEngine(BaseEngine):
         scaler: GradScaler,
         device: Device,
         data_loader_builder: CallableAssistedBuilder[DataLoader],
-        cfg: Config,
+        max_epochs: int,
     ):
         super().__init__(
             model=model,
             optimizer=optimizer,
             criterion=criterion,
         )
+
+        _logger.info('max_epochs: %s', max_epochs)
         self.scaler = scaler
         self.device = device
         self.data_loader_builder = data_loader_builder
-        self.cfg = cfg
+        self.max_epochs = max_epochs
 
         self.meters = AverageMeterGroup({
             'loss': AverageMeter('loss'),
@@ -110,6 +115,6 @@ class NetEngine(BaseEngine):
         train_loader = self.data_loader_builder.build(split='train')
         val_loader = self.data_loader_builder.build(split='val')
 
-        while self.unfinished(self.cfg.max_epochs):
+        while self.unfinished(self.max_epochs):
             self.train(train_loader)
             self.validate(val_loader)

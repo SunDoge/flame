@@ -46,17 +46,18 @@ local Transform = {
     ),
   },
   engine: {
-      _type: 'example.mnist.model.NetEngine',
+    _type: 'example.mnist.model.NetEngine',
+    max_epochs: $.max_epochs,
   },
   model: {
-    _type: 'example.mnist.model.Net'
+    _type: 'example.mnist.model.Net',
   },
   criterion: {
-    # TODO
+    // TODO
     _type: 'torch.nn.CrossEntropyLoss',
   },
   optimizer: {
-    # TODO
+    // TODO
     _type: 'torch.optim.Adadelta',
     lr: 1.0,
   },
