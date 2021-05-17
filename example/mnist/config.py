@@ -13,7 +13,7 @@ class Stage(BaseModel):
 class Config(BaseModel):
     train: Stage
     val: Stage
-    engine: BaseEngineConfig
+    engine: dict
     max_epochs: int
     optimizer: dict
     model: dict

@@ -46,7 +46,6 @@ class NetEngine(BaseEngine):
 
     device: Device
     criterion: Callable[[Tensor, Tensor], Tensor]
-    cfg: BaseEngineConfig
 
     def __init__(
         self,
@@ -55,11 +54,14 @@ class NetEngine(BaseEngine):
         criterion: Criterion,
         scaler: GradScaler,
         device: Device,
-        cfg: BaseEngineConfig,
     ):
-        kwargs = locals()
-        kwargs.pop('self')
-        super().__init__(**kwargs)
+        super().__init__(
+            model=model,
+            optimizer=optimizer,
+            criterion=criterion,
+        )
+        self.scaler = scaler
+        self.device = device
 
         self.meters = AverageMeterGroup({
             'loss': AverageMeter('loss'),
@@ -67,10 +69,10 @@ class NetEngine(BaseEngine):
             'acc5': AverageMeter('acc5')
         })
 
-    def forward(self, batch: Tuple[Tensor, Tensor], batch_idx: int) -> dict:
+    def forward(self, next) -> dict:
         data, target = map(
             lambda x: x.to(self.device, non_blocking=True),
-            batch
+            self.state.batch
         )
         pred = self.model(data)
         loss = self.criterion(pred, target)
@@ -86,12 +88,12 @@ class NetEngine(BaseEngine):
             'acc5': acc5.item(),
         }, n=batch_size)
 
-        if self.every_n_steps(self.cfg.log_interval):
+        if self.every_n_steps(self.log_interval):
             _logger.info(
                 f'{self.state.mode}\t{self.meters}'
             )
 
-        return self.output(
+        self.output(
             loss=loss,
             batch_size=batch_size,
         )

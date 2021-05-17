@@ -97,8 +97,11 @@ def main_worker(local_rank: int):
     val_loader = loader_builder.build(split='val')
     cfg = container.get(Config)
 
-    engine: BaseEngine = container.get(
-        flame.auto_builder.import_from_path(cfg.engine.type)
+    # engine: BaseEngine = container.get(
+    #     flame.auto_builder.import_from_path(cfg.engine.type)
+    # )
+    engine: BaseEngine = build_from_config_with_container(
+        container, cfg.engine
     )
 
     while engine.unfinished(cfg.max_epochs):

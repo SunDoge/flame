@@ -15,7 +15,7 @@ from torch.utils.data.distributed import DistributedSampler
 import functools
 import torch
 from torch import nn, Tensor
-from flame.pytorch.typing_prelude import Optimizer, LrScheduler, Model
+from flame.pytorch.typing_prelude import Criterion, Optimizer, LrScheduler, Model
 from pydantic import BaseModel
 import pydantic
 
@@ -32,7 +32,9 @@ class State:
     mode: str = 'train'
     epoch_length: Optional[int] = None
     batch: Optional[Any] = None
+    batch_idx: int = 0
     output: Optional[Any] = None
+    loader: Optional[Iterable] = None
 
     def reset(self):
         for field in self.__dataclass_fields__.values():
@@ -60,29 +62,50 @@ class BaseEngine:
     model: Model
     optimizer: Optimizer
     scheduler: LrScheduler
-    cfg: BaseEngineConfig
+    criterion: Criterion
     meters: AverageMeterGroup
 
-    def __init__(self, **kwargs):
+    def __init__(
+        self,
+        model: Model = None,
+        optimizer: Optimizer = None,
+        criterion: Criterion = None,
+        scheduler: Optional[LrScheduler] = None,
+        update_interval: int = 1,
+        log_interval: int = 1,
+        max_norm: float = -1.,
+    ):
         """
         example::
             self._init(**locals())
         """
-        for key, value in kwargs.items():
-            setattr(self, key, value)
 
         self.state = State()
-        self.cfg = self.__annotations__['cfg'](**self.cfg)
+        self.model = model
+        self.optimizer = optimizer
+        self.criterion = criterion
+        self.scheduler = scheduler
+        self.update_interval = update_interval
+        self.log_interval = log_interval
+        self.max_norm = max_norm
+        # self.cfg = self.__annotations__['cfg'](**self.cfg)
 
     # def _iteration(self, i: int, batch, mode: str):
     #     pass
 
-    def _loop(self, data_loader: Iterable, step_fn: Callable[[Any, int], None]):
-        for batch_idx, batch in enumerate(data_loader, start=1):
+    def loop(self, next: Callable):
+        # FIXME: 这里不应该用enumerate，应该根据epoch_length来循环，后面有空再改
+        for batch_idx, batch in enumerate(self.state.loader, start=1):
             if self.state.training:
                 self.state.step += 1
 
-            step_fn(batch, batch_idx)
+            self.state.batch_idx = batch_idx
+            self.state.batch = batch
+
+            next()
+
+            self.state.batch = None
+            self.state.output = None
 
         _logger.info('epoch %s finished', self.state.epoch)
         _logger.info(
@@ -97,55 +120,42 @@ class BaseEngine:
         """
         pass
 
-    def training_loop(self, next: Callable):
-        # model.train()
-        self.model.train()
-        next()
-
-        # log something
-
-    def validation_loop(self, next: Callable):
-        self.model.eval()
-        next()
-
-    def forward(self, batch, batch_idx: int) -> dict:
+    def forward(self, next) -> dict:
         pass
 
     def update(self):
         self.optimizer.step()
         self.optimizer.zero_grad()
 
-    def training_step(self, batch, batch_idx: int) -> dict:
-        output = self.forward(batch, batch_idx)
-        loss: Tensor = output['loss']
+    def training_step(self, next) -> dict:
+        self.forward(next)
+        loss: Tensor = self.state.output['loss']
         loss.backward()
 
         self.clip_grad_norm_if_needed()
 
-        if self.every_n_steps(n=self.cfg.update_interval):
+        if self.every_n_steps(n=self.update_interval):
             self.update()
 
-    def validation_step(self, batch, batch_idx: int) -> dict:
-        output = self.forward(batch, batch_idx)
-        return output
+    def validation_step(self, next) -> dict:
+        self.forward(next)
 
     def clip_grad_norm_if_needed(self):
-        if self.cfg.max_norm > 0.0:
+        if self.max_norm > 0.0:
             nn.utils.clip_grad_norm_(
                 self.model.parameters(),
-                self.cfg.max_norm,
+                self.max_norm,
             )
 
-    @staticmethod
-    def output(loss: Tensor = None, batch_size: int = None, **kwargs) -> dict:
-        output = {
+    # @staticmethod
+    def output(self, loss: Tensor = None, batch_size: int = None, **kwargs) -> dict:
+        self.state.output = {
             'loss': loss,
             'batch_size': batch_size,
             **kwargs
         }
-        return output
 
-    def start_training(
+    def prepare_training(
         self,
         loader: Iterable,
         next: Callable,
@@ -155,6 +165,8 @@ class BaseEngine:
         self.state.training = True
         self.state.epoch += 1
         self.state.mode = mode
+        self.state.loader = loader
+        self.model.train()
 
         if epoch_length is None:
             self.state.epoch_length = self._auto_infer_epoch_length(
@@ -169,7 +181,7 @@ class BaseEngine:
 
         next()
 
-    def start_validation(
+    def prepare_validation(
         self,
         loader: Iterable,
         next: Callable,
@@ -178,6 +190,8 @@ class BaseEngine:
     ):
         self.state.training = False
         self.state.mode = mode
+        self.state.loader = loader
+        self.model.eval()
 
         if epoch_length is None:
             self.state.epoch_length = self._auto_infer_epoch_length(
@@ -191,15 +205,29 @@ class BaseEngine:
             next()
 
     def train(self, loader: Iterable, epoch_length: Optional[int] = None, mode: str = 'train'):
-        start_training = functools.partial(
-            self.start_training, loader, epoch_length=epoch_length, mode=mode
+        prepare_training = functools.partial(
+            self.prepare_training, loader, epoch_length=epoch_length, mode=mode
         )
 
         fn = self.compose(
-            start_training,
-            self.training_loop,
-
+            prepare_training,
+            self.loop,
+            self.training_step
         )
+
+        fn()
+
+    def validate(self, loader: Iterable, epoch_length: Optional[int] = None, mode: str = 'val'):
+        prepare_validation = functools.partial(
+            self.prepare_validation, loader, epoch_length=epoch_length, mode=mode,
+        )
+        fn = self.compose(
+            prepare_validation,
+            self.loop,
+            self.validation_step
+        )
+
+        fn()
 
     @staticmethod
     def _auto_set_epoch(loader: DataLoader, epoch: int):
@@ -226,7 +254,7 @@ class BaseEngine:
         return self.state.epoch < max_epochs
 
     @staticmethod
-    def compose(*middlewars: Middleware) -> Callable[[]]:
+    def compose(*middlewars: Middleware) -> Middleware:
 
         def fn(): pass
 
