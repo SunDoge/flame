@@ -1,11 +1,11 @@
 from pathlib import Path
-from typing import Any, Callable, Dict, List, NewType
+from typing import Any, Callable, Dict, List, NewType, Optional
 
 import torch
 from flame.argument import BasicArgs
 from torch import Tensor, nn
 from torch.optim import Optimizer
-from torch.optim.lr_scheduler import _LRScheduler as LrScheduler
+from torch.optim.lr_scheduler import _LRScheduler as BaseLrScheduler
 from torch.utils.data import DataLoader, Dataset
 from torch.utils.data.distributed import DistributedSampler
 
@@ -34,7 +34,15 @@ ExperimentDir = NewType('ExperimentDir', Path)
 
 Criterion = NewType('Criterion', nn.Module)
 Optimizer = Optimizer
-LrScheduler = LrScheduler
+
+
+class LrScheduler(BaseLrScheduler):
+    def __init__(self):
+        pass
+
+    def step(self, epoch: Optional[int] = None) -> None:
+        pass
+
 
 Device = NewType('Device', torch.device)
 Dtype = NewType('Dtype', torch.dtype)
