@@ -1,3 +1,4 @@
+from flame.pytorch.typing_prelude import Model
 from flame.pytorch.meters.time_meter import EstimatedTimeOfArrival
 from typing import Callable, Iterable, Optional
 from pydantic import BaseModel, Field
@@ -21,19 +22,25 @@ class BaseEngineConfig(BaseModel):
 
 
 class BaseEngine:
+    """
+    继承这个类，然后实现两个方法
+    forward
+    run
+    """
+
+    model: Model
+    optimizer: Optimizer
+    state: State
 
     def __init__(
         self,
-        model: nn.Module = None,
-        optimizer: Optimizer = None,
-        state: State = None,
-        cfg: dict = None
+        state: State,
+        cfg: dict
     ) -> None:
 
-        self.state = state
         self.cfg = BaseEngineConfig(**cfg)
-        self.model = model
-        self.optimizer = optimizer
+        self.state = state
+
         self.epoch_eta: EstimatedTimeOfArrival = None
         self.step_eta: EstimatedTimeOfArrival = None
 
@@ -76,9 +83,6 @@ class BaseEngine:
     def every_n_steps(self, n: int = 1) -> bool:
         return self.every(self.state.step, n)
 
-    def forward(self, batch, batch_idx: int) -> dict:
-        pass
-
     def unfinished(self) -> bool:
         return self.state.epoch < self.cfg.max_epochs
 
@@ -117,4 +121,7 @@ class BaseEngine:
 
     def run(self):
         # self.epoch_eta = EstimatedTimeOfArrival(self.state.max_epochs)
+        pass
+
+    def forward(self, batch, batch_idx: int) -> dict:
         pass

@@ -71,13 +71,13 @@ class NetEngine(BaseEngine):
             # model=model,
             # optimizer=optimizer,
             # criterion=criterion,
-            model=model,
-            optimizer=optimizer,
+            state=state,
             cfg=cfg,
-            state=state
         )
 
         # self.scaler = scaler
+        self.model = model
+        self.optimizer = optimizer
         self.device = device
         self.data_loader_builder = data_loader_builder
         self.criterion = criterion
