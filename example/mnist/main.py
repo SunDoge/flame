@@ -89,10 +89,6 @@ class MnistModule(RootModule):
         return State()
 
 
-def main():
-    start_training(main_worker)
-
-
 def main_worker(local_rank: int):
     container = Injector(MnistModule(local_rank))
 
@@ -114,5 +110,6 @@ def main_worker(local_rank: int):
     engine.run()
 
 
-if __name__ == '__main__':
-    main()
+@flame.utils.main_fn
+def main():
+    start_training(main_worker)
