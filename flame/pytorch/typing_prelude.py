@@ -28,7 +28,7 @@ ValLoader = NewType('ValLoader', DataLoader)
 TestLoader = NewType('TestLoader', DataLoader)
 
 BasicArgs = BasicArgs
-RootConfig = NewType('RootConfig', dict)
+# RootConfig = NewType('RootConfig', dict)
 DictConfig = NewType('DictConfig', dict)
 ExperimentDir = NewType('ExperimentDir', Path)
 

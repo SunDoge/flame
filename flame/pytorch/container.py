@@ -12,7 +12,7 @@ from flame.argument import BasicArgs
 from injector import ClassAssistedBuilder, Injector, Module, provider, singleton, AssistedBuilder, CallableProvider
 from typing import Any, TypeVar
 
-from .typing_prelude import Device, ExperimentDir, LocalRank, RootConfig, TestDataset, TestSampler, TrainDataset, TrainSampler, ValDataset, ValSampler
+from .typing_prelude import Device, ExperimentDir, LocalRank, DictConfig, TestDataset, TestSampler, TrainDataset, TrainSampler, ValDataset, ValSampler
 from .utils.distributed import get_rank_safe
 from torch.utils.data.distributed import DistributedSampler
 import inspect
@@ -52,7 +52,7 @@ class RootModule(Module):
 
     @singleton
     @provider
-    def create_config(self, args: BasicArgs, experiment_dir: ExperimentDir) -> RootConfig:
+    def create_config(self, args: BasicArgs, experiment_dir: ExperimentDir) -> DictConfig:
         cfg, diff = flame.config.parse_config(args.local, args.config)
         _logger.info('Diff: \n%s', diff)
 

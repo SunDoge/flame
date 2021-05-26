@@ -50,6 +50,11 @@ class DistOptions(BasicArgs):
     def get_rank(self, local_rank: int) -> int:
         return self.rank_start + local_rank
 
+    def find_free_port(self):
+        if self.dist_port is None:
+            self.dist_port = find_free_port()
+            _logger.info('Find a free port: %s', self.dist_port)
+
 
 def get_dist_options() -> DistOptions:
 
