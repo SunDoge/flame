@@ -8,12 +8,13 @@ import torch.distributed as dist
 import torch.multiprocessing as mp
 import typed_args as ta
 from flame.utils.operating_system import find_free_port
+from flame.argument import BasicArgs
 
 _logger = logging.getLogger(__name__)
 
 
 @dataclass
-class DistOptions(ta.TypedArgs):
+class DistOptions(BasicArgs):
     # dist: bool = ta.add_argument(
     #     '--dist', action='store_true',
     #     help='activate distributed mode'
