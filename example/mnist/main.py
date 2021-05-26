@@ -4,8 +4,6 @@ python -m example.mnist.main -c example/mnist/pytorch_example.jsonnet -dy
 """
 
 
-from flame.pytorch.meters.time_meter import EstimatedTimeOfArrival
-# from flame.pytorch.experimental.compact_engine.engine import BaseEngine, BaseEngineConfig, State
 from flame.pytorch.experimental.compact_engine.engine_v2 import BaseEngine, State
 from torch.utils.data.dataloader import DataLoader
 
@@ -15,7 +13,6 @@ from flame.pytorch.container import RootModule
 from injector import Injector, provider, singleton
 from .config import Config, Stage
 from flame.pytorch import helpers
-from flame.pytorch.container import CallableAssistedBuilder
 from flame.pytorch.container import build_from_config_with_container
 from flame.pytorch.distributed_training import start_training
 import logging
@@ -98,7 +95,6 @@ def main():
 
 def main_worker(local_rank: int):
     container = Injector(MnistModule(local_rank))
-    loader_builder = container.get(CallableAssistedBuilder[DataLoader])
 
     # train_loader = loader_builder.build(split='train')
     # val_loader = loader_builder.build(split='val')
