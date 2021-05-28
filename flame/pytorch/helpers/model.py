@@ -18,7 +18,7 @@ def create_model(
     base_model.to(device)
 
     if dist.is_available() and dist.is_initialized():
-        assert local_rank, 'must pass in local_rank in distributed mode'
+        assert local_rank is not None, 'must pass in local_rank in distributed mode'
         model = DistributedDataParallel(base_model, device_ids=[device])
 
         if use_sync_bn:

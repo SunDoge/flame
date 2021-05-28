@@ -1,9 +1,10 @@
 
 from numbers import Number
-from typing import Any, Dict
+from typing import Any, Dict, Optional
 from .base_meter import Meter
 from flame.pytorch.utils.distributed import is_dist_available_and_initialized, reduce_numbers
 import logging
+from .time_meter import EstimatedTimeOfArrival
 
 _logger = logging.getLogger(__name__)
 
@@ -89,5 +90,3 @@ class AverageMeterGroup(Meter):
     def __str__(self) -> str:
         fmt_str = self.delimiter.join([str(m) for m in self.meters.values()])
         return fmt_str
-
-

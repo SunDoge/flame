@@ -5,6 +5,7 @@ from pydantic import BaseModel, Field
 from torch import nn, Tensor
 from torch.optim import Optimizer
 import torch
+from flame.pytorch.meters import Meter
 
 
 class State(BaseModel):
@@ -13,6 +14,7 @@ class State(BaseModel):
     # epoch_length: Optional[int] = None
     # max_epochs: int = 0
     training: bool = True
+    metrics: dict = {}
 
 
 class BaseEngineConfig(BaseModel):
@@ -31,14 +33,16 @@ class BaseEngine:
     model: Model
     optimizer: Optimizer
     state: State
+    meters: Meter
+    cfg: BaseEngineConfig
 
     def __init__(
         self,
         state: State,
-        cfg: dict
+        # cfg: dict
     ) -> None:
 
-        self.cfg = BaseEngineConfig(**cfg)
+        # self.cfg = BaseEngineConfig(**cfg)
         self.state = state
 
         self.epoch_eta: EstimatedTimeOfArrival = None
@@ -64,6 +68,8 @@ class BaseEngine:
     def loop(self, loader: Iterable, epoch_length: int, step_fn: Callable):
 
         self.step_eta = EstimatedTimeOfArrival(epoch_length)
+        self.meters.reset()
+
         for batch_idx, batch in enumerate(loader, start=1):
             output = step_fn(batch, batch_idx)
 

@@ -48,6 +48,7 @@ Device = NewType('Device', torch.device)
 Dtype = NewType('Dtype', torch.dtype)
 Rank = NewType('Rank', int)
 LocalRank = NewType('LocalRank', int)
+DebugMode = NewType('DebugMode', bool)
 
 # Trainer = NewType('Trainer', Engine)
 # Evaluator = NewType('Evaluator', Engine)

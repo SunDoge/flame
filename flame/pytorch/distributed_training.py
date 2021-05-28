@@ -81,6 +81,7 @@ def _init_process_group_fn(local_rank: int, worker_fn: Callable, dist_options: D
     """
 
     print('start distributed training')
+    dist_options.local_rank = local_rank
     rank = dist_options.get_rank(local_rank)
     print(f'=> rank: {rank}')
 
@@ -98,7 +99,7 @@ def _init_process_group_fn(local_rank: int, worker_fn: Callable, dist_options: D
         print('set cuda device=', local_rank)
         torch.cuda.set_device(local_rank)
 
-    worker_fn(local_rank, *args)
+    worker_fn(dist_options, *args)
 
 
 def start_distributed_training(
