@@ -1,3 +1,4 @@
+from flame.pytorch.meters.average_meter import AverageMeterGroup
 import functools
 from flame.pytorch.typing_prelude import Model
 from flame.pytorch.meters.time_meter import EstimatedTimeOfArrival
@@ -16,6 +17,7 @@ class State(BaseModel):
     # max_epochs: int = 0
     training: bool = True
     metrics: dict = {}
+    mode: str = 'train'
 
 
 class BaseEngineConfig(BaseModel):
@@ -34,7 +36,7 @@ class BaseEngine:
     model: Model
     optimizer: Optimizer
     state: State
-    meters: Meter
+    meters: AverageMeterGroup
     cfg: BaseEngineConfig
 
     def __init__(
@@ -102,6 +104,7 @@ class BaseEngine:
     def train(self, loader: Iterable, epoch_length: Optional[int] = None, mode: str = 'train'):
         self.state.training = True
         self.state.epoch += 1
+        self.state.mode = mode
 
         if epoch_length is None:
             epoch_length = self._auto_infer_epoch_length(
@@ -120,6 +123,7 @@ class BaseEngine:
 
     def validate(self, loader: Iterable, epoch_length: Optional[int] = None, mode: str = 'val'):
         self.state.training = False
+        self.state.mode = mode
 
         if epoch_length is None:
             epoch_length = self._auto_infer_epoch_length(

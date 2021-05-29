@@ -1,4 +1,5 @@
 
+from torch.utils.tensorboard.writer import SummaryWriter
 from flame.pytorch.meters.time_meter import EstimatedTimeOfArrival
 import logging
 from typing import Callable, Tuple
@@ -65,6 +66,7 @@ class NetEngine(BaseEngine):
         # scaler: GradScaler,
         device: Device,
         data_loader_builder: CallableAssistedBuilder[DataLoader],
+        summary_writer: SummaryWriter,
         cfg: dict,
     ):
         super().__init__(
@@ -82,6 +84,7 @@ class NetEngine(BaseEngine):
         self.data_loader_builder = data_loader_builder
         self.criterion = criterion
         self.cfg = BaseEngineConfig(**cfg)
+        self.summary_writer = summary_writer
 
         self.meters = AverageMeterGroup({
             'loss': AverageMeter('loss'),
@@ -118,6 +121,18 @@ class NetEngine(BaseEngine):
             loss=loss,
             batch_size=batch_size,
         )
+
+    def loop(self, next):
+        next()
+        epoch = self.state.epoch
+        self.meters.sync()
+        _logger.info(f'complete {self.step_eta}\t{self.meters}')
+        self.summary_writer.add_scalar(
+            f'{self.state.mode}/loss', self.meters['loss'].avg, epoch)
+        self.summary_writer.add_scalar(
+            f'{self.state.mode}/acc1', self.meters['acc1'].avg, epoch)
+        self.summary_writer.add_scalar(
+            f'{self.state.mode}/acc5', self.meters['acc5'].avg, epoch)
 
     def run(self):
         train_loader = self.data_loader_builder.build(split='train')

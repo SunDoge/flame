@@ -8,7 +8,7 @@ from flame.pytorch.experimental.compact_engine.engine_v2 import BaseEngine, Stat
 from torch.utils.data.dataloader import DataLoader
 
 import flame
-from flame.pytorch.typing_prelude import Criterion, Device, LocalRank, Model, DictConfig, Optimizer, LrScheduler
+from flame.pytorch.typing_prelude import Criterion, Device, ExperimentDir, LocalRank, Model, DictConfig, Optimizer, LrScheduler
 from flame.pytorch.container import BaseModule
 from injector import Injector, provider, singleton
 from .config import TypedConfig, Stage
@@ -16,12 +16,14 @@ from flame.pytorch import helpers
 from flame.pytorch.container import build_from_config_with_container
 from flame.pytorch.distributed_training import start_training
 import logging
+from torch.utils.tensorboard import SummaryWriter
+from flame.pytorch.utils.ranking import rank0
 
 _logger = logging.getLogger(__name__)
 
 
 class MnistModule(BaseModule):
-    
+
     @singleton
     @provider
     def create_typed_config(self, cfg: DictConfig) -> TypedConfig:
@@ -88,6 +90,11 @@ class MnistModule(BaseModule):
     @provider
     def create_engine_state(self,) -> State:
         return State()
+
+    @singleton
+    @provider
+    def create_summary_writer(self, experiment_dir: ExperimentDir) -> SummaryWriter:
+        return rank0(lambda: SummaryWriter(log_dir=str(experiment_dir)))()
 
 
 def main_worker(local_rank: int):

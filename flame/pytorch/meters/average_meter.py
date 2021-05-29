@@ -71,22 +71,25 @@ class AverageMeterGroup(Meter):
 
     def __init__(self, meters: Dict[str, AverageMeter], delimiter: str = "\t") -> None:
         super().__init__()
-        self.meters = meters
+        self._meters = meters
         self.delimiter = delimiter
 
     def update(self, metrics: Dict[str, Any], n: int = 1):
-        for key, meter in self.meters.items():
+        for key, meter in self._meters.items():
             value = metrics[key]
             meter.update(value, n=n)
 
     def sync(self):
-        for meter in self.meters.values():
+        for meter in self._meters.values():
             meter.sync()
 
     def reset(self):
-        for meter in self.meters.values():
+        for meter in self._meters.values():
             meter.reset()
 
     def __str__(self) -> str:
-        fmt_str = self.delimiter.join([str(m) for m in self.meters.values()])
+        fmt_str = self.delimiter.join([str(m) for m in self._meters.values()])
         return fmt_str
+
+    def __getitem__(self, key: str) -> AverageMeter:
+        return self._meters[key]
