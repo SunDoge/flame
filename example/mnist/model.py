@@ -5,13 +5,13 @@ from typing import Callable, Tuple
 
 import torch
 import torch.nn.functional as F
-from example.mnist.config import Config
+from example.mnist.config import TypedConfig
 from flame.pytorch.container import CallableAssistedBuilder
 from flame.pytorch.experimental.compact_engine.amp_engine import AmpEngine
 # from flame.pytorch.experimental.compact_engine.engine import (BaseEngine,
 #                                                               BaseEngineConfig)
 
-from flame.pytorch.experimental.compact_engine.engine_v2 import BaseEngine, State
+from flame.pytorch.experimental.compact_engine.engine_v2 import BaseEngine, State, BaseEngineConfig
 from flame.pytorch.meters.average_meter import AverageMeter, AverageMeterGroup
 from flame.pytorch.metrics.functional import topk_accuracy
 from flame.pytorch.typing_prelude import (Criterion, Device, LrScheduler,
@@ -72,7 +72,7 @@ class NetEngine(BaseEngine):
             # optimizer=optimizer,
             # criterion=criterion,
             state=state,
-            cfg=cfg,
+            # cfg=cfg,
         )
 
         # self.scaler = scaler
@@ -81,6 +81,7 @@ class NetEngine(BaseEngine):
         self.device = device
         self.data_loader_builder = data_loader_builder
         self.criterion = criterion
+        self.cfg = BaseEngineConfig(**cfg)
 
         self.meters = AverageMeterGroup({
             'loss': AverageMeter('loss'),

@@ -10,7 +10,7 @@ class Stage(BaseModel):
 
 
 
-class Config(BaseModel):
+class TypedConfig(BaseModel):
     train: Stage
     val: Stage
     engine: dict

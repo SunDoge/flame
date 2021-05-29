@@ -49,6 +49,7 @@ local Transform = {
     _type: 'example.mnist.model.NetEngine',
     cfg: {
       max_epochs: $.max_epochs,
+      print_freq: 10,
     },
   },
   model: {

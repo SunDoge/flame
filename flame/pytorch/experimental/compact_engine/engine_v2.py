@@ -1,3 +1,4 @@
+import functools
 from flame.pytorch.typing_prelude import Model
 from flame.pytorch.meters.time_meter import EstimatedTimeOfArrival
 from typing import Callable, Iterable, Optional
@@ -39,7 +40,6 @@ class BaseEngine:
     def __init__(
         self,
         state: State,
-        # cfg: dict
     ) -> None:
 
         # self.cfg = BaseEngineConfig(**cfg)
@@ -65,7 +65,7 @@ class BaseEngine:
         self.optimizer.step()
         self.optimizer.zero_grad()
 
-    def loop(self, loader: Iterable, epoch_length: int, step_fn: Callable):
+    def _loop(self, loader: Iterable, epoch_length: int, step_fn: Callable):
 
         self.step_eta = EstimatedTimeOfArrival(epoch_length)
         self.meters.reset()
@@ -110,7 +110,13 @@ class BaseEngine:
 
         self.model.train()
 
-        self.loop(loader, epoch_length, self.training_step)
+        # self._loop(loader, epoch_length, self.training_step)
+        loop_fn = functools.partial(
+            self._loop,
+            loader, epoch_length, self.training_step
+        )
+
+        self.loop(loop_fn)
 
     def validate(self, loader: Iterable, epoch_length: Optional[int] = None, mode: str = 'val'):
         self.state.training = False
@@ -122,8 +128,13 @@ class BaseEngine:
 
         self.model.eval()
 
+        loop_fn = functools.partial(
+            self._loop,
+            loader, epoch_length, self.validation_step
+        )
+
         with torch.no_grad():
-            self.loop(loader, epoch_length, self.validation_step)
+            self.loop(loop_fn)
 
     def run(self):
         # self.epoch_eta = EstimatedTimeOfArrival(self.state.max_epochs)
@@ -131,3 +142,6 @@ class BaseEngine:
 
     def forward(self, batch, batch_idx: int) -> dict:
         pass
+
+    def loop(self, next):
+        next()
