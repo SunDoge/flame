@@ -49,6 +49,10 @@ class BasicArgs(ta.TypedArgs):
         action='store_true',
         help='to skip some steps'
     )
+    local_rank: int = ta.add_argument(
+        '--local-rank', type=int, default=0,
+        help='auto-changed'
+    )
 
 
 def get_command() -> str:

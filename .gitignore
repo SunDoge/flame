@@ -5,3 +5,5 @@ dist/
 poetry.lock
 *.pyc
 *.zip
+data/
+exps/

@@ -1,6 +1,6 @@
 import logging
 from dataclasses import dataclass
-from typing import Any, Callable, Optional
+from typing import Callable, Optional
 
 import flame
 import torch
@@ -8,22 +8,23 @@ import torch.distributed as dist
 import torch.multiprocessing as mp
 import typed_args as ta
 from flame.utils.operating_system import find_free_port
+from flame.argument import BasicArgs
 
 _logger = logging.getLogger(__name__)
 
 
 @dataclass
-class DistOptions(ta.TypedArgs):
-    dist: bool = ta.add_argument(
-        '--dist', action='store_true',
-        help='activate distributed mode'
-    )
+class DistOptions(BasicArgs):
+    # dist: bool = ta.add_argument(
+    #     '--dist', action='store_true',
+    #     help='activate distributed mode'
+    # )
     rank_start: int = ta.add_argument(
         '--rank-start', type=int, default=0,
         help='当前 node 的 rank 起始值'
     )
     world_size: Optional[int] = ta.add_argument(
-        '--world-size', type=int,
+        '-w', '--world-size', type=int,
         help='如果不指定，自动计算'
     )
     dist_backend: str = ta.add_argument(
@@ -49,18 +50,13 @@ class DistOptions(ta.TypedArgs):
     def get_rank(self, local_rank: int) -> int:
         return self.rank_start + local_rank
 
+    def find_free_port(self):
+        if self.dist_port is None:
+            self.dist_port = find_free_port()
+            _logger.info('Find a free port: %s', self.dist_port)
+
 
 def get_dist_options() -> DistOptions:
-    # parser = argparse.ArgumentParser(prog='distributed launcher')
-    # parser.add_argument('--rank-start', type=int, default=0)
-    # parser.add_argument('--world-size', type=int, default=1)
-    # parser.add_argument('--dist-backend', type=str, default='nccl')
-    # parser.add_argument('--dist-host', type=str, default='127.0.0.1')
-    # parser.add_argument('--dist-port', type=str, default='auto')
-    # parser.add_argument('--dist', action='store_true')
-
-    # args, _ = parser.parse_known_args()
-    # dist_options = DistOptions(**args.__dict__)
 
     dist_options, _ = DistOptions.from_known_args()
     dist_options: DistOptions
@@ -85,6 +81,7 @@ def _init_process_group_fn(local_rank: int, worker_fn: Callable, dist_options: D
     """
 
     print('start distributed training')
+    dist_options.local_rank = local_rank
     rank = dist_options.get_rank(local_rank)
     print(f'=> rank: {rank}')
 
@@ -102,7 +99,7 @@ def _init_process_group_fn(local_rank: int, worker_fn: Callable, dist_options: D
         print('set cuda device=', local_rank)
         torch.cuda.set_device(local_rank)
 
-    worker_fn(local_rank, *args)
+    worker_fn(dist_options, *args)
 
 
 def start_distributed_training(
@@ -190,8 +187,11 @@ def init_cpu_process_group(
 def start_training(worker_fn: Callable, args: tuple = ()):
     flame.logging.init_logger()
     dist_options = get_dist_options()
-    if dist_options.dist:
-        start_distributed_training(
-            worker_fn, dist_options, args=args)
-    else:
-        worker_fn(0, *args)
+    # if dist_options.dist:
+    #     start_distributed_training(
+    #         worker_fn, dist_options, args=args)
+    # else:
+    #     worker_fn(0, *args)
+    start_distributed_training(
+        worker_fn, dist_options, args=args
+    )

@@ -24,17 +24,21 @@ def signature_contains(obj: Callable, key: str) -> bool:
     return key in signature.parameters
 
 
-def build_from_config(cfg: dict, *args, type_key='_type') -> Any:
+def build_from_config(cfg: dict, *args, type_key='_type', **kwargs) -> Any:
     """
     默认_type指定路径
     """
-    assert type_key in cfg, f'no path_key: `{type_key}` found in config'
+    if not isinstance(cfg, dict):
+        return cfg
+
+    assert type_key in cfg, f'no path_key: `{type_key}` found in config {cfg}'
 
     obj = import_from_path(cfg[type_key])
     assert not signature_contains(
         obj, type_key), f'signature contains illegal key: {type_key}'
 
-    kwargs = get_kwargs_from_config(cfg, type_key=type_key)
+    cfg_kwargs = get_kwargs_from_config(cfg, type_key=type_key)
+    kwargs.update(cfg_kwargs)
 
     return obj(*args, **kwargs)
 
@@ -51,6 +55,16 @@ def get_kwargs_from_config(cfg: dict, type_key='_type') -> dict:
             new_arg_value = build_from_config(
                 arg_value, type_key=type_key
             )
+            kwargs[arg_key] = new_arg_value
+            continue
+
+        if isinstance(arg_value, list):
+            new_arg_value = []
+            for item in arg_value:
+                new_arg_value.append(
+                    build_from_config(item, type_key=type_key)
+                )
+
             kwargs[arg_key] = new_arg_value
             continue
 

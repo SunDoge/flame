@@ -2,15 +2,14 @@ from typing import Optional
 from .base_meter import Meter
 from datetime import timedelta, datetime
 import time
-from tqdm import tqdm
 from flame.utils.timing import format_timedelta
 
 
 class EstimatedTimeOfArrival(Meter):
 
-    def __init__(self, prefix: str, total: int, initial: int = 0) -> None:
+    def __init__(self, total: int, initial: int = 0) -> None:
         super().__init__()
-        self.prefix = prefix
+        # self.prefix = prefix
         self.total = total
         self.initial = initial
         self.count = initial
@@ -64,9 +63,17 @@ class EstimatedTimeOfArrival(Meter):
         self.count = 0
 
     def __str__(self) -> str:
-        remaining_time_str = format_timedelta(self.remaining_time)
+        try:
+            remaining_time_str = format_timedelta(self.remaining_time)
+            arrival_time_str = self.arrival_time.strftime('%Y-%m-%d %H:%M:%S')
+        except ZeroDivisionError:
+            remaining_time_str = '?'
+            arrival_time_str = '?'
 
-        arrival_time_str = self.arrival_time.strftime('%Y-%m-%d %H:%M:%S')
-
-        fmt_str = f'{self.prefix}: [{self.count}/{self.total}] {self.rate:.2f} it/s R={remaining_time_str} A={arrival_time_str}'
+        fmt_str = f'[{self.count}/{self.total}] {self.rate:.2f} it/s R={remaining_time_str} A={arrival_time_str}'
         return fmt_str
+
+
+if __name__ == '__main__':
+    eta = EstimatedTimeOfArrival(10)
+    print(eta)
