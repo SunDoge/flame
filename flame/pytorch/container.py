@@ -48,7 +48,7 @@ class BaseModule(Module):
 
     @singleton
     @provider
-    def create_args(self) -> BasicArgs:
+    def create_basic_args(self) -> BasicArgs:
         # args, _ = BasicArgs.from_known_args()
         # return args
         return self.args

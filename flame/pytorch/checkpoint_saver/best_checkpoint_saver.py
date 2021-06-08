@@ -4,6 +4,7 @@ import operator
 import os
 import shutil
 import logging
+from flame.pytorch.utils.ranking import rank0
 
 _logger = logging.getLogger(__name__)
 
@@ -31,6 +32,7 @@ class BestCheckpointSaver(CheckpointSaver):
         else:
             return self.comparator(metric, best_metric)
 
+    @rank0
     def save(self, output_dir: str, is_best: bool = False):
         """
         在save checkpoint之前，best metric就应该被更新。所以没法在这里计算is_best

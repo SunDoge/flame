@@ -18,6 +18,7 @@ class State(BaseModel):
     training: bool = True
     metrics: dict = {}
     mode: str = 'train'
+    debug: bool = False
 
 
 class BaseEngineConfig(BaseModel):
@@ -74,6 +75,11 @@ class BaseEngine:
 
         for batch_idx, batch in enumerate(loader, start=1):
             output = step_fn(batch, batch_idx)
+
+            if self.every_n_steps(self.cfg.print_freq) and self.state.debug:
+                break
+
+        self.meters.sync()
 
     @staticmethod
     def output(loss: Tensor = None, batch_size: int = None, **kwargs) -> dict:

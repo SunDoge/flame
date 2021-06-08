@@ -1,5 +1,6 @@
 from .base_checkpoint_saver import CheckpointSaver
 import os
+from flame.pytorch.utils.ranking import rank0
 
 
 class PeriodicCheckpointSaver(CheckpointSaver):
@@ -14,6 +15,7 @@ class PeriodicCheckpointSaver(CheckpointSaver):
         self.every = every
         self.fmt = fmt
 
+    @rank0
     def save(self, output_dir: str, epoch: int):
         if epoch > 0 and epoch % self.every == 0:
             name = self.fmt.format(epoch)
