@@ -104,7 +104,7 @@ def parse_config(local_variables: List[str], files_or_snippets: List[str]) -> Tu
         tofile='after.json'
     )
 
-    diff_str = '\n'.join(diff)
+    diff_str = ''.join(diff)
 
     cfg = json.loads(json_after)
 

@@ -17,6 +17,7 @@ def create_data_loader(
     pin_memory: bool = True,
     multiprocessing_context=None,
     persistent_workers: bool = True,
+    drop_last: bool = False,
 ) -> DataLoader:
     if dist.is_available() and dist.is_initialized():
         sampler = DistributedSampler(dataset)
@@ -49,6 +50,7 @@ def create_data_loader(
         pin_memory=pin_memory,
         multiprocessing_context=multiprocessing_context,
         persistent_workers=persistent_workers,
+        drop_last=drop_last,
     )
 
     return loader
