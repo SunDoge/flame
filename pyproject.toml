@@ -13,6 +13,8 @@ tqdm = "^4.60.0"
 typed-args = "0.5.1"
 tabulate = "^0.8.9"
 pydantic = "^1.8.1"
+pfun = "^0.12.1"
+pygtrie = "^2.4.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
