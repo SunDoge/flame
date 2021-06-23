@@ -17,6 +17,12 @@ class BaseState(BaseModel):
 
     metrics: dict = {}
 
+    def train(self, mode: bool = True):
+        raise NotImplementedError()
+
+    def eval(self):
+        self.train(mode=False)
+
 
 class BaseEngineConfig(BaseModel):
     max_epochs: int
@@ -31,12 +37,13 @@ class BaseEngine:
     """
     config: BaseEngineConfig
 
-    def __init__(self, dict_config: dict) -> None:
+    def __init__(self, dict_config: dict, state: BaseState) -> None:
         config_factory = self.__class__.__annotations__['config']
         _logger.debug('config factory: %s', config_factory)
         config = config_factory(**dict_config)
 
         self.config = config
+        self.state = state
 
     def forward(self, state: BaseState, batch: Any) -> Tuple[dict, Effect]:
         """
@@ -73,11 +80,19 @@ class BaseEngine:
 
 
 class ExampleState(BaseState):
-    model: dict
-    optimizer: dict
+    model: Any
+    optimizer: Any
 
 
 if __name__ == '__main__':
+    import torch
     dict_config = {'max_epochs': 100}
-    engine = BaseEngine(dict_config)
+
+    model = torch.nn.Linear(2, 4)
+    optimizer = torch.optim.SGD(model.parameters(), lr=0.1)
+    state = ExampleState(
+        model=model,
+        optimizer=optimizer
+    )
+    engine = BaseEngine(dict_config, state)
     print(engine.config)
