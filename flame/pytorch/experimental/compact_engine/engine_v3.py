@@ -55,15 +55,14 @@ class BaseEngine:
     """
     config: BaseEngineConfig
 
-    def __init__(self, dict_config: dict, state: BaseState) -> None:
+    def __init__(self, dict_config: dict) -> None:
         config_factory = self.__class__.__annotations__['config']
         _logger.debug('config factory: %s', config_factory)
         config = config_factory(**dict_config)
 
         self.config = config
-        self.state = state
 
-    def forward(self, batch: Any) -> Tuple[dict, Effect]:
+    def forward(self, state: BaseState, batch: Any) -> Tuple[dict, Effect]:
         """
         Args:
             state: 训练需要用到的状态，不能修改
@@ -71,47 +70,44 @@ class BaseEngine:
         """
         raise NotImplementedError()
 
-    def switch_training_mode(self, mode: bool):
-        raise NotImplementedError()
-
-    def training_step(self, batch: Any) -> dict:
-        self.state.step += 1
-        output, effect = self.forward(batch)
+    def training_step(self, state: BaseState, batch: Any) -> dict:
+        state.step += 1
+        output, effect = self.forward(state, batch)
         effect.run(None)
         return output
 
-    def validation_step(self, batch: Any) -> dict:
-        output, effect = self.forward(batch)
+    def validation_step(self, state: BaseState, batch: Any) -> dict:
+        output, effect = self.forward(state, batch)
         effect.run(None)
         return output
 
-    def train(self, loader: Iterable, epoch_length: Optional[int] = None, mode: str = 'train'):
-        self.state.epoch += 1
-        self.state.mode = mode
-        self.state.train()
+    def train(self, state: BaseState, loader: Iterable, epoch_length: Optional[int] = None, mode: str = 'train'):
+        state.epoch += 1
+        state.mode = mode
+        state.train()
 
         if epoch_length is None:
             epoch_length = self._try_infer_epoch_length(loader)
 
-        self.state.epoch_length = epoch_length
+        state.epoch_length = epoch_length
 
         for batch_idx, batch in enumerate(loader, start=1):
-            self.state.batch_idx = batch_idx
-            output = self.training_step(batch)
+            state.batch_idx = batch_idx
+            output = self.training_step(state, batch)
 
-    def validate(self, loader: Iterable, epoch_length: Optional[int] = None, mode: str = 'val'):
-        self.state.mode = mode
-        self.state.eval()
+    def validate(self, state: BaseState, loader: Iterable, epoch_length: Optional[int] = None, mode: str = 'val'):
+        state.mode = mode
+        state.eval()
 
         if epoch_length is None:
             epoch_length = self._try_infer_epoch_length(loader)
 
-        self.state.epoch_length = epoch_length
+        state.epoch_length = epoch_length
 
         with torch.no_grad():
             for batch_idx, batch in enumerate(loader, start=1):
-                self.state.batch_idx = batch_idx
-                output = self.validation_step(batch)
+                state.batch_idx = batch_idx
+                output = self.validation_step(state, batch)
 
     def test(self, loader: Iterable, epoch_length: Optional[int] = None, mode: str = 'test'):
         self.validate(mode=mode)
@@ -127,11 +123,11 @@ class BaseEngine:
     def every_n_steps(self, n: int = 1) -> bool:
         return self.every(self.state.step, n)
 
-    def run(self,):
+    def run(self, state: BaseState):
 
-        while self.state.epoch < self.config.max_epochs:
-            self.train(range(10))
-            self.validate(range(5))
+        while state.epoch < self.config.max_epochs:
+            self.train(state, range(10))
+            self.validate(state, range(5))
 
 
 class ExampleState(BaseState):
@@ -145,15 +141,14 @@ class ExampleState(BaseState):
 class ExampleEngine(BaseEngine):
 
     config: BaseEngineConfig
-    state: ExampleState
 
-    def forward(self, batch):
+    def forward(self, state: ExampleState, batch):
         data = torch.full((4, 2), batch, dtype=torch.float)
-        pred = self.state.model(data)
+        pred = state.model(data)
         loss = pred.sum()
 
-        eff = success(self.state)
-        if self.state.mode == 'train':
+        eff = success(state)
+        if state.mode == 'train':
             def update_model(state: ExampleState):
                 loss.backward()
                 state.optimizer.step()
@@ -162,10 +157,10 @@ class ExampleEngine(BaseEngine):
 
             eff = eff.and_then(update_model)
 
-        if self.every(self.state.batch_idx, self.config.print_freq):
-            def start_logging(state: ExampleEngine):
+        if self.every(state.batch_idx, self.config.print_freq):
+            def start_logging(state: ExampleState):
                 _logger.info(
-                    f'{self.state.epoch}/{self.config.max_epochs} [{self.state.batch_idx}/{self.state.epoch_length}]\t'
+                    f'{state.epoch}/{self.config.max_epochs} [{state.batch_idx}/{state.epoch_length}]\t'
                     f'{loss}'
                 )
                 return success(state)
@@ -188,7 +183,7 @@ if __name__ == '__main__':
         model=model,
         optimizer=optimizer
     )
-    engine = ExampleEngine(dict_config, state)
+    engine = ExampleEngine(dict_config)
     print(engine.config)
-    engine.run()
-    ic(engine.state)
+    engine.run(state)
+    ic(state)
