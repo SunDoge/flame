@@ -72,8 +72,28 @@ class BaseEngineConfig(BaseModel):
 
 
 class DataModule:
+    def __init__(self) -> None:
+        pass
 
-    pass
+    def get_data(self, stage: Stage) -> Tuple[Iterable, int]:
+        loader = self.get_loader(stage)
+        epoch_length = self.infer_epoch_length(loader, stage)
+        return loader, epoch_length
+
+    def get_train_data(self, stage: Stage = Stage.TRAIN) -> Tuple[Iterable, int]:
+        return self.get_data(stage)
+
+    def get_val_data(self, stage: Stage = Stage.VAL) -> Tuple[Iterable, int]:
+        return self.get_data(stage)
+
+    def get_test_data(self, stage: Stage = Stage.TEST) -> Tuple[Iterable, int]:
+        return self.get_data(stage)
+
+    def get_loader(self, stage: Stage) -> Iterable:
+        raise NotImplementedError()
+
+    def infer_epoch_length(self, loader: Iterable, stage: Stage) -> int:
+        return len(loader)
 
 
 class BaseEngine:
@@ -110,12 +130,15 @@ class BaseEngine:
         return output
 
     def train(self, state: BaseState, loader: Iterable, epoch_length: Optional[int] = None, stage: Stage = Stage.TRAIN):
+        if epoch_length is None:
+            epoch_length = self._try_infer_epoch_length(loader)
+        elif epoch_length <= 0:
+            _logger.info('skip stage %s', stage.value)
+            return
+
         state.epoch += 1
         state.stage = stage
         state.train()
-
-        if epoch_length is None:
-            epoch_length = self._try_infer_epoch_length(loader)
 
         state.epoch_length = epoch_length
 
@@ -126,11 +149,14 @@ class BaseEngine:
             output = self.training_step(state, batch)
 
     def validate(self, state: BaseState, loader: Iterable, epoch_length: Optional[int] = None, stage: Stage = Stage.VAL):
-        state.stage = stage
-        state.eval()
-
         if epoch_length is None:
             epoch_length = self._try_infer_epoch_length(loader)
+        elif epoch_length <= 0:
+            _logger.info('skip stage %s', stage.value)
+            return
+
+        state.stage = stage
+        state.eval()
 
         state.epoch_length = epoch_length
 
@@ -161,11 +187,15 @@ class BaseEngine:
     # def every_n_steps(self, n: int = 1) -> bool:
     #     return self.every(self.state.step, n)
 
-    def run(self, state: BaseState):
+    def run(self, state: BaseState, data_module: DataModule):
+        train_loader, train_epoch_length = data_module.get_train_data()
+        val_loader, val_epoch_length = data_module.get_val_data()
+        test_loader, test_epoch_length = data_module.get_test_data()
 
         while state.epoch < self.config.max_epochs:
-            self.train(state, range(10))
-            self.validate(state, range(5))
+            self.train(state, train_loader, train_epoch_length)
+            self.validate(state, val_loader, val_epoch_length)
+            self.test(state, test_loader, test_epoch_length)
 
 
 class ExampleState(BaseState):
@@ -208,6 +238,19 @@ class ExampleEngine(BaseEngine):
         return {'loss': loss}, eff
 
 
+class ExampleDataModule(DataModule):
+
+    def get_loader(self, stage: Stage) -> Iterable:
+        if stage == Stage.TEST:
+            return range(0)
+
+        if stage == Stage.TRAIN:
+            return range(10)
+
+        if stage == Stage.VAL:
+            return range(5)
+
+
 if __name__ == '__main__':
     import torch
     from icecream import ic
@@ -215,15 +258,17 @@ if __name__ == '__main__':
     dict_config = {'max_epochs': 100, 'print_freq': 5}
 
     model = torch.nn.Linear(2, 4)
-
     optimizer = torch.optim.SGD(model.parameters(), lr=0.1)
     state = ExampleState(
         model=model,
         optimizer=optimizer
     )
+
+    data_module = ExampleDataModule()
+
     engine = ExampleEngine(dict_config)
     print(engine.config)
-    engine.run(state)
+    engine.run(state, data_module)
     ic(state)
 
     state_dict = state.state_dict()
