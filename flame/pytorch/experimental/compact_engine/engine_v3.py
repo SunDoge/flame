@@ -8,8 +8,16 @@ import logging
 from pfun import Effect
 import torch
 from dataclasses import dataclass
+from enum import Enum
+from torch.utils.data.distributed import DistributedSampler
 
 _logger = logging.getLogger(__name__)
+
+
+class Stage(Enum):
+    TRAIN = 'train'
+    VAL = 'val'
+    TEST = 'test'
 
 
 class BaseState(BaseModel):
@@ -17,7 +25,7 @@ class BaseState(BaseModel):
     epoch: int = 0
     batch_idx: int = 0
     epoch_length: int = 0
-    mode: str = 'train'
+    stage: Stage = Stage.TRAIN
 
     metrics: dict = {}
 
@@ -28,10 +36,30 @@ class BaseState(BaseModel):
         self.train(mode=False)
 
     def state_dict(self):
-        pass
+        state_dict = {}
+        for key, value in self.__dict__.items():
+            # if isinstance(value, torch.nn.Module):
+            #     state_dict[key] = value.state_dict()
+            # elif isinstance(value, torch.optim.Optimizer):
+            #     state_dict[key] = value.state_dict()
+            # elif isinstance(value, torch.optim.lr_scheduler._LRScheduler):
+            #     state_dict[key] = value.state_dict()
+            # elif isinstance(value, torch.cuda.amp.grad_scaler.GradScaler):
+            #     state_dict[key] = value.state_dict()
+            if hasattr(value, 'state_dict'):
+                state_dict[key] = value.state_dict()
+            else:
+                state_dict[key] = value
+
+        return state_dict
 
     def load_state_dict(self, state_dict: dict):
-        pass
+        for key, value in state_dict.items():
+            attribute = getattr(self, key)
+            if hasattr(attribute, 'load_state_dict'):
+                attribute.load_state_dict(value)
+            else:
+                setattr(self, key, value)
 
     class Config:
         arbitrary_types_allowed = True
@@ -81,9 +109,9 @@ class BaseEngine:
         effect.run(None)
         return output
 
-    def train(self, state: BaseState, loader: Iterable, epoch_length: Optional[int] = None, mode: str = 'train'):
+    def train(self, state: BaseState, loader: Iterable, epoch_length: Optional[int] = None, stage: Stage = Stage.TRAIN):
         state.epoch += 1
-        state.mode = mode
+        state.stage = stage
         state.train()
 
         if epoch_length is None:
@@ -91,12 +119,14 @@ class BaseEngine:
 
         state.epoch_length = epoch_length
 
+        self._try_set_epoch(loader, state.epoch)
+
         for batch_idx, batch in enumerate(loader, start=1):
             state.batch_idx = batch_idx
             output = self.training_step(state, batch)
 
-    def validate(self, state: BaseState, loader: Iterable, epoch_length: Optional[int] = None, mode: str = 'val'):
-        state.mode = mode
+    def validate(self, state: BaseState, loader: Iterable, epoch_length: Optional[int] = None, stage: Stage = Stage.VAL):
+        state.stage = stage
         state.eval()
 
         if epoch_length is None:
@@ -109,19 +139,27 @@ class BaseEngine:
                 state.batch_idx = batch_idx
                 output = self.validation_step(state, batch)
 
-    def test(self, loader: Iterable, epoch_length: Optional[int] = None, mode: str = 'test'):
-        self.validate(mode=mode)
+    def test(self, state: BaseState, loader: Iterable, epoch_length: Optional[int] = None, stage: Stage = Stage.TEST):
+        self.validate(state, loader, epoch_length=epoch_length, stage=stage)
 
     @staticmethod
     def _try_infer_epoch_length(loader: Iterable):
         return len(loader)
 
     @staticmethod
+    def _try_set_epoch(loader: Iterable, epoch: int):
+        if hasattr(loader, 'sampler'):
+            sampler = getattr(loader, 'sampler')
+            if isinstance(sampler, DistributedSampler):
+                sampler.set_epoch(epoch)
+                _logger.info('train_loader.sampler.set_epoch(%s)', epoch)
+
+    @staticmethod
     def every(i: int, n: int) -> bool:
         return i > 0 and i % n == 0
 
-    def every_n_steps(self, n: int = 1) -> bool:
-        return self.every(self.state.step, n)
+    # def every_n_steps(self, n: int = 1) -> bool:
+    #     return self.every(self.state.step, n)
 
     def run(self, state: BaseState):
 
@@ -148,7 +186,7 @@ class ExampleEngine(BaseEngine):
         loss = pred.sum()
 
         eff = success(state)
-        if state.mode == 'train':
+        if state.stage == 'train':
             def update_model(state: ExampleState):
                 loss.backward()
                 state.optimizer.step()
@@ -160,7 +198,7 @@ class ExampleEngine(BaseEngine):
         if self.every(state.batch_idx, self.config.print_freq):
             def start_logging(state: ExampleState):
                 _logger.info(
-                    f'{state.epoch}/{self.config.max_epochs} [{state.batch_idx}/{state.epoch_length}]\t'
+                    f'{state.stage.value} {state.epoch}/{self.config.max_epochs} [{state.batch_idx}/{state.epoch_length}]\t'
                     f'{loss}'
                 )
                 return success(state)
@@ -187,3 +225,17 @@ if __name__ == '__main__':
     print(engine.config)
     engine.run(state)
     ic(state)
+
+    state_dict = state.state_dict()
+    ic(state_dict)
+
+    new_model = torch.nn.Linear(2, 4)
+    new_optimizer = torch.optim.SGD(new_model.parameters(), lr=0.1)
+    new_state = ExampleState(
+        model=new_model,
+        optimizer=new_optimizer
+    )
+    ic(new_state)
+    new_state.load_state_dict(state_dict)
+
+    ic(new_state.state_dict())
