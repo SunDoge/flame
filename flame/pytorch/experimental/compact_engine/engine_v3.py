@@ -61,6 +61,9 @@ class BaseState(BaseModel):
             else:
                 setattr(self, key, value)
 
+    def is_last_batch(self) -> bool:
+        return self.batch_idx == self.epoch_length
+
     class Config:
         arbitrary_types_allowed = True
 
@@ -146,7 +149,7 @@ class BaseEngine:
 
         for batch_idx, batch in enumerate(loader, start=1):
             state.batch_idx = batch_idx
-            output = self.training_step(state, batch)
+            _output = self.training_step(state, batch)
 
     def validate(self, state: BaseState, loader: Iterable, epoch_length: Optional[int] = None, stage: Stage = Stage.VAL):
         if epoch_length is None:
@@ -163,7 +166,7 @@ class BaseEngine:
         with torch.no_grad():
             for batch_idx, batch in enumerate(loader, start=1):
                 state.batch_idx = batch_idx
-                output = self.validation_step(state, batch)
+                _output = self.validation_step(state, batch)
 
     def test(self, state: BaseState, loader: Iterable, epoch_length: Optional[int] = None, stage: Stage = Stage.TEST):
         self.validate(state, loader, epoch_length=epoch_length, stage=stage)
