@@ -1,31 +1,34 @@
 """
 设计composable的Engine
 """
-from typing import Any, Iterable, Optional, Tuple
-from pfun.effect import success
-from pydantic import BaseModel
 import logging
-from pfun import Effect
+from typing import Any, Iterable, Optional, Tuple
+
 import torch
-from dataclasses import dataclass
-from enum import Enum
+from pfun import Effect
+from pfun.effect import success
+from pydantic import BaseModel as PydanticModel
 from torch.utils.data.distributed import DistributedSampler
+from torch import nn
 
 _logger = logging.getLogger(__name__)
 
 
-class Stage(Enum):
-    TRAIN = 'train'
-    VAL = 'val'
-    TEST = 'test'
+class Stage:
+    """
+    python的enum并不好用，所以这里还是用constant
+    """
+    Train: str = 'train'
+    Val: str = 'val'
+    Test: str = 'test'
 
 
-class BaseState(BaseModel):
+class BaseState(PydanticModel):
     step: int = 0
     epoch: int = 0
     batch_idx: int = 0
     epoch_length: int = 0
-    stage: Stage = Stage.TRAIN
+    stage: str = Stage.Train
 
     metrics: dict = {}
 
@@ -38,15 +41,8 @@ class BaseState(BaseModel):
     def state_dict(self):
         state_dict = {}
         for key, value in self.__dict__.items():
-            # if isinstance(value, torch.nn.Module):
-            #     state_dict[key] = value.state_dict()
-            # elif isinstance(value, torch.optim.Optimizer):
-            #     state_dict[key] = value.state_dict()
-            # elif isinstance(value, torch.optim.lr_scheduler._LRScheduler):
-            #     state_dict[key] = value.state_dict()
-            # elif isinstance(value, torch.cuda.amp.grad_scaler.GradScaler):
-            #     state_dict[key] = value.state_dict()
             if hasattr(value, 'state_dict'):
+                value: nn.Module
                 state_dict[key] = value.state_dict()
             else:
                 state_dict[key] = value
@@ -54,9 +50,11 @@ class BaseState(BaseModel):
         return state_dict
 
     def load_state_dict(self, state_dict: dict):
+        # FIXME: 这里没有检查state_dict是否有缺失state
         for key, value in state_dict.items():
             attribute = getattr(self, key)
             if hasattr(attribute, 'load_state_dict'):
+                attribute: nn.Module
                 attribute.load_state_dict(value)
             else:
                 setattr(self, key, value)
@@ -68,13 +66,13 @@ class BaseState(BaseModel):
         arbitrary_types_allowed = True
 
 
-class BaseEngineConfig(BaseModel):
+class BaseEngineConfig(PydanticModel):
     max_epochs: int
     print_freq: int = 1
     update_freq: int = 1  # For gradient accumulation
 
 
-class DataModule:
+class BaseDataModule:
     def __init__(self) -> None:
         pass
 
@@ -83,19 +81,19 @@ class DataModule:
         epoch_length = self.infer_epoch_length(loader, stage)
         return loader, epoch_length
 
-    def get_train_data(self, stage: Stage = Stage.TRAIN) -> Tuple[Iterable, int]:
+    def get_train_data(self, stage: str = Stage.Train) -> Tuple[Iterable, int]:
         return self.get_data(stage)
 
-    def get_val_data(self, stage: Stage = Stage.VAL) -> Tuple[Iterable, int]:
+    def get_val_data(self, stage: str = Stage.Val) -> Tuple[Iterable, int]:
         return self.get_data(stage)
 
-    def get_test_data(self, stage: Stage = Stage.TEST) -> Tuple[Iterable, int]:
+    def get_test_data(self, stage: str = Stage.Test) -> Tuple[Iterable, int]:
         return self.get_data(stage)
 
-    def get_loader(self, stage: Stage) -> Iterable:
+    def get_loader(self, stage: str) -> Iterable:
         raise NotImplementedError()
 
-    def infer_epoch_length(self, loader: Iterable, stage: Stage) -> int:
+    def infer_epoch_length(self, loader: Iterable, stage: str) -> int:
         return len(loader)
 
 
@@ -132,11 +130,11 @@ class BaseEngine:
         effect.run(None)
         return output
 
-    def train(self, state: BaseState, loader: Iterable, epoch_length: Optional[int] = None, stage: Stage = Stage.TRAIN):
+    def train(self, state: BaseState, loader: Iterable, epoch_length: Optional[int] = None, stage: Stage = Stage.Train):
         if epoch_length is None:
             epoch_length = self._try_infer_epoch_length(loader)
         elif epoch_length <= 0:
-            _logger.info('skip stage %s', stage.value)
+            _logger.info('skip stage %s', stage)
             return
 
         state.epoch += 1
@@ -151,11 +149,11 @@ class BaseEngine:
             state.batch_idx = batch_idx
             _output = self.training_step(state, batch)
 
-    def validate(self, state: BaseState, loader: Iterable, epoch_length: Optional[int] = None, stage: Stage = Stage.VAL):
+    def validate(self, state: BaseState, loader: Iterable, epoch_length: Optional[int] = None, stage: Stage = Stage.Val):
         if epoch_length is None:
             epoch_length = self._try_infer_epoch_length(loader)
         elif epoch_length <= 0:
-            _logger.info('skip stage %s', stage.value)
+            _logger.info('skip stage %s', stage)
             return
 
         state.stage = stage
@@ -168,7 +166,7 @@ class BaseEngine:
                 state.batch_idx = batch_idx
                 _output = self.validation_step(state, batch)
 
-    def test(self, state: BaseState, loader: Iterable, epoch_length: Optional[int] = None, stage: Stage = Stage.TEST):
+    def test(self, state: BaseState, loader: Iterable, epoch_length: Optional[int] = None, stage: Stage = Stage.Test):
         self.validate(state, loader, epoch_length=epoch_length, stage=stage)
 
     @staticmethod
@@ -190,7 +188,7 @@ class BaseEngine:
     # def every_n_steps(self, n: int = 1) -> bool:
     #     return self.every(self.state.step, n)
 
-    def run(self, state: BaseState, data_module: DataModule):
+    def run(self, state: BaseState, data_module: BaseDataModule):
         train_loader, train_epoch_length = data_module.get_train_data()
         val_loader, val_epoch_length = data_module.get_val_data()
         test_loader, test_epoch_length = data_module.get_test_data()
@@ -231,7 +229,7 @@ class ExampleEngine(BaseEngine):
         if self.every(state.batch_idx, self.config.print_freq):
             def start_logging(state: ExampleState):
                 _logger.info(
-                    f'{state.stage.value} {state.epoch}/{self.config.max_epochs} [{state.batch_idx}/{state.epoch_length}]\t'
+                    f'{state.stage} {state.epoch}/{self.config.max_epochs} [{state.batch_idx}/{state.epoch_length}]\t'
                     f'{loss}'
                 )
                 return success(state)
@@ -241,16 +239,16 @@ class ExampleEngine(BaseEngine):
         return {'loss': loss}, eff
 
 
-class ExampleDataModule(DataModule):
+class ExampleDataModule(BaseDataModule):
 
     def get_loader(self, stage: Stage) -> Iterable:
-        if stage == Stage.TEST:
+        if stage == Stage.Test:
             return range(0)
 
-        if stage == Stage.TRAIN:
+        if stage == Stage.Train:
             return range(10)
 
-        if stage == Stage.VAL:
+        if stage == Stage.Val:
             return range(5)
 
 
