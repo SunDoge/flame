@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Union
 import torch.distributed as dist
 import torch
 import functools
@@ -22,7 +22,7 @@ def get_device_by_backend() -> torch.device:
     return torch.device('cuda' if dist.get_backend() == 'nccl' else 'cpu')
 
 
-def reduce_numbers(nums: List[Number], op=ReduceOp.SUM) -> List[Number]:
+def reduce_numbers(nums: List[Union[int, float]], op=ReduceOp.SUM) -> List[Union[int, float]]:
     types = [type(n) for n in nums]
     floats = [float(n) for n in nums]
 

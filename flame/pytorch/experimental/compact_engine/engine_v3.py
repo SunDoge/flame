@@ -10,6 +10,8 @@ from pfun.effect import success
 from pydantic import BaseModel as PydanticModel
 from torch.utils.data.distributed import DistributedSampler
 from torch import nn
+from flame.pytorch.meters.time_meter import EstimatedTimeOfArrival
+from flame.pytorch.meters.average_meter import DynamicAverageMeterGroup
 
 _logger = logging.getLogger(__name__)
 
@@ -76,7 +78,7 @@ class BaseDataModule:
     def __init__(self) -> None:
         pass
 
-    def get_data(self, stage: Stage) -> Tuple[Iterable, int]:
+    def get_data(self, stage: str) -> Tuple[Iterable, int]:
         loader = self.get_loader(stage)
         epoch_length = self.infer_epoch_length(loader, stage)
         return loader, epoch_length
@@ -98,18 +100,22 @@ class BaseDataModule:
 
 
 class BaseEngine:
-
     """
     如果需要覆盖config，必须在这里声明config的类型
     """
-    config: BaseEngineConfig
+    # config: BaseEngineConfig
 
-    def __init__(self, dict_config: dict) -> None:
-        config_factory = self.__class__.__annotations__['config']
-        _logger.debug('config factory: %s', config_factory)
-        config = config_factory(**dict_config)
+    def __init__(self, config: BaseEngineConfig) -> None:
+        # config_factory = self.__class__.__annotations__['config']
+        # _logger.debug('config factory: %s', config_factory)
+        # config = config_factory(**dict_config)
 
         self.config = config
+
+        # placeholders
+        self.epoch_eta = EstimatedTimeOfArrival(0)
+        self.iteration_eta = EstimatedTimeOfArrival(0)
+        self.meter_group = DynamicAverageMeterGroup()
 
     def forward(self, state: BaseState, batch: Any) -> Tuple[dict, Effect]:
         """
@@ -130,7 +136,12 @@ class BaseEngine:
         effect.run(None)
         return output
 
-    def train(self, state: BaseState, loader: Iterable, epoch_length: Optional[int] = None, stage: Stage = Stage.Train):
+    @staticmethod
+    def output(batch_size: int = 1, **kwargs) -> dict:
+        kwargs['batch_size'] = batch_size
+        return kwargs
+
+    def train(self, state: BaseState, loader: Iterable, epoch_length: Optional[int] = None, stage: str = Stage.Train):
         if epoch_length is None:
             epoch_length = self._try_infer_epoch_length(loader)
         elif epoch_length <= 0:
@@ -145,11 +156,17 @@ class BaseEngine:
 
         self._try_set_epoch(loader, state.epoch)
 
+        self.iteration_eta = EstimatedTimeOfArrival(
+            state.epoch_length,
+        )
+        self.meter_group.reset()
+
         for batch_idx, batch in enumerate(loader, start=1):
             state.batch_idx = batch_idx
-            _output = self.training_step(state, batch)
+            output = self.training_step(state, batch)
+            self.iteration_eta.update(n=output.get('batch_size', 1))
 
-    def validate(self, state: BaseState, loader: Iterable, epoch_length: Optional[int] = None, stage: Stage = Stage.Val):
+    def validate(self, state: BaseState, loader: Iterable, epoch_length: Optional[int] = None, stage: str = Stage.Val):
         if epoch_length is None:
             epoch_length = self._try_infer_epoch_length(loader)
         elif epoch_length <= 0:
@@ -161,12 +178,18 @@ class BaseEngine:
 
         state.epoch_length = epoch_length
 
+        self.iteration_eta = EstimatedTimeOfArrival(
+            state.epoch_length,
+        )
+        self.meter_group.reset()
+
         with torch.no_grad():
             for batch_idx, batch in enumerate(loader, start=1):
                 state.batch_idx = batch_idx
-                _output = self.validation_step(state, batch)
+                output = self.validation_step(state, batch)
+                self.iteration_eta.update(n=output.get('batch_size', 1))
 
-    def test(self, state: BaseState, loader: Iterable, epoch_length: Optional[int] = None, stage: Stage = Stage.Test):
+    def test(self, state: BaseState, loader: Iterable, epoch_length: Optional[int] = None, stage: str = Stage.Test):
         self.validate(state, loader, epoch_length=epoch_length, stage=stage)
 
     @staticmethod
@@ -193,10 +216,17 @@ class BaseEngine:
         val_loader, val_epoch_length = data_module.get_val_data()
         test_loader, test_epoch_length = data_module.get_test_data()
 
+        self.epoch_eta = EstimatedTimeOfArrival(
+            self.config.max_epochs,
+            state.epoch,
+        )
+
         while state.epoch < self.config.max_epochs:
             self.train(state, train_loader, train_epoch_length)
             self.validate(state, val_loader, val_epoch_length)
             self.test(state, test_loader, test_epoch_length)
+
+            self.epoch_eta.update()
 
 
 class ExampleState(BaseState):
@@ -256,7 +286,10 @@ if __name__ == '__main__':
     import torch
     from icecream import ic
     logging.basicConfig(level=logging.INFO)
-    dict_config = {'max_epochs': 100, 'print_freq': 5}
+    engine_config = BaseEngineConfig(
+        max_epochs=10,
+        print_freq=5,
+    )
 
     model = torch.nn.Linear(2, 4)
     optimizer = torch.optim.SGD(model.parameters(), lr=0.1)
@@ -267,7 +300,7 @@ if __name__ == '__main__':
 
     data_module = ExampleDataModule()
 
-    engine = ExampleEngine(dict_config)
+    engine = ExampleEngine(engine_config)
     print(engine.config)
     engine.run(state, data_module)
     ic(state)

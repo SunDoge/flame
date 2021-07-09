@@ -31,7 +31,7 @@ class AverageMeter(Meter):
         self._local_count = 0
         self.synchronized = True
 
-    def update(self, val: Number, n: int = 1):
+    def update(self, val: float, n: int = 1):
         # 每次更新local计数器，更新完后需要sync
         self.val = val
         self._local_count += n
@@ -78,6 +78,36 @@ class AverageMeterGroup(Meter):
         for key, meter in self._meters.items():
             value = metrics[key]
             meter.update(value, n=n)
+
+    def sync(self):
+        for meter in self._meters.values():
+            meter.sync()
+
+    def reset(self):
+        for meter in self._meters.values():
+            meter.reset()
+
+    def __str__(self) -> str:
+        fmt_str = self.delimiter.join([str(m) for m in self._meters.values()])
+        return fmt_str
+
+    def __getitem__(self, key: str) -> AverageMeter:
+        return self._meters[key]
+
+
+class DynamicAverageMeterGroup(Meter):
+
+    def __init__(self, delimiter) -> None:
+        super().__init__()
+        self.delimiter = delimiter
+        self._meters: Dict[str, AverageMeter] = {}
+
+    def update(self, name: str, value: float, n: int = 1, fmt: str = ':f'):
+        if name not in self._meters:
+            self._meters[name] = AverageMeter(name, fmt=fmt)
+
+        meter = self._meters[name]
+        meter.update(value, n=n)
 
     def sync(self):
         for meter in self._meters.values():
