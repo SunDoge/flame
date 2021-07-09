@@ -13,8 +13,9 @@ class Stage(BaseModel):
 class TypedConfig(BaseModel):
     train: Stage
     val: Stage
-    engine: dict
-    max_epochs: int
+    engine: str
+    engine_cfg: dict
+    # max_epochs: int
     optimizer: dict
     model: dict
     criterion: dict

@@ -4,7 +4,7 @@ python -m example.mnist.main -c example/mnist/pytorch_example.jsonnet -dy
 """
 
 
-from flame.pytorch.experimental.compact_engine.engine_v2 import BaseEngine, State
+from flame.pytorch.experimental.compact_engine.engine_v3 import BaseDataModule, BaseEngine, BaseEngineConfig, BaseState
 from torch.utils.data.dataloader import DataLoader
 
 import flame
@@ -13,7 +13,6 @@ from flame.pytorch.container import BaseModule
 from injector import Injector, provider, singleton
 from .config import TypedConfig, Stage
 from flame.pytorch import helpers
-from flame.pytorch.container import build_from_config_with_container
 from flame.pytorch.distributed_training import start_training
 import logging
 from torch.utils.tensorboard import SummaryWriter
@@ -81,20 +80,27 @@ class MnistModule(BaseModule):
             cfg.scheduler, optimizer
         )
 
-    # @singleton
-    # @provider
-    # def create_engine_config(self, cfg: RootConfig) -> BaseEngineConfig:
-    #     return cfg['engine']
+    @singleton
+    @provider
+    def create_engine_config(self, cfg: TypedConfig) -> BaseEngineConfig:
+        return flame.auto_builder.build_from_config(
+            cfg.engine_cfg
+        )
 
     @singleton
     @provider
-    def create_engine_state(self,) -> State:
-        return State()
+    def create_engine_state(self,) -> BaseState:
+        return BaseState()
 
     @singleton
     @provider
     def create_summary_writer(self, experiment_dir: ExperimentDir) -> SummaryWriter:
         return rank0(lambda: SummaryWriter(log_dir=str(experiment_dir)))()
+
+    @singleton
+    @provider
+    def create_data_module(self, cfg: TypedConfig) -> BaseDataModule:
+        pass
 
 
 def main_worker(local_rank: int):
@@ -107,15 +113,22 @@ def main_worker(local_rank: int):
     # engine: BaseEngine = container.get(
     #     flame.auto_builder.import_from_path(cfg.engine.type)
     # )
-    engine: BaseEngine = build_from_config_with_container(
-        container, cfg.engine
+    # engine: BaseEngine = build_from_config_with_container(
+    #     container, cfg.engine
+    # )
+
+    engine: BaseEngine = container.get(
+        flame.auto_builder.import_from_path(cfg.engine)
     )
 
     # eta = EstimatedTimeOfArrival('epoch', cfg.max_epochs)
     # while engine.unfinished(cfg.max_epochs):
     #     engine.train(train_loader)
     #     engine.validate(val_loader)
-    engine.run()
+    # engine.run()
+    container.call_with_injection(
+        engine.run
+    )
 
 
 @flame.utils.main_fn

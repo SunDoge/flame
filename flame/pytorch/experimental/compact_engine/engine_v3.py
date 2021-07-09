@@ -33,6 +33,7 @@ class BaseState(PydanticModel):
     stage: str = Stage.Train
 
     metrics: dict = {}
+    meters: DynamicAverageMeterGroup = DynamicAverageMeterGroup()
 
     def train(self, mode: bool = True):
         raise NotImplementedError()
@@ -115,7 +116,7 @@ class BaseEngine:
         # placeholders
         self.epoch_eta = EstimatedTimeOfArrival(0)
         self.iteration_eta = EstimatedTimeOfArrival(0)
-        self.meter_group = DynamicAverageMeterGroup()
+        # self.meter_group = DynamicAverageMeterGroup()
 
     def forward(self, state: BaseState, batch: Any) -> Tuple[dict, Effect]:
         """
@@ -159,12 +160,15 @@ class BaseEngine:
         self.iteration_eta = EstimatedTimeOfArrival(
             state.epoch_length,
         )
-        self.meter_group.reset()
+        # self.meter_group.reset()
+        state.meters.reset()
 
         for batch_idx, batch in enumerate(loader, start=1):
             state.batch_idx = batch_idx
             output = self.training_step(state, batch)
             self.iteration_eta.update(n=output.get('batch_size', 1))
+
+        state.meters.record()
 
     def validate(self, state: BaseState, loader: Iterable, epoch_length: Optional[int] = None, stage: str = Stage.Val):
         if epoch_length is None:
@@ -181,13 +185,16 @@ class BaseEngine:
         self.iteration_eta = EstimatedTimeOfArrival(
             state.epoch_length,
         )
-        self.meter_group.reset()
+        # self.meter_group.reset()
+        state.meters.reset()
 
         with torch.no_grad():
             for batch_idx, batch in enumerate(loader, start=1):
                 state.batch_idx = batch_idx
                 output = self.validation_step(state, batch)
                 self.iteration_eta.update(n=output.get('batch_size', 1))
+
+            state.meters.record()
 
     def test(self, state: BaseState, loader: Iterable, epoch_length: Optional[int] = None, stage: str = Stage.Test):
         self.validate(state, loader, epoch_length=epoch_length, stage=stage)

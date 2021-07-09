@@ -40,19 +40,17 @@ class ClassificationEngine(BaseEngine):
         pred = state.model(image)
 
         loss = self.criterion(pred, label)
-    
+
         acc1, acc5 = topk_accuracy(pred, label)
         batch_size = len(label)
-    
+
         def update_meters(state: ClassificationState):
-            self.meter_group.update('loss', loss.item(), batch_size)
-            self.meter_group.update('acc1', acc1.item(), batch_size)
-            self.meter_group.update('acc5', acc5.item(), batch_size)
+            state.meters.update('loss', loss.item(), batch_size)
+            state.meters.update('acc1', acc1.item(), batch_size)
+            state.meters.update('acc5', acc5.item(), batch_size)
             return success(state)
 
         eff = success(state).and_then(update_meters)
-
-
 
         if state.stage == Stage.Train:
             eff = eff.and_then(functools.partial(self.backward, loss))
@@ -68,8 +66,5 @@ class ClassificationEngine(BaseEngine):
         state.optimizer.zero_grad()
         return success(state)
 
-
     def log_metrics(self, state: ClassificationState) -> Effect:
         pass
-
-    
