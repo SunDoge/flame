@@ -11,7 +11,7 @@ import flame
 from flame.pytorch.typing_prelude import Criterion, Device, ExperimentDir, LocalRank, Model, DictConfig, Optimizer, LrScheduler
 from flame.pytorch.container import BaseModule
 from injector import Injector, provider, singleton
-from .config import TypedConfig, Stage
+from .config import TypedConfig, StageConfig
 from flame.pytorch import helpers
 from flame.pytorch.distributed_training import start_training
 import logging
@@ -30,7 +30,7 @@ class MnistModule(BaseModule):
 
     @provider
     def create_data_loader(self, cfg: TypedConfig, split: str = 'train') -> DataLoader:
-        stage: Stage = getattr(cfg, split)
+        stage: StageConfig = getattr(cfg, split)
 
         transform = flame.auto_builder.build_from_config(
             stage.transform
@@ -100,7 +100,7 @@ class MnistModule(BaseModule):
     @singleton
     @provider
     def create_data_module(self, cfg: TypedConfig) -> BaseDataModule:
-        pass
+        
 
 
 def main_worker(local_rank: int):

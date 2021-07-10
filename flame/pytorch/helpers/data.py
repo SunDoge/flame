@@ -4,6 +4,7 @@ import torch.distributed as dist
 from torch.utils.data.distributed import DistributedSampler
 import logging
 import torch
+from ..sampler import UniformDistributedSampler
 
 _logger = logging.getLogger(__name__)
 
