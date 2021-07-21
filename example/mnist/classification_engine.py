@@ -7,11 +7,17 @@ from torch.utils.tensorboard import SummaryWriter
 from flame.pytorch.typing_prelude import Criterion, Device, Model, Optimizer
 from pfun import Effect, success
 from typing import Tuple, Any
+import logging
+
+_logger = logging.getLogger(__name__)
 
 
 class ClassificationState(BaseState):
     model: Model
     optimizer: Optimizer
+
+    # def train(self, mode: bool):
+    #     return self.model.train(mode=mode)
 
 
 @inject
@@ -32,6 +38,7 @@ class ClassificationEngine(BaseEngine):
         self.summary_writer = summary_writer
 
     def forward(self, state: ClassificationState, batch: Any) -> Tuple[dict, Effect]:
+        _logger.debug('state: ')
 
         image, label = batch
         image = image.to(self.device, non_blocking=True)
@@ -41,7 +48,7 @@ class ClassificationEngine(BaseEngine):
 
         loss = self.criterion(pred, label)
 
-        acc1, acc5 = topk_accuracy(pred, label)
+        acc1, acc5 = topk_accuracy(pred, label, topk=(1, 5))
         batch_size = len(label)
 
         def update_meters(state: ClassificationState):
@@ -67,4 +74,5 @@ class ClassificationEngine(BaseEngine):
         return success(state)
 
     def log_metrics(self, state: ClassificationState) -> Effect:
-        pass
+        _logger.info(f'{state.meters}')
+        return success(state)
