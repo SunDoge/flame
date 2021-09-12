@@ -3,9 +3,10 @@
 """
 
 
-from .utils import jsonnet
 import json
 import logging
+
+from flame.utils import jsonnet
 
 _logger = logging.getLogger(__name__)
 
