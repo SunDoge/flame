@@ -40,3 +40,6 @@ def test_build():
 
     a1 = container.get('A1')
     a2 = container.get('A2')
+    a1_1 = container.get('A1')
+
+    assert a1 is not a1_1
