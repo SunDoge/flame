@@ -2,12 +2,14 @@
 设计composable的Engine
 """
 import logging
-from typing import Any, Iterable, Optional, Tuple
+from typing import Any, Callable, Iterable, Optional, Tuple
+from injector import inject
 
 import torch
 from pfun import Effect
 from pfun.effect import success
 from pydantic import BaseModel as PydanticModel
+from torch.utils.data.dataloader import DataLoader
 from torch.utils.data.distributed import DistributedSampler
 from torch import nn
 from flame.pytorch.meters.time_meter import EstimatedTimeOfArrival
@@ -75,38 +77,55 @@ class BaseEngineConfig(PydanticModel):
     update_freq: int = 1  # For gradient accumulation
 
 
+def default_infer_length(x: Iterable) -> int:
+    return len(x)
+
+
+class BaseDataLoaderDesc():
+
+    def __init__(
+        self,
+        loader: Iterable,
+        length: Optional[int] = None,
+        infer_length: Callable[[Iterable], int] = default_infer_length,
+    ) -> None:
+        if length is None:
+            length = infer_length(loader)
+
+        self.loader = loader
+        self.length = length
+
+
 class BaseDataModule:
     def __init__(
         self,
-        train_loader: Optional[Iterable] = None,
-        val_loader: Optional[Iterable] = None,
-        test_loader: Optional[Iterable] = None,
-        get_length: Callable[[Iterable], int] = len,
+        train: Optional[BaseDataLoaderDesc] = None,
+        val: Optional[BaseDataLoaderDesc] = None,
+        test: Optional[BaseDataLoaderDesc] = None,
     ) -> None:
-        self.train_loader = train_loader
-        self.val_loader = val_loader
-        self.test_loader = test_loader
-        self.get_length = get_length
+        self.train = train
+        self.val = val
+        self.test = test
 
-    def get_data(self, stage: str) -> Tuple[Iterable, int]:
-        loader = self.get_loader(stage)
-        epoch_length = self.infer_epoch_length(loader, stage)
-        return loader, epoch_length
+    # def get_data(self, stage: str) -> Tuple[Iterable, int]:
+    #     loader = self.get_loader(stage)
+    #     epoch_length = self.infer_epoch_length(loader, stage)
+    #     return loader, epoch_length
 
-    def get_train_data(self, stage: str = Stage.Train) -> Tuple[Iterable, int]:
-        return self.get_data(stage)
+    # def get_train_data(self, stage: str = Stage.Train) -> Tuple[Iterable, int]:
+    #     return self.get_data(stage)
 
-    def get_val_data(self, stage: str = Stage.Val) -> Tuple[Iterable, int]:
-        return self.get_data(stage)
+    # def get_val_data(self, stage: str = Stage.Val) -> Tuple[Iterable, int]:
+    #     return self.get_data(stage)
 
-    def get_test_data(self, stage: str = Stage.Test) -> Tuple[Iterable, int]:
-        return self.get_data(stage)
+    # def get_test_data(self, stage: str = Stage.Test) -> Tuple[Iterable, int]:
+    #     return self.get_data(stage)
 
-    def get_loader(self, stage: str) -> Iterable:
-        raise NotImplementedError()
+    # def get_loader(self, stage: str) -> Iterable:
+    #     raise NotImplementedError()
 
-    def infer_epoch_length(self, loader: Iterable, stage: str) -> int:
-        return len(loader)
+    # def infer_epoch_length(self, loader: Iterable, stage: str) -> int:
+    #     return len(loader)
 
 
 class BaseEngine:
@@ -165,7 +184,7 @@ class BaseEngine:
 
         state.epoch += 1
         state.stage = stage
-        state.train()
+        state.train(True)
 
         state.epoch_length = epoch_length
 
@@ -236,10 +255,8 @@ class BaseEngine:
     # def every_n_steps(self, n: int = 1) -> bool:
     #     return self.every(self.state.step, n)
 
+    @inject
     def run(self, state: BaseState, data_module: BaseDataModule):
-        train_loader, train_epoch_length = data_module.get_train_data()
-        val_loader, val_epoch_length = data_module.get_val_data()
-        test_loader, test_epoch_length = data_module.get_test_data()
 
         self.epoch_eta = EstimatedTimeOfArrival(
             self.config.max_epochs,
@@ -247,9 +264,24 @@ class BaseEngine:
         )
 
         while state.epoch < self.config.max_epochs:
-            self.train(state, train_loader, train_epoch_length)
-            self.validate(state, val_loader, val_epoch_length)
-            self.test(state, test_loader, test_epoch_length)
+            if data_module.train:
+                self.train(
+                    state,
+                    data_module.train.loader,
+                    epoch_length=data_module.train.length
+                )
+            if data_module.val:
+                self.validate(
+                    state,
+                    data_module.val.loader,
+                    epoch_length=data_module.val.length
+                )
+            if data_module.test:
+                self.test(
+                    state,
+                    data_module.test.loader,
+                    epoch_length=data_module.test.length
+                )
 
             self.epoch_eta.update()
 

@@ -4,7 +4,8 @@ python -m example.mnist.main -c example/mnist/pytorch_example.jsonnet -dy
 """
 
 
-from flame.pytorch.experimental.compact_engine.engine_v3 import BaseDataModule, BaseEngine, BaseEngineConfig, BaseState
+from typing import Any
+from flame.pytorch.experimental.compact_engine.engine_v3 import BaseDataLoaderDesc, BaseDataModule, BaseEngine, BaseEngineConfig, BaseState
 from torch.utils.data.dataloader import DataLoader
 
 import flame
@@ -19,6 +20,16 @@ from torch.utils.tensorboard import SummaryWriter
 from flame.pytorch.utils.ranking import rank0
 
 _logger = logging.getLogger(__name__)
+
+
+class State(BaseState):
+    model: Any
+    optimizer: Optimizer
+
+    def train(self, mode: bool):
+        return self.model.train(mode=mode)
+
+    
 
 
 class MnistModule(BaseModule):
@@ -89,18 +100,46 @@ class MnistModule(BaseModule):
 
     @singleton
     @provider
-    def create_engine_state(self,) -> BaseState:
-        return BaseState()
+    def create_engine_state(self, model: Model, optimizer: Optimizer) -> BaseState:
+        return State(
+            model=model,
+            optimizer=optimizer,
+        )
 
     @singleton
     @provider
     def create_summary_writer(self, experiment_dir: ExperimentDir) -> SummaryWriter:
         return rank0(lambda: SummaryWriter(log_dir=str(experiment_dir)))()
 
+    # @singleton
+    # @provider
+    # def create_state(self,) -> BaseState:
+    #     return State()
+
     @singleton
     @provider
     def create_data_module(self, cfg: TypedConfig) -> BaseDataModule:
-        
+        train = self.create_data_loader_desc(cfg.train)
+        val = self.create_data_loader_desc(cfg.val)
+        return BaseDataModule(
+            train=train,
+            val=val
+        )
+
+    def create_data_loader_desc(self, stage: StageConfig) -> BaseDataLoaderDesc:
+
+        transform = flame.auto_builder.build_from_config(
+            stage.transform
+        )
+        dataset = flame.auto_builder.build_from_config(
+            stage.dataset, transform=transform
+        )
+        loader = helpers.create_data_loader(
+            dataset,
+            batch_size=stage.batch_size,
+            num_workers=stage.num_workers
+        )
+        return BaseDataLoaderDesc(loader)
 
 
 def main_worker(local_rank: int):
