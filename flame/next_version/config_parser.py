@@ -17,7 +17,7 @@ class ConfigParser:
     def parse_object(self, config: dict):
         config = copy.deepcopy(config)
         name = config.pop(KEY_NAME)
-        func = include_by_name(name)
+        func = require(name)
 
         kwargs = {k: self.parse(v) for k, v in config.items()}
 
@@ -34,7 +34,7 @@ class ConfigParser:
         return config
 
 
-def include_by_name(name: str) -> Any:
+def require(name: str) -> Any:
     """
     根据路径名自动import
 
