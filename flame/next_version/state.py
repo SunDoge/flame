@@ -1,9 +1,18 @@
-from typing import Iterable
+from typing import Callable, Dict, Iterable
+
+from torch.utils.data.dataloader import DataLoader
 from flame.pytorch.meters.time_meter import EstimatedTimeOfArrival
 from torch import nn
 import logging
+from torch.utils.data.distributed import DistributedSampler
+from dataclasses import dataclass
+from torch.nn.parallel import DistributedDataParallel, DataParallel
+
 
 _logger = logging.getLogger(__name__)
+
+ToStateDictFunction = Callable[[], dict]
+LoadStateDictFunction = Callable[[], dict]
 
 
 class BaseState:
@@ -17,6 +26,8 @@ class BaseState:
         self.max_epochs = 1
         self.epoch_eta = EstimatedTimeOfArrival(0)
         self.iter_eta = EstimatedTimeOfArrival(0)
+
+        self._state_dict_functions = {}
 
     def train(self, mode=True):
         self.training = mode
@@ -37,6 +48,8 @@ class BaseState:
             self.epoch_eta.update()
 
     def iter_wrapper(self, loader: Iterable):
+        if self.training:
+            self.set_epoch(loader)
         self.epoch_length = self.get_length(loader)
         self.iter_eta = EstimatedTimeOfArrival(self.epoch_length)
         loader_iter = iter(loader)
@@ -57,3 +70,48 @@ class BaseState:
 
     def every_n_iters(self, n: int = 1) -> bool:
         return self.batch_idx > 0 and self.batch_idx % n == 0
+
+    def set_epoch(self, loader: DataLoader):
+        if isinstance(loader, DataLoader) and isinstance(loader.sampler, DistributedSampler):
+            _logger.info('loader.sampler.set_epoch(%d)', self.epoch)
+            loader.sampler.set_epoch(self.epoch)
+        else:
+            _logger.warning('fail to set_epoch for sampler')
+
+    def state_dict(self):
+        state_dict = {}
+        for key, value in self.__dict__.items():
+            if hasattr(value, 'state_dict'):
+                # if isinstance(value, (DistributedDataParallel, DataParallel)):
+                #     state_dict[key] = value.module.state_dict()
+                # else:
+                value: nn.Module
+                state_dict[key] = value.state_dict()
+            else:
+                state_dict[key] = value
+
+        return state_dict
+
+    def load_state_dict(self, state_dict: dict):
+        # FIXME: 这里没有检查state_dict是否有缺失state
+        for key, value in state_dict.items():
+            attribute = getattr(self, key)
+            if hasattr(attribute, 'load_state_dict'):
+                # if isinstance(attribute, (DistributedDataParallel, DataParallel)):
+                #     attribute.module.load_state_dict(value)
+                # else:
+                attribute: nn.Module
+                attribute.load_state_dict(value)
+            else:
+                setattr(self, key, value)
+
+    def get_weights(self) -> Dict[str, dict]:
+        weights = {}
+        for key, value in self.__dict__.items():
+            if isinstance(value, nn.Module):
+                if isinstance(value, (DataParallel, DistributedDataParallel)):
+                    weights[key] = value.module.state_dict()
+                else:
+                    weights[key] = value.state_dict()
+
+        return weights

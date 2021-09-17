@@ -13,12 +13,11 @@ _logger = logging.getLogger(__name__)
 
 class ConfigParser:
 
-    def __init__(self, depth=64, **kwargs) -> None:
+    def __init__(self, **kwargs) -> None:
         self.placeholders = kwargs
-        self.depth = depth
 
-    def _parse_object(self, config: dict):
-        if self.depth < 0:
+    def _parse_object(self, config: dict, depth: int):
+        if depth < 0:
             return config
 
         # config_copied = copy.deepcopy(config)
@@ -34,20 +33,18 @@ class ConfigParser:
             if isinstance(v, str) and v.startswith(PREFIX_PLACEHOLDER):
                 kwargs[k] = self.placeholders[k]
             elif k != KEY_NAME:  # 过滤掉_name
-                kwargs[k] = self.parse(v)
+                kwargs[k] = self.parse(v, depth=depth)
         # rich.print(kwargs)
         return func(**kwargs)
 
-    def parse(self, config: dict):
+    def parse(self, config: dict, depth: int = 64):
         if isinstance(config, dict):
             if KEY_NAME in config:
-                self.depth -= 1
-                obj = self._parse_object(config)
-                self.depth += 1
+                obj = self._parse_object(config, depth - 1)
                 return obj
 
         if isinstance(config, list):
-            return [self.parse(c) for c in config]
+            return [self.parse(c, depth=depth) for c in config]
 
         return config
 
