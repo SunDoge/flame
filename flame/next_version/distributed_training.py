@@ -1,4 +1,4 @@
-from flame.next_version.config_parser import require
+from flame.next_version.config_parser import ConfigParser, require
 import logging
 from typing import Callable
 
@@ -18,18 +18,27 @@ _logger = logging.getLogger(__name__)
 
 MainWorker = Callable[[BaseArgs], None]
 KEY_ENGINE = 'engine'
+KEY_MAIN_WORKER = 'main_worker'
 
 
 def _default_main_worker(
     args: BaseArgs,
 ):
     assert args.config, "please provide config file"
-    config = from_file(args.config)
-    engine_name = config[KEY_ENGINE]
-    engine_class: BaseEngine = require(engine_name)
-    container = Injector([engine_class.ProviderModule(args, config)])
-    engine = container.get(engine_class)
-    container.call_with_injection(inject(engine.run))
+    # config = from_file(args.config)
+    config = args.parse_config()
+    # ic(config)
+    # engine_name = config[KEY_ENGINE]
+    # engine_class: BaseEngine = require(engine_name)
+    # container = Injector([engine_class.ProviderModule(args, config)])
+    # engine = container.get(engine_class)
+    # container.call_with_injection(inject(engine.run))
+
+    # main_worker_name = config[KEY_MAIN_WORKER]
+    # main_worker = require(main_worker_name)
+    # config['args'] = args
+    # main_worker(**config)
+    ConfigParser(depth=1, args=args).parse(config)
 
 
 def _init_process_group(
@@ -59,6 +68,9 @@ def _init_process_group(
     )
 
     main_worker(args)
+
+    # dist.destroy_process_group()
+    
 
 
 def start_distributed_training(

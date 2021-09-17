@@ -5,10 +5,14 @@
 
 import json
 import logging
+from typing import List
 
 from flame.utils import jsonnet
+from pathlib import Path
 
 _logger = logging.getLogger(__name__)
+
+PATCH_FILE = 'patch.libsonnet'
 
 
 def from_file(filename: str) -> dict:
@@ -40,3 +44,21 @@ def dump_to_json(cfg: dict, filename: str):
     _logger.info('dumping config to %s', filename)
     with open(filename, 'w') as f:
         json.dump(cfg, f, indent=2)
+
+
+def merge_jsonnet(main_snippet: str, added: str, patch_file: str) -> str:
+
+    template = f"""{main_snippet}
++(import '{patch_file}').{added}
+    """
+    return template
+
+
+def parse_config(config_file: str, patches: List[str]) -> str:
+    parent_dir = Path(config_file).parent
+    main = f"""(import '{config_file}')
+    """
+    for patch in patches:
+        main = merge_jsonnet(main, patch, parent_dir / PATCH_FILE)
+
+    return main

@@ -3,6 +3,8 @@ from typing import List, Optional
 import typed_args as ta
 from dataclasses import dataclass
 from pathlib import Path
+from .config import from_snippet, parse_config
+import functools
 
 
 def parse_gpu_list(gpu_str: str) -> List[int]:
@@ -55,7 +57,10 @@ class BaseArgs(ta.TypedArgs):
         action='store_true',
         help='debug mode'
     )
-
+    add: List[str] = ta.add_argument(
+        '--add', type=str, action='append',
+        default=[]
+    )
     """
     """
     rank: int = ta.add_argument(
@@ -102,3 +107,11 @@ class BaseArgs(ta.TypedArgs):
     @property
     def experiment_dir(self) -> Path:
         return self.output_dir / ('debug' if self.debug else 'release') / self.experiment_name
+
+    def parse_config(self) -> dict:
+        snippet = parse_config(
+            self.config,
+            self.add
+        )
+        config = from_snippet(snippet)
+        return config
