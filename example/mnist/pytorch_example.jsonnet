@@ -45,13 +45,20 @@ local Transform = {
       train=false,
     ),
   },
-  engine: {
-    _type: 'example.mnist.model.NetEngine',
-    cfg: {
-      max_epochs: $.max_epochs,
-      print_freq: 10,
-    },
+  // engine: {
+  //   _type: 'example.mnist.model.NetEngine',
+  //   cfg: {
+  //     max_epochs: $.max_epochs,
+  //     print_freq: 10,
+  //   },
+  // },
+  engine: 'example.mnist.classification_engine.ClassificationEngine',
+
+  engine_cfg: {
+    _type: 'flame.pytorch.experimental.compact_engine.engine_v3.BaseEngineConfig',
+    max_epochs: 10,
   },
+
   model: {
     _type: 'example.mnist.model.Net',
   },
@@ -69,5 +76,4 @@ local Transform = {
     step_size: 1,
     gamma: 0.7,
   },
-  max_epochs: 10,
 }

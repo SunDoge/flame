@@ -13,6 +13,8 @@ tqdm = "^4.60.0"
 typed-args = "0.5.1"
 tabulate = "^0.8.9"
 pydantic = "^1.8.1"
+pfun = "^0.12.1"
+pygtrie = "^2.4.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
@@ -23,6 +25,9 @@ sphinx-autoapi = "^1.7.0"
 pydata-sphinx-theme = "^0.5.0"
 flake8 = "^3.9.0"
 torch = "^1.8.0"
+icecream = "^2.1.1"
+tensorboard = "^2.5.0"
+torchvision = "^0.10.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
