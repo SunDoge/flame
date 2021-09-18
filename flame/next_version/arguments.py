@@ -15,13 +15,14 @@ def parse_gpu_list(gpu_str: str) -> List[int]:
     """
     segments = gpu_str.split(',')
     ranges = [s.split('-') for s in segments]
+    ranges = [list(map(int, ran)) for ran in ranges]
     res = []
     for ran in ranges:
         if len(ran) == 1:
             res.append(ran[0])
         elif len(ran) == 2:
             res.extend(
-                list(range(ran[0], ran[0] + 1))
+                list(range(ran[0], ran[1] + 1))
             )
         else:
             raise Exception
