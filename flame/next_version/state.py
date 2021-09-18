@@ -57,7 +57,9 @@ class BaseState:
         for batch_idx in range(self.epoch_length):
             if self.training:
                 self.step += 1
-            self.batch_idx = batch_idx
+
+            # 1 base
+            self.batch_idx = batch_idx + 1
             batch = next(loader_iter)
             batch_size = self.get_batch_size(batch)
             yield batch, batch_size
