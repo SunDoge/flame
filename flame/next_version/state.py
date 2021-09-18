@@ -26,6 +26,7 @@ class BaseState:
         self.max_epochs = 1
         self.epoch_eta = EstimatedTimeOfArrival(0)
         self.iter_eta = EstimatedTimeOfArrival(0)
+        self.metrics = {}
 
         self._state_dict_functions = {}
 

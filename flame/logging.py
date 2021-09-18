@@ -6,7 +6,7 @@ import sys
 _logger = logging.getLogger(__name__)
 
 
-FILE_FORMAT = '%(asctime)s:%(levelname)s:%(name)s:%(message)s'
+FILE_FORMAT = '%(asctime)s:%(levelname)-8s: %(message)s'
 CONSOLE_FORMAT = "%(message)s"
 # CONSOLE_FORMAT = "%(asctime)s %(levelname)-8s: %(message)s"
 

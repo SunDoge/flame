@@ -74,7 +74,7 @@ class EstimatedTimeOfArrival(Meter):
             arrival_time_str = '?'
             rate_str = '?'
 
-        fmt_str = f'[{self.count}/{self.total}] {rate_str} it/s R={remaining_time_str} A={arrival_time_str}'
+        fmt_str = f'[{self.count + 1}/{self.total}] {rate_str} it/s R={remaining_time_str} A={arrival_time_str}'
         return fmt_str
 
 

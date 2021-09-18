@@ -38,7 +38,7 @@ def _default_main_worker(
     # main_worker = require(main_worker_name)
     # config['args'] = args
     # main_worker(**config)
-    ConfigParser(depth=1, args=args).parse(config)
+    ConfigParser(args=args).parse(config, depth=1)
 
 
 def _init_process_group(
@@ -70,7 +70,6 @@ def _init_process_group(
     main_worker(args)
 
     # dist.destroy_process_group()
-    
 
 
 def start_distributed_training(
