@@ -118,3 +118,14 @@ class BaseState:
                     weights[key] = value.state_dict()
 
         return weights
+
+    def _get_training_state(self) -> Dict[str,  bool]:
+        """
+        检查是否model被设为train
+        """
+        res = {}
+        for key, value in self.__dict__.items():
+            if hasattr(value, 'training'):
+                res[key] = getattr(value, 'training')
+
+        return res

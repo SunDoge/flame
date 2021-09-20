@@ -1,16 +1,34 @@
+from typing import Callable
 from flame.next_version.config_parser import ConfigParser
 import torch.distributed as dist
 import logging
+from torch.optim import Optimizer
 
 _logger = logging.getLogger(__name__)
 
 
-def create_optimizer_from_config(config: dict, params):
-    config_parser = ConfigParser()
-    config['params'] = params
+def _scale_lr(lr: float) -> float:
+    world_size = _get_world_size()
+    new_lr = lr * world_size
+    return new_lr
 
-    optimizer = config_parser.parse(config)
+
+def create_optimizer_from_config(config: dict, params, scale_lr: Callable[[float], float] = _scale_lr):
+    config_parser = ConfigParser()
+
+    config_copied = config.copy()
+    old_lr = config_copied['lr']
+    new_lr = scale_lr(old_lr)
+    _logger.info('scale lr: %s -> %s', old_lr, new_lr)
+    config_copied['params'] = params
+
+    optimizer = config_parser.parse(config_copied)
     return optimizer
+
+
+def get_learning_rate_from_optimizer(optimizer: Optimizer) -> float:
+    lr = optimizer.param_groups[0]['lr']
+    return lr
 
 
 def _get_world_size() -> int:
