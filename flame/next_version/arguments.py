@@ -5,6 +5,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from .config import from_snippet, parse_config
 import functools
+from flame.utils.operating_system import find_free_port
 
 
 def parse_gpu_list(gpu_str: str) -> List[int]:
@@ -77,7 +78,7 @@ class BaseArgs(ta.TypedArgs):
     dist_url: str = ta.add_argument(
         '--dist-url',
         type=str,
-        default='tcp://127.0.0.1:12345'
+        default=f'tcp://127.0.0.1:{find_free_port()}'
     )
     dist_backend: str = ta.add_argument(
         '--dist-backend',
