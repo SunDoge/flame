@@ -37,7 +37,7 @@ class BaseArgs(ta.TypedArgs):
     """
     一般训练必须的参数
     """
-    config: str = ta.add_argument(
+    config: Optional[str] = ta.add_argument(
         '-c', '--config',
         type=str,
         help='config file path'
