@@ -1,17 +1,16 @@
-from flame.next_version.config_parser import ConfigParser, require
+from flame.config_parser import ConfigParser, require
 import logging
 from typing import Callable
 
-from flame.next_version.arguments import BaseArgs
+from flame.arguments import BaseArgs
 from flame.utils.experiment import get_experiment_dir, make_experiment_dir
 from flame.logging import init_logger
 import torch.multiprocessing as mp
 import torch.distributed as dist
 import torch
-from flame.next_version.config import from_file
-from flame.next_version.engine import BaseModule, BaseEngine
+from flame.config import from_file
 from injector import Injector, inject
-from icecream import ic
+
 
 _logger = logging.getLogger(__name__)
 

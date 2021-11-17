@@ -5,7 +5,7 @@
 
 import json
 import logging
-from typing import List
+from typing import List, Union
 
 from flame.utils import jsonnet
 from pathlib import Path
@@ -46,7 +46,7 @@ def dump_to_json(cfg: dict, filename: str):
         json.dump(cfg, f, indent=2)
 
 
-def merge_jsonnet(main_snippet: str, added: str, patch_file: str) -> str:
+def merge_jsonnet(main_snippet: str, added: str, patch_file: Union[str, Path]) -> str:
 
     template = f"""{main_snippet}
 +(import '{patch_file}').{added}
