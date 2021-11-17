@@ -2,7 +2,7 @@ from pydantic import BaseModel
 from flame.pytorch.experimental.compact_engine.engine import BaseEngineConfig
 
 
-class Stage(BaseModel):
+class StageConfig(BaseModel):
     batch_size: int
     num_workers: int
     transform: dict
@@ -11,10 +11,11 @@ class Stage(BaseModel):
 
 
 class TypedConfig(BaseModel):
-    train: Stage
-    val: Stage
-    engine: dict
-    max_epochs: int
+    train: StageConfig
+    val: StageConfig
+    engine: str
+    engine_cfg: dict
+    # max_epochs: int
     optimizer: dict
     model: dict
     criterion: dict

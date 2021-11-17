@@ -1,10 +1,11 @@
+from flame.config_parser import ConfigParser
 from torch.utils.data import DataLoader, Dataset
 import torch.multiprocessing as mp
 import torch.distributed as dist
 from torch.utils.data.distributed import DistributedSampler
 import logging
 import torch
-from ..sampler import UniformDistributedSampler
+# from ..sampler import UniformDistributedSampler
 
 _logger = logging.getLogger(__name__)
 
@@ -53,5 +54,31 @@ def create_data_loader(
         persistent_workers=persistent_workers,
         drop_last=drop_last,
     )
+
+    return loader
+
+
+def create_data_loader_from_config(
+    config: dict,
+    key_transform: str = 'transform',
+    key_dataset: str = 'dataset',
+    key_loader: str = 'loader',
+) -> DataLoader:
+    # config_parser = ConfigParser()
+    # transform_config = config[key_transform]
+    # transform = config_parser.parse(transform_config)
+    # dataset_config = config[key_dataset]
+    # dataset_config[key_transform] = transform
+    # dataset = config_parser.parse(dataset_config)
+    # loader_config = config[key_loader]
+    # loader_config[key_dataset] = dataset
+    # loader = config_parser.parse(loader_config)
+
+    transform_config = config[key_transform]
+    transform = ConfigParser().parse(transform_config)
+    dataset_config = config[key_dataset]
+    dataset = ConfigParser(transform=transform).parse(dataset_config)
+    loader_config = config[key_loader]
+    loader = ConfigParser(dataset=dataset).parse(loader_config)
 
     return loader

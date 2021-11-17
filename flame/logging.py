@@ -6,7 +6,7 @@ import sys
 _logger = logging.getLogger(__name__)
 
 
-FILE_FORMAT = '%(asctime)s:%(levelname)s:%(name)s:%(message)s'
+FILE_FORMAT = '%(asctime)s:%(levelname)-8s: %(message)s'
 CONSOLE_FORMAT = "%(message)s"
 # CONSOLE_FORMAT = "%(asctime)s %(levelname)-8s: %(message)s"
 
@@ -41,7 +41,6 @@ def get_console_handler():
 
 def init_logger(rank: int = 0, filename: Optional[str] = None, debug: bool = False, force: bool = False):
     """
-
     Args:
         rank: 目前只有rank0会输出到console和log file
     """

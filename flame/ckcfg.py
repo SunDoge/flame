@@ -10,15 +10,13 @@
 
 import rich
 
-from .argument import BasicArgs
-from .config import config_snippet, from_snippet
+from .arguments import BaseArgs
 
 
 def main():
-    args = BasicArgs.from_args()
-    snippet = config_snippet(args.local, args.config)
-    cfg = from_snippet(snippet)
-    rich.print(cfg)
+    args = BaseArgs.from_args()
+    config = args.parse_config()
+    rich.print(config)
 
 
 if __name__ == '__main__':
