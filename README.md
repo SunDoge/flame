@@ -9,6 +9,8 @@
 
 ## Install
 
+### pip
+
 If in China
 
 ```bash
@@ -19,6 +21,14 @@ else
 
 ```bash
 pip install -U git+https://github.com/SunDoge/flame
+```
+
+### Manual
+
+```bash
+mkdir third_party
+git clone https://hub.fastgit.org/SunDoge/flame third_party/flame
+ln -s third_party/flame/flame ./
 ```
 
 ## Usage
