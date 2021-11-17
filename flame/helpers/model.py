@@ -6,7 +6,7 @@ import torch
 import torch.distributed as dist
 import logging
 from pygtrie import CharTrie
-from flame.next_version.config_parser import ConfigParser
+from flame.config_parser import ConfigParser
 
 
 _logger = logging.getLogger(__name__)

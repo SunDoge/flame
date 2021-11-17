@@ -1,5 +1,5 @@
 from typing import Callable
-from flame.next_version.config_parser import ConfigParser
+from flame.config_parser import ConfigParser
 import torch.distributed as dist
 import logging
 from torch.optim import Optimizer

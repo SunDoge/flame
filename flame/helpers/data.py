@@ -1,4 +1,4 @@
-from flame.next_version.config_parser import ConfigParser
+from flame.config_parser import ConfigParser
 from torch.utils.data import DataLoader, Dataset
 import torch.multiprocessing as mp
 import torch.distributed as dist

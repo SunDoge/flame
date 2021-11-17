@@ -1,6 +1,6 @@
 from os import name
 import torch
-from flame.next_version.state import BaseState
+from flame.state import BaseState
 from pathlib import Path
 from flame.pytorch.utils.ranking import rank0
 from contextlib import contextmanager
