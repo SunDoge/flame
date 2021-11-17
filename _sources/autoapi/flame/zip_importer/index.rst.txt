@@ -1,5 +1,5 @@
-:mod:`flame.zip_importer`
-=========================
+:py:mod:`flame.zip_importer`
+============================
 
 .. py:module:: flame.zip_importer
 
@@ -18,9 +18,9 @@ Functions
 
 
 
-.. function:: import_any(module_name, object_name = None)
+.. py:function:: import_any(module_name, object_name = None)
 
 
-.. function:: import_from_zip(zip_file, module_name, object_name = None)
+.. py:function:: import_from_zip(zip_file, module_name, object_name = None)
 
 

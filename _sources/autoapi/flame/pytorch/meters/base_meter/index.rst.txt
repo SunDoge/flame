@@ -1,5 +1,5 @@
-:mod:`flame.pytorch.meters.base_meter`
-======================================
+:py:mod:`flame.pytorch.meters.base_meter`
+=========================================
 
 .. py:module:: flame.pytorch.meters.base_meter
 
@@ -17,17 +17,17 @@ Classes
 
 
 
-.. class:: Meter
+.. py:class:: Meter
 
    不需要了，定义在reset里面就可以了，vscode可以提示
 
-   .. method:: reset(self)
+   .. py:method:: reset(self)
 
 
-   .. method:: sync(self)
+   .. py:method:: sync(self)
 
 
-   .. method:: __str__(self)
+   .. py:method:: __str__(self)
 
       Return str(self).
 

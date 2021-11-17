@@ -1,5 +1,5 @@
-:mod:`flame.utils.rich_formatter`
-=================================
+:py:mod:`flame.utils.rich_formatter`
+====================================
 
 .. py:module:: flame.utils.rich_formatter
 
@@ -25,11 +25,11 @@ Attributes
    flame.utils.rich_formatter.T
 
 
-.. data:: T
+.. py:data:: T
    
 
    
 
-.. function:: rich_format(obj)
+.. py:function:: rich_format(obj)
 
 

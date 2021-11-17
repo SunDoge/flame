@@ -1,5 +1,5 @@
-:mod:`flame.pytorch.experimental.meters.time_meter`
-===================================================
+:py:mod:`flame.pytorch.experimental.meters.time_meter`
+======================================================
 
 .. py:module:: flame.pytorch.experimental.meters.time_meter
 
@@ -28,74 +28,70 @@ Attributes
    flame.pytorch.experimental.meters.time_meter._logger
 
 
-.. data:: _logger
+.. py:data:: _logger
    
 
    
 
-.. class:: ExponentialMovingAverage(smoothing = 0.3)
+.. py:class:: ExponentialMovingAverage(smoothing = 0.3)
+
+   .. py:method:: __call__(self, x = None)
 
 
-   .. method:: __call__(self, x = None)
+
+.. py:class:: EstimatedTimeOfArrival(total = None, initial = 0, prefix = '')
+
+   .. py:method:: update(self, n = 1)
 
 
-
-.. class:: EstimatedTimeOfArrival(total = None, initial = 0, prefix = '')
-
-
-   .. method:: update(self, n = 1)
-
-
-   .. method:: remaining_time(self)
+   .. py:method:: remaining_time(self)
       :property:
 
 
-   .. method:: arrival_time(self)
+   .. py:method:: arrival_time(self)
       :property:
 
 
-   .. method:: elapsed_time(self)
+   .. py:method:: elapsed_time(self)
       :property:
 
 
-   .. method:: remaining(self)
+   .. py:method:: remaining(self)
       :property:
 
 
-   .. method:: elapsed(self)
+   .. py:method:: elapsed(self)
       :property:
 
 
-   .. method:: rate(self)
+   .. py:method:: rate(self)
       :property:
 
 
-   .. method:: reset(self)
+   .. py:method:: reset(self)
 
 
-   .. method:: __str__(self)
+   .. py:method:: __str__(self)
 
       Return str(self).
 
 
 
-.. class:: EpochEta(total = None, initial = 0, prefix = '')
-
+.. py:class:: EpochEta(total = None, initial = 0, prefix = '')
 
    Bases: :py:obj:`EstimatedTimeOfArrival`
 
    如果有evaluator，必须放在evaluator之后
 
-   .. method:: attach(self, engine, prefix = 'Epoch')
+   .. py:method:: attach(self, engine, prefix = 'Epoch')
 
 
 
-.. class:: IterationEta(total = None, initial = 0, prefix = '')
-
+.. py:class:: IterationEta(total = None, initial = 0, prefix = '')
 
    Bases: :py:obj:`EstimatedTimeOfArrival`
 
-   .. method:: attach(self, engine, prefix = 'Train')
+   .. py:method:: attach(self, engine, prefix = 'Train')
 
 
 

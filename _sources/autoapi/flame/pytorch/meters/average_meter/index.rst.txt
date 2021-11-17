@@ -1,5 +1,5 @@
-:mod:`flame.pytorch.meters.average_meter`
-=========================================
+:py:mod:`flame.pytorch.meters.average_meter`
+============================================
 
 .. py:module:: flame.pytorch.meters.average_meter
 
@@ -14,6 +14,7 @@ Classes
 
    flame.pytorch.meters.average_meter.AverageMeter
    flame.pytorch.meters.average_meter.AverageMeterGroup
+   flame.pytorch.meters.average_meter.DynamicAverageMeterGroup
 
 
 
@@ -26,59 +27,114 @@ Attributes
    flame.pytorch.meters.average_meter._logger
 
 
-.. data:: _logger
+.. py:data:: _logger
    
 
    
 
-.. class:: AverageMeter(name, fmt = ':f')
-
+.. py:class:: AverageMeter(name, fmt = ':f')
 
    Bases: :py:obj:`flame.pytorch.meters.base_meter.Meter`
 
    不需要了，定义在reset里面就可以了，vscode可以提示
 
-   .. method:: reset(self)
+   .. py:method:: reset(self)
 
 
-   .. method:: reset_local(self)
+   .. py:method:: reset_local(self)
 
 
-   .. method:: update(self, val, n = 1)
+   .. py:method:: update(self, val, n = 1)
 
 
-   .. method:: sync(self)
+   .. py:method:: sync(self)
 
 
-   .. method:: avg(self)
+   .. py:method:: avg(self)
       :property:
 
 
-   .. method:: __str__(self)
+   .. py:method:: __str__(self)
 
       Return str(self).
 
 
+   .. py:method:: state_dict(self)
 
-.. class:: AverageMeterGroup(meters, delimiter = '\t')
 
+   .. py:method:: load_state_dict(self, state)
+
+
+   .. py:method:: record(self)
+
+
+   .. py:method:: min(self)
+
+
+   .. py:method:: max(self)
+
+
+   .. py:method:: argmin(self)
+
+
+   .. py:method:: argmax(self)
+
+
+
+.. py:class:: AverageMeterGroup(meters, delimiter = '\t')
 
    Bases: :py:obj:`flame.pytorch.meters.base_meter.Meter`
 
    不需要了，定义在reset里面就可以了，vscode可以提示
 
-   .. method:: update(self, metrics, n = 1)
+   .. py:method:: update(self, metrics, n = 1)
 
 
-   .. method:: sync(self)
+   .. py:method:: sync(self)
 
 
-   .. method:: reset(self)
+   .. py:method:: reset(self)
 
 
-   .. method:: __str__(self)
+   .. py:method:: __str__(self)
 
       Return str(self).
+
+
+   .. py:method:: __getitem__(self, key)
+
+
+
+.. py:class:: DynamicAverageMeterGroup(delimiter = '\t')
+
+   Bases: :py:obj:`flame.pytorch.meters.base_meter.Meter`
+
+   不需要了，定义在reset里面就可以了，vscode可以提示
+
+   .. py:method:: update(self, name, value, n = 1, fmt = ':f')
+
+
+   .. py:method:: sync(self)
+
+
+   .. py:method:: reset(self)
+
+
+   .. py:method:: __str__(self)
+
+      Return str(self).
+
+
+   .. py:method:: __getitem__(self, key)
+
+
+   .. py:method:: state_dict(self)
+
+
+   .. py:method:: load_state_dict(self, state)
+
+
+   .. py:method:: record(self)
 
 
 

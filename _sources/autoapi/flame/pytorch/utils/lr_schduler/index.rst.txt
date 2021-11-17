@@ -1,0 +1,53 @@
+:py:mod:`flame.pytorch.utils.lr_schduler`
+=========================================
+
+.. py:module:: flame.pytorch.utils.lr_schduler
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.utils.lr_schduler.LrScheduler
+   flame.pytorch.utils.lr_schduler.SchedulePosition
+   flame.pytorch.utils.lr_schduler.LrSchedulerManager
+
+
+
+
+.. py:class:: LrScheduler
+
+   Bases: :py:obj:`torch.optim.lr_scheduler._LRScheduler`
+
+   用来占位，没有实际作用
+
+   .. py:method:: step(self, epoch = None)
+
+
+
+.. py:class:: SchedulePosition
+
+   Bases: :py:obj:`enum.Enum`
+
+   Generic enumeration.
+
+   Derive from this class to define new enumerations.
+
+   .. py:attribute:: STEP
+      
+
+      
+
+   .. py:attribute:: EPOCH
+      
+
+      
+
+
+.. py:class:: LrSchedulerManager
+
+

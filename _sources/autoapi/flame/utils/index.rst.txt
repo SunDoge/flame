@@ -1,5 +1,5 @@
-:mod:`flame.utils`
-==================
+:py:mod:`flame.utils`
+=====================
 
 .. py:module:: flame.utils
 
@@ -11,7 +11,9 @@ Submodules
    :maxdepth: 1
 
    experiment/index.rst
+   inspector/index.rst
    jsonnet/index.rst
+   main_fn/index.rst
    operating_system/index.rst
    rich_formatter/index.rst
    timing/index.rst
@@ -27,9 +29,13 @@ Functions
 .. autoapisummary::
 
    flame.utils.rich_format
+   flame.utils.main_fn
 
 
 
-.. function:: rich_format(obj)
+.. py:function:: rich_format(obj)
+
+
+.. py:function:: main_fn(func)
 
 

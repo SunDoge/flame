@@ -1,0 +1,53 @@
+:py:mod:`flame.helpers.amp`
+===========================
+
+.. py:module:: flame.helpers.amp
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.helpers.amp.Amp
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.helpers.amp.TensorOrIterableTensors
+
+
+.. py:data:: TensorOrIterableTensors
+   
+
+   
+
+.. py:class:: Amp(enabled = False, max_norm = None)
+
+   .. py:method:: autocast(self)
+
+
+   .. py:method:: scale(self, outputs)
+
+
+   .. py:method:: unscale_(self, optimizer)
+
+
+   .. py:method:: step(self, optimizer, *args, **kwargs)
+
+
+   .. py:method:: update(self, new_scale = None)
+
+
+   .. py:method:: clip_grad_norm_(self, params)
+
+
+

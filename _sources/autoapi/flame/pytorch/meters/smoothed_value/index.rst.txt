@@ -1,5 +1,5 @@
-:mod:`flame.pytorch.meters.smoothed_value`
-==========================================
+:py:mod:`flame.pytorch.meters.smoothed_value`
+=============================================
 
 .. py:module:: flame.pytorch.meters.smoothed_value
 

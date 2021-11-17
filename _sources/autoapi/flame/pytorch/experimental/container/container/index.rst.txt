@@ -1,5 +1,5 @@
-:mod:`flame.pytorch.experimental.container.container`
-=====================================================
+:py:mod:`flame.pytorch.experimental.container.container`
+========================================================
 
 .. py:module:: flame.pytorch.experimental.container.container
 
@@ -39,37 +39,36 @@ Attributes
    flame.pytorch.experimental.container.container.T
 
 
-.. data:: Kwargs
+.. py:data:: Kwargs
    
 
    
 
-.. data:: CachedFunction
+.. py:data:: CachedFunction
    
 
    
 
-.. data:: T
+.. py:data:: T
    
 
    
 
-.. function:: cached(func)
+.. py:function:: cached(func)
 
 
-.. function:: cached_inject(func)
+.. py:function:: cached_inject(func)
 
 
-.. function:: get_dependencies(container, callable, **kwargs)
+.. py:function:: get_dependencies(container, callable, **kwargs)
 
 
-.. function:: cache_injections(func, injector, self_)
+.. py:function:: cache_injections(func, injector, self_)
 
 
-.. class:: Container(injector = None)
+.. py:class:: Container(injector = None)
 
 
-
-.. class:: A
+.. py:class:: A
 
 

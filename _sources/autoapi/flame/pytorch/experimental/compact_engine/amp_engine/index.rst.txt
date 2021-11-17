@@ -1,0 +1,38 @@
+:py:mod:`flame.pytorch.experimental.compact_engine.amp_engine`
+==============================================================
+
+.. py:module:: flame.pytorch.experimental.compact_engine.amp_engine
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.experimental.compact_engine.amp_engine.AmpEngine
+
+
+
+
+.. py:class:: AmpEngine(model = None, optimizer = None, criterion = None, scheduler = None, update_interval = 1, log_interval = 1, max_norm = -1.0)
+
+   Bases: :py:obj:`flame.pytorch.experimental.compact_engine.engine.BaseEngine`
+
+   .. py:attribute:: scaler
+      :annotation: :torch.cuda.amp.grad_scaler.GradScaler
+
+      
+
+   .. py:method:: training_step(self, batch, batch_idx)
+
+
+   .. py:method:: clip_grad_norm_if_needed(self)
+
+
+   .. py:method:: update(self)
+
+
+

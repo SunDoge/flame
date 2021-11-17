@@ -1,0 +1,35 @@
+:py:mod:`flame.pytorch.helpers.model`
+=====================================
+
+.. py:module:: flame.pytorch.helpers.model
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.helpers.model.create_model
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.helpers.model._logger
+
+
+.. py:data:: _logger
+   
+
+   
+
+.. py:function:: create_model(base_model, device, use_sync_bn = False, find_unused_parameters = False)
+
+

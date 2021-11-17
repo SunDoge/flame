@@ -1,5 +1,5 @@
-:mod:`flame.pytorch.experimental.meters.progress`
-=================================================
+:py:mod:`flame.pytorch.experimental.meters.progress`
+====================================================
 
 .. py:module:: flame.pytorch.experimental.meters.progress
 
@@ -25,18 +25,17 @@ Attributes
    flame.pytorch.experimental.meters.progress._logger
 
 
-.. data:: _logger
+.. py:data:: _logger
    
 
    
 
-.. class:: ProgressBarHandler
+.. py:class:: ProgressBarHandler
+
+   .. py:method:: attach_epoch(self, engine, desc = 'Epoch')
 
 
-   .. method:: attach_epoch(self, engine, desc = 'Epoch')
-
-
-   .. method:: attach_iteration(self, engine, desc = 'Train')
+   .. py:method:: attach_iteration(self, engine, desc = 'Train')
 
 
 

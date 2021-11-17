@@ -1,5 +1,5 @@
-:mod:`flame.pytorch.checkpoint_saver.periodic_checkpoint_saver`
-===============================================================
+:py:mod:`flame.pytorch.checkpoint_saver.periodic_checkpoint_saver`
+==================================================================
 
 .. py:module:: flame.pytorch.checkpoint_saver.periodic_checkpoint_saver
 
@@ -17,12 +17,11 @@ Classes
 
 
 
-.. class:: PeriodicCheckpointSaver(every, fmt = 'checkpoint_{:04d}.pth.tar', entries=None)
-
+.. py:class:: PeriodicCheckpointSaver(every, fmt = 'checkpoint_{:04d}.pth.tar', entries=None)
 
    Bases: :py:obj:`flame.pytorch.checkpoint_saver.base_checkpoint_saver.CheckpointSaver`
 
-   .. method:: save(self, output_dir, epoch)
+   .. py:method:: save(self, output_dir, epoch)
 
 
 

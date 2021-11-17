@@ -1,5 +1,5 @@
-:mod:`flame.pytorch.checkpoint_saver.best_checkpoint_saver`
-===========================================================
+:py:mod:`flame.pytorch.checkpoint_saver.best_checkpoint_saver`
+==============================================================
 
 .. py:module:: flame.pytorch.checkpoint_saver.best_checkpoint_saver
 
@@ -26,25 +26,24 @@ Attributes
    flame.pytorch.checkpoint_saver.best_checkpoint_saver.T
 
 
-.. data:: _logger
+.. py:data:: _logger
    
 
    
 
-.. data:: T
+.. py:data:: T
    
 
    
 
-.. class:: BestCheckpointSaver(name = 'checkpoint.pth.tar', best_name = 'model_best.pth.tar', higher_is_better = True, entries=None)
-
+.. py:class:: BestCheckpointSaver(name = 'checkpoint.pth.tar', best_name = 'model_best.pth.tar', higher_is_better = True, entries=None)
 
    Bases: :py:obj:`flame.pytorch.checkpoint_saver.base_checkpoint_saver.CheckpointSaver`
 
-   .. method:: is_best(self, metric, best_metric)
+   .. py:method:: is_best(self, metric, best_metric)
 
 
-   .. method:: save(self, output_dir, is_best = False)
+   .. py:method:: save(self, output_dir, is_best = False)
 
       在save checkpoint之前，best metric就应该被更新。所以没法在这里计算is_best
 

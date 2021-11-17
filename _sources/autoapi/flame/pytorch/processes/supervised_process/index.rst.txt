@@ -1,5 +1,5 @@
-:mod:`flame.pytorch.processes.supervised_process`
-=================================================
+:py:mod:`flame.pytorch.processes.supervised_process`
+====================================================
 
 .. py:module:: flame.pytorch.processes.supervised_process
 
@@ -18,12 +18,11 @@ Classes
 
 
 
-.. class:: SupervisedProcess(model, optimizer, criterion)
-
+.. py:class:: SupervisedProcess(model, optimizer, criterion)
 
    Bases: :py:obj:`flame.pytorch.processes.process.Process`
 
-   .. method:: forward(self, batch)
+   .. py:method:: forward(self, batch)
 
       forward wrapper
 
@@ -41,21 +40,21 @@ Classes
               return self.output(loss=loss, batch_size=labe.size(0), pred=pred, label=label)
 
 
-   .. method:: train(self, mode = True)
+
+   .. py:method:: train(self, mode = True)
 
 
-   .. method:: update(self)
+   .. py:method:: update(self)
 
       为了兼容gradient accumulation，将zero_grad放最后
 
 
 
-.. class:: SupervisedAmpProcess(model, optimizer, criterion, scaler)
-
+.. py:class:: SupervisedAmpProcess(model, optimizer, criterion, scaler)
 
    Bases: :py:obj:`flame.pytorch.processes.amp_process.AmpProcess`
 
-   .. method:: forward(self, batch)
+   .. py:method:: forward(self, batch)
 
       forward wrapper
 
@@ -73,10 +72,11 @@ Classes
               return self.output(loss=loss, batch_size=labe.size(0), pred=pred, label=label)
 
 
-   .. method:: train(self, mode = True)
+
+   .. py:method:: train(self, mode = True)
 
 
-   .. method:: update(self)
+   .. py:method:: update(self)
 
       为了兼容gradient accumulation，将zero_grad放最后
 

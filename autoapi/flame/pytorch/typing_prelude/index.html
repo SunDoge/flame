@@ -35,7 +35,7 @@
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="flame.utils" href="../../utils/index.html" />
-    <link rel="prev" title="flame.pytorch.experiment" href="../experiment/index.html" />
+    <link rel="prev" title="flame.pytorch.sampler" href="../sampler/index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
   </head>
@@ -94,6 +94,15 @@
    </code>
   </a>
   <ul class="current">
+   <li class="toctree-l3">
+    <a class="reference internal" href="../../helpers/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.helpers
+      </span>
+     </code>
+    </a>
+   </li>
    <li class="toctree-l3 current active">
     <a class="reference internal" href="../index.html">
      <code class="xref py py-mod docutils literal notranslate">
@@ -122,6 +131,15 @@
       </a>
      </li>
      <li class="toctree-l4">
+      <a class="reference internal" href="../helpers/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.helpers
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
       <a class="reference internal" href="../meters/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
@@ -135,6 +153,15 @@
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.pytorch.metrics
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
+      <a class="reference internal" href="../nn/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.nn
         </span>
        </code>
       </a>
@@ -167,6 +194,15 @@
       </a>
      </li>
      <li class="toctree-l4">
+      <a class="reference internal" href="../data_loader_factory/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.data_loader_factory
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
       <a class="reference internal" href="../distributed_training/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
@@ -189,6 +225,15 @@
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.pytorch.experiment
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
+      <a class="reference internal" href="../sampler/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.sampler
         </span>
        </code>
       </a>
@@ -223,19 +268,10 @@
     </a>
    </li>
    <li class="toctree-l3">
-    <a class="reference internal" href="../../argument/index.html">
+    <a class="reference internal" href="../../arguments/index.html">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
-       flame.argument
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toctree-l3">
-    <a class="reference internal" href="../../auto_builder/index.html">
-     <code class="xref py py-mod docutils literal notranslate">
-      <span class="pre">
-       flame.auto_builder
+       flame.arguments
       </span>
      </code>
     </a>
@@ -259,6 +295,24 @@
     </a>
    </li>
    <li class="toctree-l3">
+    <a class="reference internal" href="../../config_parser/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.config_parser
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../../distributed_training/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.distributed_training
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
     <a class="reference internal" href="../../logging/index.html">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
@@ -268,10 +322,10 @@
     </a>
    </li>
    <li class="toctree-l3">
-    <a class="reference internal" href="../../registry/index.html">
+    <a class="reference internal" href="../../state/index.html">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
-       flame.registry
+       flame.state
       </span>
      </code>
     </a>
@@ -334,6 +388,21 @@
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.pytorch.typing_prelude.TrainTransform">
+       TrainTransform
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.pytorch.typing_prelude.ValTransform">
+       ValTransform
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.pytorch.typing_prelude.TestTransform">
+       TestTransform
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#flame.pytorch.typing_prelude.TrainSampler">
        TrainSampler
       </a>
@@ -369,8 +438,8 @@
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.pytorch.typing_prelude.RootConfig">
-       RootConfig
+      <a class="reference internal nav-link" href="#flame.pytorch.typing_prelude.DictConfig">
+       DictConfig
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
@@ -392,6 +461,13 @@
       <a class="reference internal nav-link" href="#flame.pytorch.typing_prelude.LrScheduler">
        LrScheduler
       </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.typing_prelude.LrScheduler.step">
+         step
+        </a>
+       </li>
+      </ul>
      </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#flame.pytorch.typing_prelude.Device">
@@ -414,6 +490,11 @@
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.pytorch.typing_prelude.DebugMode">
+       DebugMode
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#flame.pytorch.typing_prelude.Model">
        Model
       </a>
@@ -433,6 +514,11 @@
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#flame.pytorch.typing_prelude.TensorList">
        TensorList
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.pytorch.typing_prelude.Checkpoint">
+       Checkpoint
       </a>
      </li>
     </ul>
@@ -468,7 +554,10 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.Model" title="flame.pytorch.typing_prelude.Model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Model</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.LrScheduler" title="flame.pytorch.typing_prelude.LrScheduler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LrScheduler</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.Model" title="flame.pytorch.typing_prelude.Model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Model</span></code></a></p></td>
 <td><p>模拟 DataParallel 和 DistributedDataParallel</p></td>
 </tr>
 </tbody>
@@ -491,40 +580,46 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.TestDataset" title="flame.pytorch.typing_prelude.TestDataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TestDataset</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.TrainSampler" title="flame.pytorch.typing_prelude.TrainSampler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TrainSampler</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.TrainTransform" title="flame.pytorch.typing_prelude.TrainTransform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TrainTransform</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.ValSampler" title="flame.pytorch.typing_prelude.ValSampler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ValSampler</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.ValTransform" title="flame.pytorch.typing_prelude.ValTransform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ValTransform</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.TestSampler" title="flame.pytorch.typing_prelude.TestSampler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TestSampler</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.TestTransform" title="flame.pytorch.typing_prelude.TestTransform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TestTransform</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.TrainLoader" title="flame.pytorch.typing_prelude.TrainLoader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TrainLoader</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.TrainSampler" title="flame.pytorch.typing_prelude.TrainSampler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TrainSampler</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.ValLoader" title="flame.pytorch.typing_prelude.ValLoader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ValLoader</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.ValSampler" title="flame.pytorch.typing_prelude.ValSampler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ValSampler</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.TestLoader" title="flame.pytorch.typing_prelude.TestLoader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TestLoader</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.TestSampler" title="flame.pytorch.typing_prelude.TestSampler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TestSampler</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.BasicArgs" title="flame.pytorch.typing_prelude.BasicArgs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BasicArgs</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.TrainLoader" title="flame.pytorch.typing_prelude.TrainLoader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TrainLoader</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.RootConfig" title="flame.pytorch.typing_prelude.RootConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RootConfig</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.ValLoader" title="flame.pytorch.typing_prelude.ValLoader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ValLoader</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.ExperimentDir" title="flame.pytorch.typing_prelude.ExperimentDir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ExperimentDir</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.TestLoader" title="flame.pytorch.typing_prelude.TestLoader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TestLoader</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.Criterion" title="flame.pytorch.typing_prelude.Criterion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Criterion</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.BasicArgs" title="flame.pytorch.typing_prelude.BasicArgs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BasicArgs</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.Optimizer" title="flame.pytorch.typing_prelude.Optimizer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Optimizer</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.DictConfig" title="flame.pytorch.typing_prelude.DictConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DictConfig</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.LrScheduler" title="flame.pytorch.typing_prelude.LrScheduler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LrScheduler</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.ExperimentDir" title="flame.pytorch.typing_prelude.ExperimentDir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ExperimentDir</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.Criterion" title="flame.pytorch.typing_prelude.Criterion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Criterion</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.Optimizer" title="flame.pytorch.typing_prelude.Optimizer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Optimizer</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.Device" title="flame.pytorch.typing_prelude.Device"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Device</span></code></a></p></td>
@@ -539,10 +634,16 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.LocalRank" title="flame.pytorch.typing_prelude.LocalRank"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LocalRank</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.TensorDict" title="flame.pytorch.typing_prelude.TensorDict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TensorDict</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.DebugMode" title="flame.pytorch.typing_prelude.DebugMode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DebugMode</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.TensorList" title="flame.pytorch.typing_prelude.TensorList"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TensorList</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.TensorDict" title="flame.pytorch.typing_prelude.TensorDict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TensorDict</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.TensorList" title="flame.pytorch.typing_prelude.TensorList"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TensorList</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.typing_prelude.Checkpoint" title="flame.pytorch.typing_prelude.Checkpoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Checkpoint</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -560,6 +661,21 @@
 <dl class="py data">
 <dt id="flame.pytorch.typing_prelude.TestDataset">
 <code class="sig-prename descclassname"><span class="pre">flame.pytorch.typing_prelude.</span></code><code class="sig-name descname"><span class="pre">TestDataset</span></code><a class="headerlink" href="#flame.pytorch.typing_prelude.TestDataset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="flame.pytorch.typing_prelude.TrainTransform">
+<code class="sig-prename descclassname"><span class="pre">flame.pytorch.typing_prelude.</span></code><code class="sig-name descname"><span class="pre">TrainTransform</span></code><a class="headerlink" href="#flame.pytorch.typing_prelude.TrainTransform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="flame.pytorch.typing_prelude.ValTransform">
+<code class="sig-prename descclassname"><span class="pre">flame.pytorch.typing_prelude.</span></code><code class="sig-name descname"><span class="pre">ValTransform</span></code><a class="headerlink" href="#flame.pytorch.typing_prelude.ValTransform" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="flame.pytorch.typing_prelude.TestTransform">
+<code class="sig-prename descclassname"><span class="pre">flame.pytorch.typing_prelude.</span></code><code class="sig-name descname"><span class="pre">TestTransform</span></code><a class="headerlink" href="#flame.pytorch.typing_prelude.TestTransform" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py data">
@@ -598,8 +714,8 @@
 <dd></dd></dl>
 
 <dl class="py data">
-<dt id="flame.pytorch.typing_prelude.RootConfig">
-<code class="sig-prename descclassname"><span class="pre">flame.pytorch.typing_prelude.</span></code><code class="sig-name descname"><span class="pre">RootConfig</span></code><a class="headerlink" href="#flame.pytorch.typing_prelude.RootConfig" title="Permalink to this definition">¶</a></dt>
+<dt id="flame.pytorch.typing_prelude.DictConfig">
+<code class="sig-prename descclassname"><span class="pre">flame.pytorch.typing_prelude.</span></code><code class="sig-name descname"><span class="pre">DictConfig</span></code><a class="headerlink" href="#flame.pytorch.typing_prelude.DictConfig" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py data">
@@ -617,10 +733,24 @@
 <code class="sig-prename descclassname"><span class="pre">flame.pytorch.typing_prelude.</span></code><code class="sig-name descname"><span class="pre">Optimizer</span></code><a class="headerlink" href="#flame.pytorch.typing_prelude.Optimizer" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py data">
+<dl class="py class">
 <dt id="flame.pytorch.typing_prelude.LrScheduler">
-<code class="sig-prename descclassname"><span class="pre">flame.pytorch.typing_prelude.</span></code><code class="sig-name descname"><span class="pre">LrScheduler</span></code><a class="headerlink" href="#flame.pytorch.typing_prelude.LrScheduler" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.typing_prelude.</span></code><code class="sig-name descname"><span class="pre">LrScheduler</span></code><a class="headerlink" href="#flame.pytorch.typing_prelude.LrScheduler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">torch.optim.lr_scheduler._LRScheduler</span></code></p>
+<dl class="py method">
+<dt id="flame.pytorch.typing_prelude.LrScheduler.step">
+<code class="sig-name descname"><span class="pre">step</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epoch</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.typing_prelude.LrScheduler.step" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>epoch</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
 
 <dl class="py data">
 <dt id="flame.pytorch.typing_prelude.Device">
@@ -640,6 +770,11 @@
 <dl class="py data">
 <dt id="flame.pytorch.typing_prelude.LocalRank">
 <code class="sig-prename descclassname"><span class="pre">flame.pytorch.typing_prelude.</span></code><code class="sig-name descname"><span class="pre">LocalRank</span></code><a class="headerlink" href="#flame.pytorch.typing_prelude.LocalRank" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="flame.pytorch.typing_prelude.DebugMode">
+<code class="sig-prename descclassname"><span class="pre">flame.pytorch.typing_prelude.</span></code><code class="sig-name descname"><span class="pre">DebugMode</span></code><a class="headerlink" href="#flame.pytorch.typing_prelude.DebugMode" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py class">
@@ -664,6 +799,11 @@
 <code class="sig-prename descclassname"><span class="pre">flame.pytorch.typing_prelude.</span></code><code class="sig-name descname"><span class="pre">TensorList</span></code><a class="headerlink" href="#flame.pytorch.typing_prelude.TensorList" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="py data">
+<dt id="flame.pytorch.typing_prelude.Checkpoint">
+<code class="sig-prename descclassname"><span class="pre">flame.pytorch.typing_prelude.</span></code><code class="sig-name descname"><span class="pre">Checkpoint</span></code><a class="headerlink" href="#flame.pytorch.typing_prelude.Checkpoint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
 </div>
 </div>
@@ -674,7 +814,7 @@
               
               <div class='prev-next-bottom'>
                 
-    <a class='left-prev' id="prev-link" href="../experiment/index.html" title="previous page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experiment</span></code></a>
+    <a class='left-prev' id="prev-link" href="../sampler/index.html" title="previous page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.sampler</span></code></a>
     <a class='right-next' id="next-link" href="../../utils/index.html" title="next page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.utils</span></code></a>
 
               </div>

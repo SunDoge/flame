@@ -1,5 +1,5 @@
-:mod:`flame`
-============
+:py:mod:`flame`
+===============
 
 .. py:module:: flame
 
@@ -10,6 +10,7 @@ Subpackages
    :titlesonly:
    :maxdepth: 3
 
+   helpers/index.rst
    pytorch/index.rst
    utils/index.rst
 
@@ -21,19 +22,20 @@ Submodules
    :maxdepth: 1
 
    archiver/index.rst
-   argument/index.rst
-   auto_builder/index.rst
+   arguments/index.rst
    ckcfg/index.rst
    config/index.rst
+   config_parser/index.rst
+   distributed_training/index.rst
    logging/index.rst
-   registry/index.rst
+   state/index.rst
    zip_importer/index.rst
 
 
 Package Contents
 ----------------
 
-.. data:: __version__
+.. py:data:: __version__
    :annotation: = 0.1.0
 
    

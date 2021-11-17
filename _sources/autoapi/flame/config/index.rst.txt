@@ -1,5 +1,5 @@
-:mod:`flame.config`
-===================
+:py:mod:`flame.config`
+======================
 
 .. py:module:: flame.config
 
@@ -20,10 +20,8 @@ Functions
 
    flame.config.from_file
    flame.config.from_snippet
-   flame.config.config_snippet
-   flame.config._process_local_variable
-   flame.config._process_file_or_snippet
-   flame.config.dump_as_json
+   flame.config.dump_to_json
+   flame.config.merge_jsonnet
    flame.config.parse_config
 
 
@@ -34,19 +32,25 @@ Attributes
 .. autoapisummary::
 
    flame.config._logger
+   flame.config.PATCH_FILE
 
 
-.. data:: _logger
+.. py:data:: _logger
    
 
    
 
-.. function:: from_file(filename)
+.. py:data:: PATCH_FILE
+   :annotation: = patch.libsonnet
+
+   
+
+.. py:function:: from_file(filename)
 
    读取jsonnet格式的config
 
 
-.. function:: from_snippet(expr, filename = 'snippet.jsonnet')
+.. py:function:: from_snippet(expr, filename = 'snippet.jsonnet')
 
    helper function for evaluating snippet to python dict
 
@@ -54,34 +58,14 @@ Attributes
    :param filename: fake file name for snippet
 
 
-.. function:: config_snippet(local_variables, files_or_snippets)
-
-   config snippet
-
-   The snippet looks like::
-
-       {{local_variables}}
-
-       {{(file_or_snippet) + (file_or_snippet) + (file_or_snippet)}}
-
-   Convert strategy::
-
-       local_variables: "a=a.jsonnet" -> local a = import "a.jsonnet"; "a=1" -> local a = 1;
-       files_or_snippets: "{a:1}" -> ({a:1}), "a.jsonnet" -> (import "a.jsonnet")
-
-
-
-.. function:: _process_local_variable(local_variable)
-
-
-.. function:: _process_file_or_snippet(file_or_snippet)
-
-
-.. function:: dump_as_json(cfg, filename)
+.. py:function:: dump_to_json(cfg, filename)
 
    保存config为json文件。jsonnet可以直接读取json文件。
 
 
-.. function:: parse_config(local_variables, files_or_snippets)
+.. py:function:: merge_jsonnet(main_snippet, added, patch_file)
+
+
+.. py:function:: parse_config(config_file, patches)
 
 

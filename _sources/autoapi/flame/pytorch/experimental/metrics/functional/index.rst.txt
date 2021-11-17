@@ -1,5 +1,5 @@
-:mod:`flame.pytorch.experimental.metrics.functional`
-====================================================
+:py:mod:`flame.pytorch.experimental.metrics.functional`
+=======================================================
 
 .. py:module:: flame.pytorch.experimental.metrics.functional
 
@@ -17,7 +17,7 @@ Functions
 
 
 
-.. function:: topk_accuracy(output, target, topk = (1, ))
+.. py:function:: topk_accuracy(output, target, topk = (1, ))
 
    https://github.com/pytorch/examples/blob/master/imagenet/main.py#L411
 

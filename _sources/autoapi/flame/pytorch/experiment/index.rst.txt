@@ -1,5 +1,5 @@
-:mod:`flame.pytorch.experiment`
-===============================
+:py:mod:`flame.pytorch.experiment`
+==================================
 
 .. py:module:: flame.pytorch.experiment
 

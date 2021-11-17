@@ -1,5 +1,5 @@
-:mod:`flame.pytorch.utils.spawn`
-================================
+:py:mod:`flame.pytorch.utils.spawn`
+===================================
 
 .. py:module:: flame.pytorch.utils.spawn
 
@@ -26,13 +26,12 @@ Functions
 
 
 
-.. class:: ProcessContext(processes, error_queues)
+.. py:class:: ProcessContext(processes, error_queues)
+
+   .. py:method:: pids(self)
 
 
-   .. method:: pids(self)
-
-
-   .. method:: join(self, timeout=None)
+   .. py:method:: join(self, timeout=None)
 
       Tries to join one or more processes in this spawn context.
       If one of them exited with a non-zero exit status, this function
@@ -47,10 +46,10 @@ Functions
 
 
 
-.. function:: start_processes(fn, args=(), nprocs=1, join=True, daemon=False, start_method='spawn')
+.. py:function:: start_processes(fn, args=(), nprocs=1, join=True, daemon=False, start_method='spawn')
 
 
-.. function:: spawn(fn, args=(), nprocs=1, join=True, daemon=False, start_method='spawn')
+.. py:function:: spawn(fn, args=(), nprocs=1, join=True, daemon=False, start_method='spawn')
 
    Spawns ``nprocs`` processes that run ``fn`` with ``args``.
 

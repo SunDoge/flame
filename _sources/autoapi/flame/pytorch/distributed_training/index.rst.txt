@@ -1,5 +1,5 @@
-:mod:`flame.pytorch.distributed_training`
-=========================================
+:py:mod:`flame.pytorch.distributed_training`
+============================================
 
 .. py:module:: flame.pytorch.distributed_training
 
@@ -38,62 +38,60 @@ Attributes
    flame.pytorch.distributed_training._logger
 
 
-.. data:: _logger
+.. py:data:: _logger
    
 
    
 
-.. class:: DistOptions
+.. py:class:: DistOptions
 
-   Bases: :py:obj:`typed_args.TypedArgs`
+   Bases: :py:obj:`flame.argument.BasicArgs`
 
-   .. attribute:: dist
-      :annotation: :bool
-
-      
-
-   .. attribute:: rank_start
+   .. py:attribute:: rank_start
       :annotation: :int
 
       
 
-   .. attribute:: world_size
+   .. py:attribute:: world_size
       :annotation: :Optional[int]
 
       
 
-   .. attribute:: dist_backend
+   .. py:attribute:: dist_backend
       :annotation: :str
 
       
 
-   .. attribute:: dist_host
+   .. py:attribute:: dist_host
       :annotation: :str
 
       
 
-   .. attribute:: dist_port
+   .. py:attribute:: dist_port
       :annotation: :Optional[int]
 
       
 
-   .. attribute:: nprocs
+   .. py:attribute:: nprocs
       :annotation: :Optional[int]
 
       
 
-   .. method:: dist_url(self)
+   .. py:method:: dist_url(self)
       :property:
 
 
-   .. method:: get_rank(self, local_rank)
+   .. py:method:: get_rank(self, local_rank)
+
+
+   .. py:method:: find_free_port(self)
 
 
 
-.. function:: get_dist_options()
+.. py:function:: get_dist_options()
 
 
-.. function:: _init_process_group_fn(local_rank, worker_fn, dist_options, *args)
+.. py:function:: _init_process_group_fn(local_rank, worker_fn, dist_options, *args)
 
    wrapper function for worker_fn
 
@@ -105,7 +103,8 @@ Attributes
    4. call worker_fn
 
 
-.. function:: start_distributed_training(worker_fn, dist_options, args = ())
+
+.. py:function:: start_distributed_training(worker_fn, dist_options, args = ())
 
    helper function for distributed training
 
@@ -115,7 +114,8 @@ Attributes
    4. call worker_fn with args
 
 
-.. function:: get_available_local_dist_url()
+
+.. py:function:: get_available_local_dist_url()
 
    helper function for single node distributed training
 
@@ -125,7 +125,8 @@ Attributes
 
 
 
-.. function:: init_cpu_process_group(rank = 0, world_size = 1, dist_url = 'tcp://127.0.0.1:12345')
+
+.. py:function:: init_cpu_process_group(rank = 0, world_size = 1, dist_url = 'tcp://127.0.0.1:12345')
 
    helper function for testing distributed training
 
@@ -133,6 +134,7 @@ Attributes
    不要在生产环境中使用。
 
 
-.. function:: start_training(worker_fn, args = ())
+
+.. py:function:: start_training(worker_fn, args = ())
 
 

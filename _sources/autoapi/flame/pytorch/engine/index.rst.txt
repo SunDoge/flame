@@ -1,5 +1,5 @@
-:mod:`flame.pytorch.engine`
-===========================
+:py:mod:`flame.pytorch.engine`
+==============================
 
 .. py:module:: flame.pytorch.engine
 
@@ -28,94 +28,96 @@ Attributes
    flame.pytorch.engine._logger
 
 
-.. data:: _logger
+.. py:data:: _logger
    
 
    
 
-.. class:: State
+.. py:class:: State
 
-   .. method:: state_dict(self)
+   .. py:method:: state_dict(self)
 
       将 State 序列化成 nested dict
 
 
-   .. method:: load_state_dict(self, state_dict)
+
+   .. py:method:: load_state_dict(self, state_dict)
 
       将 nested dict 加载回 State
 
 
 
-.. class:: IterationState
+
+.. py:class:: IterationState
 
    Bases: :py:obj:`State`
 
-   .. attribute:: iteration
+   .. py:attribute:: iteration
       :annotation: :int = 0
 
       
 
-   .. attribute:: max_iterations
+   .. py:attribute:: max_iterations
       :annotation: :Optional[int]
 
       
 
-   .. attribute:: epoch_length
+   .. py:attribute:: epoch_length
       :annotation: :Optional[int]
 
       
 
 
-.. class:: EpochState
+.. py:class:: EpochState
 
    Bases: :py:obj:`State`
 
-   .. attribute:: epoch
+   .. py:attribute:: epoch
       :annotation: :int = 0
 
       
 
-   .. attribute:: max_epochs
+   .. py:attribute:: max_epochs
       :annotation: :Optional[int]
 
       
 
-   .. attribute:: metrics
+   .. py:attribute:: metrics
       :annotation: :Dict[str, Any]
 
       
 
-   .. attribute:: train_state
+   .. py:attribute:: train_state
       :annotation: :IterationState
 
       
 
-   .. attribute:: val_state
+   .. py:attribute:: val_state
       :annotation: :IterationState
 
       
 
-   .. attribute:: test_state
+   .. py:attribute:: test_state
       :annotation: :IterationState
 
       
 
 
-.. class:: Engine
+.. py:class:: Engine
 
-   .. method:: enumerate(iterable)
+   .. py:method:: enumerate(iterable)
       :staticmethod:
 
 
-   .. method:: every(i, n = 1)
+   .. py:method:: every(i, n = 1)
       :staticmethod:
 
 
-   .. method:: step(self, state, epoch)
+   .. py:method:: step(self, state, epoch)
       :abstractmethod:
 
 
-   .. method:: run(self)
+   .. py:method:: run(self)
       :abstractmethod:
 
 

@@ -1,5 +1,5 @@
-:mod:`flame.pytorch.utils.cudnn`
-================================
+:py:mod:`flame.pytorch.utils.cudnn`
+===================================
 
 .. py:module:: flame.pytorch.utils.cudnn
 
@@ -25,11 +25,11 @@ Attributes
    flame.pytorch.utils.cudnn._logger
 
 
-.. data:: _logger
+.. py:data:: _logger
    
 
    
 
-.. function:: set_cudnn_benchmark()
+.. py:function:: set_cudnn_benchmark()
 
 

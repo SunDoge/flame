@@ -1,0 +1,51 @@
+:py:mod:`flame.pytorch.experimental.singleton_registry`
+=======================================================
+
+.. py:module:: flame.pytorch.experimental.singleton_registry
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.experimental.singleton_registry.builder
+   flame.pytorch.experimental.singleton_registry.configure_singletons
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.experimental.singleton_registry.BUILDER_KEY
+   flame.pytorch.experimental.singleton_registry.SCOPE_KEY
+   flame.pytorch.experimental.singleton_registry.SCOPE_MAP
+
+
+.. py:data:: BUILDER_KEY
+   :annotation: = _builder
+
+   
+
+.. py:data:: SCOPE_KEY
+   :annotation: = _scope
+
+   
+
+.. py:data:: SCOPE_MAP
+   
+
+   
+
+.. py:function:: builder(config)
+
+
+.. py:function:: configure_singletons(config)
+
+

@@ -1,0 +1,51 @@
+:py:mod:`flame.helpers.optimizer`
+=================================
+
+.. py:module:: flame.helpers.optimizer
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.helpers.optimizer._scale_lr
+   flame.helpers.optimizer.create_optimizer_from_config
+   flame.helpers.optimizer.get_learning_rate_from_optimizer
+   flame.helpers.optimizer._get_world_size
+   flame.helpers.optimizer.scale_lr_linearly
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.helpers.optimizer._logger
+
+
+.. py:data:: _logger
+   
+
+   
+
+.. py:function:: _scale_lr(lr)
+
+
+.. py:function:: create_optimizer_from_config(config, params, scale_lr = _scale_lr)
+
+
+.. py:function:: get_learning_rate_from_optimizer(optimizer)
+
+
+.. py:function:: _get_world_size()
+
+
+.. py:function:: scale_lr_linearly(lr, batch_size, world_size = 1, base = 256)
+
+

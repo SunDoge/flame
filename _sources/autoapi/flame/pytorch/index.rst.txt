@@ -1,5 +1,5 @@
-:mod:`flame.pytorch`
-====================
+:py:mod:`flame.pytorch`
+=======================
 
 .. py:module:: flame.pytorch
 
@@ -12,8 +12,10 @@ Subpackages
 
    checkpoint_saver/index.rst
    experimental/index.rst
+   helpers/index.rst
    meters/index.rst
    metrics/index.rst
+   nn/index.rst
    processes/index.rst
    utils/index.rst
 
@@ -25,9 +27,11 @@ Submodules
    :maxdepth: 1
 
    container/index.rst
+   data_loader_factory/index.rst
    distributed_training/index.rst
    engine/index.rst
    experiment/index.rst
+   sampler/index.rst
    typing_prelude/index.rst
 
 

@@ -1,5 +1,5 @@
-:mod:`flame.pytorch.experimental.engine.engine`
-===============================================
+:py:mod:`flame.pytorch.experimental.engine.engine`
+==================================================
 
 .. py:module:: flame.pytorch.experimental.engine.engine
 
@@ -59,92 +59,91 @@ Attributes
    flame.pytorch.experimental.engine.engine.EventHandlerDict
 
 
-.. data:: _logger
+.. py:data:: _logger
    
 
    
 
-.. data:: HandlerTuple
+.. py:data:: HandlerTuple
    
 
    
 
-.. data:: EventHandlerDict
+.. py:data:: EventHandlerDict
    
 
    
 
-.. function:: _default_process_function(batch)
+.. py:function:: _default_process_function(batch)
 
 
-.. class:: Engine(process_function = _default_process_function, container = None)
-
+.. py:class:: Engine(process_function = _default_process_function, container = None)
 
    Bases: :py:obj:`flame.pytorch.experimental.engine.mixins.Serializable`
 
    作为Engine的基类
 
-   .. method:: add_event_handler(self, event_name, handler, **kwargs)
+   .. py:method:: add_event_handler(self, event_name, handler, **kwargs)
 
 
-   .. method:: has_event_handler(self, handler, event_name = None)
+   .. py:method:: has_event_handler(self, handler, event_name = None)
 
       FIXME: 实现不是很正确
 
 
-   .. method:: compare_handlers(user_handler, registered_handler)
+   .. py:method:: compare_handlers(user_handler, registered_handler)
       :staticmethod:
 
       FIXME: 比较不是很准确
 
 
-   .. method:: _fire_event(self, event_name)
+   .. py:method:: _fire_event(self, event_name)
 
       最好不要用args，顺序很难确定
 
 
-   .. method:: fire_event(self, event_name)
+   .. py:method:: fire_event(self, event_name)
 
 
-   .. method:: step_epoch(self)
+   .. py:method:: step_epoch(self)
 
 
-   .. method:: step_iteration(self)
+   .. py:method:: step_iteration(self)
 
 
-   .. method:: internal_run(self)
+   .. py:method:: internal_run(self)
 
 
-   .. method:: set_epoch(self, epoch)
+   .. py:method:: set_epoch(self, epoch)
 
 
-   .. method:: set_data(self, data)
+   .. py:method:: set_data(self, data)
 
 
-   .. method:: setup(self, data, max_epochs = None, max_iterations = None, epoch_length = None)
+   .. py:method:: setup(self, data, max_epochs = None, max_iterations = None, epoch_length = None)
 
 
-   .. method:: _start_epoch_loop(self)
+   .. py:method:: _start_epoch_loop(self)
 
 
-   .. method:: _start_iteration_loop(self)
+   .. py:method:: _start_iteration_loop(self)
 
 
-   .. method:: _setup_engine(self)
+   .. py:method:: _setup_engine(self)
 
       Copy fron ignite engine
 
       不知道有什么用
 
 
-   .. method:: get_data_length(data)
+   .. py:method:: get_data_length(data)
       :staticmethod:
 
 
-   .. method:: run(self, data, max_epochs = None, max_iterations = None, epoch_length = None)
+   .. py:method:: run(self, data, max_epochs = None, max_iterations = None, epoch_length = None)
 
 
-   .. method:: _handler_wrapper(self, handler, event_name, event_filter)
+   .. py:method:: _handler_wrapper(self, handler, event_name, event_filter)
 
 
 

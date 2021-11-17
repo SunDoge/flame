@@ -34,7 +34,7 @@
     <script src="../../../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="flame.pytorch.distributed_training" href="../distributed_training/index.html" />
+    <link rel="next" title="flame.pytorch.data_loader_factory" href="../data_loader_factory/index.html" />
     <link rel="prev" title="flame.pytorch.utils.spawn" href="../utils/spawn/index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -94,6 +94,15 @@
    </code>
   </a>
   <ul class="current">
+   <li class="toctree-l3">
+    <a class="reference internal" href="../../helpers/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.helpers
+      </span>
+     </code>
+    </a>
+   </li>
    <li class="toctree-l3 current active">
     <a class="reference internal" href="../index.html">
      <code class="xref py py-mod docutils literal notranslate">
@@ -122,6 +131,15 @@
       </a>
      </li>
      <li class="toctree-l4">
+      <a class="reference internal" href="../helpers/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.helpers
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
       <a class="reference internal" href="../meters/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
@@ -135,6 +153,15 @@
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.pytorch.metrics
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
+      <a class="reference internal" href="../nn/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.nn
         </span>
        </code>
       </a>
@@ -167,6 +194,15 @@
       </a>
      </li>
      <li class="toctree-l4">
+      <a class="reference internal" href="../data_loader_factory/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.data_loader_factory
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
       <a class="reference internal" href="../distributed_training/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
@@ -189,6 +225,15 @@
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.pytorch.experiment
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
+      <a class="reference internal" href="../sampler/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.sampler
         </span>
        </code>
       </a>
@@ -223,19 +268,10 @@
     </a>
    </li>
    <li class="toctree-l3">
-    <a class="reference internal" href="../../argument/index.html">
+    <a class="reference internal" href="../../arguments/index.html">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
-       flame.argument
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toctree-l3">
-    <a class="reference internal" href="../../auto_builder/index.html">
-     <code class="xref py py-mod docutils literal notranslate">
-      <span class="pre">
-       flame.auto_builder
+       flame.arguments
       </span>
      </code>
     </a>
@@ -259,6 +295,24 @@
     </a>
    </li>
    <li class="toctree-l3">
+    <a class="reference internal" href="../../config_parser/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.config_parser
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../../distributed_training/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.distributed_training
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
     <a class="reference internal" href="../../logging/index.html">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
@@ -268,10 +322,10 @@
     </a>
    </li>
    <li class="toctree-l3">
-    <a class="reference internal" href="../../registry/index.html">
+    <a class="reference internal" href="../../state/index.html">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
-       flame.registry
+       flame.state
       </span>
      </code>
     </a>
@@ -314,6 +368,11 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions">
+     Functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#attributes">
      Attributes
     </a>
@@ -324,36 +383,63 @@
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.pytorch.container.RootModule">
-       RootModule
+      <a class="reference internal nav-link" href="#flame.pytorch.container.T">
+       T
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.pytorch.container.CallableAssistedBuilder">
+       CallableAssistedBuilder
       </a>
       <ul class="nav section-nav flex-column">
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#flame.pytorch.container.RootModule.create_args">
-         create_args
+        <a class="reference internal nav-link" href="#flame.pytorch.container.CallableAssistedBuilder.build">
+         build
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.pytorch.container.BaseModule">
+       BaseModule
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.container.BaseModule.create_basic_args">
+         create_basic_args
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#flame.pytorch.container.RootModule.create_config">
+        <a class="reference internal nav-link" href="#flame.pytorch.container.BaseModule.create_config">
          create_config
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#flame.pytorch.container.RootModule.create_experiment_dir">
+        <a class="reference internal nav-link" href="#flame.pytorch.container.BaseModule.create_experiment_dir">
          create_experiment_dir
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#flame.pytorch.container.RootModule.create_device">
+        <a class="reference internal nav-link" href="#flame.pytorch.container.BaseModule.create_device">
          create_device
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#flame.pytorch.container.RootModule.create_local_rank">
+        <a class="reference internal nav-link" href="#flame.pytorch.container.BaseModule.create_local_rank">
          create_local_rank
         </a>
        </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.container.BaseModule.create_debug_mode">
+         create_debug_mode
+        </a>
+       </li>
       </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.pytorch.container.build_from_config_with_container">
+       build_from_config_with_container
+      </a>
      </li>
     </ul>
    </li>
@@ -389,8 +475,25 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.container.RootModule" title="flame.pytorch.container.RootModule"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RootModule</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.container.CallableAssistedBuilder" title="flame.pytorch.container.CallableAssistedBuilder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CallableAssistedBuilder</span></code></a></p></td>
+<td><p>Abstract base class for generic types.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.container.BaseModule" title="flame.pytorch.container.BaseModule"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseModule</span></code></a></p></td>
 <td><p>Configures injector and providers.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.container.build_from_config_with_container" title="flame.pytorch.container.build_from_config_with_container"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build_from_config_with_container</span></code></a>(container, cfg, type_key='_type')</p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
@@ -406,6 +509,9 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.container._logger" title="flame.pytorch.container._logger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_logger</span></code></a></p></td>
 <td><p></p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.container.T" title="flame.pytorch.container.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code></a></p></td>
+<td><p></p></td>
+</tr>
 </tbody>
 </table>
 <dl class="py data">
@@ -413,43 +519,85 @@
 <code class="sig-prename descclassname"><span class="pre">flame.pytorch.container.</span></code><code class="sig-name descname"><span class="pre">_logger</span></code><a class="headerlink" href="#flame.pytorch.container._logger" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="py data">
+<dt id="flame.pytorch.container.T">
+<code class="sig-prename descclassname"><span class="pre">flame.pytorch.container.</span></code><code class="sig-name descname"><span class="pre">T</span></code><a class="headerlink" href="#flame.pytorch.container.T" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py class">
-<dt id="flame.pytorch.container.RootModule">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.container.</span></code><code class="sig-name descname"><span class="pre">RootModule</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">local_rank</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.container.RootModule" title="Permalink to this definition">¶</a></dt>
+<dt id="flame.pytorch.container.CallableAssistedBuilder">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.container.</span></code><code class="sig-name descname"><span class="pre">CallableAssistedBuilder</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">injector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.container.CallableAssistedBuilder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">injector.AssistedBuilder</span></code>[<a class="reference internal" href="#flame.pytorch.container.T" title="flame.pytorch.container.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code></a>]</p>
+<p>Abstract base class for generic types.</p>
+<p>A generic type is typically declared by inheriting from
+this class parameterized with one or more type variables.
+For example, a generic mapping type might be defined as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Mapping</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">KT</span><span class="p">,</span> <span class="n">VT</span><span class="p">]):</span>
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">KT</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">VT</span><span class="p">:</span>
+        <span class="o">...</span>
+    <span class="c1"># Etc.</span>
+</pre></div>
+</div>
+<p>This class can then be used as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">lookup_name</span><span class="p">(</span><span class="n">mapping</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="n">KT</span><span class="p">,</span> <span class="n">VT</span><span class="p">],</span> <span class="n">key</span><span class="p">:</span> <span class="n">KT</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span> <span class="n">VT</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">VT</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">mapping</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">default</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt id="flame.pytorch.container.CallableAssistedBuilder.build">
+<code class="sig-name descname"><span class="pre">build</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.container.CallableAssistedBuilder.build" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>kwargs</strong> (<em>Any</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>T</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="flame.pytorch.container.BaseModule">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.container.</span></code><code class="sig-name descname"><span class="pre">BaseModule</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.container.BaseModule" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">injector.Module</span></code></p>
 <p>Configures injector and providers.</p>
 <dl class="py method">
-<dt id="flame.pytorch.container.RootModule.create_args">
-<code class="sig-name descname"><span class="pre">create_args</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.container.RootModule.create_args" title="Permalink to this definition">¶</a></dt>
+<dt id="flame.pytorch.container.BaseModule.create_basic_args">
+<code class="sig-name descname"><span class="pre">create_basic_args</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.container.BaseModule.create_basic_args" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="../../argument/index.html#flame.argument.BasicArgs" title="flame.argument.BasicArgs">flame.argument.BasicArgs</a></p>
+<dd class="field-odd"><p>flame.argument.BasicArgs</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="flame.pytorch.container.RootModule.create_config">
-<code class="sig-name descname"><span class="pre">create_config</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment_dir</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.container.RootModule.create_config" title="Permalink to this definition">¶</a></dt>
+<dt id="flame.pytorch.container.BaseModule.create_config">
+<code class="sig-name descname"><span class="pre">create_config</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment_dir</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.container.BaseModule.create_config" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>args</strong> (<a class="reference internal" href="../../argument/index.html#flame.argument.BasicArgs" title="flame.argument.BasicArgs"><em>flame.argument.BasicArgs</em></a>) – </p></li>
+<li><p><strong>args</strong> (<em>flame.argument.BasicArgs</em>) – </p></li>
 <li><p><strong>experiment_dir</strong> (<em>flame.pytorch.typing_prelude.ExperimentDir</em>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p>flame.pytorch.typing_prelude.RootConfig</p>
+<dd class="field-even"><p>flame.pytorch.typing_prelude.DictConfig</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="flame.pytorch.container.RootModule.create_experiment_dir">
-<code class="sig-name descname"><span class="pre">create_experiment_dir</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.container.RootModule.create_experiment_dir" title="Permalink to this definition">¶</a></dt>
+<dt id="flame.pytorch.container.BaseModule.create_experiment_dir">
+<code class="sig-name descname"><span class="pre">create_experiment_dir</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.container.BaseModule.create_experiment_dir" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>args</strong> (<a class="reference internal" href="../../argument/index.html#flame.argument.BasicArgs" title="flame.argument.BasicArgs"><em>flame.argument.BasicArgs</em></a>) – </p>
+<dd class="field-odd"><p><strong>args</strong> (<em>flame.argument.BasicArgs</em>) – </p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>flame.pytorch.typing_prelude.ExperimentDir</p>
@@ -458,8 +606,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="flame.pytorch.container.RootModule.create_device">
-<code class="sig-name descname"><span class="pre">create_device</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.container.RootModule.create_device" title="Permalink to this definition">¶</a></dt>
+<dt id="flame.pytorch.container.BaseModule.create_device">
+<code class="sig-name descname"><span class="pre">create_device</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.container.BaseModule.create_device" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>flame.pytorch.typing_prelude.Device</p>
@@ -468,15 +616,44 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="flame.pytorch.container.RootModule.create_local_rank">
-<code class="sig-name descname"><span class="pre">create_local_rank</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.container.RootModule.create_local_rank" title="Permalink to this definition">¶</a></dt>
+<dt id="flame.pytorch.container.BaseModule.create_local_rank">
+<code class="sig-name descname"><span class="pre">create_local_rank</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.container.BaseModule.create_local_rank" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>flame.pytorch.typing_prelude.LocalRank</p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<em>flame.argument.BasicArgs</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>flame.pytorch.typing_prelude.LocalRank</p>
 </dd>
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt id="flame.pytorch.container.BaseModule.create_debug_mode">
+<code class="sig-name descname"><span class="pre">create_debug_mode</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.container.BaseModule.create_debug_mode" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<em>flame.argument.BasicArgs</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>flame.pytorch.typing_prelude.DebugMode</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="flame.pytorch.container.build_from_config_with_container">
+<code class="sig-prename descclassname"><span class="pre">flame.pytorch.container.</span></code><code class="sig-name descname"><span class="pre">build_from_config_with_container</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">container</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cfg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'_type'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.container.build_from_config_with_container" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>container</strong> (<em>injector.Injector</em>) – </p></li>
+<li><p><strong>cfg</strong> (<em>dict</em>) – </p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
@@ -490,7 +667,7 @@
               <div class='prev-next-bottom'>
                 
     <a class='left-prev' id="prev-link" href="../utils/spawn/index.html" title="previous page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.utils.spawn</span></code></a>
-    <a class='right-next' id="next-link" href="../distributed_training/index.html" title="next page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.distributed_training</span></code></a>
+    <a class='right-next' id="next-link" href="../data_loader_factory/index.html" title="next page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.data_loader_factory</span></code></a>
 
               </div>
               

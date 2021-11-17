@@ -1,0 +1,96 @@
+:py:mod:`flame.utils.inspector`
+===============================
+
+.. py:module:: flame.utils.inspector
+
+.. autoapi-nested-parse::
+
+   从函数或类生成对应的jsonnet config
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.utils.inspector.generate_contents
+   flame.utils.inspector.generate_args
+   flame.utils.inspector.generate_function
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.utils.inspector.JSONNET_OBJECT_TEMPLATE
+   flame.utils.inspector.JSONNET_FUNCTION_TEMPLATE
+   flame.utils.inspector.output
+
+
+.. py:data:: JSONNET_OBJECT_TEMPLATE
+   :annotation: = Multiline-String
+
+    .. raw:: html
+
+        <details><summary>Show Value</summary>
+
+    .. code-block:: text
+        :linenos:
+
+        
+        {name}: {
+            {contents}
+        }
+
+
+    .. raw:: html
+
+        </details>
+
+   
+
+.. py:data:: JSONNET_FUNCTION_TEMPLATE
+   :annotation: = Multiline-String
+
+    .. raw:: html
+
+        <details><summary>Show Value</summary>
+
+    .. code-block:: text
+        :linenos:
+
+        
+        {{
+            {name}({args}):: {{
+        {contents}
+            }}
+        }}
+
+
+    .. raw:: html
+
+        </details>
+
+   
+
+.. py:function:: generate_contents(**kwargs)
+
+
+.. py:function:: generate_args(*args)
+
+
+.. py:function:: generate_function(path)
+
+
+.. py:data:: output
+   
+
+   
+

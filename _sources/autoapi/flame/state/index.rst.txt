@@ -1,0 +1,85 @@
+:py:mod:`flame.state`
+=====================
+
+.. py:module:: flame.state
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.state.BaseState
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.state._logger
+   flame.state.ToStateDictFunction
+   flame.state.LoadStateDictFunction
+
+
+.. py:data:: _logger
+   
+
+   
+
+.. py:data:: ToStateDictFunction
+   
+
+   
+
+.. py:data:: LoadStateDictFunction
+   
+
+   
+
+.. py:class:: BaseState
+
+   .. py:method:: train(self, mode=True)
+
+
+   .. py:method:: eval(self)
+
+
+   .. py:method:: epoch_wrapper(self, max_epochs)
+
+
+   .. py:method:: iter_wrapper(self, loader)
+
+
+   .. py:method:: get_length(self, loader)
+
+
+   .. py:method:: get_batch_size(self, batch)
+
+
+   .. py:method:: every_n_iters(self, n = 1)
+
+
+   .. py:method:: set_epoch(self, loader)
+
+
+   .. py:method:: state_dict(self)
+
+
+   .. py:method:: load_state_dict(self, state_dict)
+
+
+   .. py:method:: get_weights(self)
+
+
+   .. py:method:: _get_training_state(self)
+
+      检查是否model被设为train
+
+
+

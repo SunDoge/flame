@@ -1,0 +1,61 @@
+:py:mod:`flame.distributed_training`
+====================================
+
+.. py:module:: flame.distributed_training
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.distributed_training._default_main_worker
+   flame.distributed_training._init_process_group
+   flame.distributed_training.start_distributed_training
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.distributed_training._logger
+   flame.distributed_training.MainWorker
+   flame.distributed_training.KEY_ENGINE
+   flame.distributed_training.KEY_MAIN_WORKER
+
+
+.. py:data:: _logger
+   
+
+   
+
+.. py:data:: MainWorker
+   
+
+   
+
+.. py:data:: KEY_ENGINE
+   :annotation: = engine
+
+   
+
+.. py:data:: KEY_MAIN_WORKER
+   :annotation: = main_worker
+
+   
+
+.. py:function:: _default_main_worker(args)
+
+
+.. py:function:: _init_process_group(local_rank, args, main_worker)
+
+
+.. py:function:: start_distributed_training(args, main_worker = _default_main_worker)
+
+

@@ -1,0 +1,74 @@
+:py:mod:`flame.helpers`
+=======================
+
+.. py:module:: flame.helpers
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   amp/index.rst
+   checkpoint_saver/index.rst
+   data/index.rst
+   model/index.rst
+   optimizer/index.rst
+   scheduler/index.rst
+   tensorboard/index.rst
+
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.helpers.ConfigParser
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.helpers.create_optimizer_from_config
+   flame.helpers.scale_lr_linearly
+   flame.helpers.create_scheduler_from_config
+   flame.helpers.create_model_from_config
+   flame.helpers.create_data_loader_from_config
+   flame.helpers.create_from_config
+
+
+
+.. py:function:: create_optimizer_from_config(config, params, scale_lr = _scale_lr)
+
+
+.. py:function:: scale_lr_linearly(lr, batch_size, world_size = 1, base = 256)
+
+
+.. py:function:: create_scheduler_from_config(config, optimizer)
+
+
+.. py:function:: create_model_from_config(config, find_unused_parameters = False)
+
+
+.. py:function:: create_data_loader_from_config(config, key_transform = 'transform', key_dataset = 'dataset', key_loader = 'loader')
+
+
+.. py:class:: ConfigParser(**kwargs)
+
+   .. py:method:: _parse_object(self, config, depth)
+
+
+   .. py:method:: parse(self, config, depth = 64)
+
+
+
+.. py:function:: create_from_config(config)
+
+

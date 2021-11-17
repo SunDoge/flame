@@ -1,5 +1,5 @@
-:mod:`flame.pytorch.experimental.metrics.topk_accuracy`
-=======================================================
+:py:mod:`flame.pytorch.experimental.metrics.topk_accuracy`
+==========================================================
 
 .. py:module:: flame.pytorch.experimental.metrics.topk_accuracy
 

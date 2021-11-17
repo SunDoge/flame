@@ -1,5 +1,5 @@
-:mod:`flame.pytorch.typing_prelude`
-===================================
+:py:mod:`flame.pytorch.typing_prelude`
+======================================
 
 .. py:module:: flame.pytorch.typing_prelude
 
@@ -12,6 +12,7 @@ Classes
 
 .. autoapisummary::
 
+   flame.pytorch.typing_prelude.LrScheduler
    flame.pytorch.typing_prelude.Model
 
 
@@ -25,6 +26,9 @@ Attributes
    flame.pytorch.typing_prelude.TrainDataset
    flame.pytorch.typing_prelude.ValDataset
    flame.pytorch.typing_prelude.TestDataset
+   flame.pytorch.typing_prelude.TrainTransform
+   flame.pytorch.typing_prelude.ValTransform
+   flame.pytorch.typing_prelude.TestTransform
    flame.pytorch.typing_prelude.TrainSampler
    flame.pytorch.typing_prelude.ValSampler
    flame.pytorch.typing_prelude.TestSampler
@@ -32,131 +36,159 @@ Attributes
    flame.pytorch.typing_prelude.ValLoader
    flame.pytorch.typing_prelude.TestLoader
    flame.pytorch.typing_prelude.BasicArgs
-   flame.pytorch.typing_prelude.RootConfig
+   flame.pytorch.typing_prelude.DictConfig
    flame.pytorch.typing_prelude.ExperimentDir
    flame.pytorch.typing_prelude.Criterion
    flame.pytorch.typing_prelude.Optimizer
-   flame.pytorch.typing_prelude.LrScheduler
    flame.pytorch.typing_prelude.Device
    flame.pytorch.typing_prelude.Dtype
    flame.pytorch.typing_prelude.Rank
    flame.pytorch.typing_prelude.LocalRank
+   flame.pytorch.typing_prelude.DebugMode
    flame.pytorch.typing_prelude.TensorDict
    flame.pytorch.typing_prelude.TensorList
+   flame.pytorch.typing_prelude.Checkpoint
 
 
-.. data:: TrainDataset
+.. py:data:: TrainDataset
    
 
    
 
-.. data:: ValDataset
+.. py:data:: ValDataset
    
 
    
 
-.. data:: TestDataset
+.. py:data:: TestDataset
    
 
    
 
-.. data:: TrainSampler
+.. py:data:: TrainTransform
    
 
    
 
-.. data:: ValSampler
+.. py:data:: ValTransform
    
 
    
 
-.. data:: TestSampler
+.. py:data:: TestTransform
    
 
    
 
-.. data:: TrainLoader
+.. py:data:: TrainSampler
    
 
    
 
-.. data:: ValLoader
+.. py:data:: ValSampler
    
 
    
 
-.. data:: TestLoader
+.. py:data:: TestSampler
    
 
    
 
-.. data:: BasicArgs
+.. py:data:: TrainLoader
    
 
    
 
-.. data:: RootConfig
+.. py:data:: ValLoader
    
 
    
 
-.. data:: ExperimentDir
+.. py:data:: TestLoader
    
 
    
 
-.. data:: Criterion
+.. py:data:: BasicArgs
    
 
    
 
-.. data:: Optimizer
+.. py:data:: DictConfig
    
 
    
 
-.. data:: LrScheduler
+.. py:data:: ExperimentDir
    
 
    
 
-.. data:: Device
+.. py:data:: Criterion
    
 
    
 
-.. data:: Dtype
+.. py:data:: Optimizer
    
 
    
 
-.. data:: Rank
+.. py:class:: LrScheduler
+
+   Bases: :py:obj:`torch.optim.lr_scheduler._LRScheduler`
+
+   .. py:method:: step(self, epoch = None)
+
+
+
+.. py:data:: Device
    
 
    
 
-.. data:: LocalRank
+.. py:data:: Dtype
    
 
    
 
-.. class:: Model(module)
+.. py:data:: Rank
+   
 
+   
+
+.. py:data:: LocalRank
+   
+
+   
+
+.. py:data:: DebugMode
+   
+
+   
+
+.. py:class:: Model(module)
 
    Bases: :py:obj:`torch.nn.Module`
 
    模拟 DataParallel 和 DistributedDataParallel
 
-   .. method:: forward(self, *args, **kwargs)
+   .. py:method:: forward(self, *args, **kwargs)
 
 
 
-.. data:: TensorDict
+.. py:data:: TensorDict
    
 
    
 
-.. data:: TensorList
+.. py:data:: TensorList
+   
+
+   
+
+.. py:data:: Checkpoint
    
 
    

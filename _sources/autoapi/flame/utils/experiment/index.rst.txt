@@ -1,5 +1,5 @@
-:mod:`flame.utils.experiment`
-=============================
+:py:mod:`flame.utils.experiment`
+================================
 
 .. py:module:: flame.utils.experiment
 
@@ -27,12 +27,12 @@ Attributes
    flame.utils.experiment._logger
 
 
-.. data:: _logger
+.. py:data:: _logger
    
 
    
 
-.. function:: get_experiment_dir(output_dir, experiment_name, debug = False, with_timestamp = False)
+.. py:function:: get_experiment_dir(output_dir, experiment_name, debug = False, with_timestamp = False)
 
    实验默认是release模式，只有指定debug模式的时候，才会生成debug目录
 
@@ -40,10 +40,10 @@ Attributes
    e.g. exps/release/000
 
 
-.. function:: get_output_dir_and_experiment_name(experiment_dir)
+.. py:function:: get_output_dir_and_experiment_name(experiment_dir)
 
 
-.. function:: make_experiment_dir(experiment_dir, yes = False)
+.. py:function:: make_experiment_dir(experiment_dir, yes = False)
 
    设计失误，应该传入experiment_dir
 

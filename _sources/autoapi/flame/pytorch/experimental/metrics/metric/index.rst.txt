@@ -1,5 +1,5 @@
-:mod:`flame.pytorch.experimental.metrics.metric`
-================================================
+:py:mod:`flame.pytorch.experimental.metrics.metric`
+===================================================
 
 .. py:module:: flame.pytorch.experimental.metrics.metric
 
@@ -25,23 +25,22 @@ Functions
 
 
 
-.. function:: _default_output_transform(x)
+.. py:function:: _default_output_transform(x)
 
 
-.. class:: Metric(name, output_transform = _default_output_transform)
+.. py:class:: Metric(name, output_transform = _default_output_transform)
 
-
-   .. method:: compute(self, *args, **kwargs)
+   .. py:method:: compute(self, *args, **kwargs)
 
       计算metric
 
 
-   .. method:: update(self, state)
+   .. py:method:: update(self, state)
 
       写入metric
 
 
-   .. method:: attach(self, engine, event_name = Events.ITERATION_COMPLETED)
+   .. py:method:: attach(self, engine, event_name = Events.ITERATION_COMPLETED)
 
 
 

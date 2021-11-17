@@ -1,0 +1,247 @@
+:py:mod:`flame.pytorch.experimental.compact_engine.engine`
+==========================================================
+
+.. py:module:: flame.pytorch.experimental.compact_engine.engine
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.experimental.compact_engine.engine.State
+   flame.pytorch.experimental.compact_engine.engine.Mode
+   flame.pytorch.experimental.compact_engine.engine.BaseEngineConfig
+   flame.pytorch.experimental.compact_engine.engine.BaseEngine
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.experimental.compact_engine.engine._logger
+   flame.pytorch.experimental.compact_engine.engine.Middleware
+
+
+.. py:data:: _logger
+   
+
+   
+
+.. py:data:: Middleware
+   
+
+   
+
+.. py:class:: State
+
+   .. py:attribute:: step
+      :annotation: :int = 0
+
+      
+
+   .. py:attribute:: epoch
+      :annotation: :int = 0
+
+      
+
+   .. py:attribute:: training
+      :annotation: :bool = False
+
+      
+
+   .. py:attribute:: mode
+      :annotation: :str = train
+
+      
+
+   .. py:attribute:: epoch_length
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: batch
+      :annotation: :Optional[Any]
+
+      
+
+   .. py:attribute:: batch_idx
+      :annotation: :int = 0
+
+      
+
+   .. py:attribute:: output
+      :annotation: :Optional[Any]
+
+      
+
+   .. py:attribute:: loader
+      :annotation: :Optional[Iterable]
+
+      
+
+   .. py:attribute:: eta
+      :annotation: :Optional[flame.pytorch.meters.EstimatedTimeOfArrival]
+
+      
+
+   .. py:method:: reset(self)
+
+
+
+.. py:class:: Mode
+
+   Bases: :py:obj:`enum.Enum`
+
+   Generic enumeration.
+
+   Derive from this class to define new enumerations.
+
+   .. py:attribute:: TRAIN
+      :annotation: = train
+
+      
+
+   .. py:attribute:: VAL
+      :annotation: = val
+
+      
+
+   .. py:attribute:: TEST
+      :annotation: = test
+
+      
+
+
+.. py:class:: BaseEngineConfig
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+   .. py:attribute:: type
+      :annotation: :str
+
+      
+
+   .. py:attribute:: update_interval
+      :annotation: :int = 1
+
+      
+
+   .. py:attribute:: log_interval
+      :annotation: :int = 10
+
+      
+
+   .. py:attribute:: max_norm
+      :annotation: :float
+
+      
+
+
+.. py:class:: BaseEngine(model = None, optimizer = None, criterion = None, scheduler = None, update_interval = 1, log_interval = 1, max_norm = -1.0)
+
+   .. py:attribute:: state
+      :annotation: :State
+
+      
+
+   .. py:attribute:: model
+      :annotation: :flame.pytorch.typing_prelude.Model
+
+      
+
+   .. py:attribute:: optimizer
+      :annotation: :flame.pytorch.typing_prelude.Optimizer
+
+      
+
+   .. py:attribute:: scheduler
+      :annotation: :flame.pytorch.typing_prelude.LrScheduler
+
+      
+
+   .. py:attribute:: criterion
+      :annotation: :flame.pytorch.typing_prelude.Criterion
+
+      
+
+   .. py:attribute:: meters
+      :annotation: :flame.pytorch.meters.average_meter.AverageMeterGroup
+
+      
+
+   .. py:method:: loop(self, next)
+
+
+   .. py:method:: prepare_data(self, batch)
+
+      :returns: data for training
+                batch_size: batch size
+      :rtype: data
+
+
+   .. py:method:: forward(self, next)
+
+
+   .. py:method:: update(self)
+
+
+   .. py:method:: training_step(self, next)
+
+
+   .. py:method:: validation_step(self, next)
+
+
+   .. py:method:: clip_grad_norm_if_needed(self)
+
+
+   .. py:method:: output(self, loss = None, batch_size = None, **kwargs)
+
+
+   .. py:method:: prepare_training(self, loader, next, epoch_length = None, mode = 'train')
+
+
+   .. py:method:: prepare_validation(self, loader, next, epoch_length = None, mode = 'val')
+
+
+   .. py:method:: train(self, loader, epoch_length = None, mode = 'train')
+
+
+   .. py:method:: validate(self, loader, epoch_length = None, mode = 'val')
+
+
+   .. py:method:: _auto_set_epoch(loader, epoch)
+      :staticmethod:
+
+
+   .. py:method:: _auto_infer_epoch_length(loader)
+      :staticmethod:
+
+
+   .. py:method:: exit(self)
+
+
+   .. py:method:: every(i, n)
+      :staticmethod:
+
+
+   .. py:method:: every_n_steps(self, n = 1)
+
+
+   .. py:method:: unfinished(self, max_epochs)
+
+
+   .. py:method:: compose(*middlewars)
+      :staticmethod:
+
+
+   .. py:method:: run(self)
+
+
+

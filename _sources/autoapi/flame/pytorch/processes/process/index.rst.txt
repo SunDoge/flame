@@ -1,5 +1,5 @@
-:mod:`flame.pytorch.processes.process`
-======================================
+:py:mod:`flame.pytorch.processes.process`
+=========================================
 
 .. py:module:: flame.pytorch.processes.process
 
@@ -25,14 +25,14 @@ Attributes
    flame.pytorch.processes.process._logger
 
 
-.. data:: _logger
+.. py:data:: _logger
    
 
    
 
-.. class:: Process
+.. py:class:: Process
 
-   .. method:: forward(self, batch)
+   .. py:method:: forward(self, batch)
 
       forward wrapper
 
@@ -50,32 +50,33 @@ Attributes
               return self.output(loss=loss, batch_size=labe.size(0), pred=pred, label=label)
 
 
-   .. method:: training_step(self, batch)
+
+   .. py:method:: training_step(self, batch)
 
 
-   .. method:: validation_step(self, batch)
+   .. py:method:: validation_step(self, batch)
 
 
-   .. method:: update(self)
+   .. py:method:: update(self)
 
 
-   .. method:: train(self, mode = True)
+   .. py:method:: train(self, mode = True)
 
 
-   .. method:: eval(self)
+   .. py:method:: eval(self)
 
 
-   .. method:: output(loss = None, batch_size = None, **kwargs)
+   .. py:method:: output(loss = None, batch_size = None, **kwargs)
       :staticmethod:
 
 
-   .. method:: infer_dtype(module)
+   .. py:method:: infer_dtype(module)
       :staticmethod:
 
       通过model推断dtype
 
 
-   .. method:: infer_device(module)
+   .. py:method:: infer_device(module)
       :staticmethod:
 
       通过model推断device

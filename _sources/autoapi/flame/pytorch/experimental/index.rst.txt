@@ -1,5 +1,5 @@
-:mod:`flame.pytorch.experimental`
-=================================
+:py:mod:`flame.pytorch.experimental`
+====================================
 
 .. py:module:: flame.pytorch.experimental
 
@@ -10,9 +10,19 @@ Subpackages
    :titlesonly:
    :maxdepth: 3
 
+   compact_engine/index.rst
    container/index.rst
    engine/index.rst
    meters/index.rst
    metrics/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   singleton_registry/index.rst
 
 

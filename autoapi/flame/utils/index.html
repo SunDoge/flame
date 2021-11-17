@@ -95,6 +95,15 @@
   </a>
   <ul class="current">
    <li class="toctree-l3">
+    <a class="reference internal" href="../helpers/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.helpers
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
     <a class="reference internal" href="../pytorch/index.html">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
@@ -122,10 +131,28 @@
       </a>
      </li>
      <li class="toctree-l4">
+      <a class="reference internal" href="inspector/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.utils.inspector
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
       <a class="reference internal" href="jsonnet/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.utils.jsonnet
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
+      <a class="reference internal" href="main_fn/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.utils.main_fn
         </span>
        </code>
       </a>
@@ -169,19 +196,10 @@
     </a>
    </li>
    <li class="toctree-l3">
-    <a class="reference internal" href="../argument/index.html">
+    <a class="reference internal" href="../arguments/index.html">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
-       flame.argument
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toctree-l3">
-    <a class="reference internal" href="../auto_builder/index.html">
-     <code class="xref py py-mod docutils literal notranslate">
-      <span class="pre">
-       flame.auto_builder
+       flame.arguments
       </span>
      </code>
     </a>
@@ -205,6 +223,24 @@
     </a>
    </li>
    <li class="toctree-l3">
+    <a class="reference internal" href="../config_parser/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.config_parser
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../distributed_training/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.distributed_training
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
     <a class="reference internal" href="../logging/index.html">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
@@ -214,10 +250,10 @@
     </a>
    </li>
    <li class="toctree-l3">
-    <a class="reference internal" href="../registry/index.html">
+    <a class="reference internal" href="../state/index.html">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
-       flame.registry
+       flame.state
       </span>
      </code>
     </a>
@@ -269,6 +305,11 @@
        rich_format
       </a>
      </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.utils.main_fn">
+       main_fn
+      </a>
+     </li>
     </ul>
    </li>
   </ul>
@@ -297,7 +338,9 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="experiment/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.utils.experiment</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="inspector/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.utils.inspector</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="jsonnet/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.utils.jsonnet</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="main_fn/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.utils.main_fn</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="operating_system/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.utils.operating_system</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="rich_formatter/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.utils.rich_formatter</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="timing/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.utils.timing</span></code></a></li>
@@ -317,6 +360,9 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame.utils.rich_format" title="flame.utils.rich_format"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rich_format</span></code></a>(obj)</p></td>
 <td><p></p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="main_fn/index.html#module-flame.utils.main_fn" title="flame.utils.main_fn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">main_fn</span></code></a></p></td>
+<td><p></p></td>
+</tr>
 </tbody>
 </table>
 <dl class="py function">
@@ -328,6 +374,19 @@
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="flame.utils.main_fn">
+<code class="sig-prename descclassname"><span class="pre">flame.utils.</span></code><code class="sig-name descname"><span class="pre">main_fn</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.utils.main_fn" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>func</strong> (<em>T</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>T</p>
 </dd>
 </dl>
 </dd></dl>

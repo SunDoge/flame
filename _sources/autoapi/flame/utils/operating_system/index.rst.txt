@@ -1,5 +1,5 @@
-:mod:`flame.utils.operating_system`
-===================================
+:py:mod:`flame.utils.operating_system`
+======================================
 
 .. py:module:: flame.utils.operating_system
 
@@ -26,20 +26,22 @@ Attributes
    flame.utils.operating_system._logger
 
 
-.. data:: _logger
+.. py:data:: _logger
    
 
    
 
-.. function:: find_free_port()
+.. py:function:: find_free_port()
 
    find a free port for distributed training automatically
 
 
-.. function:: ulimit_n_max()
+
+.. py:function:: ulimit_n_max()
 
    Raise ulimit to its max value
 
    在某些情况下，dataloader会把文件描述符用完
+
 
 

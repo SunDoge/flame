@@ -1,5 +1,5 @@
-:mod:`flame.pytorch.container`
-==============================
+:py:mod:`flame.pytorch.container`
+=================================
 
 .. py:module:: flame.pytorch.container
 
@@ -17,8 +17,17 @@ Classes
 
 .. autoapisummary::
 
-   flame.pytorch.container.RootModule
+   flame.pytorch.container.CallableAssistedBuilder
+   flame.pytorch.container.BaseModule
 
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.container.build_from_config_with_container
 
 
 
@@ -28,33 +37,71 @@ Attributes
 .. autoapisummary::
 
    flame.pytorch.container._logger
+   flame.pytorch.container.T
 
 
-.. data:: _logger
+.. py:data:: _logger
    
 
    
 
-.. class:: RootModule(local_rank)
+.. py:data:: T
+   
 
+   
+
+.. py:class:: CallableAssistedBuilder(injector, target)
+
+   Bases: :py:obj:`injector.AssistedBuilder`\ [\ :py:obj:`T`\ ]
+
+   Abstract base class for generic types.
+
+   A generic type is typically declared by inheriting from
+   this class parameterized with one or more type variables.
+   For example, a generic mapping type might be defined as::
+
+     class Mapping(Generic[KT, VT]):
+         def __getitem__(self, key: KT) -> VT:
+             ...
+         # Etc.
+
+   This class can then be used as follows::
+
+     def lookup_name(mapping: Mapping[KT, VT], key: KT, default: VT) -> VT:
+         try:
+             return mapping[key]
+         except KeyError:
+             return default
+
+   .. py:method:: build(self, **kwargs)
+
+
+
+.. py:class:: BaseModule(args)
 
    Bases: :py:obj:`injector.Module`
 
    Configures injector and providers.
 
-   .. method:: create_args(self)
+   .. py:method:: create_basic_args(self)
 
 
-   .. method:: create_config(self, args, experiment_dir)
+   .. py:method:: create_config(self, args, experiment_dir)
 
 
-   .. method:: create_experiment_dir(self, args)
+   .. py:method:: create_experiment_dir(self, args)
 
 
-   .. method:: create_device(self)
+   .. py:method:: create_device(self)
 
 
-   .. method:: create_local_rank(self)
+   .. py:method:: create_local_rank(self, args)
 
+
+   .. py:method:: create_debug_mode(self, args)
+
+
+
+.. py:function:: build_from_config_with_container(container, cfg, type_key='_type')
 
 

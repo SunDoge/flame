@@ -1,5 +1,5 @@
-:mod:`flame.pytorch.metrics.batch_size_metric`
-==============================================
+:py:mod:`flame.pytorch.metrics.batch_size_metric`
+=================================================
 
 .. py:module:: flame.pytorch.metrics.batch_size_metric
 
@@ -17,8 +17,7 @@ Classes
 
 
 
-.. class:: BatchSizeMetric(output_transform, name = 'batch_size')
-
+.. py:class:: BatchSizeMetric(output_transform, name = 'batch_size')
 
    Bases: :py:obj:`flame.pytorch.metrics.base_metric.Metric`
 

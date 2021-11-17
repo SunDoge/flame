@@ -1,5 +1,5 @@
-:mod:`flame.archiver`
-=====================
+:py:mod:`flame.archiver`
+========================
 
 .. py:module:: flame.archiver
 
@@ -33,23 +33,23 @@ Attributes
    flame.archiver.file_list
 
 
-.. data:: _logger
+.. py:data:: _logger
    
 
    
 
-.. function:: git_ls_files()
+.. py:function:: git_ls_files()
 
    https://stackoverflow.com/questions/2766600/git-archive-of-repository-with-uncommitted-changes/63092214#63092214
 
 
-.. function:: zip_files(file_list, filename)
+.. py:function:: zip_files(file_list, filename)
 
 
-.. function:: make_archive(filename)
+.. py:function:: make_archive(filename)
 
 
-.. data:: file_list
+.. py:data:: file_list
    
 
    

@@ -1,0 +1,68 @@
+:py:mod:`flame.config_parser`
+=============================
+
+.. py:module:: flame.config_parser
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.config_parser.ConfigParser
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.config_parser.require
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.config_parser.KEY_NAME
+   flame.config_parser.PREFIX_PLACEHOLDER
+   flame.config_parser._logger
+
+
+.. py:data:: KEY_NAME
+   :annotation: = _name
+
+   
+
+.. py:data:: PREFIX_PLACEHOLDER
+   :annotation: = $
+
+   
+
+.. py:data:: _logger
+   
+
+   
+
+.. py:class:: ConfigParser(**kwargs)
+
+   .. py:method:: _parse_object(self, config, depth)
+
+
+   .. py:method:: parse(self, config, depth = 64)
+
+
+
+.. py:function:: require(name)
+
+   根据路径名自动import
+
+   torch.nn.Conv2d -> torch.nn + Conv2d
+
+

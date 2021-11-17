@@ -1,0 +1,39 @@
+:py:mod:`flame.pytorch.experimental.compact_engine.config`
+==========================================================
+
+.. py:module:: flame.pytorch.experimental.compact_engine.config
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.experimental.compact_engine.config.Stage
+
+
+
+
+.. py:class:: Stage
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+   .. py:attribute:: batch_size
+      :annotation: :int
+
+      
+
+   .. py:attribute:: num_workers
+      :annotation: :int
+
+      
+
+   .. py:attribute:: dataset
+      :annotation: :dict
+
+      
+
+

@@ -1,5 +1,5 @@
-:mod:`flame.pytorch.utils.ranking`
-==================================
+:py:mod:`flame.pytorch.utils.ranking`
+=====================================
 
 .. py:module:: flame.pytorch.utils.ranking
 
@@ -34,21 +34,24 @@ Attributes
    flame.pytorch.utils.ranking.T
 
 
-.. class:: FakeObject
+.. py:class:: FakeObject
 
-   .. method:: __getattr__(self, _name)
-
-
-
-.. function:: do_nothing(*args, **kwargs)
+   .. py:method:: __getattr__(self, _name)
 
 
-.. data:: T
+   .. py:method:: __bool__(self)
+
+
+
+.. py:function:: do_nothing(*args, **kwargs)
+
+
+.. py:data:: T
    
 
    
 
-.. function:: rank0(func)
+.. py:function:: rank0(func)
 
    run func only on rank 0
 

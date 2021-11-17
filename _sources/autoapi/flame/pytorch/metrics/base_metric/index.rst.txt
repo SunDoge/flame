@@ -1,5 +1,5 @@
-:mod:`flame.pytorch.metrics.base_metric`
-========================================
+:py:mod:`flame.pytorch.metrics.base_metric`
+===========================================
 
 .. py:module:: flame.pytorch.metrics.base_metric
 
@@ -27,23 +27,21 @@ Functions
 
 
 
-.. function:: _to_number(x)
+.. py:function:: _to_number(x)
 
 
-.. function:: _default_compute_fn(x)
+.. py:function:: _default_compute_fn(x)
 
 
-.. class:: Metric(name, output_transform, compute_fn = _default_compute_fn)
+.. py:class:: Metric(name, output_transform, compute_fn = _default_compute_fn)
+
+   .. py:method:: __call__(self, output)
 
 
-   .. method:: __call__(self, output)
 
+.. py:class:: MetricList(metrics)
 
-
-.. class:: MetricList(metrics)
-
-
-   .. method:: __call__(self, output)
+   .. py:method:: __call__(self, output)
 
 
 

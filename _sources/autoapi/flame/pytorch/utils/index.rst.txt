@@ -1,5 +1,5 @@
-:mod:`flame.pytorch.utils`
-==========================
+:py:mod:`flame.pytorch.utils`
+=============================
 
 .. py:module:: flame.pytorch.utils
 
@@ -13,6 +13,7 @@ Submodules
    attributes/index.rst
    cudnn/index.rst
    distributed/index.rst
+   lr_schduler/index.rst
    ranking/index.rst
    spawn/index.rst
 
@@ -33,7 +34,7 @@ Functions
 
 
 
-.. function:: rank0(func)
+.. py:function:: rank0(func)
 
    run func only on rank 0
 
@@ -49,19 +50,21 @@ Functions
    :param func: function or lambda
 
 
-.. function:: get_learning_rate_from_optimizer(optimizer)
+.. py:function:: get_learning_rate_from_optimizer(optimizer)
 
    Get learning rate from optimizer
 
 
 
-.. function:: get_first_parameter_or_buffer(module)
+
+.. py:function:: get_first_parameter_or_buffer(module)
 
    Get first parameter or buffer from module
 
 
 
 
-.. function:: set_cudnn_benchmark()
+
+.. py:function:: set_cudnn_benchmark()
 
 

@@ -1,0 +1,262 @@
+:py:mod:`flame.pytorch.experimental.compact_engine.engine_v3`
+=============================================================
+
+.. py:module:: flame.pytorch.experimental.compact_engine.engine_v3
+
+.. autoapi-nested-parse::
+
+   设计composable的Engine
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.experimental.compact_engine.engine_v3.Stage
+   flame.pytorch.experimental.compact_engine.engine_v3.BaseState
+   flame.pytorch.experimental.compact_engine.engine_v3.BaseEngineConfig
+   flame.pytorch.experimental.compact_engine.engine_v3.BaseDataLoaderDesc
+   flame.pytorch.experimental.compact_engine.engine_v3.BaseDataModule
+   flame.pytorch.experimental.compact_engine.engine_v3.BaseEngine
+   flame.pytorch.experimental.compact_engine.engine_v3.ExampleState
+   flame.pytorch.experimental.compact_engine.engine_v3.ExampleEngine
+   flame.pytorch.experimental.compact_engine.engine_v3.ExampleDataModule
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.experimental.compact_engine.engine_v3.default_infer_length
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.experimental.compact_engine.engine_v3._logger
+   flame.pytorch.experimental.compact_engine.engine_v3.engine_config
+
+
+.. py:data:: _logger
+   
+
+   
+
+.. py:class:: Stage
+
+   python的enum并不好用，所以这里还是用constant
+
+   .. py:attribute:: Train
+      :annotation: :str = train
+
+      
+
+   .. py:attribute:: Val
+      :annotation: :str = val
+
+      
+
+   .. py:attribute:: Test
+      :annotation: :str = test
+
+      
+
+
+.. py:class:: BaseState
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+   .. py:class:: Config
+
+      .. py:attribute:: arbitrary_types_allowed
+         :annotation: = True
+
+         
+
+
+   .. py:attribute:: step
+      :annotation: :int = 0
+
+      
+
+   .. py:attribute:: epoch
+      :annotation: :int = 0
+
+      
+
+   .. py:attribute:: batch_idx
+      :annotation: :int = 0
+
+      
+
+   .. py:attribute:: epoch_length
+      :annotation: :int = 0
+
+      
+
+   .. py:attribute:: stage
+      :annotation: :str
+
+      
+
+   .. py:attribute:: metrics
+      :annotation: :dict
+
+      
+
+   .. py:attribute:: meters
+      :annotation: :flame.pytorch.meters.average_meter.DynamicAverageMeterGroup
+
+      
+
+   .. py:method:: train(self, mode = True)
+      :abstractmethod:
+
+
+   .. py:method:: eval(self)
+
+
+   .. py:method:: state_dict(self)
+
+
+   .. py:method:: load_state_dict(self, state_dict)
+
+
+   .. py:method:: is_last_batch(self)
+
+
+
+.. py:class:: BaseEngineConfig
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+   .. py:attribute:: max_epochs
+      :annotation: :int
+
+      
+
+   .. py:attribute:: print_freq
+      :annotation: :int = 1
+
+      
+
+   .. py:attribute:: update_freq
+      :annotation: :int = 1
+
+      
+
+
+.. py:function:: default_infer_length(x)
+
+
+.. py:class:: BaseDataLoaderDesc(loader, length = None, infer_length = default_infer_length)
+
+
+.. py:class:: BaseDataModule(train = None, val = None, test = None)
+
+
+.. py:class:: BaseEngine(config)
+
+   如果需要覆盖config，必须在这里声明config的类型
+
+   .. py:method:: forward(self, state, batch)
+      :abstractmethod:
+
+      :param state: 训练需要用到的状态，不能修改
+      :param batch: 训练数据
+
+
+   .. py:method:: training_step(self, state, batch)
+
+
+   .. py:method:: validation_step(self, state, batch)
+
+
+   .. py:method:: output(batch_size = 1, **kwargs)
+      :staticmethod:
+
+
+   .. py:method:: train(self, state, loader, epoch_length = None, stage = Stage.Train)
+
+
+   .. py:method:: validate(self, state, loader, epoch_length = None, stage = Stage.Val)
+
+
+   .. py:method:: test(self, state, loader, epoch_length = None, stage = Stage.Test)
+
+
+   .. py:method:: _try_infer_epoch_length(loader)
+      :staticmethod:
+
+
+   .. py:method:: _try_set_epoch(loader, epoch)
+      :staticmethod:
+
+
+   .. py:method:: every(i, n)
+      :staticmethod:
+
+
+   .. py:method:: run(self, state, data_module)
+
+
+
+.. py:class:: ExampleState
+
+   Bases: :py:obj:`BaseState`
+
+   .. py:attribute:: model
+      :annotation: :torch.nn.Module
+
+      
+
+   .. py:attribute:: optimizer
+      :annotation: :torch.optim.Optimizer
+
+      
+
+   .. py:method:: train(self, mode = True)
+
+
+
+.. py:class:: ExampleEngine(config)
+
+   Bases: :py:obj:`BaseEngine`
+
+   如果需要覆盖config，必须在这里声明config的类型
+
+   .. py:attribute:: config
+      :annotation: :BaseEngineConfig
+
+      
+
+   .. py:method:: forward(self, state, batch)
+
+      :param state: 训练需要用到的状态，不能修改
+      :param batch: 训练数据
+
+
+
+.. py:class:: ExampleDataModule(train = None, val = None, test = None)
+
+   Bases: :py:obj:`BaseDataModule`
+
+   .. py:method:: get_loader(self, stage)
+
+
+
+.. py:data:: engine_config
+   
+
+   
+

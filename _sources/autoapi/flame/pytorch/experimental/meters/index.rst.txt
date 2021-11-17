@@ -1,5 +1,5 @@
-:mod:`flame.pytorch.experimental.meters`
-========================================
+:py:mod:`flame.pytorch.experimental.meters`
+===========================================
 
 .. py:module:: flame.pytorch.experimental.meters
 

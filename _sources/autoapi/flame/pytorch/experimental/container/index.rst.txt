@@ -1,5 +1,5 @@
-:mod:`flame.pytorch.experimental.container`
-===========================================
+:py:mod:`flame.pytorch.experimental.container`
+==============================================
 
 .. py:module:: flame.pytorch.experimental.container
 

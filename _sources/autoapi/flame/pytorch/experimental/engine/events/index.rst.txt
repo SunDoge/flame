@@ -1,5 +1,5 @@
-:mod:`flame.pytorch.experimental.engine.events`
-===============================================
+:py:mod:`flame.pytorch.experimental.engine.events`
+==================================================
 
 .. py:module:: flame.pytorch.experimental.engine.events
 
@@ -37,13 +37,12 @@ Attributes
    flame.pytorch.experimental.engine.events._logger
 
 
-.. data:: _logger
+.. py:data:: _logger
    
 
    
 
-.. class:: CallableEventWithFilter(value, event_filter = None, name = None)
-
+.. py:class:: CallableEventWithFilter(value, event_filter = None, name = None)
 
    Single Event containing a filter, specifying whether the event should
    be run at the current event (if the event type is correct)
@@ -54,17 +53,17 @@ Attributes
                         function that always returns `True`
    :param name: The enum-name of the current object. Only needed for internal use. Do not touch!
 
-   .. method:: name(self)
+   .. py:method:: name(self)
 
       The name of the Enum member.
 
 
-   .. method:: value(self)
+   .. py:method:: value(self)
 
       The value of the Enum member.
 
 
-   .. method:: __call__(self, event_filter = None, every = None, once = None)
+   .. py:method:: __call__(self, event_filter = None, every = None, once = None)
 
       Makes the event class callable and accepts either an arbitrary callable as filter
       (which must take in the engine and current event value and return a boolean) or an every or once value
@@ -78,45 +77,44 @@ Attributes
       :rtype: CallableEventWithFilter
 
 
-   .. method:: every_event_filter(every)
+   .. py:method:: every_event_filter(every)
       :staticmethod:
 
       A wrapper for every event filter.
 
 
-   .. method:: once_event_filter(once)
+   .. py:method:: once_event_filter(once)
       :staticmethod:
 
       A wrapper for once event filter.
 
 
-   .. method:: default_event_filter(engine, event)
+   .. py:method:: default_event_filter(engine, event)
       :staticmethod:
 
       Default event filter.
 
 
-   .. method:: __str__(self)
+   .. py:method:: __str__(self)
 
       Return str(self).
 
 
-   .. method:: __eq__(self, other)
+   .. py:method:: __eq__(self, other)
 
       Return self==value.
 
 
-   .. method:: __hash__(self)
+   .. py:method:: __hash__(self)
 
       Return hash(self).
 
 
-   .. method:: __or__(self, other)
+   .. py:method:: __or__(self, other)
 
 
 
-.. class:: EventEnum(value, event_filter = None, name = None)
-
+.. py:class:: EventEnum(value, event_filter = None, name = None)
 
    Bases: :py:obj:`CallableEventWithFilter`, :py:obj:`enum.Enum`
 
@@ -150,8 +148,7 @@ Attributes
                # ...
 
 
-.. class:: Events(value, event_filter = None, name = None)
-
+.. py:class:: Events(value, event_filter = None, name = None)
 
    Bases: :py:obj:`EventEnum`
 
@@ -184,183 +181,182 @@ Attributes
            def function_before_backprop(engine):
                # ...
 
-   .. attribute:: EPOCH_STARTED
+   .. py:attribute:: EPOCH_STARTED
       :annotation: = epoch_started
 
       
 
-   .. attribute:: EPOCH_COMPLETED
+   .. py:attribute:: EPOCH_COMPLETED
       :annotation: = epoch_completed
 
       
 
-   .. attribute:: STARTED
+   .. py:attribute:: STARTED
       :annotation: = started
 
       
 
-   .. attribute:: COMPLETED
+   .. py:attribute:: COMPLETED
       :annotation: = completed
 
       
 
-   .. attribute:: ITERATION_STARTED
+   .. py:attribute:: ITERATION_STARTED
       :annotation: = iteration_started
 
       
 
-   .. attribute:: ITERATION_COMPLETED
+   .. py:attribute:: ITERATION_COMPLETED
       :annotation: = iteration_completed
 
       
 
-   .. attribute:: EXCEPTION_RAISED
+   .. py:attribute:: EXCEPTION_RAISED
       :annotation: = exception_raised
 
       
 
-   .. attribute:: GET_BATCH_STARTED
+   .. py:attribute:: GET_BATCH_STARTED
       :annotation: = get_batch_started
 
       
 
-   .. attribute:: GET_BATCH_COMPLETED
+   .. py:attribute:: GET_BATCH_COMPLETED
       :annotation: = get_batch_completed
 
       
 
-   .. attribute:: DATALOADER_STOP_ITERATION
+   .. py:attribute:: DATALOADER_STOP_ITERATION
       :annotation: = dataloader_stop_iteration
 
       
 
-   .. attribute:: TERMINATE
+   .. py:attribute:: TERMINATE
       :annotation: = terminate
 
       
 
-   .. attribute:: TERMINATE_SINGLE_EPOCH
+   .. py:attribute:: TERMINATE_SINGLE_EPOCH
       :annotation: = terminate_single_epoch
 
       
 
-   .. method:: __or__(self, other)
+   .. py:method:: __or__(self, other)
 
 
 
-.. class:: EventsList
+.. py:class:: EventsList
+
+   .. py:method:: _append(self, event)
 
 
-   .. method:: _append(self, event)
+   .. py:method:: __getitem__(self, index)
 
 
-   .. method:: __getitem__(self, index)
+   .. py:method:: __iter__(self)
 
 
-   .. method:: __iter__(self)
+   .. py:method:: __len__(self)
 
 
-   .. method:: __len__(self)
-
-
-   .. method:: __or__(self, other)
+   .. py:method:: __or__(self, other)
 
 
 
-.. function:: _get_default_event_to_attr()
+.. py:function:: _get_default_event_to_attr()
 
 
-.. class:: State
+.. py:class:: State
 
-   .. attribute:: epoch
+   .. py:attribute:: epoch
       :annotation: :int = 0
 
       
 
-   .. attribute:: max_epochs
+   .. py:attribute:: max_epochs
       :annotation: :Optional[int]
 
       
 
-   .. attribute:: local_iteration
+   .. py:attribute:: local_iteration
       :annotation: :int = 0
 
       
 
-   .. attribute:: global_iteration
+   .. py:attribute:: global_iteration
       :annotation: :int = 0
 
       
 
-   .. attribute:: epoch_length
+   .. py:attribute:: epoch_length
       :annotation: :Optional[int]
 
       
 
-   .. attribute:: max_iterations
+   .. py:attribute:: max_iterations
       :annotation: :Optional[int]
 
       
 
-   .. attribute:: batch
+   .. py:attribute:: batch
       :annotation: :Optional[Any]
 
       
 
-   .. attribute:: output
+   .. py:attribute:: output
       :annotation: :Optional[Any]
 
       
 
-   .. attribute:: dataloader
+   .. py:attribute:: dataloader
       :annotation: :Optional[Iterable[Any]]
 
       
 
-   .. attribute:: metrics
+   .. py:attribute:: metrics
       :annotation: :Dict[str, Any]
 
       
 
-   .. attribute:: event_to_attr
+   .. py:attribute:: event_to_attr
       :annotation: :Dict[Events, str]
 
       
 
-   .. method:: update_max_iterations(self)
+   .. py:method:: update_max_iterations(self)
 
 
-   .. method:: update_local_iteration(self, iteration)
+   .. py:method:: update_local_iteration(self, iteration)
 
 
-   .. method:: update_global_iteration(self)
+   .. py:method:: update_global_iteration(self)
 
 
-   .. method:: is_done_iterations(self)
+   .. py:method:: is_done_iterations(self)
 
 
-   .. method:: is_done_epochs(self)
+   .. py:method:: is_done_epochs(self)
 
 
-   .. method:: is_done_count(self)
+   .. py:method:: is_done_count(self)
 
 
-   .. method:: is_done(self)
+   .. py:method:: is_done(self)
 
 
-   .. method:: reset(self)
+   .. py:method:: reset(self)
 
 
-   .. method:: every_iterations(self, n)
+   .. py:method:: every_iterations(self, n)
 
 
-   .. method:: every_epochs(self, n)
+   .. py:method:: every_epochs(self, n)
 
 
-   .. method:: _update_attrs(self)
+   .. py:method:: _update_attrs(self)
 
 
-   .. method:: get_event_attrib_value(self, event_name)
+   .. py:method:: get_event_attrib_value(self, event_name)
 
       Get the value of Event attribute with given `event_name`.
 

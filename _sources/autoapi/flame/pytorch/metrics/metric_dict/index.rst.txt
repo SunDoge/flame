@@ -1,0 +1,36 @@
+:py:mod:`flame.pytorch.metrics.metric_dict`
+===========================================
+
+.. py:module:: flame.pytorch.metrics.metric_dict
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.metrics.metric_dict.Item
+   flame.pytorch.metrics.metric_dict.MetricDict
+
+
+
+
+.. py:class:: Item
+
+   .. py:attribute:: metric
+      :annotation: :flame.pytorch.metrics.base_metric.Metric
+
+      
+
+   .. py:attribute:: meter
+      :annotation: :flame.pytorch.meters.AverageMeter
+
+      
+
+
+.. py:class:: MetricDict(**metrics)
+
+

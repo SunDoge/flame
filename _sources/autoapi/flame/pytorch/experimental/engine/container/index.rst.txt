@@ -1,5 +1,5 @@
-:mod:`flame.pytorch.experimental.engine.container`
-==================================================
+:py:mod:`flame.pytorch.experimental.engine.container`
+=====================================================
 
 .. py:module:: flame.pytorch.experimental.engine.container
 
@@ -34,13 +34,12 @@ Attributes
    flame.pytorch.experimental.engine.container.T
 
 
-.. data:: T
+.. py:data:: T
    
 
    
 
-.. class:: Container(modules = None, auto_bind = True, parent = None)
-
+.. py:class:: Container(modules = None, auto_bind = True, parent = None)
 
    Bases: :py:obj:`injector.Injector`
 
@@ -58,16 +57,16 @@ Attributes
    .. versionchanged:: 0.13.0
        ``use_annotations`` parameter is removed
 
-   .. method:: with_injection(self, func)
+   .. py:method:: with_injection(self, func)
 
 
-   .. method:: get_dependencies(self, callable, args=(), kwargs={})
+   .. py:method:: get_dependencies(self, callable, args=(), kwargs={})
 
 
 
-.. function:: get_dependencies(container, callable, **kwargs)
+.. py:function:: get_dependencies(container, callable, **kwargs)
 
 
-.. function:: singleton_provider(func)
+.. py:function:: singleton_provider(func)
 
 

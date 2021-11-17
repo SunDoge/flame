@@ -1,0 +1,114 @@
+:py:mod:`flame.arguments`
+=========================
+
+.. py:module:: flame.arguments
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.arguments.BaseArgs
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.arguments.parse_gpu_list
+
+
+
+.. py:function:: parse_gpu_list(gpu_str)
+
+   0-7 => [0,1,2,3,4,5,6,7]
+   1,3,5,7 => [1,3,5,7]
+   0-3,6-7 => [0,1,2,3,6,7]
+
+
+.. py:class:: BaseArgs
+
+   Bases: :py:obj:`typed_args.TypedArgs`
+
+   一般训练必须的参数
+
+   .. py:attribute:: config
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: output_dir
+      :annotation: :pathlib.Path
+
+      
+
+   .. py:attribute:: experiment_name
+      :annotation: :str
+
+      
+
+   .. py:attribute:: debug
+      :annotation: :bool
+
+      
+
+   .. py:attribute:: add
+      :annotation: :List[str]
+
+      
+
+
+   .. py:attribute:: rank
+      :annotation: :int
+
+      
+
+   .. py:attribute:: world_size
+      :annotation: :int
+
+      
+
+   .. py:attribute:: dist_url
+      :annotation: :str
+
+      
+
+   .. py:attribute:: dist_backend
+      :annotation: :str
+
+      
+
+   .. py:attribute:: seed
+      :annotation: :int
+
+      
+
+   .. py:attribute:: gpu
+      :annotation: :List[int]
+
+      
+
+   .. py:attribute:: rank_start
+      :annotation: :int
+
+      
+
+   .. py:attribute:: device_id
+      :annotation: :int
+
+      
+
+   .. py:method:: experiment_dir(self)
+      :property:
+
+
+   .. py:method:: parse_config(self)
+
+
+

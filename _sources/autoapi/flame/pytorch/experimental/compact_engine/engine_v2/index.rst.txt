@@ -1,0 +1,153 @@
+:py:mod:`flame.pytorch.experimental.compact_engine.engine_v2`
+=============================================================
+
+.. py:module:: flame.pytorch.experimental.compact_engine.engine_v2
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.experimental.compact_engine.engine_v2.State
+   flame.pytorch.experimental.compact_engine.engine_v2.BaseEngineConfig
+   flame.pytorch.experimental.compact_engine.engine_v2.BaseEngine
+
+
+
+
+.. py:class:: State
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+   .. py:attribute:: step
+      :annotation: :int = 0
+
+      
+
+   .. py:attribute:: epoch
+      :annotation: :int = 0
+
+      
+
+   .. py:attribute:: training
+      :annotation: :bool = True
+
+      
+
+   .. py:attribute:: metrics
+      :annotation: :dict
+
+      
+
+   .. py:attribute:: mode
+      :annotation: :str = train
+
+      
+
+   .. py:attribute:: debug
+      :annotation: :bool = False
+
+      
+
+
+.. py:class:: BaseEngineConfig
+
+   Bases: :py:obj:`pydantic.BaseModel`
+
+   .. py:attribute:: update_freq
+      :annotation: :int = 1
+
+      
+
+   .. py:attribute:: print_freq
+      :annotation: :int = 1
+
+      
+
+   .. py:attribute:: max_epochs
+      :annotation: :int = 1
+
+      
+
+
+.. py:class:: BaseEngine(state)
+
+   继承这个类，然后实现两个方法
+   forward
+   run
+
+   .. py:attribute:: model
+      :annotation: :flame.pytorch.typing_prelude.Model
+
+      
+
+   .. py:attribute:: optimizer
+      :annotation: :torch.optim.Optimizer
+
+      
+
+   .. py:attribute:: state
+      :annotation: :State
+
+      
+
+   .. py:attribute:: meters
+      :annotation: :flame.pytorch.meters.average_meter.AverageMeterGroup
+
+      
+
+   .. py:attribute:: cfg
+      :annotation: :BaseEngineConfig
+
+      
+
+   .. py:method:: training_step(self, batch, batch_idx)
+
+
+   .. py:method:: validation_step(self, batch, batch_idx)
+
+
+   .. py:method:: update(self, output)
+
+
+   .. py:method:: _loop(self, loader, epoch_length, step_fn)
+
+
+   .. py:method:: output(loss = None, batch_size = None, **kwargs)
+      :staticmethod:
+
+
+   .. py:method:: every(i, n)
+      :staticmethod:
+
+
+   .. py:method:: every_n_steps(self, n = 1)
+
+
+   .. py:method:: unfinished(self)
+
+
+   .. py:method:: _auto_infer_epoch_length(loader)
+      :staticmethod:
+
+
+   .. py:method:: train(self, loader, epoch_length = None, mode = 'train')
+
+
+   .. py:method:: validate(self, loader, epoch_length = None, mode = 'val')
+
+
+   .. py:method:: run(self)
+
+
+   .. py:method:: forward(self, batch, batch_idx)
+
+
+   .. py:method:: loop(self, next)
+
+
+

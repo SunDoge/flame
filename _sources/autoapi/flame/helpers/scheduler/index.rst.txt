@@ -1,0 +1,22 @@
+:py:mod:`flame.helpers.scheduler`
+=================================
+
+.. py:module:: flame.helpers.scheduler
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.helpers.scheduler.create_scheduler_from_config
+
+
+
+.. py:function:: create_scheduler_from_config(config, optimizer)
+
+

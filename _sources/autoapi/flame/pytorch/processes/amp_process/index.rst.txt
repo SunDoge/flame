@@ -1,5 +1,5 @@
-:mod:`flame.pytorch.processes.amp_process`
-==========================================
+:py:mod:`flame.pytorch.processes.amp_process`
+=============================================
 
 .. py:module:: flame.pytorch.processes.amp_process
 
@@ -25,23 +25,22 @@ Attributes
    flame.pytorch.processes.amp_process._logger
 
 
-.. data:: _logger
+.. py:data:: _logger
    
 
    
 
-.. class:: AmpProcess(scaler)
-
+.. py:class:: AmpProcess(scaler)
 
    Bases: :py:obj:`flame.pytorch.processes.process.Process`
 
-   .. method:: training_step(self, batch)
+   .. py:method:: training_step(self, batch)
 
 
-   .. method:: is_amp_enabled(self)
+   .. py:method:: is_amp_enabled(self)
 
 
-   .. method:: autocast(self)
+   .. py:method:: autocast(self)
 
 
 

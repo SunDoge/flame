@@ -1,5 +1,5 @@
-:mod:`flame.pytorch.meters`
-===========================
+:py:mod:`flame.pytorch.meters`
+==============================
 
 .. py:module:: flame.pytorch.meters
 
@@ -27,107 +27,145 @@ Classes
    flame.pytorch.meters.AverageMeter
    flame.pytorch.meters.AverageMeterGroup
    flame.pytorch.meters.EstimatedTimeOfArrival
+   flame.pytorch.meters.Meter
 
 
 
 
-.. class:: AverageMeter(name, fmt = ':f')
-
+.. py:class:: AverageMeter(name, fmt = ':f')
 
    Bases: :py:obj:`flame.pytorch.meters.base_meter.Meter`
 
    不需要了，定义在reset里面就可以了，vscode可以提示
 
-   .. method:: reset(self)
+   .. py:method:: reset(self)
 
 
-   .. method:: reset_local(self)
+   .. py:method:: reset_local(self)
 
 
-   .. method:: update(self, val, n = 1)
+   .. py:method:: update(self, val, n = 1)
 
 
-   .. method:: sync(self)
+   .. py:method:: sync(self)
 
 
-   .. method:: avg(self)
+   .. py:method:: avg(self)
       :property:
 
 
-   .. method:: __str__(self)
+   .. py:method:: __str__(self)
+
+      Return str(self).
+
+
+   .. py:method:: state_dict(self)
+
+
+   .. py:method:: load_state_dict(self, state)
+
+
+   .. py:method:: record(self)
+
+
+   .. py:method:: min(self)
+
+
+   .. py:method:: max(self)
+
+
+   .. py:method:: argmin(self)
+
+
+   .. py:method:: argmax(self)
+
+
+
+.. py:class:: AverageMeterGroup(meters, delimiter = '\t')
+
+   Bases: :py:obj:`flame.pytorch.meters.base_meter.Meter`
+
+   不需要了，定义在reset里面就可以了，vscode可以提示
+
+   .. py:method:: update(self, metrics, n = 1)
+
+
+   .. py:method:: sync(self)
+
+
+   .. py:method:: reset(self)
+
+
+   .. py:method:: __str__(self)
+
+      Return str(self).
+
+
+   .. py:method:: __getitem__(self, key)
+
+
+
+.. py:class:: EstimatedTimeOfArrival(total, initial = 0)
+
+   Bases: :py:obj:`flame.pytorch.meters.base_meter.Meter`
+
+   不需要了，定义在reset里面就可以了，vscode可以提示
+
+   .. py:method:: update(self, n = 1)
+
+
+   .. py:method:: remaining_seconds(self)
+      :property:
+
+
+   .. py:method:: remaining_time(self)
+      :property:
+
+
+   .. py:method:: arrival_time(self)
+      :property:
+
+
+   .. py:method:: elapsed_seconds(self)
+      :property:
+
+
+   .. py:method:: elapsed_time(self)
+      :property:
+
+
+   .. py:method:: remaining(self)
+      :property:
+
+
+   .. py:method:: elapsed(self)
+      :property:
+
+
+   .. py:method:: rate(self)
+      :property:
+
+
+   .. py:method:: reset(self)
+
+
+   .. py:method:: __str__(self)
 
       Return str(self).
 
 
 
-.. class:: AverageMeterGroup(meters, delimiter = '\t')
-
-
-   Bases: :py:obj:`flame.pytorch.meters.base_meter.Meter`
+.. py:class:: Meter
 
    不需要了，定义在reset里面就可以了，vscode可以提示
 
-   .. method:: update(self, metrics, n = 1)
+   .. py:method:: reset(self)
 
 
-   .. method:: sync(self)
+   .. py:method:: sync(self)
 
 
-   .. method:: reset(self)
-
-
-   .. method:: __str__(self)
-
-      Return str(self).
-
-
-
-.. class:: EstimatedTimeOfArrival(prefix, total, initial = 0)
-
-
-   Bases: :py:obj:`flame.pytorch.meters.base_meter.Meter`
-
-   不需要了，定义在reset里面就可以了，vscode可以提示
-
-   .. method:: update(self, n = 1)
-
-
-   .. method:: remaining_seconds(self)
-      :property:
-
-
-   .. method:: remaining_time(self)
-      :property:
-
-
-   .. method:: arrival_time(self)
-      :property:
-
-
-   .. method:: elapsed_seconds(self)
-      :property:
-
-
-   .. method:: elapsed_time(self)
-      :property:
-
-
-   .. method:: remaining(self)
-      :property:
-
-
-   .. method:: elapsed(self)
-      :property:
-
-
-   .. method:: rate(self)
-      :property:
-
-
-   .. method:: reset(self)
-
-
-   .. method:: __str__(self)
+   .. py:method:: __str__(self)
 
       Return str(self).
 

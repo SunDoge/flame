@@ -1,5 +1,5 @@
-:mod:`flame.utils.jsonnet`
-==========================
+:py:mod:`flame.utils.jsonnet`
+=============================
 
 .. py:module:: flame.utils.jsonnet
 
@@ -18,14 +18,14 @@ Functions
 
 
 
-.. function:: evaluate_file(filename, **kwargs)
+.. py:function:: evaluate_file(filename, **kwargs)
 
    eval file
 
    :param filename: jsonnet file
 
 
-.. function:: evaluate_snippet(filename, expr, **kwargs)
+.. py:function:: evaluate_snippet(filename, expr, **kwargs)
 
    eval snippet
 

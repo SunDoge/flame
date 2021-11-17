@@ -1,5 +1,5 @@
-:mod:`flame.pytorch.utils.distributed`
-======================================
+:py:mod:`flame.pytorch.utils.distributed`
+=========================================
 
 .. py:module:: flame.pytorch.utils.distributed
 
@@ -20,15 +20,15 @@ Functions
 
 
 
-.. function:: is_dist_available_and_initialized()
+.. py:function:: is_dist_available_and_initialized()
 
 
-.. function:: get_rank_safe()
+.. py:function:: get_rank_safe()
 
 
-.. function:: get_device_by_backend()
+.. py:function:: get_device_by_backend()
 
 
-.. function:: reduce_numbers(nums, op=ReduceOp.SUM)
+.. py:function:: reduce_numbers(nums, op=ReduceOp.SUM)
 
 

@@ -1,5 +1,5 @@
-:mod:`flame.pytorch.experimental.engine.mixins`
-===============================================
+:py:mod:`flame.pytorch.experimental.engine.mixins`
+==================================================
 
 .. py:module:: flame.pytorch.experimental.engine.mixins
 
@@ -17,15 +17,15 @@ Classes
 
 
 
-.. class:: Serializable
+.. py:class:: Serializable
 
    作为Engine的基类
 
-   .. method:: state_dict(self)
+   .. py:method:: state_dict(self)
       :abstractmethod:
 
 
-   .. method:: load_state_dict(self, state_dict)
+   .. py:method:: load_state_dict(self, state_dict)
 
 
 

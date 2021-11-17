@@ -1,5 +1,5 @@
-:mod:`flame.utils.timing`
-=========================
+:py:mod:`flame.utils.timing`
+============================
 
 .. py:module:: flame.utils.timing
 
@@ -17,7 +17,7 @@ Functions
 
 
 
-.. function:: format_timedelta(delta, show_microsecond = False)
+.. py:function:: format_timedelta(delta, show_microsecond = False)
 
    格式化timedelta
 

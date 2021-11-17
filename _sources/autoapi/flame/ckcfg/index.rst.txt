@@ -1,5 +1,5 @@
-:mod:`flame.ckcfg`
-==================
+:py:mod:`flame.ckcfg`
+=====================
 
 .. py:module:: flame.ckcfg
 
@@ -26,6 +26,6 @@ Functions
 
 
 
-.. function:: main()
+.. py:function:: main()
 
 
