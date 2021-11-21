@@ -29,6 +29,9 @@ def create_model(
     # use_sync_bn: bool = False,
     find_unused_parameters: bool = False,
 ) -> Model:
+    """
+    TODO
+    """
     base_model.to(device)
 
     if dist.is_available() and dist.is_initialized():
@@ -56,6 +59,9 @@ def create_model(
 
 
 def create_model_from_config(config: dict, find_unused_parameters: bool = False) -> Model:
+    """
+    TODO: 应该拆分成两个函数
+    """
     config_parser = ConfigParser()
     base_model = config_parser.parse(config)
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')

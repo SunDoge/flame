@@ -3,6 +3,7 @@ from .scheduler import create_scheduler_from_config
 from .model import create_model_from_config
 from .data import create_data_loader_from_config
 from flame.config_parser import ConfigParser
+from . import checkpoint_saver
 
 
 def create_from_config(config: dict):
