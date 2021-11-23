@@ -27,9 +27,16 @@ pip install -U git+https://github.com/SunDoge/flame
 
 ```bash
 mkdir third_party
-git clone https://hub.fastgit.org/SunDoge/flame third_party/flame
+git submodule add https://hub.fastgit.org/SunDoge/flame third_party/flame
 ln -s third_party/flame/flame ./
 ```
+
+For projects with `flame` as submodule
+
+```bash
+git submodule update --init
+```
+
 
 ## Usage
 
