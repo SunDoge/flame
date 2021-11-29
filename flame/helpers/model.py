@@ -5,7 +5,6 @@ from torch.nn.parallel import DistributedDataParallel, DataParallel
 import torch
 import torch.distributed as dist
 import logging
-from pygtrie import CharTrie
 from flame.config_parser import ConfigParser
 
 
