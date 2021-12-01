@@ -1,7 +1,6 @@
 import logging
 from dataclasses import Field, dataclass, field, asdict
 from typing import Any, Callable, Dict, Iterable, Optional, Sequence, Type
-from injector import Module, Injector
 
 _logger = logging.getLogger(__name__)
 
