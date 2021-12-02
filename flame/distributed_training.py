@@ -9,7 +9,7 @@ import torch.multiprocessing as mp
 import torch.distributed as dist
 import torch
 from flame.config import from_file
-from injector import Injector, inject
+
 
 
 _logger = logging.getLogger(__name__)
