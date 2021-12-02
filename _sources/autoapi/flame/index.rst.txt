@@ -29,6 +29,7 @@ Submodules
    distributed_training/index.rst
    logging/index.rst
    state/index.rst
+   testing/index.rst
    zip_importer/index.rst
 
 

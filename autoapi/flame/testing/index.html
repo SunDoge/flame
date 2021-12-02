@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>flame.utils &#8212; flame 0.0.1 documentation</title>
+    <title>flame.testing &#8212; flame 0.0.1 documentation</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../../_static/css/index.f6b7ca918bee2f46fd9abac01cfb07d5.css" rel="stylesheet" />
@@ -34,8 +34,8 @@
     <script src="../../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="flame.utils.experiment" href="experiment/index.html" />
-    <link rel="prev" title="flame.pytorch.typing_prelude" href="../pytorch/typing_prelude/index.html" />
+    <link rel="next" title="flame.zip_importer" href="../zip_importer/index.html" />
+    <link rel="prev" title="flame.state" href="../state/index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
   </head>
@@ -112,79 +112,14 @@
      </code>
     </a>
    </li>
-   <li class="toctree-l3 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l3">
+    <a class="reference internal" href="../utils/index.html">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
        flame.utils
       </span>
      </code>
     </a>
-    <ul>
-     <li class="toctree-l4">
-      <a class="reference internal" href="experiment/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         flame.utils.experiment
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l4">
-      <a class="reference internal" href="inspector/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         flame.utils.inspector
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l4">
-      <a class="reference internal" href="jsonnet/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         flame.utils.jsonnet
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l4">
-      <a class="reference internal" href="main_fn/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         flame.utils.main_fn
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l4">
-      <a class="reference internal" href="operating_system/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         flame.utils.operating_system
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l4">
-      <a class="reference internal" href="rich_formatter/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         flame.utils.rich_formatter
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l4">
-      <a class="reference internal" href="timing/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         flame.utils.timing
-        </span>
-       </code>
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toctree-l3">
     <a class="reference internal" href="../archiver/index.html">
@@ -258,8 +193,8 @@
      </code>
     </a>
    </li>
-   <li class="toctree-l3">
-    <a class="reference internal" href="../testing/index.html">
+   <li class="toctree-l3 current active">
+    <a class="current reference internal" href="#">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
        flame.testing
@@ -295,28 +230,28 @@
 <nav id="bd-toc-nav">
     <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#submodules">
-   Submodules
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#package-contents">
-   Package Contents
+  <a class="reference internal nav-link" href="#module-contents">
+   Module Contents
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#functions">
      Functions
     </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#attributes">
+     Attributes
+    </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.utils.rich_format">
-       rich_format
+      <a class="reference internal nav-link" href="#flame.testing._logger">
+       _logger
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.utils.main_fn">
-       main_fn
+      <a class="reference internal nav-link" href="#flame.testing.init_cpu_process_group">
+       init_cpu_process_group
       </a>
      </li>
     </ul>
@@ -340,24 +275,10 @@
               
               <div>
                 
-  <div class="section" id="module-flame.utils">
-<span id="flame-utils"></span><h1><a class="reference internal" href="#module-flame.utils" title="flame.utils"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.utils</span></code></a><a class="headerlink" href="#module-flame.utils" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="experiment/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.utils.experiment</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="inspector/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.utils.inspector</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="jsonnet/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.utils.jsonnet</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="main_fn/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.utils.main_fn</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="operating_system/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.utils.operating_system</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="rich_formatter/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.utils.rich_formatter</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="timing/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.utils.timing</span></code></a></li>
-</ul>
-</div>
-</div>
-<div class="section" id="package-contents">
-<h2>Package Contents<a class="headerlink" href="#package-contents" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="module-flame.testing">
+<span id="flame-testing"></span><h1><a class="reference internal" href="#module-flame.testing" title="flame.testing"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.testing</span></code></a><a class="headerlink" href="#module-flame.testing" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="functions">
 <h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
 <table class="longtable table autosummary">
@@ -366,36 +287,43 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.utils.rich_format" title="flame.utils.rich_format"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rich_format</span></code></a>(obj)</p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.testing.init_cpu_process_group" title="flame.testing.init_cpu_process_group"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_cpu_process_group</span></code></a>(rank = 0, world_size = 1, dist_url = 'tcp://127.0.0.1:12345')</p></td>
+<td><p>helper function for testing distributed training</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="main_fn/index.html#module-flame.utils.main_fn" title="flame.utils.main_fn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">main_fn</span></code></a>(func)</p></td>
+</tbody>
+</table>
+</div>
+<div class="section" id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.testing._logger" title="flame.testing._logger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_logger</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
-<dl class="py function">
-<dt id="flame.utils.rich_format">
-<code class="sig-prename descclassname"><span class="pre">flame.utils.</span></code><code class="sig-name descname"><span class="pre">rich_format</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.utils.rich_format" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>obj</strong> (<em>Any</em>) – </p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
+<dl class="py data">
+<dt id="flame.testing._logger">
+<code class="sig-prename descclassname"><span class="pre">flame.testing.</span></code><code class="sig-name descname"><span class="pre">_logger</span></code><a class="headerlink" href="#flame.testing._logger" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py function">
-<dt id="flame.utils.main_fn">
-<code class="sig-prename descclassname"><span class="pre">flame.utils.</span></code><code class="sig-name descname"><span class="pre">main_fn</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.utils.main_fn" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dt id="flame.testing.init_cpu_process_group">
+<code class="sig-prename descclassname"><span class="pre">flame.testing.</span></code><code class="sig-name descname"><span class="pre">init_cpu_process_group</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rank</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">world_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dist_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tcp://127.0.0.1:12345'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.testing.init_cpu_process_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>helper function for testing distributed training</p>
+<p>测试函数，方便在CPU环境下测试分布式操作，比如测试MoCo的shuffle bn。
+不要在生产环境中使用。</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>func</strong> (<em>T</em>) – </p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>T</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rank</strong> (<em>int</em>) – </p></li>
+<li><p><strong>world_size</strong> (<em>int</em>) – </p></li>
+<li><p><strong>dist_url</strong> (<em>str</em>) – </p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -410,8 +338,8 @@
               
               <div class='prev-next-bottom'>
                 
-    <a class='left-prev' id="prev-link" href="../pytorch/typing_prelude/index.html" title="previous page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.typing_prelude</span></code></a>
-    <a class='right-next' id="next-link" href="experiment/index.html" title="next page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.utils.experiment</span></code></a>
+    <a class='left-prev' id="prev-link" href="../state/index.html" title="previous page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.state</span></code></a>
+    <a class='right-next' id="next-link" href="../zip_importer/index.html" title="next page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.zip_importer</span></code></a>
 
               </div>
               

@@ -259,6 +259,15 @@
     </a>
    </li>
    <li class="toctree-l3">
+    <a class="reference internal" href="../testing/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.testing
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
     <a class="reference internal" href="../zip_importer/index.html">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
@@ -423,7 +432,7 @@
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#flame.helpers.create_model_from_config" title="flame.helpers.create_model_from_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_model_from_config</span></code></a>(config, find_unused_parameters = False)</p></td>
-<td><p></p></td>
+<td><p>TODO: 应该拆分成两个函数</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame.helpers.create_data_loader_from_config" title="flame.helpers.create_data_loader_from_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_data_loader_from_config</span></code></a>(config, key_transform = 'transform', key_dataset = 'dataset', key_loader = 'loader')</p></td>
 <td><p></p></td>
@@ -477,7 +486,8 @@
 <dl class="py function">
 <dt id="flame.helpers.create_model_from_config">
 <code class="sig-prename descclassname"><span class="pre">flame.helpers.</span></code><code class="sig-name descname"><span class="pre">create_model_from_config</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">find_unused_parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.helpers.create_model_from_config" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>TODO: 应该拆分成两个函数</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>config</strong> (<em>dict</em>) – </p></li>
@@ -530,7 +540,7 @@
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>config</strong> (<em>dict</em>) – </p></li>
+<li><p><strong>config</strong> (<em>Union</em><em>[</em><em>dict</em><em>, </em><em>list</em><em>, </em><em>float</em><em>, </em><em>int</em><em>, </em><em>str</em><em>]</em>) – </p></li>
 <li><p><strong>depth</strong> (<em>int</em>) – </p></li>
 </ul>
 </dd>

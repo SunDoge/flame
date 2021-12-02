@@ -1,0 +1,41 @@
+:py:mod:`flame.testing`
+=======================
+
+.. py:module:: flame.testing
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.testing.init_cpu_process_group
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.testing._logger
+
+
+.. py:data:: _logger
+   
+
+   
+
+.. py:function:: init_cpu_process_group(rank = 0, world_size = 1, dist_url = 'tcp://127.0.0.1:12345')
+
+   helper function for testing distributed training
+
+   测试函数，方便在CPU环境下测试分布式操作，比如测试MoCo的shuffle bn。
+   不要在生产环境中使用。
+
+
+

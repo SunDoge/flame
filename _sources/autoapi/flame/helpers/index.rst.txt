@@ -56,6 +56,8 @@ Functions
 
 .. py:function:: create_model_from_config(config, find_unused_parameters = False)
 
+   TODO: 应该拆分成两个函数
+
 
 .. py:function:: create_data_loader_from_config(config, key_transform = 'transform', key_dataset = 'dataset', key_loader = 'loader')
 

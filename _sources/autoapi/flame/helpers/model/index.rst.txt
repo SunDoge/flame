@@ -76,7 +76,11 @@ Attributes
 
 .. py:function:: create_model(base_model, device, find_unused_parameters = False)
 
+   TODO
+
 
 .. py:function:: create_model_from_config(config, find_unused_parameters = False)
+
+   TODO: 应该拆分成两个函数
 
 

@@ -331,6 +331,15 @@
     </a>
    </li>
    <li class="toctree-l3">
+    <a class="reference internal" href="../../../testing/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.testing
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
     <a class="reference internal" href="../../../zip_importer/index.html">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
@@ -775,12 +784,7 @@
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.experimental.engine.Container" title="flame.pytorch.experimental.engine.Container"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Container</span></code></a></p></td>
-<td><p><dl class="field-list simple">
-<dt class="field-odd">param modules</dt>
-<dd class="field-odd"><p>Optional - a configuration module or iterable of configuration modules.</p>
-</dd>
-</dl>
-</p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
@@ -1333,24 +1337,6 @@ this class. For example, Custom events based on the loss calculation and backwar
 <dt id="flame.pytorch.experimental.engine.Container">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.experimental.engine.</span></code><code class="sig-name descname"><span class="pre">Container</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modules</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_bind</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.Container" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">injector.Injector</span></code></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>modules</strong> – <p>Optional - a configuration module or iterable of configuration modules.
-Each module will be installed in current <code class="xref py py-class docutils literal notranslate"><span class="pre">Binder</span></code> using <code class="xref py py-meth docutils literal notranslate"><span class="pre">Binder.install()</span></code>.</p>
-<p>Consult <code class="xref py py-meth docutils literal notranslate"><span class="pre">Binder.install()</span></code> documentation for the details.</p>
-</p></li>
-<li><p><strong>auto_bind</strong> – Whether to automatically bind missing types.</p></li>
-<li><p><strong>parent</strong> – Parent injector.</p></li>
-</ul>
-</dd>
-</dl>
-<div class="versionadded">
-<p><span class="versionmodified added">New in version 0.7.5: </span><code class="docutils literal notranslate"><span class="pre">use_annotations</span></code> parameter</p>
-</div>
-<div class="versionchanged">
-<p><span class="versionmodified changed">Changed in version 0.13.0: </span><code class="docutils literal notranslate"><span class="pre">use_annotations</span></code> parameter is removed</p>
-</div>
 <dl class="py method">
 <dt id="flame.pytorch.experimental.engine.Container.with_injection">
 <code class="sig-name descname"><span class="pre">with_injection</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.experimental.engine.Container.with_injection" title="Permalink to this definition">¶</a></dt>

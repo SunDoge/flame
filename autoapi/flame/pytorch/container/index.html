@@ -331,6 +331,15 @@
     </a>
    </li>
    <li class="toctree-l3">
+    <a class="reference internal" href="../../testing/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.testing
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
     <a class="reference internal" href="../../zip_importer/index.html">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
@@ -476,10 +485,10 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.container.CallableAssistedBuilder" title="flame.pytorch.container.CallableAssistedBuilder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CallableAssistedBuilder</span></code></a></p></td>
-<td><p>Abstract base class for generic types.</p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.container.BaseModule" title="flame.pytorch.container.BaseModule"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseModule</span></code></a></p></td>
-<td><p>Configures injector and providers.</p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
@@ -526,26 +535,8 @@
 
 <dl class="py class">
 <dt id="flame.pytorch.container.CallableAssistedBuilder">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.container.</span></code><code class="sig-name descname"><span class="pre">CallableAssistedBuilder</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">injector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.container.CallableAssistedBuilder" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.container.</span></code><code class="sig-name descname"><span class="pre">CallableAssistedBuilder</span></code><a class="headerlink" href="#flame.pytorch.container.CallableAssistedBuilder" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">injector.AssistedBuilder</span></code>[<a class="reference internal" href="#flame.pytorch.container.T" title="flame.pytorch.container.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code></a>]</p>
-<p>Abstract base class for generic types.</p>
-<p>A generic type is typically declared by inheriting from
-this class parameterized with one or more type variables.
-For example, a generic mapping type might be defined as:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Mapping</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">KT</span><span class="p">,</span> <span class="n">VT</span><span class="p">]):</span>
-    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">KT</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">VT</span><span class="p">:</span>
-        <span class="o">...</span>
-    <span class="c1"># Etc.</span>
-</pre></div>
-</div>
-<p>This class can then be used as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">lookup_name</span><span class="p">(</span><span class="n">mapping</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="n">KT</span><span class="p">,</span> <span class="n">VT</span><span class="p">],</span> <span class="n">key</span><span class="p">:</span> <span class="n">KT</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span> <span class="n">VT</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">VT</span><span class="p">:</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">mapping</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">default</span>
-</pre></div>
-</div>
 <dl class="py method">
 <dt id="flame.pytorch.container.CallableAssistedBuilder.build">
 <code class="sig-name descname"><span class="pre">build</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.container.CallableAssistedBuilder.build" title="Permalink to this definition">¶</a></dt>
@@ -565,7 +556,6 @@ For example, a generic mapping type might be defined as:</p>
 <dt id="flame.pytorch.container.BaseModule">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.container.</span></code><code class="sig-name descname"><span class="pre">BaseModule</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.container.BaseModule" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">injector.Module</span></code></p>
-<p>Configures injector and providers.</p>
 <dl class="py method">
 <dt id="flame.pytorch.container.BaseModule.create_basic_args">
 <code class="sig-name descname"><span class="pre">create_basic_args</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.container.BaseModule.create_basic_args" title="Permalink to this definition">¶</a></dt>

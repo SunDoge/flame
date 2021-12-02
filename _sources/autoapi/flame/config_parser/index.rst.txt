@@ -31,7 +31,10 @@ Attributes
 .. autoapisummary::
 
    flame.config_parser.KEY_NAME
+   flame.config_parser.KEY_USE
+   flame.config_parser.KEY_CALL
    flame.config_parser.PREFIX_PLACEHOLDER
+   flame.config_parser.IMPORT_PLACEHOLDER
    flame.config_parser._logger
 
 
@@ -40,8 +43,23 @@ Attributes
 
    
 
+.. py:data:: KEY_USE
+   :annotation: = _use
+
+   
+
+.. py:data:: KEY_CALL
+   :annotation: = _call
+
+   
+
 .. py:data:: PREFIX_PLACEHOLDER
    :annotation: = $
+
+   
+
+.. py:data:: IMPORT_PLACEHOLDER
+   :annotation: = @
 
    
 
