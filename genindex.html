@@ -263,12 +263,12 @@
       </ul></li>
       <li><a href="autoapi/flame/pytorch/experimental/engine/events/index.html#flame.pytorch.experimental.engine.events._get_default_event_to_attr">_get_default_event_to_attr() (in module flame.pytorch.experimental.engine.events)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="autoapi/flame/state/index.html#flame.state.BaseState._get_training_state">_get_training_state() (flame.state.BaseState method)</a>
 </li>
       <li><a href="autoapi/flame/helpers/optimizer/index.html#flame.helpers.optimizer._get_world_size">_get_world_size() (in module flame.helpers.optimizer)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="autoapi/flame/pytorch/experimental/engine/index.html#flame.pytorch.experimental.engine.Engine._handler_wrapper">_handler_wrapper() (flame.pytorch.experimental.engine.Engine method)</a>
 
       <ul>
@@ -343,12 +343,20 @@
       </ul></li>
       <li><a href="autoapi/flame/pytorch/experimental/compact_engine/engine_v2/index.html#flame.pytorch.experimental.compact_engine.engine_v2.BaseEngine._loop">_loop() (flame.pytorch.experimental.compact_engine.engine_v2.BaseEngine method)</a>
 </li>
+      <li><a href="autoapi/flame/config_parser/index.html#flame.config_parser.ConfigParser2._parse_dict">_parse_dict() (flame.config_parser.ConfigParser2 method)</a>
+</li>
+      <li><a href="autoapi/flame/config_parser/index.html#flame.config_parser.ConfigParser2._parse_list">_parse_list() (flame.config_parser.ConfigParser2 method)</a>
+</li>
       <li><a href="autoapi/flame/config_parser/index.html#flame.config_parser.ConfigParser._parse_object">_parse_object() (flame.config_parser.ConfigParser method)</a>
 
       <ul>
+        <li><a href="autoapi/flame/config_parser/index.html#flame.config_parser.ConfigParser2._parse_object">(flame.config_parser.ConfigParser2 method)</a>
+</li>
         <li><a href="autoapi/flame/helpers/index.html#flame.helpers.ConfigParser._parse_object">(flame.helpers.ConfigParser method)</a>
 </li>
       </ul></li>
+      <li><a href="autoapi/flame/config_parser/index.html#flame.config_parser.ConfigParser2._parse_str">_parse_str() (flame.config_parser.ConfigParser2 method)</a>
+</li>
       <li><a href="autoapi/flame/helpers/optimizer/index.html#flame.helpers.optimizer._scale_lr">_scale_lr() (in module flame.helpers.optimizer)</a>
 </li>
       <li><a href="autoapi/flame/pytorch/experimental/engine/index.html#flame.pytorch.experimental.engine.Engine._setup_engine">_setup_engine() (flame.pytorch.experimental.engine.Engine method)</a>
@@ -611,6 +619,8 @@
         <li><a href="autoapi/flame/helpers/index.html#flame.helpers.ConfigParser">(class in flame.helpers)</a>
 </li>
       </ul></li>
+      <li><a href="autoapi/flame/config_parser/index.html#flame.config_parser.ConfigParser2">ConfigParser2 (class in flame.config_parser)</a>
+</li>
       <li><a href="autoapi/flame/pytorch/experimental/singleton_registry/index.html#flame.pytorch.experimental.singleton_registry.configure_singletons">configure_singletons() (in module flame.pytorch.experimental.singleton_registry)</a>
 </li>
       <li><a href="autoapi/flame/logging/index.html#flame.logging.CONSOLE_FORMAT">CONSOLE_FORMAT (in module flame.logging)</a>
@@ -635,9 +645,11 @@
 </li>
       <li><a href="autoapi/flame/pytorch/container/index.html#flame.pytorch.container.BaseModule.create_config">create_config() (flame.pytorch.container.BaseModule method)</a>
 </li>
-      <li><a href="autoapi/flame/helpers/data/index.html#flame.helpers.data.create_data_loader">create_data_loader() (in module flame.helpers.data)</a>
+      <li><a href="autoapi/flame/helpers/index.html#flame.helpers.create_data_loader">create_data_loader() (in module flame.helpers)</a>
 
       <ul>
+        <li><a href="autoapi/flame/helpers/data/index.html#flame.helpers.data.create_data_loader">(in module flame.helpers.data)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/helpers/index.html#flame.pytorch.helpers.create_data_loader">(in module flame.pytorch.helpers)</a>
 </li>
         <li><a href="autoapi/flame/pytorch/helpers/data/index.html#flame.pytorch.helpers.data.create_data_loader">(in module flame.pytorch.helpers.data)</a>
@@ -725,11 +737,13 @@
 </li>
       <li><a href="autoapi/flame/pytorch/typing_prelude/index.html#flame.pytorch.typing_prelude.Device">Device (in module flame.pytorch.typing_prelude)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="autoapi/flame/arguments/index.html#flame.arguments.BaseArgs.device_id">device_id (flame.arguments.BaseArgs attribute)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="autoapi/flame/pytorch/typing_prelude/index.html#flame.pytorch.typing_prelude.DictConfig">DictConfig (in module flame.pytorch.typing_prelude)</a>
+</li>
+      <li><a href="autoapi/flame/config_parser/index.html#flame.config_parser.ConfigParser2.dispatch">dispatch() (flame.config_parser.ConfigParser2 method)</a>
 </li>
       <li><a href="autoapi/flame/arguments/index.html#flame.arguments.BaseArgs.dist_backend">dist_backend (flame.arguments.BaseArgs attribute)</a>
 
@@ -1790,8 +1804,6 @@
 </li>
       <li><a href="autoapi/flame/zip_importer/index.html#flame.zip_importer.import_from_zip">import_from_zip() (in module flame.zip_importer)</a>
 </li>
-      <li><a href="autoapi/flame/config_parser/index.html#flame.config_parser.IMPORT_PLACEHOLDER">IMPORT_PLACEHOLDER (in module flame.config_parser)</a>
-</li>
       <li><a href="autoapi/flame/pytorch/processes/index.html#flame.pytorch.processes.Process.infer_device">infer_device() (flame.pytorch.processes.Process static method)</a>
 
       <ul>
@@ -1832,14 +1844,14 @@
       </ul></li>
       <li><a href="autoapi/flame/pytorch/utils/distributed/index.html#flame.pytorch.utils.distributed.is_dist_available_and_initialized">is_dist_available_and_initialized() (in module flame.pytorch.utils.distributed)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="autoapi/flame/pytorch/experimental/engine/events/index.html#flame.pytorch.experimental.engine.events.State.is_done">is_done() (flame.pytorch.experimental.engine.events.State method)</a>
 
       <ul>
         <li><a href="autoapi/flame/pytorch/experimental/engine/index.html#flame.pytorch.experimental.engine.State.is_done">(flame.pytorch.experimental.engine.State method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="autoapi/flame/pytorch/experimental/engine/events/index.html#flame.pytorch.experimental.engine.events.State.is_done_count">is_done_count() (flame.pytorch.experimental.engine.events.State method)</a>
 
       <ul>
@@ -1902,8 +1914,6 @@
 <h2 id="K">K</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/flame/config_parser/index.html#flame.config_parser.KEY_CALL">KEY_CALL (in module flame.config_parser)</a>
-</li>
       <li><a href="autoapi/flame/distributed_training/index.html#flame.distributed_training.KEY_ENGINE">KEY_ENGINE (in module flame.distributed_training)</a>
 </li>
       <li><a href="autoapi/flame/distributed_training/index.html#flame.distributed_training.KEY_MAIN_WORKER">KEY_MAIN_WORKER (in module flame.distributed_training)</a>
@@ -1911,8 +1921,6 @@
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="autoapi/flame/config_parser/index.html#flame.config_parser.KEY_NAME">KEY_NAME (in module flame.config_parser)</a>
-</li>
-      <li><a href="autoapi/flame/config_parser/index.html#flame.config_parser.KEY_USE">KEY_USE (in module flame.config_parser)</a>
 </li>
       <li><a href="autoapi/flame/pytorch/experimental/container/container/index.html#flame.pytorch.experimental.container.container.Kwargs">Kwargs (in module flame.pytorch.experimental.container.container)</a>
 </li>
@@ -2385,9 +2393,13 @@
 </li>
       <li><a href="autoapi/flame/pytorch/checkpoint_saver/base_checkpoint_saver/index.html#flame.pytorch.checkpoint_saver.base_checkpoint_saver.parallel_module_to_state_dict">parallel_module_to_state_dict() (in module flame.pytorch.checkpoint_saver.base_checkpoint_saver)</a>
 </li>
+      <li><a href="autoapi/flame/config_parser/index.html#flame.config_parser.ParsableConfig">ParsableConfig (in module flame.config_parser)</a>
+</li>
       <li><a href="autoapi/flame/config_parser/index.html#flame.config_parser.ConfigParser.parse">parse() (flame.config_parser.ConfigParser method)</a>
 
       <ul>
+        <li><a href="autoapi/flame/config_parser/index.html#flame.config_parser.ConfigParser2.parse">(flame.config_parser.ConfigParser2 method)</a>
+</li>
         <li><a href="autoapi/flame/helpers/index.html#flame.helpers.ConfigParser.parse">(flame.helpers.ConfigParser method)</a>
 </li>
       </ul></li>
@@ -2398,6 +2410,8 @@
 </li>
       </ul></li>
       <li><a href="autoapi/flame/arguments/index.html#flame.arguments.parse_gpu_list">parse_gpu_list() (in module flame.arguments)</a>
+</li>
+      <li><a href="autoapi/flame/config_parser/index.html#flame.config_parser.ConfigParser2.parse_root_config">parse_root_config() (flame.config_parser.ConfigParser2 method)</a>
 </li>
       <li><a href="autoapi/flame/config/index.html#flame.config.PATCH_FILE">PATCH_FILE (in module flame.config)</a>
 </li>
@@ -2410,6 +2424,8 @@
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="autoapi/flame/pytorch/utils/spawn/index.html#flame.pytorch.utils.spawn.ProcessContext.pids">pids() (flame.pytorch.utils.spawn.ProcessContext method)</a>
+</li>
+      <li><a href="autoapi/flame/config_parser/index.html#flame.config_parser.PREFIX_IMPORT">PREFIX_IMPORT (in module flame.config_parser)</a>
 </li>
       <li><a href="autoapi/flame/config_parser/index.html#flame.config_parser.PREFIX_PLACEHOLDER">PREFIX_PLACEHOLDER (in module flame.config_parser)</a>
 </li>

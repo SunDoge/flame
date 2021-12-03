@@ -287,7 +287,7 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.testing.init_cpu_process_group" title="flame.testing.init_cpu_process_group"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_cpu_process_group</span></code></a>(rank = 0, world_size = 1, dist_url = 'tcp://127.0.0.1:12345')</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.testing.init_cpu_process_group" title="flame.testing.init_cpu_process_group"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_cpu_process_group</span></code></a>(rank = 0, world_size = 1, dist_url = None)</p></td>
 <td><p>helper function for testing distributed training</p></td>
 </tr>
 </tbody>
@@ -313,7 +313,7 @@
 
 <dl class="py function">
 <dt id="flame.testing.init_cpu_process_group">
-<code class="sig-prename descclassname"><span class="pre">flame.testing.</span></code><code class="sig-name descname"><span class="pre">init_cpu_process_group</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rank</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">world_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dist_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tcp://127.0.0.1:12345'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.testing.init_cpu_process_group" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">flame.testing.</span></code><code class="sig-name descname"><span class="pre">init_cpu_process_group</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rank</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">world_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dist_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.testing.init_cpu_process_group" title="Permalink to this definition">¶</a></dt>
 <dd><p>helper function for testing distributed training</p>
 <p>测试函数，方便在CPU环境下测试分布式操作，比如测试MoCo的shuffle bn。
 不要在生产环境中使用。</p>
@@ -322,7 +322,7 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>rank</strong> (<em>int</em>) – </p></li>
 <li><p><strong>world_size</strong> (<em>int</em>) – </p></li>
-<li><p><strong>dist_url</strong> (<em>str</em>) – </p></li>
+<li><p><strong>dist_url</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
 </ul>
 </dd>
 </dl>

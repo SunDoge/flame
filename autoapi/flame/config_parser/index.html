@@ -250,18 +250,13 @@
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.config_parser._logger">
+       _logger
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#flame.config_parser.KEY_NAME">
        KEY_NAME
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.config_parser.KEY_USE">
-       KEY_USE
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.config_parser.KEY_CALL">
-       KEY_CALL
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
@@ -270,13 +265,13 @@
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.config_parser.IMPORT_PLACEHOLDER">
-       IMPORT_PLACEHOLDER
+      <a class="reference internal nav-link" href="#flame.config_parser.PREFIX_IMPORT">
+       PREFIX_IMPORT
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.config_parser._logger">
-       _logger
+      <a class="reference internal nav-link" href="#flame.config_parser.ParsableConfig">
+       ParsableConfig
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
@@ -292,6 +287,48 @@
        <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#flame.config_parser.ConfigParser.parse">
          parse
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.config_parser.ConfigParser2">
+       ConfigParser2
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.config_parser.ConfigParser2.parse_root_config">
+         parse_root_config
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.config_parser.ConfigParser2.parse">
+         parse
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.config_parser.ConfigParser2.dispatch">
+         dispatch
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.config_parser.ConfigParser2._parse_list">
+         _parse_list
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.config_parser.ConfigParser2._parse_dict">
+         _parse_dict
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.config_parser.ConfigParser2._parse_object">
+         _parse_object
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.config_parser.ConfigParser2._parse_str">
+         _parse_str
         </a>
        </li>
       </ul>
@@ -337,6 +374,9 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame.config_parser.ConfigParser" title="flame.config_parser.ConfigParser"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConfigParser</span></code></a></p></td>
 <td><p></p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.config_parser.ConfigParser2" title="flame.config_parser.ConfigParser2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConfigParser2</span></code></a></p></td>
+<td><p></p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -362,39 +402,31 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.config_parser.KEY_NAME" title="flame.config_parser.KEY_NAME"><code class="xref py py-obj docutils literal notranslate"><span class="pre">KEY_NAME</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.config_parser._logger" title="flame.config_parser._logger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_logger</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame.config_parser.KEY_USE" title="flame.config_parser.KEY_USE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">KEY_USE</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.config_parser.KEY_NAME" title="flame.config_parser.KEY_NAME"><code class="xref py py-obj docutils literal notranslate"><span class="pre">KEY_NAME</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.config_parser.KEY_CALL" title="flame.config_parser.KEY_CALL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">KEY_CALL</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.config_parser.PREFIX_PLACEHOLDER" title="flame.config_parser.PREFIX_PLACEHOLDER"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PREFIX_PLACEHOLDER</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame.config_parser.PREFIX_PLACEHOLDER" title="flame.config_parser.PREFIX_PLACEHOLDER"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PREFIX_PLACEHOLDER</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.config_parser.PREFIX_IMPORT" title="flame.config_parser.PREFIX_IMPORT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PREFIX_IMPORT</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.config_parser.IMPORT_PLACEHOLDER" title="flame.config_parser.IMPORT_PLACEHOLDER"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IMPORT_PLACEHOLDER</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame.config_parser._logger" title="flame.config_parser._logger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_logger</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.config_parser.ParsableConfig" title="flame.config_parser.ParsableConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ParsableConfig</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py data">
+<dt id="flame.config_parser._logger">
+<code class="sig-prename descclassname"><span class="pre">flame.config_parser.</span></code><code class="sig-name descname"><span class="pre">_logger</span></code><a class="headerlink" href="#flame.config_parser._logger" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
 <dt id="flame.config_parser.KEY_NAME">
 <code class="sig-prename descclassname"><span class="pre">flame.config_parser.</span></code><code class="sig-name descname"><span class="pre">KEY_NAME</span></code><em class="property"> <span class="pre">=</span> <span class="pre">_name</span></em><a class="headerlink" href="#flame.config_parser.KEY_NAME" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py data">
-<dt id="flame.config_parser.KEY_USE">
-<code class="sig-prename descclassname"><span class="pre">flame.config_parser.</span></code><code class="sig-name descname"><span class="pre">KEY_USE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">_use</span></em><a class="headerlink" href="#flame.config_parser.KEY_USE" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py data">
-<dt id="flame.config_parser.KEY_CALL">
-<code class="sig-prename descclassname"><span class="pre">flame.config_parser.</span></code><code class="sig-name descname"><span class="pre">KEY_CALL</span></code><em class="property"> <span class="pre">=</span> <span class="pre">_call</span></em><a class="headerlink" href="#flame.config_parser.KEY_CALL" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py data">
@@ -403,13 +435,13 @@
 <dd></dd></dl>
 
 <dl class="py data">
-<dt id="flame.config_parser.IMPORT_PLACEHOLDER">
-<code class="sig-prename descclassname"><span class="pre">flame.config_parser.</span></code><code class="sig-name descname"><span class="pre">IMPORT_PLACEHOLDER</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&#64;</span></em><a class="headerlink" href="#flame.config_parser.IMPORT_PLACEHOLDER" title="Permalink to this definition">¶</a></dt>
+<dt id="flame.config_parser.PREFIX_IMPORT">
+<code class="sig-prename descclassname"><span class="pre">flame.config_parser.</span></code><code class="sig-name descname"><span class="pre">PREFIX_IMPORT</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&#64;</span></em><a class="headerlink" href="#flame.config_parser.PREFIX_IMPORT" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py data">
-<dt id="flame.config_parser._logger">
-<code class="sig-prename descclassname"><span class="pre">flame.config_parser.</span></code><code class="sig-name descname"><span class="pre">_logger</span></code><a class="headerlink" href="#flame.config_parser._logger" title="Permalink to this definition">¶</a></dt>
+<dt id="flame.config_parser.ParsableConfig">
+<code class="sig-prename descclassname"><span class="pre">flame.config_parser.</span></code><code class="sig-name descname"><span class="pre">ParsableConfig</span></code><a class="headerlink" href="#flame.config_parser.ParsableConfig" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py class">
@@ -434,8 +466,98 @@
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>config</strong> (<em>Union</em><em>[</em><em>dict</em><em>, </em><em>list</em><em>, </em><em>float</em><em>, </em><em>int</em><em>, </em><em>str</em><em>]</em>) – </p></li>
+<li><p><strong>config</strong> (<em>ParsableConfig</em>) – </p></li>
 <li><p><strong>depth</strong> (<em>int</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="flame.config_parser.ConfigParser2">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.config_parser.</span></code><code class="sig-name descname"><span class="pre">ConfigParser2</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.config_parser.ConfigParser2" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="flame.config_parser.ConfigParser2.parse_root_config">
+<code class="sig-name descname"><span class="pre">parse_root_config</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.config_parser.ConfigParser2.parse_root_config" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>root_config</strong> (<em>dict</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame.config_parser.ConfigParser2.parse">
+<code class="sig-name descname"><span class="pre">parse</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.config_parser.ConfigParser2.parse" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>config</strong> (<em>ParsableConfig</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame.config_parser.ConfigParser2.dispatch">
+<code class="sig-name descname"><span class="pre">dispatch</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.config_parser.ConfigParser2.dispatch" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>ParsableConfig</em>) – </p></li>
+<li><p><strong>root_config</strong> (<em>dict</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame.config_parser.ConfigParser2._parse_list">
+<code class="sig-name descname"><span class="pre">_parse_list</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.config_parser.ConfigParser2._parse_list" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>list</em>) – </p></li>
+<li><p><strong>root_config</strong> (<em>dict</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame.config_parser.ConfigParser2._parse_dict">
+<code class="sig-name descname"><span class="pre">_parse_dict</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.config_parser.ConfigParser2._parse_dict" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>dict</em>) – </p></li>
+<li><p><strong>root_config</strong> (<em>dict</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame.config_parser.ConfigParser2._parse_object">
+<code class="sig-name descname"><span class="pre">_parse_object</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.config_parser.ConfigParser2._parse_object" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>dict</em>) – </p></li>
+<li><p><strong>root_config</strong> (<em>dict</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame.config_parser.ConfigParser2._parse_str">
+<code class="sig-name descname"><span class="pre">_parse_str</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.config_parser.ConfigParser2._parse_str" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>str</em>) – </p></li>
+<li><p><strong>root_config</strong> (<em>dict</em>) – </p></li>
 </ul>
 </dd>
 </dl>

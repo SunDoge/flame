@@ -340,6 +340,11 @@
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.helpers.create_data_loader">
+       create_data_loader
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#flame.helpers.ConfigParser">
        ConfigParser
       </a>
@@ -437,7 +442,10 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame.helpers.create_data_loader_from_config" title="flame.helpers.create_data_loader_from_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_data_loader_from_config</span></code></a>(config, key_transform = 'transform', key_dataset = 'dataset', key_loader = 'loader')</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame.helpers.create_from_config" title="flame.helpers.create_from_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_from_config</span></code></a>(config)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.helpers.create_data_loader" title="flame.helpers.create_data_loader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_data_loader</span></code></a>(dataset, batch_size = 1, shuffle = False, num_workers = 0, collate_fn=None, pin_memory = True, multiprocessing_context=None, persistent_workers = True, drop_last = False)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.helpers.create_from_config" title="flame.helpers.create_from_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_from_config</span></code></a>(config)</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -518,6 +526,27 @@
 </dl>
 </dd></dl>
 
+<dl class="py function">
+<dt id="flame.helpers.create_data_loader">
+<code class="sig-prename descclassname"><span class="pre">flame.helpers.</span></code><code class="sig-name descname"><span class="pre">create_data_loader</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shuffle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collate_fn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pin_memory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multiprocessing_context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">persistent_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drop_last</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.helpers.create_data_loader" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>torch.utils.data.Dataset</em>) – </p></li>
+<li><p><strong>batch_size</strong> (<em>int</em>) – </p></li>
+<li><p><strong>shuffle</strong> (<em>bool</em>) – </p></li>
+<li><p><strong>num_workers</strong> (<em>int</em>) – </p></li>
+<li><p><strong>pin_memory</strong> (<em>bool</em>) – </p></li>
+<li><p><strong>persistent_workers</strong> (<em>bool</em>) – </p></li>
+<li><p><strong>drop_last</strong> (<em>bool</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>torch.utils.data.DataLoader</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py class">
 <dt id="flame.helpers.ConfigParser">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.helpers.</span></code><code class="sig-name descname"><span class="pre">ConfigParser</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.helpers.ConfigParser" title="Permalink to this definition">¶</a></dt>
@@ -540,7 +569,7 @@
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>config</strong> (<em>Union</em><em>[</em><em>dict</em><em>, </em><em>list</em><em>, </em><em>float</em><em>, </em><em>int</em><em>, </em><em>str</em><em>]</em>) – </p></li>
+<li><p><strong>config</strong> (<em>ParsableConfig</em>) – </p></li>
 <li><p><strong>depth</strong> (<em>int</em>) – </p></li>
 </ul>
 </dd>

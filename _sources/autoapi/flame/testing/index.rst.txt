@@ -30,7 +30,7 @@ Attributes
 
    
 
-.. py:function:: init_cpu_process_group(rank = 0, world_size = 1, dist_url = 'tcp://127.0.0.1:12345')
+.. py:function:: init_cpu_process_group(rank = 0, world_size = 1, dist_url = None)
 
    helper function for testing distributed training
 
