@@ -4,7 +4,9 @@ from .model import create_model_from_config
 from .data import create_data_loader_from_config, create_data_loader
 from flame.config_parser import ConfigParser
 from . import checkpoint_saver
-from .tensorboard import Rank0SummaryWriter
+
+# Do not import tensorboard by default
+# from .tensorboard import Rank0SummaryWriter
 
 
 def create_from_config(config: dict):
