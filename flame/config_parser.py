@@ -111,7 +111,9 @@ class ConfigParser2:
 
         kwargs = {k: v for k, v in value.items() if k != KEY_USE}
         if kwargs:
-            return functools.partial(func, **self._parse_dict(kwargs, root_config))
+            return functools.partial(
+                func, **self._parse_dict(kwargs, root_config)
+            )
         else:
             return func
 
@@ -145,48 +147,3 @@ def require(name: str) -> Any:
     return attribute
 
 
-# class DependencyInjector:
-#     """
-#     Rules:
-#     1. $var will lookup `var` in dict
-#     2. _call for call method
-#     3. _use for import method
-#     4. _use with args means partial
-#     5. we use `_` to concat names
-#     6. finally recursive dict will be flatten
-#     """
-
-
-#     def __init__(self) -> None:
-#         self.container = dict()
-
-
-#     def parse(self, config: Union[dict, list]):
-#         if isinstance(config, list):
-#             # FIXME
-#             return [self.parse(c) for c in config]
-
-#         elif isinstance(config, dict):
-#             if KEY_USE in config:
-#                 func = self.parse_key_use(config)
-
-#             elif KEY_CALL in config:
-#                 pass
-#             else:
-#                 pass
-
-
-#     def parse_key_use(self, config: dict) -> Callable:
-#         use = config.pop(KEY_USE)
-#         func = require(use)
-#         kwargs = {k: self.parse(v) for k, v in config.items()}
-#         if kwargs:
-#             return functools.partial(func, **kwargs)
-#         else:
-#             return func
-
-
-#     def parse_key_call(self, config: dict) -> Any:
-#         call = config.pop(KEY_CALL)
-#         func = require(call)
-#         kwargs = {k: self.parse(v) for k, v in config.items()}
