@@ -1,12 +1,15 @@
+from typing import Optional
 import torch.distributed as dist
 import logging
+from flame.utils.operating_system import find_free_port
 
 _logger = logging.getLogger(__name__)
+
 
 def init_cpu_process_group(
     rank: int = 0,
     world_size: int = 1,
-    dist_url: str = 'tcp://127.0.0.1:12345',
+    dist_url: Optional[str] = None,
 ):
     """helper function for testing distributed training
 
@@ -17,6 +20,11 @@ def init_cpu_process_group(
     _logger.warning(
         'this function is for testing only, do not use it for production'
     )
+
+    if dist_url is None:
+        port = find_free_port()
+        dist_url = f'tcp://127.0.0.1:{port}'
+
     dist.init_process_group(
         backend='GLOO',
         init_method=dist_url,

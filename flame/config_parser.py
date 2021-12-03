@@ -1,18 +1,14 @@
-import inspect
-import logging
-from typing import Any, Callable, Dict, Union
 import importlib
-import copy
-import rich
-import functools
-
-KEY_NAME = '_name'
-KEY_USE = '_use'
-KEY_CALL = '_call'
-PREFIX_PLACEHOLDER = '$'
-IMPORT_PLACEHOLDER = '@'
+import logging
+from typing import Any, Union
 
 _logger = logging.getLogger(__name__)
+
+KEY_NAME = '_name'
+PREFIX_PLACEHOLDER = '$'
+PREFIX_IMPORT = '@'
+
+ParsableConfig = Union[dict, list, str, float, int]
 
 
 class ConfigParser:
@@ -41,7 +37,7 @@ class ConfigParser:
         # rich.print(kwargs)
         return func(**kwargs)
 
-    def parse(self, config: Union[dict, list, float, int, str], depth: int = 64):
+    def parse(self, config: ParsableConfig, depth: int = 64):
         if isinstance(config, dict):
             if KEY_NAME in config:
                 obj = self._parse_object(config, depth - 1)
@@ -52,10 +48,74 @@ class ConfigParser:
 
         if isinstance(config, str):
             # auto import
-            if config.startswith(IMPORT_PLACEHOLDER):
+            if config.startswith(PREFIX_IMPORT):
                 return require(config[1:])
 
         return config
+
+
+class ConfigParser2:
+
+    def __init__(self, **kwargs) -> None:
+        self.container = kwargs
+
+    def parse_root_config(self, root_config: dict):
+        for key, value in root_config.items():
+            if key not in self.container:
+                self.container[key] = self.dispatch(value, root_config)
+
+        if KEY_NAME in root_config:
+            name = root_config[KEY_NAME]
+            func = require(name)
+            return func(**self.container)
+
+        return self.container
+
+    def parse(self, config: ParsableConfig):
+        return self.dispatch(config, config)
+
+    def dispatch(self, value: ParsableConfig, root_config: dict):
+        if isinstance(value, str):
+            return self._parse_str(value, root_config)
+        elif isinstance(value, dict):
+            if KEY_NAME in value:
+                return self._parse_object(value, root_config)
+            else:
+                return self._parse_dict(value, root_config)
+        elif isinstance(value, list):
+            return self._parse_list(value, root_config)
+        elif isinstance(value, (float, int)):
+            return value
+
+    def _parse_list(self, value: list, root_config: dict):
+        return [self.dispatch(v, root_config) for v in value]
+
+    def _parse_dict(self, value: dict, root_config: dict):
+        return {k: self.dispatch(v, root_config) for k, v in value.items()}
+
+    def _parse_object(self, value: dict, root_config: dict):
+        name = value[KEY_NAME]
+        func = require(name)
+
+        kwargs = {k: v for k, v in value.items() if k != KEY_NAME}
+        return func(**self._parse_dict(kwargs, root_config))
+
+    def _parse_str(self, value: str, root_config: dict):
+        if value.startswith(PREFIX_PLACEHOLDER):
+            name = value[1:]
+            if name in self.container:
+                return self.container[name]
+            else:
+                self.container[name] = self.dispatch(
+                    root_config[name],
+                    root_config
+                )
+                return self.container[name]
+        elif value.startswith(PREFIX_IMPORT):
+            name = value[1:]
+            return require(name)
+        else:
+            return value
 
 
 def require(name: str) -> Any:

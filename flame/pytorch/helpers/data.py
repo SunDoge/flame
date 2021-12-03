@@ -41,6 +41,13 @@ def create_data_loader(
         )
         assert major_version >= 1 and minor_version >= 8, "pytorch version lower than 1.8 has bug for pin_menory and persistent_workers"
 
+    if num_workers == 0:
+        _logger.warning(
+            'num_workers=0, disable persistent workers and multiprocess context'
+        )
+        persistent_workers = False
+        multiprocessing_context = None
+
     loader = DataLoader(
         dataset,
         batch_size=batch_size,
