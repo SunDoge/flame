@@ -1,10 +1,13 @@
 import importlib
 import logging
 from typing import Any, Union
+import functools
 
 _logger = logging.getLogger(__name__)
 
 KEY_NAME = '_name'
+KEY_CALL = '_call'
+KEY_USE = '_use'
 PREFIX_PLACEHOLDER = '$'
 PREFIX_IMPORT = '@'
 
@@ -64,8 +67,8 @@ class ConfigParser2:
             if key not in self.container:
                 self.container[key] = self.dispatch(value, root_config)
 
-        if KEY_NAME in root_config:
-            name = root_config[KEY_NAME]
+        if KEY_CALL in root_config:
+            name = root_config[KEY_CALL]
             func = require(name)
             return func(**self.container)
 
@@ -78,8 +81,10 @@ class ConfigParser2:
         if isinstance(value, str):
             return self._parse_str(value, root_config)
         elif isinstance(value, dict):
-            if KEY_NAME in value:
+            if KEY_CALL in value:
                 return self._parse_object(value, root_config)
+            elif KEY_USE in value:
+                return self._parse_function(value, root_config)
             else:
                 return self._parse_dict(value, root_config)
         elif isinstance(value, list):
@@ -94,11 +99,21 @@ class ConfigParser2:
         return {k: self.dispatch(v, root_config) for k, v in value.items()}
 
     def _parse_object(self, value: dict, root_config: dict):
-        name = value[KEY_NAME]
+        name = value[KEY_CALL]
         func = require(name)
 
-        kwargs = {k: v for k, v in value.items() if k != KEY_NAME}
+        kwargs = {k: v for k, v in value.items() if k != KEY_CALL}
         return func(**self._parse_dict(kwargs, root_config))
+
+    def _parse_function(self, value: dict, root_config: dict):
+        name = value[KEY_USE]
+        func = require(name)
+
+        kwargs = {k: v for k, v in value.items() if k != KEY_USE}
+        if kwargs:
+            return functools.partial(func, **self._parse_dict(kwargs, root_config))
+        else:
+            return func
 
     def _parse_str(self, value: str, root_config: dict):
         if value.startswith(PREFIX_PLACEHOLDER):
