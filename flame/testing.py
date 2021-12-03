@@ -1,7 +1,7 @@
 from typing import Optional
 import torch.distributed as dist
 import logging
-from utils.operating_system import find_free_port
+from flame.utils.operating_system import find_free_port
 
 _logger = logging.getLogger(__name__)
 

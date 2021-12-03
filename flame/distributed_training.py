@@ -1,4 +1,4 @@
-from flame.config_parser import ConfigParser, require
+from flame.config_parser import ConfigParser, require, ConfigParser2
 import logging
 from typing import Callable
 
@@ -37,7 +37,7 @@ def _default_main_worker(
     # main_worker = require(main_worker_name)
     # config['args'] = args
     # main_worker(**config)
-    ConfigParser(args=args).parse(config, depth=1)
+    ConfigParser2(args=args).parse_root_config(config)
 
 
 def _init_process_group(
@@ -49,7 +49,7 @@ def _init_process_group(
         args.device_id = args.gpu[local_rank]
         _logger.info('set device_id: %d', args.device_id)
         torch.cuda.set_device(args.device_id)
-    
+
     if len(args.gpu) > args.world_size:
         world_size = len(args.gpu)
         _logger.info('set args.world_size=%d', world_size)
