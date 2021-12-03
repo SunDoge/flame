@@ -132,6 +132,7 @@ class BaseEngine:
     """
     如果需要覆盖config，必须在这里声明config的类型
     """
+
     # config: BaseEngineConfig
 
     def __init__(self, config: BaseEngineConfig) -> None:
@@ -170,7 +171,11 @@ class BaseEngine:
         kwargs['batch_size'] = batch_size
         return kwargs
 
-    def train(self, state: BaseState, loader: Iterable, epoch_length: Optional[int] = None, stage: str = Stage.Train):
+    def train(self,
+              state: BaseState,
+              loader: Iterable,
+              epoch_length: Optional[int] = None,
+              stage: str = Stage.Train):
         if epoch_length is None:
             epoch_length = self._try_infer_epoch_length(loader)
         elif epoch_length <= 0:
@@ -185,9 +190,7 @@ class BaseEngine:
 
         self._try_set_epoch(loader, state.epoch)
 
-        self.iteration_eta = EstimatedTimeOfArrival(
-            state.epoch_length,
-        )
+        self.iteration_eta = EstimatedTimeOfArrival(state.epoch_length, )
         # self.meter_group.reset()
         state.meters.reset()
 
@@ -198,7 +201,11 @@ class BaseEngine:
 
         state.meters.record()
 
-    def validate(self, state: BaseState, loader: Iterable, epoch_length: Optional[int] = None, stage: str = Stage.Val):
+    def validate(self,
+                 state: BaseState,
+                 loader: Iterable,
+                 epoch_length: Optional[int] = None,
+                 stage: str = Stage.Val):
         if epoch_length is None:
             epoch_length = self._try_infer_epoch_length(loader)
         elif epoch_length <= 0:
@@ -210,9 +217,7 @@ class BaseEngine:
 
         state.epoch_length = epoch_length
 
-        self.iteration_eta = EstimatedTimeOfArrival(
-            state.epoch_length,
-        )
+        self.iteration_eta = EstimatedTimeOfArrival(state.epoch_length, )
         # self.meter_group.reset()
         state.meters.reset()
 
@@ -224,7 +229,11 @@ class BaseEngine:
 
             state.meters.record()
 
-    def test(self, state: BaseState, loader: Iterable, epoch_length: Optional[int] = None, stage: str = Stage.Test):
+    def test(self,
+             state: BaseState,
+             loader: Iterable,
+             epoch_length: Optional[int] = None,
+             stage: str = Stage.Test):
         self.validate(state, loader, epoch_length=epoch_length, stage=stage)
 
     @staticmethod
@@ -296,6 +305,7 @@ class ExampleEngine(BaseEngine):
 
         eff = success(state)
         if state.stage == 'train':
+
             def update_model(state: ExampleState):
                 loss.backward()
                 state.optimizer.step()
@@ -305,11 +315,11 @@ class ExampleEngine(BaseEngine):
             eff = eff.and_then(update_model)
 
         if self.every(state.batch_idx, self.config.print_freq):
+
             def start_logging(state: ExampleState):
                 _logger.info(
                     f'{state.stage} {state.epoch}/{self.config.max_epochs} [{state.batch_idx}/{state.epoch_length}]\t'
-                    f'{loss}'
-                )
+                    f'{loss}')
                 return success(state)
 
             eff = eff.and_then(start_logging)
@@ -318,7 +328,6 @@ class ExampleEngine(BaseEngine):
 
 
 class ExampleDataModule(BaseDataModule):
-
     def get_loader(self, stage: Stage) -> Iterable:
         if stage == Stage.Test:
             return range(0)
@@ -341,10 +350,7 @@ if __name__ == '__main__':
 
     model = torch.nn.Linear(2, 4)
     optimizer = torch.optim.SGD(model.parameters(), lr=0.1)
-    state = ExampleState(
-        model=model,
-        optimizer=optimizer
-    )
+    state = ExampleState(model=model, optimizer=optimizer)
 
     data_module = ExampleDataModule()
 
@@ -358,10 +364,7 @@ if __name__ == '__main__':
 
     new_model = torch.nn.Linear(2, 4)
     new_optimizer = torch.optim.SGD(new_model.parameters(), lr=0.1)
-    new_state = ExampleState(
-        model=new_model,
-        optimizer=new_optimizer
-    )
+    new_state = ExampleState(model=new_model, optimizer=new_optimizer)
     ic(new_state)
     new_state.load_state_dict(state_dict)
 

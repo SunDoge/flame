@@ -55,6 +55,8 @@ class EstimatedTimeOfArrival(Meter):
 
     @property
     def rate(self) -> float:
+        # print(self.elapsed_seconds)
+        # elapsed_seconds = 0.1 if self.elapsed_seconds == 0 else self.elapsed_seconds
         return self.elapsed * self.num_samples / self.elapsed_seconds
 
     def reset(self):
@@ -66,11 +68,13 @@ class EstimatedTimeOfArrival(Meter):
         try:
             remaining_time_str = format_timedelta(self.remaining_time)
             arrival_time_str = self.arrival_time.strftime('%Y-%m-%d %H:%M:%S')
+            rate_str = f'{self.rate:.2f}'
         except ZeroDivisionError:
             remaining_time_str = '?'
             arrival_time_str = '?'
+            rate_str = '?'
 
-        fmt_str = f'[{self.count}/{self.total}] {self.rate:.2f} it/s R={remaining_time_str} A={arrival_time_str}'
+        fmt_str = f'[{self.count + 1}/{self.total}] {rate_str} it/s R={remaining_time_str} A={arrival_time_str}'
         return fmt_str
 
 

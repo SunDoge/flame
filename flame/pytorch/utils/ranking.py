@@ -9,6 +9,10 @@ class FakeObject:
         # 将所有函数替换成do nothing
         return do_nothing
 
+    def __bool__(self) -> bool:
+        # support if statement
+        return False
+
 
 def do_nothing(*args, **kwargs) -> FakeObject:
     # 只要被调用，就返回FakeObject
