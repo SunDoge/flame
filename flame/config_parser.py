@@ -1,20 +1,14 @@
-from collections import namedtuple
-import inspect
-import logging
-from typing import Any, Callable, Dict, Union
 import importlib
-import copy
-import rich
-import functools
-
-KEY_NAME = '_name'
-KEY_USE = '_use'
-KEY_CALL = '_call'
-PREFIX_PLACEHOLDER = '$'
-IMPORT_PLACEHOLDER = '@'
-PREFIX_IMPORT = '@'
+import logging
+from typing import Any, Union
 
 _logger = logging.getLogger(__name__)
+
+KEY_NAME = '_name'
+PREFIX_PLACEHOLDER = '$'
+PREFIX_IMPORT = '@'
+
+ParsableConfig = Union[dict, list, str, float, int]
 
 
 class ConfigParser:
@@ -43,7 +37,7 @@ class ConfigParser:
         # rich.print(kwargs)
         return func(**kwargs)
 
-    def parse(self, config: Union[dict, list, float, int, str], depth: int = 64):
+    def parse(self, config: ParsableConfig, depth: int = 64):
         if isinstance(config, dict):
             if KEY_NAME in config:
                 obj = self._parse_object(config, depth - 1)
@@ -54,7 +48,7 @@ class ConfigParser:
 
         if isinstance(config, str):
             # auto import
-            if config.startswith(IMPORT_PLACEHOLDER):
+            if config.startswith(PREFIX_IMPORT):
                 return require(config[1:])
 
         return config
@@ -77,7 +71,10 @@ class ConfigParser2:
 
         return self.container
 
-    def dispatch(self, value: Union[dict, list, str, float, int], root_config: dict):
+    def parse(self, config: ParsableConfig):
+        return self.dispatch(config, config)
+
+    def dispatch(self, value: ParsableConfig, root_config: dict):
         if isinstance(value, str):
             return self._parse_str(value, root_config)
         elif isinstance(value, dict):
