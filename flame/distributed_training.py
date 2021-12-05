@@ -9,7 +9,7 @@ import torch.multiprocessing as mp
 import torch.distributed as dist
 import torch
 from flame.config import from_file
-
+from flame.helpers.cuda import cudnn_benchmark_if_possible
 
 
 _logger = logging.getLogger(__name__)
@@ -70,6 +70,9 @@ def _init_process_group(
         world_size=args.world_size,
         rank=args.rank,
     )
+
+    if not args.debug:
+        cudnn_benchmark_if_possible()
 
     main_worker(args)
 
