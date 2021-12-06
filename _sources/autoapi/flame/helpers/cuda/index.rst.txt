@@ -1,0 +1,35 @@
+:py:mod:`flame.helpers.cuda`
+============================
+
+.. py:module:: flame.helpers.cuda
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.helpers.cuda.cudnn_benchmark_if_possible
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.helpers.cuda._logger
+
+
+.. py:data:: _logger
+   
+
+   
+
+.. py:function:: cudnn_benchmark_if_possible()
+
+

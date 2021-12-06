@@ -12,6 +12,7 @@ Submodules
 
    amp/index.rst
    checkpoint_saver/index.rst
+   cuda/index.rst
    data/index.rst
    model/index.rst
    optimizer/index.rst

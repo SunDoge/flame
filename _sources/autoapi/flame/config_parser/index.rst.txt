@@ -33,6 +33,8 @@ Attributes
 
    flame.config_parser._logger
    flame.config_parser.KEY_NAME
+   flame.config_parser.KEY_CALL
+   flame.config_parser.KEY_USE
    flame.config_parser.PREFIX_PLACEHOLDER
    flame.config_parser.PREFIX_IMPORT
    flame.config_parser.ParsableConfig
@@ -45,6 +47,16 @@ Attributes
 
 .. py:data:: KEY_NAME
    :annotation: = _name
+
+   
+
+.. py:data:: KEY_CALL
+   :annotation: = _call
+
+   
+
+.. py:data:: KEY_USE
+   :annotation: = _use
 
    
 
@@ -90,6 +102,9 @@ Attributes
 
 
    .. py:method:: _parse_object(self, value, root_config)
+
+
+   .. py:method:: _parse_function(self, value, root_config)
 
 
    .. py:method:: _parse_str(self, value, root_config)

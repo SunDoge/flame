@@ -315,6 +315,11 @@
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.utils.main_fn._main_fn">
+       _main_fn
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#flame.utils.main_fn.main_fn">
        main_fn
       </a>
@@ -352,7 +357,10 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.utils.main_fn.main_fn" title="flame.utils.main_fn.main_fn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">main_fn</span></code></a>(func)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.utils.main_fn._main_fn" title="flame.utils.main_fn._main_fn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_main_fn</span></code></a>(func)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.utils.main_fn.main_fn" title="flame.utils.main_fn.main_fn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">main_fn</span></code></a>(func)</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -377,14 +385,27 @@
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="flame.utils.main_fn.main_fn">
-<code class="sig-prename descclassname"><span class="pre">flame.utils.main_fn.</span></code><code class="sig-name descname"><span class="pre">main_fn</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.utils.main_fn.main_fn" title="Permalink to this definition">¶</a></dt>
+<dt id="flame.utils.main_fn._main_fn">
+<code class="sig-prename descclassname"><span class="pre">flame.utils.main_fn.</span></code><code class="sig-name descname"><span class="pre">_main_fn</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.utils.main_fn._main_fn" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>func</strong> (<em>T</em>) – </p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>T</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="flame.utils.main_fn.main_fn">
+<code class="sig-prename descclassname"><span class="pre">flame.utils.main_fn.</span></code><code class="sig-name descname"><span class="pre">main_fn</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.utils.main_fn.main_fn" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>func</strong> (<em>Optional</em><em>[</em><em>T</em><em>]</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Union[Callable[[T], T], T]</p>
 </dd>
 </dl>
 </dd></dl>

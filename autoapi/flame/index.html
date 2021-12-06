@@ -245,9 +245,26 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#flame.__version__">
-     __version__
+    <a class="reference internal nav-link" href="#functions">
+     Functions
     </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#attributes">
+     Attributes
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.main_fn">
+       main_fn
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.__version__">
+       __version__
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -277,6 +294,7 @@
 <li class="toctree-l1"><a class="reference internal" href="helpers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.helpers</span></code></a><ul>
 <li class="toctree-l2"><a class="reference internal" href="helpers/amp/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.helpers.amp</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="helpers/checkpoint_saver/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.helpers.checkpoint_saver</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers/cuda/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.helpers.cuda</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="helpers/data/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.helpers.data</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="helpers/model/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.helpers.model</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="helpers/optimizer/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.helpers.optimizer</span></code></a></li>
@@ -382,11 +400,52 @@
 </div>
 <div class="section" id="package-contents">
 <h2>Package Contents<a class="headerlink" href="#package-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.main_fn" title="flame.main_fn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">main_fn</span></code></a>(func)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.__version__" title="flame.__version__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__version__</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt id="flame.main_fn">
+<code class="sig-prename descclassname"><span class="pre">flame.</span></code><code class="sig-name descname"><span class="pre">main_fn</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.main_fn" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>func</strong> (<em>Optional</em><em>[</em><em>T</em><em>]</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Union[Callable[[T], T], T]</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py data">
 <dt id="flame.__version__">
 <code class="sig-prename descclassname"><span class="pre">flame.</span></code><code class="sig-name descname"><span class="pre">__version__</span></code><em class="property"> <span class="pre">=</span> <span class="pre">0.1.0</span></em><a class="headerlink" href="#flame.__version__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</div>
 </div>
 </div>
 

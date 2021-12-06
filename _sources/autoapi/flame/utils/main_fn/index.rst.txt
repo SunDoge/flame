@@ -13,6 +13,7 @@ Functions
 
 .. autoapisummary::
 
+   flame.utils.main_fn._main_fn
    flame.utils.main_fn.main_fn
 
 
@@ -29,6 +30,9 @@ Attributes
    
 
    
+
+.. py:function:: _main_fn(func)
+
 
 .. py:function:: main_fn(func)
 

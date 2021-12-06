@@ -36,6 +36,27 @@ Submodules
 Package Contents
 ----------------
 
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.main_fn
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.__version__
+
+
+.. py:function:: main_fn(func)
+
+
 .. py:data:: __version__
    :annotation: = 0.1.0
 

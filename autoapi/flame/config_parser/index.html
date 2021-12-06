@@ -260,6 +260,16 @@
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.config_parser.KEY_CALL">
+       KEY_CALL
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.config_parser.KEY_USE">
+       KEY_USE
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#flame.config_parser.PREFIX_PLACEHOLDER">
        PREFIX_PLACEHOLDER
       </a>
@@ -324,6 +334,11 @@
        <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#flame.config_parser.ConfigParser2._parse_object">
          _parse_object
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.config_parser.ConfigParser2._parse_function">
+         _parse_function
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
@@ -408,6 +423,12 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#flame.config_parser.KEY_NAME" title="flame.config_parser.KEY_NAME"><code class="xref py py-obj docutils literal notranslate"><span class="pre">KEY_NAME</span></code></a></p></td>
 <td><p></p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.config_parser.KEY_CALL" title="flame.config_parser.KEY_CALL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">KEY_CALL</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.config_parser.KEY_USE" title="flame.config_parser.KEY_USE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">KEY_USE</span></code></a></p></td>
+<td><p></p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame.config_parser.PREFIX_PLACEHOLDER" title="flame.config_parser.PREFIX_PLACEHOLDER"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PREFIX_PLACEHOLDER</span></code></a></p></td>
 <td><p></p></td>
 </tr>
@@ -427,6 +448,16 @@
 <dl class="py data">
 <dt id="flame.config_parser.KEY_NAME">
 <code class="sig-prename descclassname"><span class="pre">flame.config_parser.</span></code><code class="sig-name descname"><span class="pre">KEY_NAME</span></code><em class="property"> <span class="pre">=</span> <span class="pre">_name</span></em><a class="headerlink" href="#flame.config_parser.KEY_NAME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="flame.config_parser.KEY_CALL">
+<code class="sig-prename descclassname"><span class="pre">flame.config_parser.</span></code><code class="sig-name descname"><span class="pre">KEY_CALL</span></code><em class="property"> <span class="pre">=</span> <span class="pre">_call</span></em><a class="headerlink" href="#flame.config_parser.KEY_CALL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="flame.config_parser.KEY_USE">
+<code class="sig-prename descclassname"><span class="pre">flame.config_parser.</span></code><code class="sig-name descname"><span class="pre">KEY_USE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">_use</span></em><a class="headerlink" href="#flame.config_parser.KEY_USE" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py data">
@@ -540,6 +571,19 @@
 <dl class="py method">
 <dt id="flame.config_parser.ConfigParser2._parse_object">
 <code class="sig-name descname"><span class="pre">_parse_object</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.config_parser.ConfigParser2._parse_object" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>dict</em>) – </p></li>
+<li><p><strong>root_config</strong> (<em>dict</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame.config_parser.ConfigParser2._parse_function">
+<code class="sig-name descname"><span class="pre">_parse_function</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.config_parser.ConfigParser2._parse_function" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">

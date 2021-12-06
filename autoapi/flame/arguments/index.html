@@ -243,10 +243,25 @@
     <a class="reference internal nav-link" href="#functions">
      Functions
     </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#attributes">
+     Attributes
+    </a>
     <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.arguments._logger">
+       _logger
+      </a>
+     </li>
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#flame.arguments.parse_gpu_list">
        parse_gpu_list
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.arguments.parse_dist_backend">
+       parse_dist_backend
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
@@ -295,8 +310,8 @@
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#flame.arguments.BaseArgs.dist_backend">
-         dist_backend
+        <a class="reference internal nav-link" href="#flame.arguments.BaseArgs._dist_backend">
+         _dist_backend
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
@@ -322,6 +337,16 @@
        <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#flame.arguments.BaseArgs.experiment_dir">
          experiment_dir
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.arguments.BaseArgs.device">
+         device
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.arguments.BaseArgs.dist_backend">
+         dist_backend
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
@@ -381,8 +406,30 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame.arguments.parse_gpu_list" title="flame.arguments.parse_gpu_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse_gpu_list</span></code></a>(gpu_str)</p></td>
 <td><p>0-7 =&gt; [0,1,2,3,4,5,6,7]</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.arguments.parse_dist_backend" title="flame.arguments.parse_dist_backend"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse_dist_backend</span></code></a>(backend)</p></td>
+<td><p></p></td>
+</tr>
 </tbody>
 </table>
+</div>
+<div class="section" id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.arguments._logger" title="flame.arguments._logger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_logger</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt id="flame.arguments._logger">
+<code class="sig-prename descclassname"><span class="pre">flame.arguments.</span></code><code class="sig-name descname"><span class="pre">_logger</span></code><a class="headerlink" href="#flame.arguments._logger" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py function">
 <dt id="flame.arguments.parse_gpu_list">
 <code class="sig-prename descclassname"><span class="pre">flame.arguments.</span></code><code class="sig-name descname"><span class="pre">parse_gpu_list</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gpu_str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.arguments.parse_gpu_list" title="Permalink to this definition">¶</a></dt>
@@ -395,6 +442,19 @@
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>List[int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="flame.arguments.parse_dist_backend">
+<code class="sig-prename descclassname"><span class="pre">flame.arguments.</span></code><code class="sig-name descname"><span class="pre">parse_dist_backend</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">backend</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.arguments.parse_dist_backend" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>backend</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
 </dd>
 </dl>
 </dd></dl>
@@ -445,8 +505,8 @@
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="flame.arguments.BaseArgs.dist_backend">
-<code class="sig-name descname"><span class="pre">dist_backend</span></code><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#flame.arguments.BaseArgs.dist_backend" title="Permalink to this definition">¶</a></dt>
+<dt id="flame.arguments.BaseArgs._dist_backend">
+<code class="sig-name descname"><span class="pre">_dist_backend</span></code><em class="property"> <span class="pre">:str</span></em><a class="headerlink" href="#flame.arguments.BaseArgs._dist_backend" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -475,6 +535,26 @@
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>pathlib.Path</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame.arguments.BaseArgs.device">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">device</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.arguments.BaseArgs.device" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>torch.device</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame.arguments.BaseArgs.dist_backend">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">dist_backend</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.arguments.BaseArgs.dist_backend" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
 </dd>
 </dl>
 </dd></dl>

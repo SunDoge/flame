@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>flame.helpers.data &#8212; flame 0.0.1 documentation</title>
+    <title>flame.helpers.cuda &#8212; flame 0.0.1 documentation</title>
     
   <link href="../../../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../../../_static/css/index.f6b7ca918bee2f46fd9abac01cfb07d5.css" rel="stylesheet" />
@@ -34,8 +34,8 @@
     <script src="../../../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="flame.helpers.model" href="../model/index.html" />
-    <link rel="prev" title="flame.helpers.cuda" href="../cuda/index.html" />
+    <link rel="next" title="flame.helpers.data" href="../data/index.html" />
+    <link rel="prev" title="flame.helpers.checkpoint_saver" href="../checkpoint_saver/index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
   </head>
@@ -121,8 +121,8 @@
        </code>
       </a>
      </li>
-     <li class="toctree-l4">
-      <a class="reference internal" href="../cuda/index.html">
+     <li class="toctree-l4 current active">
+      <a class="current reference internal" href="#">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.helpers.cuda
@@ -130,8 +130,8 @@
        </code>
       </a>
      </li>
-     <li class="toctree-l4 current active">
-      <a class="current reference internal" href="#">
+     <li class="toctree-l4">
+      <a class="reference internal" href="../data/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.helpers.data
@@ -319,18 +319,13 @@
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.helpers.data._logger">
+      <a class="reference internal nav-link" href="#flame.helpers.cuda._logger">
        _logger
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.helpers.data.create_data_loader">
-       create_data_loader
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.helpers.data.create_data_loader_from_config">
-       create_data_loader_from_config
+      <a class="reference internal nav-link" href="#flame.helpers.cuda.cudnn_benchmark_if_possible">
+       cudnn_benchmark_if_possible
       </a>
      </li>
     </ul>
@@ -354,8 +349,8 @@
               
               <div>
                 
-  <div class="section" id="module-flame.helpers.data">
-<span id="flame-helpers-data"></span><h1><a class="reference internal" href="#module-flame.helpers.data" title="flame.helpers.data"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.helpers.data</span></code></a><a class="headerlink" href="#module-flame.helpers.data" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-flame.helpers.cuda">
+<span id="flame-helpers-cuda"></span><h1><a class="reference internal" href="#module-flame.helpers.cuda" title="flame.helpers.cuda"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.helpers.cuda</span></code></a><a class="headerlink" href="#module-flame.helpers.cuda" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="functions">
@@ -366,10 +361,7 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.helpers.data.create_data_loader" title="flame.helpers.data.create_data_loader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_data_loader</span></code></a>(dataset, batch_size = 1, shuffle = False, num_workers = 0, collate_fn=None, pin_memory = True, multiprocessing_context=None, persistent_workers = True, drop_last = False)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame.helpers.data.create_data_loader_from_config" title="flame.helpers.data.create_data_loader_from_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_data_loader_from_config</span></code></a>(config, key_transform = 'transform', key_dataset = 'dataset', key_loader = 'loader')</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.helpers.cuda.cudnn_benchmark_if_possible" title="flame.helpers.cuda.cudnn_benchmark_if_possible"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cudnn_benchmark_if_possible</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -383,54 +375,20 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.helpers.data._logger" title="flame.helpers.data._logger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_logger</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.helpers.cuda._logger" title="flame.helpers.cuda._logger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_logger</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py data">
-<dt id="flame.helpers.data._logger">
-<code class="sig-prename descclassname"><span class="pre">flame.helpers.data.</span></code><code class="sig-name descname"><span class="pre">_logger</span></code><a class="headerlink" href="#flame.helpers.data._logger" title="Permalink to this definition">¶</a></dt>
+<dt id="flame.helpers.cuda._logger">
+<code class="sig-prename descclassname"><span class="pre">flame.helpers.cuda.</span></code><code class="sig-name descname"><span class="pre">_logger</span></code><a class="headerlink" href="#flame.helpers.cuda._logger" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="flame.helpers.data.create_data_loader">
-<code class="sig-prename descclassname"><span class="pre">flame.helpers.data.</span></code><code class="sig-name descname"><span class="pre">create_data_loader</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shuffle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collate_fn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pin_memory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multiprocessing_context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">persistent_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drop_last</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.helpers.data.create_data_loader" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>dataset</strong> (<em>torch.utils.data.Dataset</em>) – </p></li>
-<li><p><strong>batch_size</strong> (<em>int</em>) – </p></li>
-<li><p><strong>shuffle</strong> (<em>bool</em>) – </p></li>
-<li><p><strong>num_workers</strong> (<em>int</em>) – </p></li>
-<li><p><strong>pin_memory</strong> (<em>bool</em>) – </p></li>
-<li><p><strong>persistent_workers</strong> (<em>bool</em>) – </p></li>
-<li><p><strong>drop_last</strong> (<em>bool</em>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>torch.utils.data.DataLoader</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="flame.helpers.data.create_data_loader_from_config">
-<code class="sig-prename descclassname"><span class="pre">flame.helpers.data.</span></code><code class="sig-name descname"><span class="pre">create_data_loader_from_config</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'transform'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_dataset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dataset'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_loader</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'loader'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.helpers.data.create_data_loader_from_config" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>config</strong> (<em>dict</em>) – </p></li>
-<li><p><strong>key_transform</strong> (<em>str</em>) – </p></li>
-<li><p><strong>key_dataset</strong> (<em>str</em>) – </p></li>
-<li><p><strong>key_loader</strong> (<em>str</em>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>torch.utils.data.DataLoader</p>
-</dd>
-</dl>
-</dd></dl>
+<dt id="flame.helpers.cuda.cudnn_benchmark_if_possible">
+<code class="sig-prename descclassname"><span class="pre">flame.helpers.cuda.</span></code><code class="sig-name descname"><span class="pre">cudnn_benchmark_if_possible</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flame.helpers.cuda.cudnn_benchmark_if_possible" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </div>
 </div>
@@ -442,8 +400,8 @@
               
               <div class='prev-next-bottom'>
                 
-    <a class='left-prev' id="prev-link" href="../cuda/index.html" title="previous page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.helpers.cuda</span></code></a>
-    <a class='right-next' id="next-link" href="../model/index.html" title="next page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.helpers.model</span></code></a>
+    <a class='left-prev' id="prev-link" href="../checkpoint_saver/index.html" title="previous page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.helpers.checkpoint_saver</span></code></a>
+    <a class='right-next' id="next-link" href="../data/index.html" title="next page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.helpers.data</span></code></a>
 
               </div>
               
