@@ -1,10 +1,13 @@
 import importlib
 import logging
 from typing import Any, Union
+import functools
 
 _logger = logging.getLogger(__name__)
 
 KEY_NAME = '_name'
+KEY_CALL = '_call'
+KEY_USE = '_use'
 PREFIX_PLACEHOLDER = '$'
 PREFIX_IMPORT = '@'
 
@@ -64,8 +67,8 @@ class ConfigParser2:
             if key not in self.container:
                 self.container[key] = self.dispatch(value, root_config)
 
-        if KEY_NAME in root_config:
-            name = root_config[KEY_NAME]
+        if KEY_CALL in root_config:
+            name = root_config[KEY_CALL]
             func = require(name)
             return func(**self.container)
 
@@ -78,8 +81,10 @@ class ConfigParser2:
         if isinstance(value, str):
             return self._parse_str(value, root_config)
         elif isinstance(value, dict):
-            if KEY_NAME in value:
+            if KEY_CALL in value:
                 return self._parse_object(value, root_config)
+            elif KEY_USE in value:
+                return self._parse_function(value, root_config)
             else:
                 return self._parse_dict(value, root_config)
         elif isinstance(value, list):
@@ -94,11 +99,23 @@ class ConfigParser2:
         return {k: self.dispatch(v, root_config) for k, v in value.items()}
 
     def _parse_object(self, value: dict, root_config: dict):
-        name = value[KEY_NAME]
+        name = value[KEY_CALL]
         func = require(name)
 
-        kwargs = {k: v for k, v in value.items() if k != KEY_NAME}
+        kwargs = {k: v for k, v in value.items() if k != KEY_CALL}
         return func(**self._parse_dict(kwargs, root_config))
+
+    def _parse_function(self, value: dict, root_config: dict):
+        name = value[KEY_USE]
+        func = require(name)
+
+        kwargs = {k: v for k, v in value.items() if k != KEY_USE}
+        if kwargs:
+            return functools.partial(
+                func, **self._parse_dict(kwargs, root_config)
+            )
+        else:
+            return func
 
     def _parse_str(self, value: str, root_config: dict):
         if value.startswith(PREFIX_PLACEHOLDER):
@@ -130,48 +147,3 @@ def require(name: str) -> Any:
     return attribute
 
 
-# class DependencyInjector:
-#     """
-#     Rules:
-#     1. $var will lookup `var` in dict
-#     2. _call for call method
-#     3. _use for import method
-#     4. _use with args means partial
-#     5. we use `_` to concat names
-#     6. finally recursive dict will be flatten
-#     """
-
-
-#     def __init__(self) -> None:
-#         self.container = dict()
-
-
-#     def parse(self, config: Union[dict, list]):
-#         if isinstance(config, list):
-#             # FIXME
-#             return [self.parse(c) for c in config]
-
-#         elif isinstance(config, dict):
-#             if KEY_USE in config:
-#                 func = self.parse_key_use(config)
-
-#             elif KEY_CALL in config:
-#                 pass
-#             else:
-#                 pass
-
-
-#     def parse_key_use(self, config: dict) -> Callable:
-#         use = config.pop(KEY_USE)
-#         func = require(use)
-#         kwargs = {k: self.parse(v) for k, v in config.items()}
-#         if kwargs:
-#             return functools.partial(func, **kwargs)
-#         else:
-#             return func
-
-
-#     def parse_key_call(self, config: dict) -> Any:
-#         call = config.pop(KEY_CALL)
-#         func = require(call)
-#         kwargs = {k: self.parse(v) for k, v in config.items()}

@@ -4,6 +4,11 @@ from dataclasses import dataclass
 from pathlib import Path
 from .config import from_snippet, parse_config
 from flame.utils.operating_system import find_free_port
+import torch
+import torch.distributed as dist
+import logging
+
+_logger = logging.getLogger(__name__)
 
 
 def parse_gpu_list(gpu_str: str) -> List[int]:
@@ -27,6 +32,11 @@ def parse_gpu_list(gpu_str: str) -> List[int]:
             raise Exception
 
     return res
+
+
+def parse_dist_backend(backend: Optional[str]) -> str:
+    print(backend)
+    return backend
 
 
 @dataclass
@@ -78,10 +88,11 @@ class BaseArgs(ta.TypedArgs):
         type=str,
         default=f'tcp://127.0.0.1:{find_free_port()}'
     )
-    dist_backend: str = ta.add_argument(
+    _dist_backend: str = ta.add_argument(
         '--dist-backend',
         type=str,
-        default='nccl'
+        choices=['nccl', 'gloo'],
+        default=None
     )
     seed: int = ta.add_argument(
         '--seed',
@@ -107,6 +118,25 @@ class BaseArgs(ta.TypedArgs):
     @property
     def experiment_dir(self) -> Path:
         return self.output_dir / ('debug' if self.debug else 'release') / self.experiment_name
+
+    @property
+    def device(self) -> torch.device:
+        if self.gpu and torch.cuda.is_available():
+            return torch.device('cuda')
+        else:
+            return torch.device('cpu')
+
+    @property
+    def dist_backend(self) -> str:
+        backend = self._dist_backend
+        if backend is None:
+            if self.gpu and dist.is_nccl_available():
+                backend = 'nccl'
+            else:
+                backend = 'gloo'
+            _logger.info('infer dist_backend: %s', backend)
+
+        return backend
 
     def parse_config(self) -> dict:
         snippet = parse_config(
