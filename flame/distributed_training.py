@@ -1,16 +1,16 @@
-from flame.config_parser import ConfigParser, require, ConfigParser2
 import logging
 from typing import Callable
 
-from flame.arguments import BaseArgs
-from flame.utils.experiment import get_experiment_dir, make_experiment_dir
-from flame.logging import init_logger
-import torch.multiprocessing as mp
-import torch.distributed as dist
 import torch
-from flame.config import from_file
-from flame.helpers.cuda import cudnn_benchmark_if_possible
+import torch.distributed as dist
+import torch.multiprocessing as mp
 
+from flame.arguments import BaseArgs
+from flame.config import dump_to_json
+from flame.config_parser import ConfigParser2
+from flame.helpers.cuda import cudnn_benchmark_if_possible
+from flame.logging import init_logger
+from flame.utils.experiment import get_experiment_dir
 
 _logger = logging.getLogger(__name__)
 
@@ -111,6 +111,10 @@ def start_distributed_training(
 
         # make experiment dir
         args.experiment_dir.mkdir(parents=True)
+
+        config_file_path = args.experiment_dir / 'config.json'
+        _logger.debug('dump config to %s', config_file_path)
+        dump_to_json(args.parse_config(), config_file_path)
 
     # step 2 init logger with experiment dir
     num_procs = 1
