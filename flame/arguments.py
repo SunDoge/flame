@@ -34,11 +34,6 @@ def parse_gpu_list(gpu_str: str) -> List[int]:
     return res
 
 
-def parse_dist_backend(backend: Optional[str]) -> str:
-    print(backend)
-    return backend
-
-
 @dataclass
 class BaseArgs(ta.TypedArgs):
 
@@ -139,6 +134,7 @@ class BaseArgs(ta.TypedArgs):
         return backend
 
     def parse_config(self) -> dict:
+        assert self.config
         snippet = parse_config(
             self.config,
             self.add

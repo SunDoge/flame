@@ -39,7 +39,12 @@ def get_console_handler():
     return console_handler
 
 
-def init_logger(rank: int = 0, filename: Optional[str] = None, debug: bool = False, force: bool = False):
+def init_logger(
+    rank: int = 0,
+    filename: Optional[str] = None,
+    debug: bool = False,
+    force: bool = False
+):
     """
     Args:
         rank: 目前只有rank0会输出到console和log file
@@ -72,3 +77,4 @@ def init_logger(rank: int = 0, filename: Optional[str] = None, debug: bool = Fal
     )
 
     set_excepthook()
+
