@@ -77,4 +77,3 @@ def init_logger(
     )
 
     set_excepthook()
-

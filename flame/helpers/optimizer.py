@@ -1,4 +1,5 @@
-from typing import Callable
+import functools
+from typing import Callable, Optional
 from flame.config_parser import ConfigParser
 import torch.distributed as dist
 import logging
@@ -48,3 +49,16 @@ def scale_lr_linearly(
     new_lr = lr * float(batch_size * world_size) / base
     _logger.info('linearly scale lr: %s -> %s', lr, new_lr)
     return new_lr
+
+
+def scale_lr_for_partial(
+    func: functools.partial,
+    world_size: Optional[int] = None
+):
+    lr: float = func.keywords['lr']
+    if not world_size:
+        world_size = _get_world_size()
+        _logger.info('auto infer world_size: %s', world_size)
+
+    new_lr = lr * world_size
+    func.keywords['lr'] = new_lr
