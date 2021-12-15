@@ -5,6 +5,7 @@ import torch.distributed as dist
 from torch.utils.data.distributed import DistributedSampler
 import logging
 import torch
+
 # from ..sampler import UniformDistributedSampler
 
 _logger = logging.getLogger(__name__)
@@ -25,22 +26,24 @@ def create_data_loader(
         sampler = DistributedSampler(dataset)
 
         if shuffle == True:
-            _logger.debug('set shuffle=False when using DistributedSampler')
+            _logger.debug("set shuffle=False when using DistributedSampler")
             shuffle = False
     else:
         sampler = None
 
     if multiprocessing_context is None:
         # 在linux下更快更好，不会在每次启动时重新读取文件
-        multiprocessing_context = mp.get_context('fork')
-        _logger.debug('set mp context: %s', multiprocessing_context)
+        multiprocessing_context = mp.get_context("fork")
+        _logger.debug("set mp context: %s", multiprocessing_context)
 
     if pin_memory and persistent_workers:
         torch_version: str = torch.__version__
         major_version, minor_version, patch_version = map(
-            int, torch_version.split('+')[0].split('.')
+            int, torch_version.split("+")[0].split(".")
         )
-        assert major_version >= 1 and minor_version >= 8, "pytorch version lower than 1.8 has bug for pin_menory and persistent_workers"
+        assert (
+            major_version >= 1 and minor_version >= 8
+        ), "pytorch version lower than 1.8 has bug for pin_menory and persistent_workers"
 
     loader = DataLoader(
         dataset,
@@ -60,9 +63,9 @@ def create_data_loader(
 
 def create_data_loader_from_config(
     config: dict,
-    key_transform: str = 'transform',
-    key_dataset: str = 'dataset',
-    key_loader: str = 'loader',
+    key_transform: str = "transform",
+    key_dataset: str = "dataset",
+    key_loader: str = "loader",
 ) -> DataLoader:
     # config_parser = ConfigParser()
     # transform_config = config[key_transform]
