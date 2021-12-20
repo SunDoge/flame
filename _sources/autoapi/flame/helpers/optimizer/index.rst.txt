@@ -18,6 +18,7 @@ Functions
    flame.helpers.optimizer.get_learning_rate_from_optimizer
    flame.helpers.optimizer._get_world_size
    flame.helpers.optimizer.scale_lr_linearly
+   flame.helpers.optimizer.scale_lr_for_partial
 
 
 
@@ -47,5 +48,8 @@ Attributes
 
 
 .. py:function:: scale_lr_linearly(lr, batch_size, world_size = 1, base = 256)
+
+
+.. py:function:: scale_lr_for_partial(func, world_size = None)
 
 

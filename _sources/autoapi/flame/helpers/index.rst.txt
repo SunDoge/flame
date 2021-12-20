@@ -39,6 +39,7 @@ Functions
 
    flame.helpers.create_optimizer_from_config
    flame.helpers.scale_lr_linearly
+   flame.helpers.scale_lr_for_partial
    flame.helpers.create_scheduler_from_config
    flame.helpers.create_model_from_config
    flame.helpers.create_data_loader_from_config
@@ -51,6 +52,9 @@ Functions
 
 
 .. py:function:: scale_lr_linearly(lr, batch_size, world_size = 1, base = 256)
+
+
+.. py:function:: scale_lr_for_partial(func, world_size = None)
 
 
 .. py:function:: create_scheduler_from_config(config, optimizer)

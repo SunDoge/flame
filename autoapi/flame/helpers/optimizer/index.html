@@ -196,6 +196,15 @@
     </a>
    </li>
    <li class="toctree-l3">
+    <a class="reference internal" href="../../__main__/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.__main__
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
     <a class="reference internal" href="../../archiver/index.html">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
@@ -348,6 +357,11 @@
        scale_lr_linearly
       </a>
      </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#flame.helpers.optimizer.scale_lr_for_partial">
+       scale_lr_for_partial
+      </a>
+     </li>
     </ul>
    </li>
   </ul>
@@ -394,6 +408,9 @@
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame.helpers.optimizer.scale_lr_linearly" title="flame.helpers.optimizer.scale_lr_linearly"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scale_lr_linearly</span></code></a>(lr, batch_size, world_size = 1, base = 256)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.helpers.optimizer.scale_lr_for_partial" title="flame.helpers.optimizer.scale_lr_for_partial"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scale_lr_for_partial</span></code></a>(func, world_size = None)</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -480,6 +497,19 @@
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="flame.helpers.optimizer.scale_lr_for_partial">
+<code class="sig-prename descclassname"><span class="pre">flame.helpers.optimizer.</span></code><code class="sig-name descname"><span class="pre">scale_lr_for_partial</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">world_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.helpers.optimizer.scale_lr_for_partial" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>func</strong> (<em>functools.partial</em>) – </p></li>
+<li><p><strong>world_size</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>

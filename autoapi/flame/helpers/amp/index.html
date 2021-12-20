@@ -196,6 +196,15 @@
     </a>
    </li>
    <li class="toctree-l3">
+    <a class="reference internal" href="../../__main__/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.__main__
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
     <a class="reference internal" href="../../archiver/index.html">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
@@ -358,6 +367,16 @@
          clip_grad_norm_
         </a>
        </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.helpers.amp.Amp.state_dict">
+         state_dict
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.helpers.amp.Amp.load_state_dict">
+         load_state_dict
+        </a>
+       </li>
       </ul>
      </li>
     </ul>
@@ -474,6 +493,26 @@
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>params</strong> (<em>TensorOrIterableTensors</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame.helpers.amp.Amp.state_dict">
+<code class="sig-name descname"><span class="pre">state_dict</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.helpers.amp.Amp.state_dict" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame.helpers.amp.Amp.load_state_dict">
+<code class="sig-name descname"><span class="pre">load_state_dict</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.helpers.amp.Amp.load_state_dict" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state_dict</strong> (<em>dict</em>) – </p>
 </dd>
 </dl>
 </dd></dl>

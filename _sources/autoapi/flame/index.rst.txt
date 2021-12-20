@@ -21,6 +21,7 @@ Submodules
    :titlesonly:
    :maxdepth: 1
 
+   __main__/index.rst
    archiver/index.rst
    arguments/index.rst
    ckcfg/index.rst

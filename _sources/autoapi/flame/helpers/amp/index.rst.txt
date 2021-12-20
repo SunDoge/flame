@@ -50,4 +50,10 @@ Attributes
    .. py:method:: clip_grad_norm_(self, params)
 
 
+   .. py:method:: state_dict(self)
+
+
+   .. py:method:: load_state_dict(self, state_dict)
+
+
 

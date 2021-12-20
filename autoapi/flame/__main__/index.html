@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>flame.archiver &#8212; flame 0.0.1 documentation</title>
+    <title>flame.__main__ &#8212; flame 0.0.1 documentation</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../../_static/css/index.f6b7ca918bee2f46fd9abac01cfb07d5.css" rel="stylesheet" />
@@ -34,8 +34,8 @@
     <script src="../../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="flame.arguments" href="../arguments/index.html" />
-    <link rel="prev" title="flame.__main__" href="../__main__/index.html" />
+    <link rel="next" title="flame.archiver" href="../archiver/index.html" />
+    <link rel="prev" title="flame.utils.timing" href="../utils/timing/index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
   </head>
@@ -121,8 +121,8 @@
      </code>
     </a>
    </li>
-   <li class="toctree-l3">
-    <a class="reference internal" href="../__main__/index.html">
+   <li class="toctree-l3 current active">
+    <a class="current reference internal" href="#">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
        flame.__main__
@@ -130,8 +130,8 @@
      </code>
     </a>
    </li>
-   <li class="toctree-l3 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l3">
+    <a class="reference internal" href="../archiver/index.html">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
        flame.archiver
@@ -244,38 +244,23 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#functions">
-     Functions
+    <a class="reference internal nav-link" href="#classes">
+     Classes
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#attributes">
-     Attributes
+    <a class="reference internal nav-link" href="#functions">
+     Functions
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.archiver._logger">
-       _logger
+      <a class="reference internal nav-link" href="#flame.__main__.Args">
+       Args
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.archiver.git_ls_files">
-       git_ls_files
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.archiver.zip_files">
-       zip_files
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.archiver.make_archive">
-       make_archive
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.archiver.file_list">
-       file_list
+      <a class="reference internal nav-link" href="#flame.__main__.main">
+       main
       </a>
      </li>
     </ul>
@@ -299,11 +284,24 @@
               
               <div>
                 
-  <div class="section" id="module-flame.archiver">
-<span id="flame-archiver"></span><h1><a class="reference internal" href="#module-flame.archiver" title="flame.archiver"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.archiver</span></code></a><a class="headerlink" href="#module-flame.archiver" title="Permalink to this headline">¶</a></h1>
-<p>保存当前代码到指定目录</p>
+  <div class="section" id="module-flame.__main__">
+<span id="flame-main"></span><h1><a class="reference internal" href="#module-flame.__main__" title="flame.__main__"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.__main__</span></code></a><a class="headerlink" href="#module-flame.__main__" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="module-contents">
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.__main__.Args" title="flame.__main__.Args"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Args</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section" id="functions">
 <h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
 <table class="longtable table autosummary">
@@ -312,76 +310,20 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.archiver.git_ls_files" title="flame.archiver.git_ls_files"><code class="xref py py-obj docutils literal notranslate"><span class="pre">git_ls_files</span></code></a>()</p></td>
-<td><p><a class="reference external" href="https://stackoverflow.com/questions/2766600/git-archive-of-repository-with-uncommitted-changes/63092214#63092214">https://stackoverflow.com/questions/2766600/git-archive-of-repository-with-uncommitted-changes/63092214#63092214</a></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame.archiver.zip_files" title="flame.archiver.zip_files"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zip_files</span></code></a>(file_list, filename)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.archiver.make_archive" title="flame.archiver.make_archive"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_archive</span></code></a>(filename)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.__main__.main" title="flame.__main__.main"><code class="xref py py-obj docutils literal notranslate"><span class="pre">main</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="attributes">
-<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
-<table class="longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.archiver._logger" title="flame.archiver._logger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_logger</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame.archiver.file_list" title="flame.archiver.file_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">file_list</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-</tbody>
-</table>
-<dl class="py data">
-<dt id="flame.archiver._logger">
-<code class="sig-prename descclassname"><span class="pre">flame.archiver.</span></code><code class="sig-name descname"><span class="pre">_logger</span></code><a class="headerlink" href="#flame.archiver._logger" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="flame.archiver.git_ls_files">
-<code class="sig-prename descclassname"><span class="pre">flame.archiver.</span></code><code class="sig-name descname"><span class="pre">git_ls_files</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flame.archiver.git_ls_files" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://stackoverflow.com/questions/2766600/git-archive-of-repository-with-uncommitted-changes/63092214#63092214">https://stackoverflow.com/questions/2766600/git-archive-of-repository-with-uncommitted-changes/63092214#63092214</a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>List[str]</p>
-</dd>
-</dl>
+<dl class="py class">
+<dt id="flame.__main__.Args">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.__main__.</span></code><code class="sig-name descname"><span class="pre">Args</span></code><a class="headerlink" href="#flame.__main__.Args" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">typed_args.TypedArgs</span></code></p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="flame.archiver.zip_files">
-<code class="sig-prename descclassname"><span class="pre">flame.archiver.</span></code><code class="sig-name descname"><span class="pre">zip_files</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.archiver.zip_files" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>file_list</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>filename</strong> (<em>str</em>) – </p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="flame.archiver.make_archive">
-<code class="sig-prename descclassname"><span class="pre">flame.archiver.</span></code><code class="sig-name descname"><span class="pre">make_archive</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.archiver.make_archive" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py data">
-<dt id="flame.archiver.file_list">
-<code class="sig-prename descclassname"><span class="pre">flame.archiver.</span></code><code class="sig-name descname"><span class="pre">file_list</span></code><a class="headerlink" href="#flame.archiver.file_list" title="Permalink to this definition">¶</a></dt>
+<dt id="flame.__main__.main">
+<code class="sig-prename descclassname"><span class="pre">flame.__main__.</span></code><code class="sig-name descname"><span class="pre">main</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flame.__main__.main" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -394,8 +336,8 @@
               
               <div class='prev-next-bottom'>
                 
-    <a class='left-prev' id="prev-link" href="../__main__/index.html" title="previous page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.__main__</span></code></a>
-    <a class='right-next' id="next-link" href="../arguments/index.html" title="next page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.arguments</span></code></a>
+    <a class='left-prev' id="prev-link" href="../utils/timing/index.html" title="previous page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.utils.timing</span></code></a>
+    <a class='right-next' id="next-link" href="../archiver/index.html" title="next page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.archiver</span></code></a>
 
               </div>
               

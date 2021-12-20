@@ -1,0 +1,35 @@
+:py:mod:`flame.__main__`
+========================
+
+.. py:module:: flame.__main__
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.__main__.Args
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.__main__.main
+
+
+
+.. py:class:: Args
+
+   Bases: :py:obj:`typed_args.TypedArgs`
+
+
+.. py:function:: main()
+
+
