@@ -1,4 +1,4 @@
-from typing import Callable, Dict, Iterable
+from typing import Callable, Dict, Iterable, Iterator
 
 from torch.utils.data.dataloader import DataLoader
 from flame.pytorch.meters.time_meter import EstimatedTimeOfArrival

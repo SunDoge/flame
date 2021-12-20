@@ -37,7 +37,7 @@ def _default_main_worker(
     # main_worker = require(main_worker_name)
     # config['args'] = args
     # main_worker(**config)
-    ConfigParser2(args=args).parse_root_config(config)
+    ConfigParser2(args=args, config=config).parse_root_config(config)
 
 
 def _init_process_group(

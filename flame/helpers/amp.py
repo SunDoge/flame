@@ -39,3 +39,9 @@ class Amp:
             torch.nn.utils.clip_grad_norm_(
                 params, self.max_norm
             )
+
+    def state_dict(self) -> dict:
+        return self.grad_scaler.state_dict()
+
+    def load_state_dict(self, state_dict: dict):
+        return self.grad_scaler.load_state_dict(state_dict)
