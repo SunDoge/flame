@@ -1,3 +1,5 @@
+local flame = import '../../jsonnet/flame.libsonnet';
+
 local Mnist(root, transform, train=true) = {
   _call: 'torchvision.datasets.MNIST',
   root: root,
@@ -7,27 +9,46 @@ local Mnist(root, transform, train=true) = {
 };
 
 {
-    local root = self,
-    _call: 'example.mnist.main_v2.main_worker',
-    args: '$args',
+  local root = self,
+  _call: 'example.mnist.main_v3.Trainer',
+  args: '$args',
+  batch_size: 64,
+  num_workers: 2,
+  max_epochs: 14,
 
-    mnist_root:: './data/mnist',
-    train_transform: {
-        _call: 'example.mnist.main_v2.MnistTrain'
-    },
-    train_dataset: Mnist(
-        root.mnist_root,
-        '$train_transform',
-        train=true
-    ),
-    train_loader: {
-        _call: 'flame.helpers.create_data_loader',
-        dataset: '$train_dataset',
-        batch_size: 512,
-        num_workers: 2,
-    },
-    optimizer_fn: {
-        _use: 'torch.optim.SGD',
-        lr: 0.1
-    },
+  mnist_root:: './data/mnist',
+  train_transform: {
+    _call: 'example.mnist.presets.MnistTransform',
+  },
+  train_dataset: Mnist(
+    root.mnist_root,
+    '$train_transform',
+    train=true
+  ),
+  train_loader: {
+    _call: 'flame.helpers.create_data_loader',
+    dataset: '$train_dataset',
+    batch_size: root.batch_size,
+    num_workers: root.num_workers,
+  },
+  test_transform: root.train_transform,
+  test_dataset: Mnist(
+    root.mnist_root,
+    '$test_transform',
+    train=false,
+  ),
+  test_loader: {
+    _call: 'flame.helpers.create_data_loader',
+    dataset: '$test_dataset',
+    batch_size: root.batch_size * 10,
+    num_workers: root.num_workers,
+  },
+  optimizer_fn: {
+    _use: 'torch.optim.Adadelta',
+    lr: flame.normLr(4.0, root.batch_size),
+  },
+  scheduler_fn: {
+    _use: 'torch.optim.lr_scheduler.StepLR',
+    gamma: 0.7,
+  },
 }
