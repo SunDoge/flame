@@ -45,8 +45,9 @@ class CheckpointManager:
 
     def train(self, mode: bool = True):
         for name, value in self.registry.items():
-            value.to_training(mode)
-            _logger.info(f"{name}.training={mode}")
+            if value.to_training is not _default_to_training:
+                value.to_training(mode)
+                _logger.info(f"{name}.training={mode}")
 
     def eval(self):
         self.train(mode=False)

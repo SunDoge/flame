@@ -12,9 +12,10 @@ local Mnist(root, transform, train=true) = {
   local root = self,
   _call: 'example.mnist.main_v3.Trainer',
   args: '$args',
-  batch_size: 64,
+  batch_size: 128,
   num_workers: 2,
   max_epochs: 14,
+  log_interval: 10,
 
   mnist_root:: './data/mnist',
   train_transform: {
@@ -43,6 +44,11 @@ local Mnist(root, transform, train=true) = {
     batch_size: root.batch_size * 10,
     num_workers: root.num_workers,
   },
+  data_module: {
+    _call: 'flame.experimental.trainer.DataModule',
+    train_loader: '$train_loader',
+    test_loader: '$test_loader',
+  },
   optimizer_fn: {
     _use: 'torch.optim.Adadelta',
     lr: flame.normLr(4.0, root.batch_size),
@@ -50,5 +56,9 @@ local Mnist(root, transform, train=true) = {
   scheduler_fn: {
     _use: 'torch.optim.lr_scheduler.StepLR',
     gamma: 0.7,
+    step_size: 1,
+  },
+  model: {
+    _call: 'example.mnist.model.Net'
   },
 }
