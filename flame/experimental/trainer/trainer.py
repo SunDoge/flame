@@ -17,18 +17,22 @@ from .coroutine_scheduler import CoroutineScheduler
 from .state import State
 from flame.pytorch.meters.time_meter import EstimatedTimeOfArrival
 
-_logger = logging.getLogger(__name__)
 
-nn.Module
+_logger = logging.getLogger(__name__)
 
 
 class BaseTrainer:
     def __init__(self) -> None:
         state = State()
         checkpoint_manager = CheckpointManager()
-
+        meters = LazyAverageMeters()
         checkpoint_manager.register(
             "trainer_state", state.state_dict, state.load_state_dict, state.train
+        )
+        checkpoint_manager.register(
+            "meters",
+            meters.state_dict,
+            meters.load_state_dict,
         )
         coroutine_scheduler = CoroutineScheduler()
 
@@ -38,7 +42,8 @@ class BaseTrainer:
 
         self.iter_eta = None
         self.epoch_eta = None
-        self.meters = LazyAverageMeters()
+        self.meters = meters
+        self._break = False
 
     def train(self, loader, epoch_length: Optional[int] = None, prefix: str = "train"):
 
@@ -58,6 +63,8 @@ class BaseTrainer:
             prefix, functools.partial(self._loop, loader, self.iter_eta, prefix)
         )
 
+        self.state.last_prefix = prefix
+
     @torch.no_grad()
     def validate(self, loader, epoch_length: Optional[int] = None, prefix: str = "val"):
         # Switch to eval mode
@@ -72,6 +79,8 @@ class BaseTrainer:
         self.iter_middleware(
             prefix, functools.partial(self._loop, loader, self.iter_eta, prefix)
         )
+
+        self.state.last_prefix = prefix
 
     def test(self, loader, epoch_length: Optional[int] = None, prefix: str = "test"):
         self.validate(loader, epoch_length=epoch_length, prefix=prefix)
@@ -93,6 +102,11 @@ class BaseTrainer:
 
                 eta.update(n=batch_size if batch_size else 1)
 
+                if self.state.debug:
+                    break
+
+        _logger.info("sync meters")
+        self.meters[prefix].sync()
         _logger.info(f"{prefix} complete: {self.meters.with_prefix(prefix)}")
 
     @staticmethod
@@ -106,7 +120,9 @@ class BaseTrainer:
         return epoch_length
 
     @staticmethod
-    def every_n_iters(batch_idx: int, n: int = 1) -> bool:
+    def every_n_iters(batch_idx: int, n: int = 1, debug: bool = False) -> bool:
+        if debug:
+            n = 1
         return batch_idx > 0 and batch_idx % n == 0
 
     # def _on_epoch_start(self, prefix: str):
@@ -121,8 +137,8 @@ class BaseTrainer:
     def epoch_middleware(self, next_fn: Callable):
         next_fn()
 
-    def run(self, data_module: DataModule, max_epochs: int):
-
+    def run(self, data_module: DataModule, max_epochs: int, debug: bool = False):
+        self.state.debug = debug
         self.epoch_eta = EstimatedTimeOfArrival(max_epochs, initial=self.state.epoch)
 
         while self.state.epoch < max_epochs:
@@ -150,6 +166,9 @@ class BaseTrainer:
 
             self.epoch_middleware(f)
 
+            if debug:
+                break
+
     def set_coroutine_delay(self, delay: int):
         self.coroutine_scheduler.delay = delay
 
@@ -157,3 +176,6 @@ class BaseTrainer:
         loss.backward()
         optimizer.step()
         optimizer.zero_grad(set_to_none=True)
+
+    def break_iter(self):
+        self._break = True

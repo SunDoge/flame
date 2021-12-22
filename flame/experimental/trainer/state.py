@@ -7,6 +7,8 @@ class State:
         self.step: int = 0
         self.training: bool = True
         self.epoch_length: Optional[int] = None
+        self.debug: bool = False
+        self.last_prefix: str = "train"
 
     def state_dict(self):
         return self.__dict__

@@ -192,7 +192,7 @@ class LazyAverageMeters(DynamicAverageMeterGroup):
     def with_prefix(self, prefix: str):
         return self._meters.get(prefix)
 
-    def __getitem__(self, key: str) -> AverageMeterGroup:
+    def __getitem__(self, key: str) -> DynamicAverageMeterGroup:
         return self._meters[key]
 
     def __enter__(self):
