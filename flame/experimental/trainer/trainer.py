@@ -115,7 +115,6 @@ class BaseTrainer:
                 if self.state.debug:
                     break
 
-        
         _logger.info(f"{prefix} complete: {meters}")
 
     @staticmethod
@@ -130,9 +129,7 @@ class BaseTrainer:
 
     @staticmethod
     def every_n_iters(batch_idx: int, n: int = 1, debug: bool = False) -> bool:
-        if debug:
-            n = 1
-        return batch_idx > 0 and batch_idx % n == 0
+        return (batch_idx > 0 and batch_idx % n == 0) or debug
 
     # def _on_epoch_start(self, prefix: str):
     #     pass
@@ -180,7 +177,7 @@ class BaseTrainer:
             if debug:
                 break
 
-        _logger.info('total time: %s', self.epoch_eta.elapsed_time)
+        _logger.info("total time: %s", self.epoch_eta.elapsed_time)
 
     def set_coroutine_delay(self, delay: int):
         self.coroutine_scheduler.delay = delay
