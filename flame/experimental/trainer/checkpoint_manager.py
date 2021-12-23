@@ -78,3 +78,6 @@ class CheckpointManager:
 
     def register_grad_scaler(self, grad_scaler: GradScaler, name: str = "grad_scaler"):
         self.register(name, grad_scaler.state_dict, grad_scaler.load_state_dict)
+
+    def __str__(self) -> str:
+        return str(self.registry.keys())

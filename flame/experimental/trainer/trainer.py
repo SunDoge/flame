@@ -16,7 +16,7 @@ from .checkpoint_manager import CheckpointManager
 from .coroutine_scheduler import CoroutineScheduler
 from .state import State
 from flame.pytorch.meters.time_meter import EstimatedTimeOfArrival
-
+from torch.utils.data.distributed import DistributedSampler
 
 _logger = logging.getLogger(__name__)
 
@@ -57,6 +57,13 @@ class BaseTrainer:
         if not epoch_length:
             self.state.epoch_length = self._try_infer_epoch_length(loader)
 
+        # Set epoch
+        if isinstance(loader, DataLoader) and isinstance(
+            loader.sampler, DistributedSampler
+        ):
+            loader.sampler.set_epoch(self.state.epoch)
+            _logger.info("set_epoch: %s", self.state.epoch)
+
         self.iter_eta = EstimatedTimeOfArrival(epoch_length)
 
         self.iter_middleware(
@@ -93,8 +100,9 @@ class BaseTrainer:
 
             for batch_idx, batch in enumerate(loader):
 
-                # Update state
-                self.state.step += 1
+                if self.state.training:
+                    # Update state
+                    self.state.step += 1
 
                 batch_size = coroutine_scheduler.run(
                     self.forward(batch, batch_idx, prefix)
@@ -138,6 +146,8 @@ class BaseTrainer:
         next_fn()
 
     def run(self, data_module: DataModule, max_epochs: int, debug: bool = False):
+        _logger.info("checkpoint manager: %s", self.checkpoint_manager)
+
         self.state.debug = debug
         self.epoch_eta = EstimatedTimeOfArrival(max_epochs, initial=self.state.epoch)
 
@@ -168,6 +178,8 @@ class BaseTrainer:
 
             if debug:
                 break
+        
+        _logger.info('total time: %s', self.epoch_eta.elapsed_time)
 
     def set_coroutine_delay(self, delay: int):
         self.coroutine_scheduler.delay = delay
