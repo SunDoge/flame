@@ -96,26 +96,27 @@ class BaseTrainer:
         raise NotImplementedError
 
     def _loop(self, loader, eta: EstimatedTimeOfArrival, prefix: str):
-        with self.meters, self.coroutine_scheduler as coroutine_scheduler:
-
+        # with self.meters, self.coroutine_scheduler as coroutine_scheduler:
+        meters = self.meters[prefix]
+        with meters:
             for batch_idx, batch in enumerate(loader):
 
                 if self.state.training:
                     # Update state
                     self.state.step += 1
 
-                batch_size = coroutine_scheduler.run(
-                    self.forward(batch, batch_idx, prefix)
-                )
+                # batch_size = coroutine_scheduler.run(
+                #     self.forward(batch, batch_idx, prefix)
+                # )
+                batch_size = self.forward(batch, batch_idx, prefix)
 
                 eta.update(n=batch_size if batch_size else 1)
 
                 if self.state.debug:
                     break
 
-        _logger.info("sync meters")
-        self.meters[prefix].sync()
-        _logger.info(f"{prefix} complete: {self.meters.with_prefix(prefix)}")
+        
+        _logger.info(f"{prefix} complete: {meters}")
 
     @staticmethod
     def _try_infer_epoch_length(loader) -> Optional[int]:
@@ -178,7 +179,7 @@ class BaseTrainer:
 
             if debug:
                 break
-        
+
         _logger.info('total time: %s', self.epoch_eta.elapsed_time)
 
     def set_coroutine_delay(self, delay: int):

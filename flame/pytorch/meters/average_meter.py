@@ -142,10 +142,12 @@ class DynamicAverageMeterGroup(Meter):
         meter.update(value, n=n)
 
     def sync(self):
+        _logger.info(f'sync {self.__class__}')
         for meter in self._meters.values():
             meter.sync()
 
     def reset(self):
+        _logger.info(f'reset {self.__class__}')
         for meter in self._meters.values():
             meter.reset()
 
@@ -172,6 +174,15 @@ class DynamicAverageMeterGroup(Meter):
         for name, meter in self._meters.items():
             summary_writer.add_scalar(name, meter.avg, global_step=global_step)
 
+    def __enter__(self):
+        self.reset()
+        return self
+
+    def __exit__(self, *args, **kwargs):
+        # 先同步，再记录
+        self.sync()
+        self.record()
+
 
 class LazyAverageMeters(DynamicAverageMeterGroup):
     """
@@ -189,16 +200,13 @@ class LazyAverageMeters(DynamicAverageMeterGroup):
         meters = self._meters[prefix]
         meters.update(name, value, n=n, fmt=fmt)
 
-    def with_prefix(self, prefix: str):
-        return self._meters.get(prefix)
+    # def with_prefix(self, prefix: str):
+    #     return self._meters.get(prefix)
 
     def __getitem__(self, key: str) -> DynamicAverageMeterGroup:
+        if key not in self._meters:
+            meters = DynamicAverageMeterGroup(delimiter=self.delimiter)
+            self._meters[key] = meters
         return self._meters[key]
 
-    def __enter__(self):
-        return self
-
-    def __exit__(self, *args, **kwargs):
-        # 先同步，再记录
-        self.sync()
-        self.record()
+    
