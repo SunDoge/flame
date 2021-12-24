@@ -142,12 +142,12 @@ class DynamicAverageMeterGroup(Meter):
         meter.update(value, n=n)
 
     def sync(self):
-        _logger.info(f'sync {self.__class__}')
+        _logger.info(f"sync {self.__class__}")
         for meter in self._meters.values():
             meter.sync()
 
     def reset(self):
-        _logger.info(f'reset {self.__class__}')
+        _logger.info(f"reset {self.__class__}")
         for meter in self._meters.values():
             meter.reset()
 
@@ -209,4 +209,12 @@ class LazyAverageMeters(DynamicAverageMeterGroup):
             self._meters[key] = meters
         return self._meters[key]
 
-    
+    def write_summary(
+        self, prefix: str, summary_writer: SummaryWriter, global_step: int
+    ):
+        meters = self._meters[prefix]
+
+        for name, meter in meters._meters.items():
+            summary_writer.add_scalar(
+                f"{prefix}/{name}", meter.avg, global_step=global_step
+            )
