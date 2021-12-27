@@ -29,11 +29,11 @@ class BaseTrainer:
         checkpoint_manager.register(
             "trainer_state", state.state_dict, state.load_state_dict, state.train
         )
-        checkpoint_manager.register(
-            "meters",
-            meters.state_dict,
-            meters.load_state_dict,
-        )
+        # checkpoint_manager.register(
+        #     "meters",
+        #     meters.state_dict,
+        #     meters.load_state_dict,
+        # )
         coroutine_scheduler = CoroutineScheduler()
 
         self.state = state

@@ -1,7 +1,9 @@
-from typing import Any, Callable, Dict, Optional
+from pathlib import Path
+from typing import Any, Callable, Dict, Optional, Union
 from dataclasses import dataclass
 import logging
 from torch import nn
+import torch
 from torch.optim import Optimizer
 from torch.optim.lr_scheduler import _LRScheduler as LrScheduler
 from torch.cuda.amp.grad_scaler import GradScaler
@@ -58,7 +60,10 @@ class CheckpointManager:
 
     def load_state_dict(self, state_dict: Dict):
         for key, value in state_dict.items():
-            self.registry[key].load_state_dict(value)
+            if key in self.registry:
+                self.registry[key].load_state_dict(value)
+            else:
+                _logger.warning("fail to load %s from state_dict", key)
 
     def register_model(self, model: nn.Module, name: str = "model"):
         if isinstance(
@@ -81,3 +86,8 @@ class CheckpointManager:
 
     def __str__(self) -> str:
         return str(self.registry.keys())
+
+    def resume(self, checkpoint_path: Union[str, Path]):
+        cp = torch.load(checkpoint_path, map_location="cpu")
+        self.load_state_dict(cp)
+        _logger.info("resume from %s", checkpoint_path)

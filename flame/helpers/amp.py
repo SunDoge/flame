@@ -22,6 +22,8 @@ class Amp:
         self.max_norm = max_norm
 
         _logger.info("amp: %s", self.enabled)
+        if self.max_norm:
+            _logger.info("you are using grad clip, don't forget to pass params in")
 
     def autocast(self):
         return autocast(enabled=self.enabled)
@@ -52,6 +54,7 @@ class Amp:
         loss: Tensor,
         optimizer: torch.optim.Optimizer,
         parameters: Optional[TensorOrIterableTensors] = None,
+        zero_grad_set_to_none: bool = False,
     ):
         self.scale(loss).backward()
 
@@ -62,7 +65,7 @@ class Amp:
 
         self.grad_scaler.step(optimizer)
         self.grad_scaler.update()
-        optimizer.zero_grad(set_to_none=True)
+        optimizer.zero_grad(set_to_none=zero_grad_set_to_none)
 
     def backward(
         self,
