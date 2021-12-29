@@ -1,3 +1,6 @@
+from typing import Callable, Optional
+
+from numpy import ubyte
 from flame.config_parser import ConfigParser
 from torch.utils.data import DataLoader, Dataset
 import torch.multiprocessing as mp
@@ -21,6 +24,7 @@ def create_data_loader(
     multiprocessing_context=None,
     persistent_workers: bool = True,
     drop_last: bool = False,
+    worker_init_fn: Optional[Callable[[int], None]] = None,
 ) -> DataLoader:
     if dist.is_available() and dist.is_initialized():
         sampler = DistributedSampler(dataset)
@@ -56,6 +60,7 @@ def create_data_loader(
         multiprocessing_context=multiprocessing_context,
         persistent_workers=persistent_workers,
         drop_last=drop_last,
+        worker_init_fn=worker_init_fn,
     )
 
     return loader
