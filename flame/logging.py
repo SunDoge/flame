@@ -6,7 +6,7 @@ import sys
 _logger = logging.getLogger(__name__)
 
 
-FILE_FORMAT = '%(asctime)s:%(levelname)-8s: %(message)s'
+FILE_FORMAT = "%(asctime)s:%(levelname)-8s: %(message)s"
 CONSOLE_FORMAT = "%(message)s"
 # CONSOLE_FORMAT = "%(asctime)s %(levelname)-8s: %(message)s"
 
@@ -15,12 +15,11 @@ def log_hook(exc_type, exc_value, traceback):
     """
     log the exception when it raise
     """
-    _logger.exception("Uncaught exception", exc_info=(
-        exc_type, exc_value, traceback))
+    _logger.exception("Uncaught exception", exc_info=(exc_type, exc_value, traceback))
 
 
 def set_excepthook():
-    _logger.debug('Setting except hook')
+    _logger.debug("Setting except hook")
     sys.excepthook = log_hook
 
 
@@ -33,7 +32,7 @@ def get_file_handler(filename: str, fmt: str = FILE_FORMAT):
 
 def get_console_handler():
     formatter = logging.Formatter(CONSOLE_FORMAT)
-    console_handler = RichHandler()
+    console_handler = RichHandler(show_path=False)
     # console_handler = logging.StreamHandler(stream=sys.stdout)
     console_handler.setFormatter(formatter)
     return console_handler
@@ -43,7 +42,7 @@ def init_logger(
     rank: int = 0,
     filename: Optional[str] = None,
     debug: bool = False,
-    force: bool = False
+    force: bool = False,
 ):
     """
     Args:
