@@ -16,8 +16,6 @@ _logger = logging.getLogger(__name__)
 
 
 MainWorker = Callable[[BaseArgs], None]
-KEY_ENGINE = 'engine'
-KEY_MAIN_WORKER = 'main_worker'
 
 
 def _default_main_worker(
@@ -26,17 +24,7 @@ def _default_main_worker(
     assert args.config, "please provide config file"
     # config = from_file(args.config)
     config = args.parse_config()
-    # ic(config)
-    # engine_name = config[KEY_ENGINE]
-    # engine_class: BaseEngine = require(engine_name)
-    # container = Injector([engine_class.ProviderModule(args, config)])
-    # engine = container.get(engine_class)
-    # container.call_with_injection(inject(engine.run))
 
-    # main_worker_name = config[KEY_MAIN_WORKER]
-    # main_worker = require(main_worker_name)
-    # config['args'] = args
-    # main_worker(**config)
     ConfigParser2(args=args, config=config).parse_root_config(config)
 
 
