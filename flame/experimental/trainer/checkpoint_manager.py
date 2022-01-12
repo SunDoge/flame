@@ -1,10 +1,13 @@
-from typing import Any, Callable, Dict, Optional
+from pathlib import Path
+from typing import Any, Callable, Dict, Optional, Union
 from dataclasses import dataclass
 import logging
 from torch import nn
+import torch
 from torch.optim import Optimizer
 from torch.optim.lr_scheduler import _LRScheduler as LrScheduler
 from torch.cuda.amp.grad_scaler import GradScaler
+import functools
 
 _logger = logging.getLogger(__name__)
 
@@ -58,15 +61,25 @@ class CheckpointManager:
 
     def load_state_dict(self, state_dict: Dict):
         for key, value in state_dict.items():
-            self.registry[key].load_state_dict(value)
+            if key in self.registry:
+                self.registry[key].load_state_dict(value)
+            else:
+                _logger.warning("fail to load %s from state_dict", key)
 
-    def register_model(self, model: nn.Module, name: str = "model"):
+    def register_model(
+        self, model: nn.Module, name: str = "model", strict: bool = True
+    ):
         if isinstance(
             model, (nn.parallel.DistributedDataParallel, nn.parallel.DataParallel)
         ):
             model = model.module
 
-        self.register(name, model.state_dict, model.load_state_dict, model.train)
+        self.register(
+            name,
+            model.state_dict,
+            functools.partial(model.load_state_dict, strict=strict),
+            model.train,
+        )
 
     def register_optimizer(self, optimizer: Optimizer, name: str = "optimizer"):
         self.register(name, optimizer.state_dict, optimizer.load_state_dict)
@@ -78,3 +91,11 @@ class CheckpointManager:
 
     def register_grad_scaler(self, grad_scaler: GradScaler, name: str = "grad_scaler"):
         self.register(name, grad_scaler.state_dict, grad_scaler.load_state_dict)
+
+    def __str__(self) -> str:
+        return str(self.registry.keys())
+
+    def resume(self, checkpoint_path: Union[str, Path]):
+        cp = torch.load(checkpoint_path, map_location="cpu")
+        self.load_state_dict(cp)
+        _logger.info("resume from %s", checkpoint_path)

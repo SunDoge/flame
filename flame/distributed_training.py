@@ -36,6 +36,7 @@ def _init_process_group(
     if len(args.gpu) > 0:
         args.device_id = args.gpu[local_rank]
         _logger.info('set device_id: %d', args.device_id)
+        # print(args.device_id)
         torch.cuda.set_device(args.device_id)
 
     if len(args.gpu) > args.world_size:
@@ -103,6 +104,8 @@ def start_distributed_training(
         config_file_path = args.experiment_dir / 'config.json'
         _logger.debug('dump config to %s', config_file_path)
         dump_to_json(args.parse_config(), config_file_path)
+
+
 
     # step 2 init logger with experiment dir
     num_procs = 1
