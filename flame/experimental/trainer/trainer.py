@@ -66,8 +66,9 @@ class BaseTrainer:
 
         self.iter_eta = EstimatedTimeOfArrival(epoch_length)
 
-        self.iter_middleware(
-            prefix, functools.partial(self._loop, loader, self.iter_eta, prefix)
+        self.stage_middleware(
+            prefix, functools.partial(
+                self._loop, loader, self.iter_eta, prefix)
         )
 
         self.state.last_prefix = prefix
@@ -83,8 +84,9 @@ class BaseTrainer:
 
         self.iter_eta = EstimatedTimeOfArrival(epoch_length)
 
-        self.iter_middleware(
-            prefix, functools.partial(self._loop, loader, self.iter_eta, prefix)
+        self.stage_middleware(
+            prefix, functools.partial(
+                self._loop, loader, self.iter_eta, prefix)
         )
 
         self.state.last_prefix = prefix
@@ -137,7 +139,7 @@ class BaseTrainer:
     # def _on_epoch_end(self, prefix: str):
     #     pass
 
-    def iter_middleware(self, prefix: str, next_fn: Callable):
+    def stage_middleware(self, prefix: str, next_fn: Callable):
         next_fn()
 
     def epoch_middleware(self, next_fn: Callable):
@@ -147,7 +149,8 @@ class BaseTrainer:
         _logger.info("checkpoint manager: %s", self.checkpoint_manager)
 
         self.state.debug = debug
-        self.epoch_eta = EstimatedTimeOfArrival(max_epochs, initial=self.state.epoch)
+        self.epoch_eta = EstimatedTimeOfArrival(
+            max_epochs, initial=self.state.epoch)
 
         while self.state.epoch < max_epochs:
 
