@@ -45,8 +45,10 @@ def _get_world_size() -> int:
 
 
 def scale_lr_linearly(
-    lr: float, batch_size: int, world_size: int = 1, base: int = 256
+    lr: float, batch_size: int, world_size: Optional[int] = None, base: int = 256
 ) -> float:
+    if world_size is None:
+        world_size = _get_world_size()
     new_lr = lr * float(batch_size * world_size) / base
     _logger.info("linearly scale lr: %s -> %s", lr, new_lr)
     return new_lr
