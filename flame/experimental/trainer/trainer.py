@@ -1,28 +1,34 @@
 import functools
 import logging
-from typing import Callable, Optional
+from typing import Any, Callable, Optional, TypeVar
 
-from torch import nn
 import torch
+from torch import nn
 from torch.functional import Tensor
 from torch.optim.optimizer import Optimizer
 from torch.utils.data.dataloader import DataLoader
+from torch.utils.data.distributed import DistributedSampler
 
 from flame.pytorch.meters.average_meter import LazyAverageMeters
-
-from .data_module import DataModule
+from flame.pytorch.meters.time_meter import EstimatedTimeOfArrival
 
 from .checkpoint_manager import CheckpointManager
 from .coroutine_scheduler import CoroutineScheduler
+from .data_module import DataModule
 from .state import State
-from flame.pytorch.meters.time_meter import EstimatedTimeOfArrival
-from torch.utils.data.distributed import DistributedSampler
 
 _logger = logging.getLogger(__name__)
 
 
+T = TypeVar('T')
+
+
 class BaseTrainer:
     def __init__(self) -> None:
+        """
+        Args:
+            device: Trainer 应该使用的 device
+        """
         state = State()
         checkpoint_manager = CheckpointManager()
         meters = LazyAverageMeters()
@@ -67,7 +73,8 @@ class BaseTrainer:
         self.iter_eta = EstimatedTimeOfArrival(epoch_length)
 
         self.iter_middleware(
-            prefix, functools.partial(self._loop, loader, self.iter_eta, prefix)
+            prefix, functools.partial(
+                self._loop, loader, self.iter_eta, prefix)
         )
 
         self.state.last_prefix = prefix
@@ -84,7 +91,8 @@ class BaseTrainer:
         self.iter_eta = EstimatedTimeOfArrival(epoch_length)
 
         self.iter_middleware(
-            prefix, functools.partial(self._loop, loader, self.iter_eta, prefix)
+            prefix, functools.partial(
+                self._loop, loader, self.iter_eta, prefix)
         )
 
         self.state.last_prefix = prefix
@@ -147,7 +155,8 @@ class BaseTrainer:
         _logger.info("checkpoint manager: %s", self.checkpoint_manager)
 
         self.state.debug = debug
-        self.epoch_eta = EstimatedTimeOfArrival(max_epochs, initial=self.state.epoch)
+        self.epoch_eta = EstimatedTimeOfArrival(
+            max_epochs, initial=self.state.epoch)
 
         while self.state.epoch < max_epochs:
 
@@ -189,3 +198,22 @@ class BaseTrainer:
 
     def break_iter(self):
         self._break = True
+
+    def to_device(self, x: T, device: torch.device, non_blocking: bool = True) -> T:
+        """
+        将 Tensor 放到 device 上
+        """
+        return _to_device(x, device, non_blocking=non_blocking)
+
+
+def _to_device(x: T, device: torch.device, non_blocking: bool = True) -> T:
+    if isinstance(x, tuple):
+        return tuple(_to_device(v) for v in x)
+    elif isinstance(x, dict):
+        return {k: _to_device(v) for k, v in x.items()}
+    elif isinstance(x, list):
+        return [_to_device(v) for v in x]
+    elif isinstance(x, Tensor):
+        return x.to(device, non_blocking=non_blocking)
+    else:
+        raise Exception()
