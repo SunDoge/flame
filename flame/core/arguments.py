@@ -4,8 +4,28 @@ from typing import List, Optional
 
 import typed_args as ta
 from datetime import datetime
-import logging
 from .config import parse_config, from_snippet
+
+
+def parse_gpu_list(gpu_str: str) -> List[int]:
+    """
+    0-7 => [0,1,2,3,4,5,6,7]
+    1,3,5,7 => [1,3,5,7]
+    0-3,6-7 => [0,1,2,3,6,7]
+    """
+    segments = gpu_str.split(",")
+    ranges = [s.split("-") for s in segments]
+    ranges = [list(map(int, ran)) for ran in ranges]
+    res = []
+    for ran in ranges:
+        if len(ran) == 1:
+            res.append(ran[0])
+        elif len(ran) == 2:
+            res.extend(list(range(ran[0], ran[1] + 1)))
+        else:
+            raise Exception
+
+    return res
 
 
 @dataclass
@@ -55,6 +75,12 @@ class BaseArgs(ta.TypedArgs):
         help='移除旧实验目录到 debug dir，强制创建新实验目录'
     )
 
+    # 默认使用 cpu，后续可能加入 xla 支持
+    gpu: List[int] = ta.add_argument(
+        '--gpu', type=parse_gpu_list, default=[],
+        help='指定gpu，`1,2,5-7 -> [1,2,5,6,7]`'
+    )
+
     def try_make_experiment_dir(self):
         if self.experiment_dir.exists():
             # force 和 debug 都会导致覆盖实验目录
@@ -65,6 +91,7 @@ class BaseArgs(ta.TypedArgs):
                 print(
                     f'move old experiment dir from {self.experiment_dir} to {new_experiment_dir}'
                 )
+                # 确保 temp dir 存在
                 self.temp_dir.mkdir(parents=True, exist_ok=True)
                 self.experiment_dir.rename(new_experiment_dir)
             else:
