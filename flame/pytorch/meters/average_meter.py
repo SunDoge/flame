@@ -1,7 +1,7 @@
 from numbers import Number
 from typing import Any, Dict, Optional
 from .base_meter import Meter
-from flame.pytorch.utils.distributed import (
+from flame.pytorch.distributed import (
     is_dist_available_and_initialized,
     reduce_numbers,
 )

@@ -1,4 +1,4 @@
-from flame.utils import operating_system
+from flame.core import operating_system
 import resource
 import sys
 import logging

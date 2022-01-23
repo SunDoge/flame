@@ -3,7 +3,7 @@ import typed_args as ta
 from dataclasses import dataclass
 from pathlib import Path
 from .config import from_snippet, parse_config
-from flame.utils.operating_system import find_free_port
+from flame.core.operating_system import find_free_port
 import torch
 import torch.distributed as dist
 import logging

@@ -24,6 +24,7 @@ def _default_main_worker(
     assert args.config, "please provide config file"
     # config = from_file(args.config)
     config = args.parse_config()
+    # config = args.config
 
     ConfigParser2(args=args, config=config).parse_root_config(config)
 

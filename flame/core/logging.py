@@ -15,3 +15,8 @@ class TqdmHandler(logging.Handler):
             self.flush()
         except Exception:
             self.handleError(record)
+
+
+
+def init_logger():
+    pass

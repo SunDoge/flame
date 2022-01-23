@@ -6,7 +6,7 @@ from typing import Optional
 from torch import Tensor
 from flame.core.meters.naive_average_meter import NaiveAverageMeter
 from tqdm import tqdm
-from flame.pytorch.utils.distributed import get_rank_safe
+from flame.pytorch.distributed import get_rank_safe
 from flame.core.helpers.tqdm import tqdm_get_rate
 import logging
 
