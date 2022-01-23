@@ -1,11 +1,15 @@
+import logging
+from typing import TypeVar
+
 from torch.utils.data.dataloader import DataLoader
+from torch.utils.data.distributed import DistributedSampler
+from tqdm import tqdm
+
 from flame.pytorch.arguments import BaseArgs
 from flame.pytorch.distributed import get_rank_safe
-from .trainer import _to_device
+
 from .state import State
-import logging
-from tqdm import tqdm
-from torch.utils.data.distributed import DistributedSampler
+from .trainer import _to_device
 
 _logger = logging.getLogger(__name__)
 
@@ -20,7 +24,9 @@ class BaseTrainer:
         self.debug = args.debug
         self.state = state
 
-    def to_device(self, x, non_blocking: bool = True):
+    T = TypeVar('T')
+
+    def to_device(self, x: T, non_blocking: bool = True) -> T:
         return _to_device(x, self.device, non_blocking=non_blocking)
 
     def run(self, max_epochs: int):
@@ -61,6 +67,9 @@ class BaseTrainer:
                 _logger.info(
                     f'Epoch complete [{self.state.epoch}/{max_epochs}]'
                 )
+
+                if self.debug:
+                    break
 
     def set_sampler_epoch(self, sampler: DistributedSampler):
         sampler.set_epoch(self.state.epoch)

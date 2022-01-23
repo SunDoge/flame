@@ -21,6 +21,13 @@ def get_rank_safe() -> int:
         return 0
 
 
+def get_world_size_safe() -> int:
+    if is_dist_available_and_initialized():
+        return dist.get_world_size()
+    else:
+        return 1
+
+
 @functools.lru_cache(maxsize=1)
 def get_device_by_backend() -> torch.device:
     return torch.device('cuda' if dist.get_backend() == 'nccl' else 'cpu')
