@@ -10,7 +10,7 @@ from tqdm import tqdm
 from flame.core.helpers.tqdm import tqdm_get_rate
 from flame.core.meters.naive_average_meter import NaiveAverageMeter
 from flame.pytorch.distributed import get_rank_safe
-from flame.pytorch.meters.average_meter_v2 import (AverageMeter,
+from flame.pytorch.meters.average_meter import (AverageMeter,
                                                    LazyAverageMeterDict)
 
 from torch.utils.tensorboard.writer import SummaryWriter

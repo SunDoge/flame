@@ -1,219 +1,132 @@
-import functools
 import logging
-from typing import Any, Callable, Optional, TypeVar
+from turtle import position
+from typing import TypeVar
+from tomlkit import datetime
 
-import torch
-from torch import nn
-from torch.functional import Tensor
-from torch.optim.optimizer import Optimizer
 from torch.utils.data.dataloader import DataLoader
 from torch.utils.data.distributed import DistributedSampler
+from tqdm import tqdm
+from flame.core.helpers.tqdm import tqdm_get_total_time
 
-from flame.pytorch.meters.average_meter import LazyAverageMeters
-from flame.pytorch.meters.time_meter import EstimatedTimeOfArrival
-
-from .state_manager import StateManager
-from .coroutine_scheduler import CoroutineScheduler
-from .data_module import DataModule
+from flame.pytorch.arguments import BaseArgs
+from flame.pytorch.distributed import get_rank_safe
+from flame.pytorch.meters.average_meter import LazyAverageMeterDict
+from flame.pytorch.trainer.state_manager import StateManager
+from .progress_meter import ProgressMeter
 from .state import State
+from .trainer import _to_device
+
 
 _logger = logging.getLogger(__name__)
 
 
-T = TypeVar('T')
-
-
 class BaseTrainer:
-    def __init__(self) -> None:
-        """
-        Args:
-            device: Trainer 应该使用的 device
-        """
+    def __init__(self, args: BaseArgs) -> None:
+
         state = State()
-        checkpoint_manager = StateManager()
-        meters = LazyAverageMeters()
-        checkpoint_manager.register(
-            "trainer_state", state.state_dict, state.load_state_dict, state.train
-        )
-        # checkpoint_manager.register(
-        #     "meters",
-        #     meters.state_dict,
-        #     meters.load_state_dict,
-        # )
-        coroutine_scheduler = CoroutineScheduler()
+        meters = LazyAverageMeterDict(device=args.device)
 
+        state_manager = StateManager()
+        state_manager.register(
+            'state',
+            state.state_dict,
+            state.load_state_dict,
+            state.train
+        )
+        state_manager.register(
+            'meters',
+            meters.state_dict,
+            meters.load_state_dict
+        )
+
+        self.args = args
+        self.device = args.device
+        self.debug = args.debug
         self.state = state
-        self.checkpoint_manager = checkpoint_manager
-        self.coroutine_scheduler = coroutine_scheduler
-
-        self.iter_eta = None
-        self.epoch_eta = None
+        self.state_manager = state_manager
         self.meters = meters
-        self._break = False
 
-    def train(self, loader, epoch_length: Optional[int] = None, prefix: str = "train"):
+    T = TypeVar('T')
 
-        # Update state
-        self.state.epoch += 1
+    def to_device(self, x: T, non_blocking: bool = True) -> T:
+        return _to_device(x, self.device, non_blocking=non_blocking)
 
-        # Switch to training mode
-        self.checkpoint_manager.train()
+    def run(self, max_epochs: int):
+        pass
 
-        # Get epoch length
-        if not epoch_length:
-            self.state.epoch_length = self._try_infer_epoch_length(loader)
+    def train(self, loader, prefix: str = "train"):
+        pass
 
-        # Set epoch
-        if isinstance(loader, DataLoader) and isinstance(
-            loader.sampler, DistributedSampler
-        ):
-            loader.sampler.set_epoch(self.state.epoch)
-            _logger.info("set_epoch: %s", self.state.epoch)
+    def validate(self, loader, prefix: str = "val"):
+        pass
 
-        self.iter_eta = EstimatedTimeOfArrival(epoch_length)
+    def test(self, loader, prefix: str = "test"):
+        return self.validate(loader, prefix=prefix)
 
-        self.stage_middleware(
-            prefix, functools.partial(
-                self._loop, loader, self.iter_eta, prefix)
-        )
+    def _disable_tqdm(self) -> bool:
+        return self.args.no_tqdm or get_rank_safe() != 0
 
-        self.state.last_prefix = prefix
+    def epoch_range(self, max_epochs: int):
 
-    @torch.no_grad()
-    def validate(self, loader, epoch_length: Optional[int] = None, prefix: str = "val"):
-        # Switch to eval mode
-        self.checkpoint_manager.eval()
+        with tqdm(
+            desc='Epoch',
+            total=max_epochs,
+            initial=self.state.epoch,
+            dynamic_ncols=True,
+            ascii=True,
+            position=-1,
+            disable=self._disable_tqdm()
+        ) as pbar:
 
-        # Get epoch length
-        if not epoch_length:
-            self.state.epoch_length = self._try_infer_epoch_length(loader)
+            # init epoch = 0
+            while self.state.epoch < max_epochs:
+                self.state.epoch += 1
 
-        self.iter_eta = EstimatedTimeOfArrival(epoch_length)
+                # 1-based epoch
+                yield self.state.epoch
 
-        self.stage_middleware(
-            prefix, functools.partial(
-                self._loop, loader, self.iter_eta, prefix)
-        )
+                pbar.update()
 
-        self.state.last_prefix = prefix
+                _logger.info(
+                    f'Epoch complete [{self.state.epoch}/{max_epochs}]'
+                )
 
-    def test(self, loader, epoch_length: Optional[int] = None, prefix: str = "test"):
-        self.validate(loader, epoch_length=epoch_length, prefix=prefix)
-
-    def forward(self, batch, batch_idx: int, prefix: str):
-        raise NotImplementedError
-
-    def _loop(self, loader, eta: EstimatedTimeOfArrival, prefix: str):
-        # with self.meters, self.coroutine_scheduler as coroutine_scheduler:
-        meters = self.meters[prefix]
-        with meters:
-            for batch_idx, batch in enumerate(loader):
-
-                if self.state.training:
-                    # Update state
-                    self.state.step += 1
-
-                # batch_size = coroutine_scheduler.run(
-                #     self.forward(batch, batch_idx, prefix)
-                # )
-                batch_size = self.forward(batch, batch_idx, prefix)
-
-                eta.update(n=batch_size if batch_size else 1)
-
-                if self.state.debug:
+                if self.debug:
                     break
 
-        _logger.info(f"{prefix} complete: {meters}")
+            _logger.info('Total time: %s', tqdm_get_total_time(pbar))
 
-    @staticmethod
-    def _try_infer_epoch_length(loader) -> Optional[int]:
-        epoch_length = None
-        if isinstance(loader, DataLoader):
-            epoch_length = len(loader)
-        elif hasattr(loader, "__len__"):
-            epoch_length = len(loader)
-        _logger.info("try infer epoch_length=%s", epoch_length)
-        return epoch_length
+    def progress_meter(self, prefix: str, num_valid_samples: int = 0) -> ProgressMeter:
+        return ProgressMeter(
+            self.meters,
+            self.state,
+            prefix,
+            self.device,
+            print_freq=self.args.print_freq,
+            no_tqdm=self.args.no_tqdm,
+            debug=self.args.debug,
+            num_valid_samples=num_valid_samples,
+        )
 
-    @staticmethod
-    def every_n_iters(batch_idx: int, n: int = 1, debug: bool = False) -> bool:
-        return (batch_idx > 0 and batch_idx % n == 0) or debug
+    def set_sampler_epoch(self, loader: DataLoader):
+        sampler = loader.sampler
+        if isinstance(sampler, DistributedSampler):
+            sampler.set_epoch(self.state.epoch)
+            _logger.info(
+                'loader.sampler.set_epoch(%s)', self.state.epoch
+            )
+        else:
+            _logger.warning(
+                'loader.sampler is not DistributedSampler, fail to set epoch'
+            )
 
-    # def _on_epoch_start(self, prefix: str):
-    #     pass
+    @property
+    def name(self) -> str:
+        return self.__class__.__qualname__
 
-    # def _on_epoch_end(self, prefix: str):
-    #     pass
-
-    def stage_middleware(self, prefix: str, next_fn: Callable):
-        next_fn()
-
-    def epoch_middleware(self, next_fn: Callable):
-        next_fn()
-
-    def run(self, data_module: DataModule, max_epochs: int, debug: bool = False):
-        _logger.info("checkpoint manager: %s", self.checkpoint_manager)
-
-        self.state.debug = debug
-        self.epoch_eta = EstimatedTimeOfArrival(
-            max_epochs, initial=self.state.epoch)
-
-        while self.state.epoch < max_epochs:
-
-            def f():
-                if data_module.train_loader:
-                    self.train(
-                        data_module.train_loader,
-                        epoch_length=data_module.train_loader_len,
-                    )
-
-                if data_module.val_loader:
-                    self.validate(
-                        data_module.val_loader,
-                        epoch_length=data_module.val_loader_len,
-                    )
-
-                if data_module.test_loader:
-                    self.test(
-                        data_module.test_loader,
-                        epoch_length=data_module.test_loader_len,
-                    )
-                self.epoch_eta.update()
-                _logger.info(f"epoch complete: {self.epoch_eta}")
-
-            self.epoch_middleware(f)
-
-            if debug:
-                break
-
-        _logger.info("total time: %s", self.epoch_eta.elapsed_time)
-
-    def set_coroutine_delay(self, delay: int):
-        self.coroutine_scheduler.delay = delay
-
-    def backward(self, loss: Tensor, optimizer: Optimizer):
-        loss.backward()
-        optimizer.step()
-        optimizer.zero_grad(set_to_none=True)
-
-    def break_iter(self):
-        self._break = True
-
-    def to_device(self, x: T, device: torch.device, non_blocking: bool = True) -> T:
+    @property
+    def module_name(self) -> str:
         """
-        将 Tensor 放到 device 上
+        lib.xxx_trainer -> xxx_trainer
         """
-        return _to_device(x, device, non_blocking=non_blocking)
-
-
-def _to_device(x: T, device: torch.device, non_blocking: bool = True) -> T:
-    if isinstance(x, tuple):
-        return tuple(_to_device(v, device, non_blocking=non_blocking) for v in x)
-    elif isinstance(x, dict):
-        return {k: _to_device(v, device, non_blocking=non_blocking) for k, v in x.items()}
-    elif isinstance(x, list):
-        return [_to_device(v, device, non_blocking=non_blocking) for v in x]
-    elif isinstance(x, Tensor):
-        return x.to(device, non_blocking=non_blocking)
-    else:
-        raise Exception()
+        return self.__module__.split('.')[-1]
