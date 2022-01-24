@@ -17,6 +17,7 @@ from torch.utils.tensorboard.writer import SummaryWriter
 
 from .state import State
 
+
 _logger = logging.getLogger(__name__)
 
 
@@ -32,6 +33,7 @@ class ProgressMeter:
         no_tqdm: bool = False,
         separator: str = '/',
         debug: bool = False,
+        num_valid_samples: int = 0,
     ) -> None:
         self._state = state
         self._prefix = prefix
@@ -42,6 +44,8 @@ class ProgressMeter:
         self._separator = separator
         self._meters = meters
         self._debug = debug
+
+        self._num_remaining_samples = num_valid_samples
 
         self.sample_per_second_meter = NaiveAverageMeter('spl/s', fmt=':.2f')
 
@@ -83,13 +87,25 @@ class ProgressMeter:
                     if self._debug:
                         break
 
-            meter_str = self._meters.to_str(prefix=self._prefix)
-            _logger.info(
-                f'{prefix} complete [{epoch}]\t{self.sample_per_second_meter}\t{meter_str}'
-            )
+        # Wait for meters sync
+        meter_str = self._meters.to_str(prefix=self._prefix)
+        _logger.info(
+            f'{prefix} complete [{epoch}]\t{self.sample_per_second_meter}\t{meter_str}'
+        )
 
-    def update_batch_size(self, batch_size: int):
+    def update_batch_size(self, batch_size: int) -> int:
+        """
+        Return:
+            num valid samples in this batch
+        """
         self._batch_size = batch_size
+        self._num_remaining_samples -= batch_size
+
+        if self._num_remaining_samples > 0:
+            return min(self._num_remaining_samples, batch_size)
+        else:
+            _logger.info('no remaining samples left')
+            return 0
 
     def get(self, name: str, fmt: str = ':f') -> AverageMeter:
         key = self._prefix + self._separator + name

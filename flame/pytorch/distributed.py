@@ -6,6 +6,8 @@ from torch.distributed import ReduceOp
 from numbers import Number
 from pathlib import Path
 import logging
+from torch.utils.data.dataloader import DataLoader
+from torch.utils.data.distributed import DistributedSampler
 
 _logger = logging.getLogger(__name__)
 
@@ -70,4 +72,28 @@ def init_process_group_from_file(
         init_method=uri,
         world_size=world_size,
         rank=rank
+    )
+
+
+def num_valid_samples(num_samples: int, rank: int, num_replicas: int) -> int:
+    '''
+    Note: depends on the implementation detail of `DistributedSampler`
+    Written by @huww98 
+    '''
+    return (num_samples - rank - 1) // num_replicas + 1
+
+
+def num_valid_samples_from_data_loader(loader: DataLoader) -> int:
+    sampler: DistributedSampler = loader.sampler
+    assert sampler.shuffle == False, "DistributedSampler must not be shuffled"
+
+    num_total = len(loader.dataset)
+
+    num_valid = num_valid_samples(
+        num_total,
+        sampler.rank,
+        sampler.num_replicas
+    )
+    _logger.info(
+        f'{num_valid} valid samples of {len(sampler)} samples in rank {sampler.rank}, total samples: {num_total}'
     )

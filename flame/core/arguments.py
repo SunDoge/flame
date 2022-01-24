@@ -4,7 +4,7 @@ from typing import List, Optional
 
 import typed_args as ta
 from datetime import datetime
-from .config import parse_config, from_snippet
+from .config import parse_config, from_snippet, dump_to_json
 
 
 def parse_gpu_list(gpu_str: str) -> List[int]:
@@ -106,6 +106,10 @@ class BaseArgs(ta.TypedArgs):
         snippet = parse_config(self.config_file, self.apply)
         config = from_snippet(snippet)
         return config
+
+    def save_config(self, name: str = 'config.json'):
+        config = self.config
+        dump_to_json(config, self.experiment_dir / name)
 
 
 if __name__ == '__main__':

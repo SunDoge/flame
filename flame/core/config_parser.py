@@ -1,7 +1,7 @@
+import functools
 import importlib
 import logging
 from typing import Any, Union
-import functools
 
 _logger = logging.getLogger(__name__)
 
@@ -15,49 +15,6 @@ ParsableConfig = Union[dict, list, str, float, int]
 
 
 class ConfigParser:
-
-    def __init__(self, **kwargs) -> None:
-        self.placeholders = kwargs
-
-    def _parse_object(self, config: dict, depth: int):
-        if depth < 0:
-            return config
-
-        # config_copied = copy.deepcopy(config)
-        # config_copied = config.copy()
-        # name = config_copied.pop(KEY_NAME)
-
-        name = config[KEY_NAME]
-        func = require(name)
-
-        # kwargs = {k: self.parse(v) for k, v in config.items()}
-        kwargs = {}
-        for k, v in config.items():
-            if isinstance(v, str) and v.startswith(PREFIX_PLACEHOLDER):
-                kwargs[k] = self.placeholders[k]
-            elif k != KEY_NAME:  # 过滤掉_name
-                kwargs[k] = self.parse(v, depth=depth)
-        # rich.print(kwargs)
-        return func(**kwargs)
-
-    def parse(self, config: ParsableConfig, depth: int = 64):
-        if isinstance(config, dict):
-            if KEY_NAME in config:
-                obj = self._parse_object(config, depth - 1)
-                return obj
-
-        if isinstance(config, list):
-            return [self.parse(c, depth=depth) for c in config]
-
-        if isinstance(config, str):
-            # auto import
-            if config.startswith(PREFIX_IMPORT):
-                return require(config[1:])
-
-        return config
-
-
-class ConfigParser2:
 
     def __init__(self, **kwargs) -> None:
         self.container = kwargs
@@ -145,5 +102,3 @@ def require(name: str) -> Any:
     module = importlib.import_module(module_name)
     attribute = getattr(module, attribute_name)
     return attribute
-
-

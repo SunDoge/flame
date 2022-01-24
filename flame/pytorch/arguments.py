@@ -47,7 +47,7 @@ class BaseArgs(Base):
 
         return backend
 
-    def init_process_group_from_file(self, local_rank: int):
+    def init_process_group_from_file(self, local_rank: int) -> int:
         rank = self.rank_start + local_rank
 
         init_process_group_from_file(
@@ -56,3 +56,10 @@ class BaseArgs(Base):
             world_size=self.world_size,
             rank=rank,
         )
+
+        return rank
+
+    def try_cuda_set_device(self, local_rank: int):
+        if self.gpu:
+            device_id = self.gpu[local_rank]
+            torch.cuda.set_device(device_id)
