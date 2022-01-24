@@ -1,10 +1,12 @@
 import logging
 from turtle import position
 from typing import TypeVar
+from tomlkit import datetime
 
 from torch.utils.data.dataloader import DataLoader
 from torch.utils.data.distributed import DistributedSampler
 from tqdm import tqdm
+from flame.core.helpers.tqdm import tqdm_get_total_time
 
 from flame.pytorch.arguments import BaseArgs
 from flame.pytorch.distributed import get_rank_safe
@@ -13,6 +15,7 @@ from flame.pytorch.trainer.state_manager import StateManager
 from .progress_meter import ProgressMeter
 from .state import State
 from .trainer import _to_device
+import os
 
 _logger = logging.getLogger(__name__)
 
@@ -91,6 +94,8 @@ class BaseTrainer:
                 if self.debug:
                     break
 
+            _logger.info('Total time: %s', tqdm_get_total_time(pbar))
+
     def progress_meter(self, prefix: str) -> ProgressMeter:
         return ProgressMeter(
             self.meters,
@@ -102,9 +107,25 @@ class BaseTrainer:
             debug=self.args.debug,
         )
 
-    def set_sampler_epoch(self, sampler: DistributedSampler):
-        sampler.set_epoch(self.state.epoch)
+    def set_sampler_epoch(self, loader: DataLoader):
+        sampler = loader.sampler
+        if isinstance(sampler, DistributedSampler):
+            sampler.set_epoch(self.state.epoch)
+            _logger.info(
+                'loader.sampler.set_epoch(%s)', self.state.epoch
+            )
+        else:
+            _logger.warning(
+                'loader.sampler is not DistributedSampler, fail to set epoch'
+            )
 
     @property
     def name(self) -> str:
         return self.__class__.__qualname__
+
+    @property
+    def module_name(self) -> str:
+        """
+        lib.xxx_trainer -> xxx_trainer
+        """
+        return self.__module__.split('.')[-1]

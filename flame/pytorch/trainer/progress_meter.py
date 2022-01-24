@@ -1,7 +1,6 @@
 
 
 import logging
-from sys import prefix
 from typing import Optional
 
 import torch
@@ -13,6 +12,8 @@ from flame.core.meters.naive_average_meter import NaiveAverageMeter
 from flame.pytorch.distributed import get_rank_safe
 from flame.pytorch.meters.average_meter_v2 import (AverageMeter,
                                                    LazyAverageMeterDict)
+
+from torch.utils.tensorboard.writer import SummaryWriter
 
 from .state import State
 
@@ -50,6 +51,7 @@ class ProgressMeter:
 
         self.sample_per_second_meter.reset()
         epoch = self._state.epoch
+        prefix = self._prefix
 
         with tqdm(
             desc=self._prefix.capitalize(),
@@ -80,7 +82,7 @@ class ProgressMeter:
                     )
                     if self._debug:
                         break
-            
+
             meter_str = self._meters.to_str(prefix=self._prefix)
             _logger.info(
                 f'{prefix} complete [{epoch}]\t{self.sample_per_second_meter}\t{meter_str}'
@@ -92,3 +94,16 @@ class ProgressMeter:
     def get(self, name: str, fmt: str = ':f') -> AverageMeter:
         key = self._prefix + self._separator + name
         return self._meters.get(name, key=key, fmt=fmt)
+
+    def write_summary(self, summary_writer: SummaryWriter, trainer_name: Optional[str] = None):
+        if trainer_name is None:
+            trainer_prefix = ''
+        else:
+            trainer_prefix = trainer_name + '/'
+
+        for key, meter in self._meters.named_meters(prefix=self._prefix):
+            tag = trainer_prefix + key
+            _logger.info('summary writer add scalar: %s', tag)
+            summary_writer.add_scalar(
+                tag, meter.avg.item(), global_step=self._state.epoch
+            )

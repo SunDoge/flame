@@ -1,6 +1,7 @@
 from flame.pytorch.distributed import get_world_size_safe
 import logging
-from typing import Optional
+from typing import Any, Callable, Iterable, Optional
+from torch.optim import Optimizer
 
 _logger = logging.getLogger(__name__)
 
@@ -13,3 +14,6 @@ def scale_lr_linearly(
     lr = base_lr * float(batch_size * world_size) / base_batch_size
     _logger.info("linearly scale lr: %s -> %s", base_lr, lr)
     return lr
+
+
+

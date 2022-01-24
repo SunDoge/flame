@@ -88,6 +88,7 @@ class LazyAverageMeterDict:
 
     def sync(self, prefix: Optional[str] = None):
         for key, meter in self.named_meters(prefix=prefix):
+            _logger.info(f'sync {key}')
             meter.sync()
 
     def reset(self, prefix: Optional[str] = None):
