@@ -61,7 +61,9 @@ def init_process_group_from_file(
     """
     file_path = Path(filename)
 
-    file_path.unlink(missing_ok=True)
+    if file_path.exists():
+        # file_path.unlink(missing_ok=True)
+        file_path.unlink()  # Unfortunately, py37 does not support missing_ok
 
     uri = file_path.resolve().as_uri()
 
