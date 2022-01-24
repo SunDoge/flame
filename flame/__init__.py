@@ -1,8 +1,8 @@
-from . import (archiver, arguments, config, logging, utils,
-               zip_importer)
+from .core import archiver, zip_importer
+from . import (arguments, config, logging, utils)
 
-from . import testing
+from .core import testing
 from . import helpers
-from .utils.main_fn import main_fn
+from .core.main_fn import main_fn
 
 __version__ = '0.1.0'

@@ -4,7 +4,7 @@ from flame.pytorch.experimental.engine.events import Events, State
 from flame.pytorch.experimental.engine import Engine
 from injector import inject
 import logging
-from flame.utils.timing import format_timedelta
+from flame.core.timing import format_timedelta
 from tqdm import tqdm
 
 _logger = logging.getLogger(__name__)

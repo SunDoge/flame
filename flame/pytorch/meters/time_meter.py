@@ -2,7 +2,7 @@ from typing import Optional
 from .base_meter import Meter
 from datetime import timedelta, datetime
 import time
-from flame.utils.timing import format_timedelta
+from flame.core.timing import format_timedelta
 
 
 class EstimatedTimeOfArrival(Meter):
