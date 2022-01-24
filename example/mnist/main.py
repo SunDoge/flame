@@ -79,7 +79,7 @@ class MnistModule(BaseModule):
         base_model = flame.auto_builder.build_from_config(
             cfg.model
         )
-        model = helpers.create_model(
+        model = helpers.create_ddp_model(
             base_model, device,
         )
         return model

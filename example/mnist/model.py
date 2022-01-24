@@ -1,26 +1,8 @@
+from torch import nn
 
-from torch.utils.tensorboard.writer import SummaryWriter
-from flame.pytorch.meters.time_meter import EstimatedTimeOfArrival
 import logging
-from typing import Callable, Tuple
-
-import torch
 import torch.nn.functional as F
-from example.mnist.config import TypedConfig
-from flame.pytorch.container import CallableAssistedBuilder
-from flame.pytorch.experimental.compact_engine.amp_engine import AmpEngine
-# from flame.pytorch.experimental.compact_engine.engine import (BaseEngine,
-#                                                               BaseEngineConfig)
-
-from flame.pytorch.experimental.compact_engine.engine_v2 import BaseEngine, State, BaseEngineConfig
-from flame.pytorch.meters.average_meter import AverageMeter, AverageMeterGroup
-from flame.pytorch.metrics.functional import topk_accuracy
-from flame.pytorch.typing_prelude import (Criterion, Device, LrScheduler,
-                                          Model, Optimizer)
-from injector import ClassAssistedBuilder, inject
-from torch import Tensor, nn
-from torch.cuda.amp.grad_scaler import GradScaler
-from torch.utils.data.dataloader import DataLoader
+import torch
 
 _logger = logging.getLogger(__name__)
 
@@ -51,97 +33,97 @@ class Net(nn.Module):
         return output
 
 
-@inject
-class NetEngine(BaseEngine):
+# @inject
+# class NetEngine(BaseEngine):
 
-    device: Device
-    criterion: Callable[[Tensor, Tensor], Tensor]
+#     device: Device
+#     criterion: Callable[[Tensor, Tensor], Tensor]
 
-    def __init__(
-        self,
-        state: State,
-        model: Model,
-        optimizer: Optimizer,
-        criterion: Criterion,
-        # scaler: GradScaler,
-        device: Device,
-        data_loader_builder: CallableAssistedBuilder[DataLoader],
-        summary_writer: SummaryWriter,
-        cfg: dict,
-    ):
-        super().__init__(
-            # model=model,
-            # optimizer=optimizer,
-            # criterion=criterion,
-            state=state,
-            # cfg=cfg,
-        )
+#     def __init__(
+#         self,
+#         state: State,
+#         model: Model,
+#         optimizer: Optimizer,
+#         criterion: Criterion,
+#         # scaler: GradScaler,
+#         device: Device,
+#         data_loader_builder: CallableAssistedBuilder[DataLoader],
+#         summary_writer: SummaryWriter,
+#         cfg: dict,
+#     ):
+#         super().__init__(
+#             # model=model,
+#             # optimizer=optimizer,
+#             # criterion=criterion,
+#             state=state,
+#             # cfg=cfg,
+#         )
 
-        # self.scaler = scaler
-        self.model = model
-        self.optimizer = optimizer
-        self.device = device
-        self.data_loader_builder = data_loader_builder
-        self.criterion = criterion
-        self.cfg = BaseEngineConfig(**cfg)
-        self.summary_writer = summary_writer
+#         # self.scaler = scaler
+#         self.model = model
+#         self.optimizer = optimizer
+#         self.device = device
+#         self.data_loader_builder = data_loader_builder
+#         self.criterion = criterion
+#         self.cfg = BaseEngineConfig(**cfg)
+#         self.summary_writer = summary_writer
 
-        self.meters = AverageMeterGroup({
-            'loss': AverageMeter('loss'),
-            'acc1': AverageMeter('acc1'),
-            'acc5': AverageMeter('acc5')
-        })
+#         self.meters = AverageMeterGroup({
+#             'loss': AverageMeter('loss'),
+#             'acc1': AverageMeter('acc1'),
+#             'acc5': AverageMeter('acc5')
+#         })
 
-    def forward(self, batch: Tuple[Tensor, Tensor], batch_idx: int) -> dict:
-        data, target = map(
-            lambda x: x.to(self.device, non_blocking=True),
-            batch
-        )
-        pred = self.model(data)
-        loss = self.criterion(pred, target)
+#     def forward(self, batch: Tuple[Tensor, Tensor], batch_idx: int) -> dict:
+#         data, target = map(
+#             lambda x: x.to(self.device, non_blocking=True),
+#             batch
+#         )
+#         pred = self.model(data)
+#         loss = self.criterion(pred, target)
 
-        batch_size = data.size(0)
+#         batch_size = data.size(0)
 
-        acc1, acc5 = topk_accuracy(
-            pred, target, topk=(1, 5)
-        )
-        self.meters.update({
-            'loss': loss.item(),
-            'acc1': acc1.item(),
-            'acc5': acc5.item(),
-        }, n=batch_size)
+#         acc1, acc5 = topk_accuracy(
+#             pred, target, topk=(1, 5)
+#         )
+#         self.meters.update({
+#             'loss': loss.item(),
+#             'acc1': acc1.item(),
+#             'acc5': acc5.item(),
+#         }, n=batch_size)
 
-        self.step_eta.update(batch_size)
-        if self.every_n_steps(self.cfg.print_freq):
-            _logger.info(
-                f'{self.step_eta}\t{self.meters}'
-            )
+#         self.step_eta.update(batch_size)
+#         if self.every_n_steps(self.cfg.print_freq):
+#             _logger.info(
+#                 f'{self.step_eta}\t{self.meters}'
+#             )
 
-        return self.output(
-            loss=loss,
-            batch_size=batch_size,
-        )
+#         return self.output(
+#             loss=loss,
+#             batch_size=batch_size,
+#         )
 
-    def loop(self, next):
-        next()
-        epoch = self.state.epoch
-        self.meters.sync()
-        _logger.info(f'complete {self.step_eta}\t{self.meters}')
-        self.summary_writer.add_scalar(
-            f'{self.state.mode}/loss', self.meters['loss'].avg, epoch)
-        self.summary_writer.add_scalar(
-            f'{self.state.mode}/acc1', self.meters['acc1'].avg, epoch)
-        self.summary_writer.add_scalar(
-            f'{self.state.mode}/acc5', self.meters['acc5'].avg, epoch)
+#     def loop(self, next):
+#         next()
+#         epoch = self.state.epoch
+#         self.meters.sync()
+#         _logger.info(f'complete {self.step_eta}\t{self.meters}')
+#         self.summary_writer.add_scalar(
+#             f'{self.state.mode}/loss', self.meters['loss'].avg, epoch)
+#         self.summary_writer.add_scalar(
+#             f'{self.state.mode}/acc1', self.meters['acc1'].avg, epoch)
+#         self.summary_writer.add_scalar(
+#             f'{self.state.mode}/acc5', self.meters['acc5'].avg, epoch)
 
-    def run(self):
-        train_loader = self.data_loader_builder.build(split='train')
-        val_loader = self.data_loader_builder.build(split='val')
+#     def run(self):
+#         train_loader = self.data_loader_builder.build(split='train')
+#         val_loader = self.data_loader_builder.build(split='val')
 
-        self.epoch_eta = EstimatedTimeOfArrival(self.cfg.max_epochs)
-        while self.unfinished():
-            self.train(train_loader)
-            self.validate(val_loader)
-            self.epoch_eta.update()
+#         self.epoch_eta = EstimatedTimeOfArrival(self.cfg.max_epochs)
+#         while self.unfinished():
+#             self.train(train_loader)
+#             self.validate(val_loader)
+#             self.epoch_eta.update()
 
-            _logger.info(f'epoch complete {self.epoch_eta}\t')
+#             _logger.info(f'epoch complete {self.epoch_eta}\t')

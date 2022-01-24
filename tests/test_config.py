@@ -1,5 +1,4 @@
-from flame import config
-from flame.utils import jsonnet
+from flame.core import config, jsonnet
 from pathlib import Path
 import rich
 

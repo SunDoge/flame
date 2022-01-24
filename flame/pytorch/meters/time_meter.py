@@ -2,7 +2,7 @@ from typing import Optional
 from .base_meter import Meter
 from datetime import timedelta, datetime
 import time
-from flame.utils.timing import format_timedelta
+from flame.core.timing import format_timedelta
 
 
 class EstimatedTimeOfArrival(Meter):
@@ -74,7 +74,7 @@ class EstimatedTimeOfArrival(Meter):
             arrival_time_str = '?'
             rate_str = '?'
 
-        fmt_str = f'[{self.count + 1}/{self.total}] {rate_str} it/s R={remaining_time_str} A={arrival_time_str}'
+        fmt_str = f'[{self.count}/{self.total}] {rate_str} it/s R={remaining_time_str} A={arrival_time_str}'
         return fmt_str
 
 

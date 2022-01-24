@@ -13,7 +13,7 @@ from injector import ClassAssistedBuilder, Injector, Module, provider, singleton
 from typing import Any, TypeVar
 
 from .typing_prelude import Device, ExperimentDir, LocalRank, DictConfig, DebugMode
-from .utils.distributed import get_rank_safe
+from .distributed import get_rank_safe
 from torch.utils.data.distributed import DistributedSampler
 import inspect
 import json
