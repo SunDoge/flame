@@ -74,7 +74,7 @@ class BaseTrainer:
             initial=self.state.epoch,
             dynamic_ncols=True,
             ascii=True,
-            position=1,
+            position=-1,
             disable=self._disable_tqdm()
         ) as pbar:
 

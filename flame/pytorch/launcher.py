@@ -4,6 +4,9 @@ from typing import Callable
 from flame.core.config_parser import ConfigParser
 from flame.core.logging import init_logging
 import torch.multiprocessing as mp
+import logging
+
+_logger = logging.getLogger(__name__)
 
 MainWorker = Callable[[BaseArgs], None]
 
@@ -56,6 +59,11 @@ def run_distributed(
     if len(args.gpu) > 1:
         num_procs = len(args.gpu)
 
+    if len(args.gpu) > args.world_size:
+        world_size = len(args.gpu)
+        _logger.info('set args.world_size=%d', world_size)
+        args.world_size = world_size
+
     proc_args = (args, main_worker)
 
     if num_procs == 1:
@@ -65,5 +73,6 @@ def run_distributed(
     else:
         mp.spawn(
             _init_distributed,
-            args=proc_args
+            args=proc_args,
+            nprocs=num_procs,
         )

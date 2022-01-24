@@ -1,3 +1,4 @@
+from typing import Optional
 from tqdm import tqdm
 import logging
 from datetime import timedelta
@@ -15,6 +16,10 @@ def tqdm_get_rate(pbar: tqdm) -> float:
 
     if rate is None and elapsed:
         rate = (n - initial) / elapsed
+
+    # FIXME: why rate and elapsed can be None?
+    if rate is None:
+        rate = 0.0
 
     return rate
 

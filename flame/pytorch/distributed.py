@@ -97,3 +97,4 @@ def num_valid_samples_from_data_loader(loader: DataLoader) -> int:
     _logger.info(
         f'{num_valid} valid samples of {len(sampler)} samples in rank {sampler.rank}, total samples: {num_total}'
     )
+    return num_valid

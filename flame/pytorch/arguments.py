@@ -63,3 +63,4 @@ class BaseArgs(Base):
         if self.gpu:
             device_id = self.gpu[local_rank]
             torch.cuda.set_device(device_id)
+

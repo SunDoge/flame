@@ -16,6 +16,7 @@ from flame.pytorch.meters.average_meter_v2 import (AverageMeter,
 from torch.utils.tensorboard.writer import SummaryWriter
 
 from .state import State
+import time
 
 
 _logger = logging.getLogger(__name__)
@@ -45,7 +46,8 @@ class ProgressMeter:
         self._meters = meters
         self._debug = debug
 
-        self._num_remaining_samples = num_valid_samples
+        self._num_valid_samples = num_valid_samples
+        self._num_processed_samples = 0
 
         self.sample_per_second_meter = NaiveAverageMeter('spl/s', fmt=':.2f')
 
@@ -65,6 +67,9 @@ class ProgressMeter:
             position=0,
             disable=self._no_tqdm or get_rank_safe() != 0  # 如果不是 rank0，就关掉 tqdm
         ) as pbar, self._meters.record(epoch=self._state.epoch, prefix=self._prefix):
+
+            start_time = time.perf_counter()
+
             for batch_idx, batch in enumerate(iterable, start=1):
 
                 if self._state.training:
@@ -74,9 +79,10 @@ class ProgressMeter:
 
                 pbar.update()
 
-                num_samples = self._batch_size * tqdm_get_rate(pbar)
+                elapsed = time.perf_counter() - start_time
+                sps = self._num_processed_samples / elapsed
                 self.sample_per_second_meter.update(
-                    num_samples
+                    sps
                 )
 
                 if batch_idx % self._print_freq == 0:
@@ -99,12 +105,13 @@ class ProgressMeter:
             num valid samples in this batch
         """
         self._batch_size = batch_size
-        self._num_remaining_samples -= batch_size
+        self._num_processed_samples += batch_size
 
-        if self._num_remaining_samples > 0:
-            return min(self._num_remaining_samples, batch_size)
+        num_remaining_samples = self._num_valid_samples - self._num_processed_samples
+
+        if num_remaining_samples > 0:
+            return min(num_remaining_samples, batch_size)
         else:
-            _logger.info('no remaining samples left')
             return 0
 
     def get(self, name: str, fmt: str = ':f') -> AverageMeter:
