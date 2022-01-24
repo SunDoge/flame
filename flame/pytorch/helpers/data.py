@@ -1,10 +1,9 @@
-from torch.utils.data import DataLoader, Dataset
-import torch.multiprocessing as mp
-import torch.distributed as dist
-from torch.utils.data.distributed import DistributedSampler
 import logging
-import torch
-from ..sampler import UniformDistributedSampler
+
+import torch.distributed as dist
+import torch.multiprocessing as mp
+from torch.utils.data import DataLoader, Dataset
+from torch.utils.data.distributed import DistributedSampler
 
 _logger = logging.getLogger(__name__)
 

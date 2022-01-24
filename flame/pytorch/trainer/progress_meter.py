@@ -122,7 +122,7 @@ class ProgressMeter:
         if trainer_name is None:
             trainer_prefix = ''
         else:
-            trainer_prefix = trainer_name + '/'
+            trainer_prefix = trainer_name + '#'
 
         for key, meter in self._meters.named_meters(prefix=self._prefix):
             tag = trainer_prefix + key

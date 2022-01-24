@@ -1,21 +1,20 @@
 import logging
-from turtle import position
 from typing import TypeVar
-from tomlkit import datetime
 
+import torch
+from torch import Tensor
 from torch.utils.data.dataloader import DataLoader
 from torch.utils.data.distributed import DistributedSampler
 from tqdm import tqdm
-from flame.core.helpers.tqdm import tqdm_get_total_time
 
+from flame.core.helpers.tqdm import tqdm_get_total_time
 from flame.pytorch.arguments import BaseArgs
 from flame.pytorch.distributed import get_rank_safe
 from flame.pytorch.meters.average_meter import LazyAverageMeterDict
 from flame.pytorch.trainer.state_manager import StateManager
+
 from .progress_meter import ProgressMeter
 from .state import State
-from .trainer import _to_device
-
 
 _logger = logging.getLogger(__name__)
 
@@ -106,6 +105,7 @@ class BaseTrainer:
             no_tqdm=self.args.no_tqdm,
             debug=self.args.debug,
             num_valid_samples=num_valid_samples,
+            separator='/',
         )
 
     def set_sampler_epoch(self, loader: DataLoader):
@@ -130,3 +130,19 @@ class BaseTrainer:
         lib.xxx_trainer -> xxx_trainer
         """
         return self.__module__.split('.')[-1]
+
+
+T = TypeVar('T')
+
+
+def _to_device(x: T, device: torch.device, non_blocking: bool = True) -> T:
+    if isinstance(x, tuple):
+        return tuple(_to_device(v, device, non_blocking=non_blocking) for v in x)
+    elif isinstance(x, dict):
+        return {k: _to_device(v, device, non_blocking=non_blocking) for k, v in x.items()}
+    elif isinstance(x, list):
+        return [_to_device(v, device, non_blocking=non_blocking) for v in x]
+    elif isinstance(x, Tensor):
+        return x.to(device, non_blocking=non_blocking)
+    else:
+        raise Exception()

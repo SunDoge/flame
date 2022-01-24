@@ -4,7 +4,7 @@ from tqdm import tqdm as _tqdm
 
 FILE_FORMAT = "%(asctime)s|%(levelname)-8s|%(message)s"
 CONSOLE_FORMAT = '%(asctime)s|%(levelname)-8s|%(message)s'
-CONSOLE_DATE_FORMAT = '%Y-%m-%d %H:%M:%s'  # 不需要精确到毫秒
+CONSOLE_DATE_FORMAT = '%Y-%m-%d %H:%M:%S'  # 不需要精确到毫秒
 
 
 class TqdmHandler(logging.Handler):
