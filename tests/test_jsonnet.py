@@ -1,4 +1,4 @@
-from flame.utils import jsonnet
+from flame.core import jsonnet
 import json
 
 

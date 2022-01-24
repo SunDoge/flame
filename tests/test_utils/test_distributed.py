@@ -1,4 +1,4 @@
-from flame.utils.distributed import init_process_group_from_file
+from flame.pytorch.distributed import init_process_group_from_file
 import tempfile
 import torch.distributed as dist
 import os
