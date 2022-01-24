@@ -29,7 +29,7 @@ class Entry:
     # ref: Any = None
 
 
-class CheckpointManager:
+class StateManager:
     def __init__(self) -> None:
         self.registry: Dict[str, Entry] = dict()
 

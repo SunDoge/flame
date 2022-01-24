@@ -48,7 +48,7 @@ class BaseArgs(ta.TypedArgs):
     )
 
     print_freq: int = ta.add_argument(
-        '--print-freq', '--pf', type=int, default=-1,
+        '--print-freq', '--pf', type=int, default=1000,
         help='显示 log 的频率，一般为10'
     )
 

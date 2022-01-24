@@ -1,6 +1,6 @@
 from collections import defaultdict
 from contextlib import contextmanager
-from typing import DefaultDict, Dict, List, Optional
+from typing import DefaultDict, Dict, List, Optional, Tuple
 from torch import Tensor
 import torch
 import torch.distributed as dist
@@ -10,6 +10,7 @@ _logger = logging.getLogger(__name__)
 
 
 _DEFAULT_DEVICE = torch.device("cpu")
+_HistoryRecord = Tuple[float, Optional[int]]
 
 
 class AverageMeter:
@@ -61,8 +62,10 @@ class AverageMeter:
             _logger.debug(f"meter {self.name} is already synchronized")
             return
 
-        fut_count = dist.all_reduce(self.count, op=dist.ReduceOp.SUM, async_op=True)
-        fut_sum = dist.all_reduce(self.sum, op=dist.ReduceOp.SUM, async_op=True)
+        fut_count = dist.all_reduce(
+            self.count, op=dist.ReduceOp.SUM, async_op=True)
+        fut_sum = dist.all_reduce(
+            self.sum, op=dist.ReduceOp.SUM, async_op=True)
         fut_count.wait()
         fut_sum.wait()
 
@@ -73,35 +76,27 @@ class LazyAverageMeterDict:
     def __init__(
         self,
         delimiter: str = "\t",
-        separator: str = "/",
         device: torch.device = _DEFAULT_DEVICE,
     ) -> None:
-        self._history: DefaultDict[str, List[float]] = defaultdict(list)
+        self._history: DefaultDict[str, List[_HistoryRecord]] = defaultdict(
+            list
+        )
         # Don't know if flatten dict is a good choice
         self._meters: Dict[str, AverageMeter] = {}
         self._delimiter = delimiter
-        self._separator = separator
         self._device = device
 
-    def update(self, prefix: str, name: str, val: Tensor, n: int = 1, fmt: str = ":f"):
-        key = prefix + self._separator + name
-
-        if key not in self._meters:
-            self._meters[key] = AverageMeter(name, fmt=fmt, device=self._device)
-
-        self._meters[key].update(val, n=n)
-
-    def sync(self):
-        for key, meter in self._meters.items():
+    def sync(self, prefix: Optional[str] = None):
+        for key, meter in self.named_meters(prefix=prefix):
             meter.sync()
 
-    def reset(self):
-        for key, meter in self._meters.items():
+    def reset(self, prefix: Optional[str] = None):
+        for key, meter in self.named_meters(prefix=prefix):
             meter.reset()
 
-    def save_history(self, prefix: str):
+    def save_history(self, epoch: Optional[int] = None, prefix: Optional[str] = None):
         for key, meter in self.named_meters(prefix=prefix):
-            self._history[key].append(meter.avg.item())
+            self._history[key].append((meter.avg.item(), epoch))
 
     def named_meters(self, prefix: Optional[str] = None):
         if prefix:
@@ -113,8 +108,49 @@ class LazyAverageMeterDict:
                 yield key, meter
 
     @contextmanager
-    def record(self, prefix: str):
-        self.reset()
+    def record(self, epoch: Optional[int] = None, prefix: Optional[str] = None):
+        self.reset(prefix=prefix)
         yield self
-        self.sync()
-        self.save_history(prefix)
+        self.sync(prefix=prefix)
+        self.save_history(epoch=epoch, prefix=prefix)
+
+    def get(self, name: str, key: Optional[str] = None, fmt: str = ':f') -> AverageMeter:
+        if key is None:
+            key = name
+
+        if key in self._meters:
+            return self._meters[key]
+        else:
+            meter = AverageMeter(name, fmt=fmt, device=self._device)
+            self._meters[key] = meter
+            return meter
+
+    def state_dict(self) -> Dict:
+        return {'history': self._history}
+
+    def load_state_dict(self, state_dict: Dict):
+        history = state_dict['history']
+
+    def max(self, key: str) -> _HistoryRecord:
+        return max(self._history[key], key=lambda x: x[0])
+
+    def min(self, key: str) -> _HistoryRecord:
+        return min(self._history[key], key=lambda x: x[0])
+
+    def last(self, key: str) -> _HistoryRecord:
+        return self._history[key][-1]
+
+    def is_highest(self, key: str) -> bool:
+        return self.last(key)[0] >= self.max(key)[0]
+
+    def is_lowest(self, key: str) -> bool:
+        return self.last(key)[0] <= self.min(key)[0]
+
+    def __str__(self) -> str:
+        fmt_str = self._delimiter.join([str(m) for m in self._meters.values()])
+        return fmt_str
+
+    def to_str(self, prefix: Optional[str] = None) -> str:
+        fmt_str = self._delimiter.join(
+            [str(m) for k, m in self.named_meters(prefix=prefix)])
+        return fmt_str

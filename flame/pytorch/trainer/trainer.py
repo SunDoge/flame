@@ -12,7 +12,7 @@ from torch.utils.data.distributed import DistributedSampler
 from flame.pytorch.meters.average_meter import LazyAverageMeters
 from flame.pytorch.meters.time_meter import EstimatedTimeOfArrival
 
-from .checkpoint_manager import CheckpointManager
+from .state_manager import StateManager
 from .coroutine_scheduler import CoroutineScheduler
 from .data_module import DataModule
 from .state import State
@@ -30,7 +30,7 @@ class BaseTrainer:
             device: Trainer 应该使用的 device
         """
         state = State()
-        checkpoint_manager = CheckpointManager()
+        checkpoint_manager = StateManager()
         meters = LazyAverageMeters()
         checkpoint_manager.register(
             "trainer_state", state.state_dict, state.load_state_dict, state.train
@@ -208,11 +208,11 @@ class BaseTrainer:
 
 def _to_device(x: T, device: torch.device, non_blocking: bool = True) -> T:
     if isinstance(x, tuple):
-        return tuple(_to_device(v) for v in x)
+        return tuple(_to_device(v, device, non_blocking=non_blocking) for v in x)
     elif isinstance(x, dict):
-        return {k: _to_device(v) for k, v in x.items()}
+        return {k: _to_device(v, device, non_blocking=non_blocking) for k, v in x.items()}
     elif isinstance(x, list):
-        return [_to_device(v) for v in x]
+        return [_to_device(v, device, non_blocking=non_blocking) for v in x]
     elif isinstance(x, Tensor):
         return x.to(device, non_blocking=non_blocking)
     else:

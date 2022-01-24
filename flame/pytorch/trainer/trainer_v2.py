@@ -1,4 +1,5 @@
 import logging
+from turtle import position
 from typing import TypeVar
 
 from torch.utils.data.dataloader import DataLoader
@@ -7,7 +8,9 @@ from tqdm import tqdm
 
 from flame.pytorch.arguments import BaseArgs
 from flame.pytorch.distributed import get_rank_safe
-
+from flame.pytorch.meters.average_meter_v2 import LazyAverageMeterDict
+from flame.pytorch.trainer.state_manager import StateManager
+from .progress_meter import ProgressMeter
 from .state import State
 from .trainer import _to_device
 
@@ -18,11 +21,27 @@ class BaseTrainer:
     def __init__(self, args: BaseArgs) -> None:
 
         state = State()
+        meters = LazyAverageMeterDict(device=args.device)
+
+        state_manager = StateManager()
+        state_manager.register(
+            'state',
+            state.state_dict,
+            state.load_state_dict,
+            state.train
+        )
+        state_manager.register(
+            'meters',
+            meters.state_dict,
+            meters.load_state_dict
+        )
 
         self.args = args
         self.device = args.device
         self.debug = args.debug
         self.state = state
+        self.state_manager = state_manager
+        self.meters = meters
 
     T = TypeVar('T')
 
@@ -52,6 +71,7 @@ class BaseTrainer:
             initial=self.state.epoch,
             dynamic_ncols=True,
             ascii=True,
+            position=1,
             disable=self._disable_tqdm()
         ) as pbar:
 
@@ -71,5 +91,20 @@ class BaseTrainer:
                 if self.debug:
                     break
 
+    def progress_meter(self, prefix: str) -> ProgressMeter:
+        return ProgressMeter(
+            self.meters,
+            self.state,
+            prefix,
+            self.device,
+            print_freq=self.args.print_freq,
+            no_tqdm=self.args.no_tqdm,
+            debug=self.args.debug,
+        )
+
     def set_sampler_epoch(self, sampler: DistributedSampler):
         sampler.set_epoch(self.state.epoch)
+
+    @property
+    def name(self) -> str:
+        return self.__class__.__qualname__
