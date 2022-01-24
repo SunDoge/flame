@@ -1,0 +1,24 @@
+:py:mod:`flame.oneflow.arguments`
+=================================
+
+.. py:module:: flame.oneflow.arguments
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.oneflow.arguments.BaseArgs
+
+
+
+
+.. py:class:: BaseArgs
+
+   Bases: :py:obj:`flame.core.arguments.BaseArgs`
+
+

@@ -10,8 +10,13 @@ Submodules
    :titlesonly:
    :maxdepth: 1
 
+   amp/index.rst
+   checkpoint_saver/index.rst
+   cudnn/index.rst
    data/index.rst
    model/index.rst
+   optimizer/index.rst
+   tensorboard/index.rst
 
 
 Package Contents
@@ -24,13 +29,46 @@ Functions
 .. autoapisummary::
 
    flame.pytorch.helpers.create_data_loader
-   flame.pytorch.helpers.create_model
+   flame.pytorch.helpers.create_ddp_model
+   flame.pytorch.helpers.cudnn_benchmark_if_possible
+   flame.pytorch.helpers.scale_lr_linearly
+   flame.pytorch.helpers.num_valid_samples_from_data_loader
+   flame.pytorch.helpers.save_checkpoint
+   flame.pytorch.helpers.rank0
 
 
 
-.. py:function:: create_data_loader(dataset, batch_size = 1, shuffle = False, num_workers = 0, collate_fn=None, pin_memory = True, multiprocessing_context=None, persistent_workers = True, drop_last = False)
+.. py:function:: create_data_loader(dataset, batch_size = 1, shuffle = True, num_workers = 0, collate_fn=None, pin_memory = True, multiprocessing_context=None, persistent_workers = True, drop_last = False)
 
 
-.. py:function:: create_model(base_model, device, use_sync_bn = False, find_unused_parameters = False)
+.. py:function:: create_ddp_model(base_model, device, use_sync_bn = False, find_unused_parameters = False)
+
+
+.. py:function:: cudnn_benchmark_if_possible()
+
+
+.. py:function:: scale_lr_linearly(base_lr, batch_size, world_size = None, base_batch_size = 256)
+
+
+.. py:function:: num_valid_samples_from_data_loader(loader)
+
+
+.. py:function:: save_checkpoint(state, experiment_dir, is_best = False, filename='checkpoint.pth.tar')
+
+
+.. py:function:: rank0(func)
+
+   run func only on rank 0
+
+   You can use it as a decorator
+
+   .. code-block:: python
+
+       @rank0
+       def my_print(*args, **kwargs):
+           print(*args, **kwargs)
+
+
+   :param func: function or lambda
 
 

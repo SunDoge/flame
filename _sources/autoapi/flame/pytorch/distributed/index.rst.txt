@@ -1,0 +1,73 @@
+:py:mod:`flame.pytorch.distributed`
+===================================
+
+.. py:module:: flame.pytorch.distributed
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.distributed.is_dist_available_and_initialized
+   flame.pytorch.distributed.get_rank_safe
+   flame.pytorch.distributed.get_world_size_safe
+   flame.pytorch.distributed.get_device_by_backend
+   flame.pytorch.distributed.reduce_numbers
+   flame.pytorch.distributed.init_process_group_from_file
+   flame.pytorch.distributed.num_valid_samples
+   flame.pytorch.distributed.num_valid_samples_from_data_loader
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.distributed._logger
+
+
+.. py:data:: _logger
+   
+
+   
+
+.. py:function:: is_dist_available_and_initialized()
+
+
+.. py:function:: get_rank_safe()
+
+
+.. py:function:: get_world_size_safe()
+
+
+.. py:function:: get_device_by_backend()
+
+
+.. py:function:: reduce_numbers(nums, op=ReduceOp.SUM)
+
+
+.. py:function:: init_process_group_from_file(backend, filename, world_size = 1, rank = 0)
+
+   https://pytorch.org/docs/stable/distributed.html
+
+   :param backend: nccl or gloo
+   :param filename: 用于init的file
+   :param world_size: 或总节点数
+   :param rank: 当前节点id
+
+
+.. py:function:: num_valid_samples(num_samples, rank, num_replicas)
+
+   Note: depends on the implementation detail of `DistributedSampler`
+   Written by @huww98
+
+
+.. py:function:: num_valid_samples_from_data_loader(loader)
+
+

@@ -10,9 +10,9 @@ Subpackages
    :titlesonly:
    :maxdepth: 3
 
-   helpers/index.rst
+   core/index.rst
+   oneflow/index.rst
    pytorch/index.rst
-   utils/index.rst
 
 
 Submodules
@@ -22,16 +22,6 @@ Submodules
    :maxdepth: 1
 
    __main__/index.rst
-   archiver/index.rst
-   arguments/index.rst
-   ckcfg/index.rst
-   config/index.rst
-   config_parser/index.rst
-   distributed_training/index.rst
-   logging/index.rst
-   state/index.rst
-   testing/index.rst
-   zip_importer/index.rst
 
 
 Package Contents

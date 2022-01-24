@@ -1,0 +1,39 @@
+:py:mod:`flame.core.main_fn`
+============================
+
+.. py:module:: flame.core.main_fn
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.core.main_fn._main_fn
+   flame.core.main_fn.main_fn
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.core.main_fn.T
+
+
+.. py:data:: T
+   
+
+   
+
+.. py:function:: _main_fn(func)
+
+
+.. py:function:: main_fn(func)
+
+

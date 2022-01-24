@@ -13,7 +13,7 @@ Functions
 
 .. autoapisummary::
 
-   flame.pytorch.helpers.model.create_model
+   flame.pytorch.helpers.model.create_ddp_model
 
 
 
@@ -30,6 +30,6 @@ Attributes
 
    
 
-.. py:function:: create_model(base_model, device, use_sync_bn = False, find_unused_parameters = False)
+.. py:function:: create_ddp_model(base_model, device, use_sync_bn = False, find_unused_parameters = False)
 
 

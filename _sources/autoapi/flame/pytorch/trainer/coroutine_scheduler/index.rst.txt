@@ -1,0 +1,42 @@
+:py:mod:`flame.pytorch.trainer.coroutine_scheduler`
+===================================================
+
+.. py:module:: flame.pytorch.trainer.coroutine_scheduler
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.trainer.coroutine_scheduler.CoroutineScheduler
+
+
+
+
+.. py:class:: CoroutineScheduler(delay = 1)
+
+   Bases: :py:obj:`contextlib.AbstractContextManager`
+
+   An abstract base class for context managers.
+
+   .. py:method:: run(self, coro)
+
+
+   .. py:method:: __enter__(self)
+
+      Return `self` upon entering the runtime context.
+
+
+   .. py:method:: __exit__(self, exc_type, exc_value, traceback)
+
+      Raise any exception triggered within the runtime context.
+
+
+   .. py:method:: empty_tasks(self)
+
+
+

@@ -1,0 +1,110 @@
+:py:mod:`flame.core.config_parser`
+==================================
+
+.. py:module:: flame.core.config_parser
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.core.config_parser.ConfigParser
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.core.config_parser.require
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.core.config_parser._logger
+   flame.core.config_parser.KEY_NAME
+   flame.core.config_parser.KEY_CALL
+   flame.core.config_parser.KEY_USE
+   flame.core.config_parser.PREFIX_PLACEHOLDER
+   flame.core.config_parser.PREFIX_IMPORT
+   flame.core.config_parser.ParsableConfig
+
+
+.. py:data:: _logger
+   
+
+   
+
+.. py:data:: KEY_NAME
+   :annotation: = _name
+
+   
+
+.. py:data:: KEY_CALL
+   :annotation: = _call
+
+   
+
+.. py:data:: KEY_USE
+   :annotation: = _use
+
+   
+
+.. py:data:: PREFIX_PLACEHOLDER
+   :annotation: = $
+
+   
+
+.. py:data:: PREFIX_IMPORT
+   :annotation: = @
+
+   
+
+.. py:data:: ParsableConfig
+   
+
+   
+
+.. py:class:: ConfigParser(**kwargs)
+
+   .. py:method:: parse_root_config(self, root_config)
+
+
+   .. py:method:: parse(self, config)
+
+
+   .. py:method:: dispatch(self, value, root_config)
+
+
+   .. py:method:: _parse_list(self, value, root_config)
+
+
+   .. py:method:: _parse_dict(self, value, root_config)
+
+
+   .. py:method:: _parse_object(self, value, root_config)
+
+
+   .. py:method:: _parse_function(self, value, root_config)
+
+
+   .. py:method:: _parse_str(self, value, root_config)
+
+
+
+.. py:function:: require(name)
+
+   根据路径名自动import
+
+   torch.nn.Conv2d -> torch.nn + Conv2d
+
+

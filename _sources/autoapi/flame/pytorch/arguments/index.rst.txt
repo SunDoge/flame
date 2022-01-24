@@ -1,0 +1,71 @@
+:py:mod:`flame.pytorch.arguments`
+=================================
+
+.. py:module:: flame.pytorch.arguments
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.arguments.BaseArgs
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.arguments._logger
+
+
+.. py:data:: _logger
+   
+
+   
+
+.. py:class:: BaseArgs
+
+   Bases: :py:obj:`flame.core.arguments.BaseArgs`
+
+   .. py:attribute:: rank_start
+      :annotation: :int
+
+      
+
+   .. py:attribute:: _dist_backend
+      :annotation: :str
+
+      
+
+   .. py:attribute:: world_size
+      :annotation: :int
+
+      
+
+   .. py:attribute:: dist_url
+      :annotation: :str
+
+      
+
+   .. py:method:: device(self)
+      :property:
+
+
+   .. py:method:: dist_backend(self)
+      :property:
+
+
+   .. py:method:: init_process_group_from_file(self, local_rank)
+
+
+   .. py:method:: try_cuda_set_device(self, local_rank)
+
+
+

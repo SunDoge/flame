@@ -1,0 +1,51 @@
+:py:mod:`flame.pytorch.trainer.data_module`
+===========================================
+
+.. py:module:: flame.pytorch.trainer.data_module
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.trainer.data_module.DataModule
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.trainer.data_module._logger
+   flame.pytorch.trainer.data_module.OptionalDataLoader
+   flame.pytorch.trainer.data_module.T
+
+
+.. py:data:: _logger
+   
+
+   
+
+.. py:data:: OptionalDataLoader
+   
+
+   
+
+.. py:data:: T
+   
+
+   
+
+.. py:class:: DataModule(train_loader = None, val_loader = None, test_loader = None, get_len = len)
+
+   .. py:method:: _infer_len(loader, get_len)
+      :staticmethod:
+
+
+

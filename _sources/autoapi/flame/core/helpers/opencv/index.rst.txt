@@ -1,0 +1,39 @@
+:py:mod:`flame.core.helpers.opencv`
+===================================
+
+.. py:module:: flame.core.helpers.opencv
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.core.helpers.opencv.cv2_loader
+   flame.core.helpers.opencv.cv2_worker_init_fn
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.core.helpers.opencv._logger
+
+
+.. py:data:: _logger
+   
+
+   
+
+.. py:function:: cv2_loader(filename)
+
+
+.. py:function:: cv2_worker_init_fn(worker_id)
+
+

@@ -1,0 +1,71 @@
+:py:mod:`flame.pytorch.helpers.amp`
+===================================
+
+.. py:module:: flame.pytorch.helpers.amp
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.helpers.amp.Amp
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.helpers.amp._logger
+   flame.pytorch.helpers.amp.TensorOrIterableTensors
+
+
+.. py:data:: _logger
+   
+
+   
+
+.. py:data:: TensorOrIterableTensors
+   
+
+   
+
+.. py:class:: Amp(enabled = False, max_norm = None)
+
+   .. py:method:: autocast(self)
+
+
+   .. py:method:: scale(self, outputs)
+
+
+   .. py:method:: unscale_(self, optimizer)
+
+
+   .. py:method:: step(self, optimizer, *args, **kwargs)
+
+
+   .. py:method:: update(self, new_scale = None)
+
+
+   .. py:method:: clip_grad_norm_(self, params)
+
+
+   .. py:method:: state_dict(self)
+
+
+   .. py:method:: load_state_dict(self, state_dict)
+
+
+   .. py:method:: __call__(self, loss, optimizer, parameters = None, zero_grad_set_to_none = False)
+
+
+   .. py:method:: backward(self, loss, optimizer, parameters = None)
+
+
+

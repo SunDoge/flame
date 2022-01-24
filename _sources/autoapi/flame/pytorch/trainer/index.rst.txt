@@ -1,0 +1,78 @@
+:py:mod:`flame.pytorch.trainer`
+===============================
+
+.. py:module:: flame.pytorch.trainer
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   coroutine_scheduler/index.rst
+   data_module/index.rst
+   progress_meter/index.rst
+   state/index.rst
+   state_manager/index.rst
+   trainer/index.rst
+
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.trainer.BaseTrainer
+
+
+
+
+.. py:class:: BaseTrainer(args)
+
+   .. py:attribute:: T
+      
+
+      
+
+   .. py:method:: to_device(self, x, non_blocking = True)
+
+
+   .. py:method:: run(self, max_epochs)
+
+
+   .. py:method:: train(self, loader, prefix = 'train')
+
+
+   .. py:method:: validate(self, loader, prefix = 'val')
+
+
+   .. py:method:: test(self, loader, prefix = 'test')
+
+
+   .. py:method:: _disable_tqdm(self)
+
+
+   .. py:method:: epoch_range(self, max_epochs)
+
+
+   .. py:method:: progress_meter(self, prefix, num_valid_samples = 0)
+
+
+   .. py:method:: set_sampler_epoch(self, loader)
+
+
+   .. py:method:: name(self)
+      :property:
+
+
+   .. py:method:: module_name(self)
+      :property:
+
+      lib.xxx_trainer -> xxx_trainer
+
+
+

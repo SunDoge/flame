@@ -1,0 +1,34 @@
+:py:mod:`flame.pytorch.trainer.state`
+=====================================
+
+.. py:module:: flame.pytorch.trainer.state
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.trainer.state.State
+
+
+
+
+.. py:class:: State
+
+   .. py:method:: state_dict(self)
+
+
+   .. py:method:: load_state_dict(self, state_dict)
+
+
+   .. py:method:: train(self, mode = True)
+
+
+   .. py:method:: eval(self)
+
+
+

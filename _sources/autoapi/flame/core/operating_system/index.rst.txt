@@ -1,0 +1,47 @@
+:py:mod:`flame.core.operating_system`
+=====================================
+
+.. py:module:: flame.core.operating_system
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.core.operating_system.find_free_port
+   flame.core.operating_system.ulimit_n_max
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.core.operating_system._logger
+
+
+.. py:data:: _logger
+   
+
+   
+
+.. py:function:: find_free_port()
+
+   find a free port for distributed training automatically
+
+
+
+.. py:function:: ulimit_n_max()
+
+   Raise ulimit to its max value
+
+   在某些情况下，dataloader会把文件描述符用完
+
+
+

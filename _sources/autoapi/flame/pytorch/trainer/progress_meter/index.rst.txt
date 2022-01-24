@@ -1,0 +1,49 @@
+:py:mod:`flame.pytorch.trainer.progress_meter`
+==============================================
+
+.. py:module:: flame.pytorch.trainer.progress_meter
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.trainer.progress_meter.ProgressMeter
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.trainer.progress_meter._logger
+
+
+.. py:data:: _logger
+   
+
+   
+
+.. py:class:: ProgressMeter(meters, state, prefix, device, print_freq = 10, no_tqdm = False, separator = '/', debug = False, num_valid_samples = 0)
+
+   .. py:method:: enumerate(self, iterable, num_iters = None)
+
+
+   .. py:method:: update_batch_size(self, batch_size)
+
+      :returns: num valid samples in this batch
+
+
+   .. py:method:: get(self, name, fmt = ':f')
+
+
+   .. py:method:: write_summary(self, summary_writer, trainer_name = None)
+
+
+

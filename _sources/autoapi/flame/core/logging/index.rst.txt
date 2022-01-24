@@ -1,0 +1,87 @@
+:py:mod:`flame.core.logging`
+============================
+
+.. py:module:: flame.core.logging
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.core.logging.TqdmHandler
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.core.logging.remove_all_handlers
+   flame.core.logging.create_console_handler
+   flame.core.logging.create_file_handler
+   flame.core.logging.init_logging
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.core.logging.FILE_FORMAT
+   flame.core.logging.CONSOLE_FORMAT
+   flame.core.logging.CONSOLE_DATE_FORMAT
+
+
+.. py:data:: FILE_FORMAT
+   :annotation: = %(asctime)s|%(levelname)-8s|%(message)s
+
+   
+
+.. py:data:: CONSOLE_FORMAT
+   :annotation: = %(asctime)s|%(levelname)-8s|%(message)s
+
+   
+
+.. py:data:: CONSOLE_DATE_FORMAT
+   :annotation: = %Y-%m-%d %H:%M:%S
+
+   
+
+.. py:class:: TqdmHandler(level=NOTSET)
+
+   Bases: :py:obj:`logging.Handler`
+
+   Handler instances dispatch logging events to specific destinations.
+
+   The base handler class. Acts as a placeholder which defines the Handler
+   interface. Handlers can optionally use Formatter instances to format
+   records as desired. By default, no formatter is specified; in this case,
+   the 'raw' message as determined by record.message is logged.
+
+   .. py:method:: emit(self, record)
+
+      Do whatever it takes to actually log the specified logging record.
+
+      This version is intended to be implemented by subclasses and so
+      raises a NotImplementedError.
+
+
+
+.. py:function:: remove_all_handlers(name = None)
+
+
+.. py:function:: create_console_handler(fmt = CONSOLE_FORMAT, datefmt = CONSOLE_DATE_FORMAT)
+
+
+.. py:function:: create_file_handler(filename, fmt = FILE_FORMAT)
+
+
+.. py:function:: init_logging(filename = None, debug = False, force = True)
+
+

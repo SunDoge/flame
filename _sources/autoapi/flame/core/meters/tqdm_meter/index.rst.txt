@@ -1,0 +1,25 @@
+:py:mod:`flame.core.meters.tqdm_meter`
+======================================
+
+.. py:module:: flame.core.meters.tqdm_meter
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.core.meters.tqdm_meter.TqdmMeter
+
+
+
+
+.. py:class:: TqdmMeter(pbar)
+
+   .. py:method:: update(self, batch_size)
+
+
+

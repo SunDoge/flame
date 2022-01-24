@@ -1,0 +1,39 @@
+:py:mod:`flame.core.helpers.tqdm`
+=================================
+
+.. py:module:: flame.core.helpers.tqdm
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.core.helpers.tqdm.tqdm_get_rate
+   flame.core.helpers.tqdm.tqdm_get_total_time
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.core.helpers.tqdm._logger
+
+
+.. py:data:: _logger
+   
+
+   
+
+.. py:function:: tqdm_get_rate(pbar)
+
+
+.. py:function:: tqdm_get_total_time(pbar)
+
+

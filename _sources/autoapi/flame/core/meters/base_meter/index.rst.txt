@@ -1,0 +1,28 @@
+:py:mod:`flame.core.meters.base_meter`
+======================================
+
+.. py:module:: flame.core.meters.base_meter
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.core.meters.base_meter.BaseMeter
+
+
+
+
+.. py:class:: BaseMeter
+
+   .. py:method:: sync(self)
+
+
+   .. py:method:: reset(self)
+
+
+

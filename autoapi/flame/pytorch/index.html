@@ -34,8 +34,8 @@
     <script src="../../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="flame.pytorch.checkpoint_saver" href="checkpoint_saver/index.html" />
-    <link rel="prev" title="flame.helpers.tensorboard" href="../helpers/tensorboard/index.html" />
+    <link rel="next" title="flame.pytorch.helpers" href="helpers/index.html" />
+    <link rel="prev" title="flame.oneflow.arguments" href="../oneflow/arguments/index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
   </head>
@@ -95,10 +95,19 @@
   </a>
   <ul class="current">
    <li class="toctree-l3">
-    <a class="reference internal" href="../helpers/index.html">
+    <a class="reference internal" href="../core/index.html">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
-       flame.helpers
+       flame.core
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../oneflow/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.oneflow
       </span>
      </code>
     </a>
@@ -112,24 +121,6 @@
      </code>
     </a>
     <ul>
-     <li class="toctree-l4">
-      <a class="reference internal" href="checkpoint_saver/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         flame.pytorch.checkpoint_saver
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l4">
-      <a class="reference internal" href="experimental/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         flame.pytorch.experimental
-        </span>
-       </code>
-      </a>
-     </li>
      <li class="toctree-l4">
       <a class="reference internal" href="helpers/index.html">
        <code class="xref py py-mod docutils literal notranslate">
@@ -167,10 +158,10 @@
       </a>
      </li>
      <li class="toctree-l4">
-      <a class="reference internal" href="processes/index.html">
+      <a class="reference internal" href="trainer/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
-         flame.pytorch.processes
+         flame.pytorch.trainer
         </span>
        </code>
       </a>
@@ -185,6 +176,15 @@
       </a>
      </li>
      <li class="toctree-l4">
+      <a class="reference internal" href="arguments/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.arguments
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
       <a class="reference internal" href="container/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
@@ -194,19 +194,10 @@
       </a>
      </li>
      <li class="toctree-l4">
-      <a class="reference internal" href="data_loader_factory/index.html">
+      <a class="reference internal" href="distributed/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
-         flame.pytorch.data_loader_factory
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l4">
-      <a class="reference internal" href="distributed_training/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         flame.pytorch.distributed_training
+         flame.pytorch.distributed
         </span>
        </code>
       </a>
@@ -230,10 +221,10 @@
       </a>
      </li>
      <li class="toctree-l4">
-      <a class="reference internal" href="sampler/index.html">
+      <a class="reference internal" href="launcher/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
-         flame.pytorch.sampler
+         flame.pytorch.launcher
         </span>
        </code>
       </a>
@@ -250,109 +241,10 @@
     </ul>
    </li>
    <li class="toctree-l3">
-    <a class="reference internal" href="../utils/index.html">
-     <code class="xref py py-mod docutils literal notranslate">
-      <span class="pre">
-       flame.utils
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toctree-l3">
     <a class="reference internal" href="../__main__/index.html">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
        flame.__main__
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toctree-l3">
-    <a class="reference internal" href="../archiver/index.html">
-     <code class="xref py py-mod docutils literal notranslate">
-      <span class="pre">
-       flame.archiver
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toctree-l3">
-    <a class="reference internal" href="../arguments/index.html">
-     <code class="xref py py-mod docutils literal notranslate">
-      <span class="pre">
-       flame.arguments
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toctree-l3">
-    <a class="reference internal" href="../ckcfg/index.html">
-     <code class="xref py py-mod docutils literal notranslate">
-      <span class="pre">
-       flame.ckcfg
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toctree-l3">
-    <a class="reference internal" href="../config/index.html">
-     <code class="xref py py-mod docutils literal notranslate">
-      <span class="pre">
-       flame.config
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toctree-l3">
-    <a class="reference internal" href="../config_parser/index.html">
-     <code class="xref py py-mod docutils literal notranslate">
-      <span class="pre">
-       flame.config_parser
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toctree-l3">
-    <a class="reference internal" href="../distributed_training/index.html">
-     <code class="xref py py-mod docutils literal notranslate">
-      <span class="pre">
-       flame.distributed_training
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toctree-l3">
-    <a class="reference internal" href="../logging/index.html">
-     <code class="xref py py-mod docutils literal notranslate">
-      <span class="pre">
-       flame.logging
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toctree-l3">
-    <a class="reference internal" href="../state/index.html">
-     <code class="xref py py-mod docutils literal notranslate">
-      <span class="pre">
-       flame.state
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toctree-l3">
-    <a class="reference internal" href="../testing/index.html">
-     <code class="xref py py-mod docutils literal notranslate">
-      <span class="pre">
-       flame.testing
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toctree-l3">
-    <a class="reference internal" href="../zip_importer/index.html">
-     <code class="xref py py-mod docutils literal notranslate">
-      <span class="pre">
-       flame.zip_importer
       </span>
      </code>
     </a>
@@ -408,52 +300,14 @@
 <h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="checkpoint_saver/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.checkpoint_saver</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="checkpoint_saver/base_checkpoint_saver/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.checkpoint_saver.base_checkpoint_saver</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="checkpoint_saver/best_checkpoint_saver/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.checkpoint_saver.best_checkpoint_saver</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="checkpoint_saver/periodic_checkpoint_saver/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.checkpoint_saver.periodic_checkpoint_saver</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="experimental/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="experimental/compact_engine/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.compact_engine</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="experimental/compact_engine/amp_engine/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.compact_engine.amp_engine</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="experimental/compact_engine/config/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.compact_engine.config</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="experimental/compact_engine/engine/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.compact_engine.engine</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="experimental/compact_engine/engine_v2/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.compact_engine.engine_v2</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="experimental/compact_engine/engine_v3/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.compact_engine.engine_v3</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="experimental/container/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.container</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="experimental/container/container/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.container.container</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="experimental/engine/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.engine</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="experimental/engine/container/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.engine.container</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="experimental/engine/engine/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.engine.engine</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="experimental/engine/events/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.engine.events</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="experimental/engine/mixins/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.engine.mixins</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="experimental/engine/utils/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.engine.utils</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="experimental/meters/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.meters</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="experimental/meters/average_meter/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.meters.average_meter</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="experimental/meters/progress/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.meters.progress</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="experimental/meters/time_meter/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.meters.time_meter</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="experimental/metrics/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.metrics</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="experimental/metrics/functional/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.metrics.functional</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="experimental/metrics/loss_metric/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.metrics.loss_metric</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="experimental/metrics/metric/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.metrics.metric</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="experimental/metrics/topk_accuracy/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.metrics.topk_accuracy</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="experimental/singleton_registry/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experimental.singleton_registry</span></code></a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="helpers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.helpers</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="helpers/amp/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.helpers.amp</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers/checkpoint_saver/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.helpers.checkpoint_saver</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers/cudnn/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.helpers.cudnn</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="helpers/data/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.helpers.data</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="helpers/model/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.helpers.model</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers/optimizer/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.helpers.optimizer</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers/tensorboard/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.helpers.tensorboard</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="meters/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.meters</span></code></a><ul>
@@ -477,16 +331,18 @@
 <li class="toctree-l2"><a class="reference internal" href="nn/momentum_bn/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.nn.momentum_bn</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="processes/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.processes</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="processes/amp_process/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.processes.amp_process</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="processes/process/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.processes.process</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="processes/supervised_process/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.processes.supervised_process</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="trainer/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.trainer</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="trainer/coroutine_scheduler/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.trainer.coroutine_scheduler</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trainer/data_module/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.trainer.data_module</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trainer/progress_meter/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.trainer.progress_meter</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trainer/state/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.trainer.state</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trainer/state_manager/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.trainer.state_manager</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="trainer/trainer/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.trainer.trainer</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="utils/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.utils</span></code></a><ul>
 <li class="toctree-l2"><a class="reference internal" href="utils/attributes/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.utils.attributes</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="utils/cudnn/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.utils.cudnn</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="utils/distributed/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.utils.distributed</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="utils/lr_schduler/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.utils.lr_schduler</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="utils/ranking/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.utils.ranking</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="utils/spawn/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.utils.spawn</span></code></a></li>
@@ -499,12 +355,12 @@
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="arguments/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.arguments</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="container/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.container</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_loader_factory/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.data_loader_factory</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="distributed_training/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.distributed_training</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="distributed/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.distributed</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="engine/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.engine</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="experiment/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.experiment</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="sampler/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.sampler</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="launcher/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.launcher</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="typing_prelude/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.typing_prelude</span></code></a></li>
 </ul>
 </div>
@@ -517,8 +373,8 @@
               
               <div class='prev-next-bottom'>
                 
-    <a class='left-prev' id="prev-link" href="../helpers/tensorboard/index.html" title="previous page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.helpers.tensorboard</span></code></a>
-    <a class='right-next' id="next-link" href="checkpoint_saver/index.html" title="next page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.checkpoint_saver</span></code></a>
+    <a class='left-prev' id="prev-link" href="../oneflow/arguments/index.html" title="previous page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.oneflow.arguments</span></code></a>
+    <a class='right-next' id="next-link" href="helpers/index.html" title="next page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.helpers</span></code></a>
 
               </div>
               

@@ -1,0 +1,39 @@
+:py:mod:`flame.pytorch.helpers.checkpoint_saver`
+================================================
+
+.. py:module:: flame.pytorch.helpers.checkpoint_saver
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.helpers.checkpoint_saver.safe_delete
+   flame.pytorch.helpers.checkpoint_saver.save_checkpoint
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.helpers.checkpoint_saver._logger
+
+
+.. py:data:: _logger
+   
+
+   
+
+.. py:function:: safe_delete(file_path)
+
+
+.. py:function:: save_checkpoint(state, experiment_dir, is_best = False, filename='checkpoint.pth.tar')
+
+

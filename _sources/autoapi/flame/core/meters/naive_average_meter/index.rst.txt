@@ -1,0 +1,39 @@
+:py:mod:`flame.core.meters.naive_average_meter`
+===============================================
+
+.. py:module:: flame.core.meters.naive_average_meter
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.core.meters.naive_average_meter.NaiveAverageMeter
+
+
+
+
+.. py:class:: NaiveAverageMeter(name, fmt = ':f')
+
+   Bases: :py:obj:`flame.core.meters.base_meter.BaseMeter`
+
+   .. py:method:: reset(self)
+
+
+   .. py:method:: avg(self)
+      :property:
+
+
+   .. py:method:: update(self, val, n = 1)
+
+
+   .. py:method:: __str__(self)
+
+      Return str(self).
+
+
+

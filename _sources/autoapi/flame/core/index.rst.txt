@@ -1,0 +1,36 @@
+:py:mod:`flame.core`
+====================
+
+.. py:module:: flame.core
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   helpers/index.rst
+   meters/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   archiver/index.rst
+   arguments/index.rst
+   ckcfg/index.rst
+   config/index.rst
+   config_parser/index.rst
+   jsonnet/index.rst
+   logging/index.rst
+   main_fn/index.rst
+   operating_system/index.rst
+   testing/index.rst
+   timing/index.rst
+   zip_importer/index.rst
+
+

@@ -1,0 +1,35 @@
+:py:mod:`flame.pytorch.helpers.cudnn`
+=====================================
+
+.. py:module:: flame.pytorch.helpers.cudnn
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.helpers.cudnn.cudnn_benchmark_if_possible
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.helpers.cudnn._logger
+
+
+.. py:data:: _logger
+   
+
+   
+
+.. py:function:: cudnn_benchmark_if_possible()
+
+

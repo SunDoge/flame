@@ -35,7 +35,7 @@
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="flame.pytorch.meters.average_meter" href="average_meter/index.html" />
-    <link rel="prev" title="flame.pytorch.helpers.model" href="../helpers/model/index.html" />
+    <link rel="prev" title="flame.pytorch.helpers.tensorboard" href="../helpers/tensorboard/index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
   </head>
@@ -95,10 +95,19 @@
   </a>
   <ul class="current">
    <li class="toctree-l3">
-    <a class="reference internal" href="../../helpers/index.html">
+    <a class="reference internal" href="../../core/index.html">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
-       flame.helpers
+       flame.core
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="../../oneflow/index.html">
+     <code class="xref py py-mod docutils literal notranslate">
+      <span class="pre">
+       flame.oneflow
       </span>
      </code>
     </a>
@@ -112,24 +121,6 @@
      </code>
     </a>
     <ul class="current">
-     <li class="toctree-l4">
-      <a class="reference internal" href="../checkpoint_saver/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         flame.pytorch.checkpoint_saver
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l4">
-      <a class="reference internal" href="../experimental/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         flame.pytorch.experimental
-        </span>
-       </code>
-      </a>
-     </li>
      <li class="toctree-l4">
       <a class="reference internal" href="../helpers/index.html">
        <code class="xref py py-mod docutils literal notranslate">
@@ -167,10 +158,10 @@
       </a>
      </li>
      <li class="toctree-l4">
-      <a class="reference internal" href="../processes/index.html">
+      <a class="reference internal" href="../trainer/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
-         flame.pytorch.processes
+         flame.pytorch.trainer
         </span>
        </code>
       </a>
@@ -185,6 +176,15 @@
       </a>
      </li>
      <li class="toctree-l4">
+      <a class="reference internal" href="../arguments/index.html">
+       <code class="xref py py-mod docutils literal notranslate">
+        <span class="pre">
+         flame.pytorch.arguments
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l4">
       <a class="reference internal" href="../container/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
@@ -194,19 +194,10 @@
       </a>
      </li>
      <li class="toctree-l4">
-      <a class="reference internal" href="../data_loader_factory/index.html">
+      <a class="reference internal" href="../distributed/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
-         flame.pytorch.data_loader_factory
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l4">
-      <a class="reference internal" href="../distributed_training/index.html">
-       <code class="xref py py-mod docutils literal notranslate">
-        <span class="pre">
-         flame.pytorch.distributed_training
+         flame.pytorch.distributed
         </span>
        </code>
       </a>
@@ -230,10 +221,10 @@
       </a>
      </li>
      <li class="toctree-l4">
-      <a class="reference internal" href="../sampler/index.html">
+      <a class="reference internal" href="../launcher/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
-         flame.pytorch.sampler
+         flame.pytorch.launcher
         </span>
        </code>
       </a>
@@ -250,109 +241,10 @@
     </ul>
    </li>
    <li class="toctree-l3">
-    <a class="reference internal" href="../../utils/index.html">
-     <code class="xref py py-mod docutils literal notranslate">
-      <span class="pre">
-       flame.utils
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toctree-l3">
     <a class="reference internal" href="../../__main__/index.html">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
        flame.__main__
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toctree-l3">
-    <a class="reference internal" href="../../archiver/index.html">
-     <code class="xref py py-mod docutils literal notranslate">
-      <span class="pre">
-       flame.archiver
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toctree-l3">
-    <a class="reference internal" href="../../arguments/index.html">
-     <code class="xref py py-mod docutils literal notranslate">
-      <span class="pre">
-       flame.arguments
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toctree-l3">
-    <a class="reference internal" href="../../ckcfg/index.html">
-     <code class="xref py py-mod docutils literal notranslate">
-      <span class="pre">
-       flame.ckcfg
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toctree-l3">
-    <a class="reference internal" href="../../config/index.html">
-     <code class="xref py py-mod docutils literal notranslate">
-      <span class="pre">
-       flame.config
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toctree-l3">
-    <a class="reference internal" href="../../config_parser/index.html">
-     <code class="xref py py-mod docutils literal notranslate">
-      <span class="pre">
-       flame.config_parser
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toctree-l3">
-    <a class="reference internal" href="../../distributed_training/index.html">
-     <code class="xref py py-mod docutils literal notranslate">
-      <span class="pre">
-       flame.distributed_training
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toctree-l3">
-    <a class="reference internal" href="../../logging/index.html">
-     <code class="xref py py-mod docutils literal notranslate">
-      <span class="pre">
-       flame.logging
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toctree-l3">
-    <a class="reference internal" href="../../state/index.html">
-     <code class="xref py py-mod docutils literal notranslate">
-      <span class="pre">
-       flame.state
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toctree-l3">
-    <a class="reference internal" href="../../testing/index.html">
-     <code class="xref py py-mod docutils literal notranslate">
-      <span class="pre">
-       flame.testing
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toctree-l3">
-    <a class="reference internal" href="../../zip_importer/index.html">
-     <code class="xref py py-mod docutils literal notranslate">
-      <span class="pre">
-       flame.zip_importer
       </span>
      </code>
     </a>
@@ -401,18 +293,8 @@
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#flame.pytorch.meters.AverageMeter.reset_local">
-         reset_local
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#flame.pytorch.meters.AverageMeter.update">
          update
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#flame.pytorch.meters.AverageMeter.sync">
-         sync
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
@@ -426,70 +308,90 @@
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#flame.pytorch.meters.AverageMeter.state_dict">
-         state_dict
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#flame.pytorch.meters.AverageMeter.load_state_dict">
-         load_state_dict
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#flame.pytorch.meters.AverageMeter.record">
-         record
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#flame.pytorch.meters.AverageMeter.min">
-         min
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#flame.pytorch.meters.AverageMeter.max">
-         max
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#flame.pytorch.meters.AverageMeter.argmin">
-         argmin
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#flame.pytorch.meters.AverageMeter.argmax">
-         argmax
+        <a class="reference internal nav-link" href="#flame.pytorch.meters.AverageMeter.sync">
+         sync
         </a>
        </li>
       </ul>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.pytorch.meters.AverageMeterGroup">
-       AverageMeterGroup
+      <a class="reference internal nav-link" href="#flame.pytorch.meters.LazyAverageMeterDict">
+       LazyAverageMeterDict
       </a>
       <ul class="nav section-nav flex-column">
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#flame.pytorch.meters.AverageMeterGroup.update">
-         update
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#flame.pytorch.meters.AverageMeterGroup.sync">
+        <a class="reference internal nav-link" href="#flame.pytorch.meters.LazyAverageMeterDict.sync">
          sync
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#flame.pytorch.meters.AverageMeterGroup.reset">
+        <a class="reference internal nav-link" href="#flame.pytorch.meters.LazyAverageMeterDict.reset">
          reset
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#flame.pytorch.meters.AverageMeterGroup.__str__">
+        <a class="reference internal nav-link" href="#flame.pytorch.meters.LazyAverageMeterDict.save_history">
+         save_history
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.meters.LazyAverageMeterDict.named_meters">
+         named_meters
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.meters.LazyAverageMeterDict.record">
+         record
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.meters.LazyAverageMeterDict.get">
+         get
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.meters.LazyAverageMeterDict.state_dict">
+         state_dict
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.meters.LazyAverageMeterDict.load_state_dict">
+         load_state_dict
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.meters.LazyAverageMeterDict.max">
+         max
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.meters.LazyAverageMeterDict.min">
+         min
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.meters.LazyAverageMeterDict.last">
+         last
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.meters.LazyAverageMeterDict.is_highest">
+         is_highest
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.meters.LazyAverageMeterDict.is_lowest">
+         is_lowest
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.meters.LazyAverageMeterDict.__str__">
          __str__
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#flame.pytorch.meters.AverageMeterGroup.__getitem__">
-         __getitem__
+        <a class="reference internal nav-link" href="#flame.pytorch.meters.LazyAverageMeterDict.to_str">
+         to_str
         </a>
        </li>
       </ul>
@@ -623,10 +525,10 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.meters.AverageMeter" title="flame.pytorch.meters.AverageMeter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AverageMeter</span></code></a></p></td>
-<td><p>不需要了，定义在reset里面就可以了，vscode可以提示</p></td>
+<td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.meters.AverageMeterGroup" title="flame.pytorch.meters.AverageMeterGroup"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AverageMeterGroup</span></code></a></p></td>
-<td><p>不需要了，定义在reset里面就可以了，vscode可以提示</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.meters.LazyAverageMeterDict" title="flame.pytorch.meters.LazyAverageMeterDict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LazyAverageMeterDict</span></code></a></p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.meters.EstimatedTimeOfArrival" title="flame.pytorch.meters.EstimatedTimeOfArrival"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EstimatedTimeOfArrival</span></code></a></p></td>
 <td><p>不需要了，定义在reset里面就可以了，vscode可以提示</p></td>
@@ -638,17 +540,10 @@
 </table>
 <dl class="py class">
 <dt id="flame.pytorch.meters.AverageMeter">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.meters.</span></code><code class="sig-name descname"><span class="pre">AverageMeter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">':f'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.AverageMeter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="base_meter/index.html#flame.pytorch.meters.base_meter.Meter" title="flame.pytorch.meters.base_meter.Meter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">flame.pytorch.meters.base_meter.Meter</span></code></a></p>
-<p>不需要了，定义在reset里面就可以了，vscode可以提示</p>
-<dl class="py method">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.meters.</span></code><code class="sig-name descname"><span class="pre">AverageMeter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">':f'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">_DEFAULT_DEVICE</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.AverageMeter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
 <dt id="flame.pytorch.meters.AverageMeter.reset">
 <code class="sig-name descname"><span class="pre">reset</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.AverageMeter.reset" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="flame.pytorch.meters.AverageMeter.reset_local">
-<code class="sig-name descname"><span class="pre">reset_local</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.AverageMeter.reset_local" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -657,7 +552,7 @@
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>val</strong> (<em>float</em>) – </p></li>
+<li><p><strong>val</strong> (<em>torch.Tensor</em>) – </p></li>
 <li><p><strong>n</strong> (<em>int</em>) – </p></li>
 </ul>
 </dd>
@@ -665,16 +560,11 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="flame.pytorch.meters.AverageMeter.sync">
-<code class="sig-name descname"><span class="pre">sync</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.AverageMeter.sync" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
 <dt id="flame.pytorch.meters.AverageMeter.avg">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">avg</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.AverageMeter.avg" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>float</p>
+<dd class="field-odd"><p>torch.Tensor</p>
 </dd>
 </dl>
 </dd></dl>
@@ -691,83 +581,176 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="flame.pytorch.meters.AverageMeter.state_dict">
-<code class="sig-name descname"><span class="pre">state_dict</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.AverageMeter.state_dict" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>dict</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="flame.pytorch.meters.AverageMeter.load_state_dict">
-<code class="sig-name descname"><span class="pre">load_state_dict</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.AverageMeter.load_state_dict" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>state</strong> (<em>dict</em>) – </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="flame.pytorch.meters.AverageMeter.record">
-<code class="sig-name descname"><span class="pre">record</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.AverageMeter.record" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="flame.pytorch.meters.AverageMeter.min">
-<code class="sig-name descname"><span class="pre">min</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.AverageMeter.min" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="flame.pytorch.meters.AverageMeter.max">
-<code class="sig-name descname"><span class="pre">max</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.AverageMeter.max" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="flame.pytorch.meters.AverageMeter.argmin">
-<code class="sig-name descname"><span class="pre">argmin</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.AverageMeter.argmin" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="flame.pytorch.meters.AverageMeter.argmax">
-<code class="sig-name descname"><span class="pre">argmax</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.AverageMeter.argmax" title="Permalink to this definition">¶</a></dt>
+<dt id="flame.pytorch.meters.AverageMeter.sync">
+<code class="sig-name descname"><span class="pre">sync</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.AverageMeter.sync" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt id="flame.pytorch.meters.AverageMeterGroup">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.meters.</span></code><code class="sig-name descname"><span class="pre">AverageMeterGroup</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">meters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'\t'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.AverageMeterGroup" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="base_meter/index.html#flame.pytorch.meters.base_meter.Meter" title="flame.pytorch.meters.base_meter.Meter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">flame.pytorch.meters.base_meter.Meter</span></code></a></p>
-<p>不需要了，定义在reset里面就可以了，vscode可以提示</p>
+<dt id="flame.pytorch.meters.LazyAverageMeterDict">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">flame.pytorch.meters.</span></code><code class="sig-name descname"><span class="pre">LazyAverageMeterDict</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'\t'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">_DEFAULT_DEVICE</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.LazyAverageMeterDict" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="flame.pytorch.meters.LazyAverageMeterDict.sync">
+<code class="sig-name descname"><span class="pre">sync</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.LazyAverageMeterDict.sync" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>prefix</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
-<dt id="flame.pytorch.meters.AverageMeterGroup.update">
-<code class="sig-name descname"><span class="pre">update</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.AverageMeterGroup.update" title="Permalink to this definition">¶</a></dt>
+<dt id="flame.pytorch.meters.LazyAverageMeterDict.reset">
+<code class="sig-name descname"><span class="pre">reset</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.LazyAverageMeterDict.reset" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>prefix</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.meters.LazyAverageMeterDict.save_history">
+<code class="sig-name descname"><span class="pre">save_history</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epoch</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.LazyAverageMeterDict.save_history" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>metrics</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – </p></li>
-<li><p><strong>n</strong> (<em>int</em>) – </p></li>
+<li><p><strong>epoch</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
+<li><p><strong>prefix</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="flame.pytorch.meters.AverageMeterGroup.sync">
-<code class="sig-name descname"><span class="pre">sync</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.AverageMeterGroup.sync" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="flame.pytorch.meters.LazyAverageMeterDict.named_meters">
+<code class="sig-name descname"><span class="pre">named_meters</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.LazyAverageMeterDict.named_meters" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>prefix</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
-<dt id="flame.pytorch.meters.AverageMeterGroup.reset">
-<code class="sig-name descname"><span class="pre">reset</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.AverageMeterGroup.reset" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="flame.pytorch.meters.LazyAverageMeterDict.record">
+<code class="sig-name descname"><span class="pre">record</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epoch</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.LazyAverageMeterDict.record" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>epoch</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
+<li><p><strong>prefix</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
-<dt id="flame.pytorch.meters.AverageMeterGroup.__str__">
-<code class="sig-name descname"><span class="pre">__str__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.AverageMeterGroup.__str__" title="Permalink to this definition">¶</a></dt>
+<dt id="flame.pytorch.meters.LazyAverageMeterDict.get">
+<code class="sig-name descname"><span class="pre">get</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">':f'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.LazyAverageMeterDict.get" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – </p></li>
+<li><p><strong>key</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+<li><p><strong>fmt</strong> (<em>str</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#flame.pytorch.meters.AverageMeter" title="flame.pytorch.meters.AverageMeter">AverageMeter</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.meters.LazyAverageMeterDict.state_dict">
+<code class="sig-name descname"><span class="pre">state_dict</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.LazyAverageMeterDict.state_dict" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.meters.LazyAverageMeterDict.load_state_dict">
+<code class="sig-name descname"><span class="pre">load_state_dict</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.LazyAverageMeterDict.load_state_dict" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>state_dict</strong> (<em>Dict</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.meters.LazyAverageMeterDict.max">
+<code class="sig-name descname"><span class="pre">max</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.LazyAverageMeterDict.max" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>str</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>_HistoryRecord</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.meters.LazyAverageMeterDict.min">
+<code class="sig-name descname"><span class="pre">min</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.LazyAverageMeterDict.min" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>str</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>_HistoryRecord</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.meters.LazyAverageMeterDict.last">
+<code class="sig-name descname"><span class="pre">last</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.LazyAverageMeterDict.last" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>str</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>_HistoryRecord</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.meters.LazyAverageMeterDict.is_highest">
+<code class="sig-name descname"><span class="pre">is_highest</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.LazyAverageMeterDict.is_highest" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>str</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.meters.LazyAverageMeterDict.is_lowest">
+<code class="sig-name descname"><span class="pre">is_lowest</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.LazyAverageMeterDict.is_lowest" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>str</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="flame.pytorch.meters.LazyAverageMeterDict.__str__">
+<code class="sig-name descname"><span class="pre">__str__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.LazyAverageMeterDict.__str__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return str(self).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -777,14 +760,14 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="flame.pytorch.meters.AverageMeterGroup.__getitem__">
-<code class="sig-name descname"><span class="pre">__getitem__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.AverageMeterGroup.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dt id="flame.pytorch.meters.LazyAverageMeterDict.to_str">
+<code class="sig-name descname"><span class="pre">to_str</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.LazyAverageMeterDict.to_str" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>key</strong> (<em>str</em>) – </p>
+<dd class="field-odd"><p><strong>prefix</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="#flame.pytorch.meters.AverageMeter" title="flame.pytorch.meters.AverageMeter">AverageMeter</a></p>
+<dd class="field-even"><p>str</p>
 </dd>
 </dl>
 </dd></dl>
@@ -941,7 +924,7 @@
               
               <div class='prev-next-bottom'>
                 
-    <a class='left-prev' id="prev-link" href="../helpers/model/index.html" title="previous page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.helpers.model</span></code></a>
+    <a class='left-prev' id="prev-link" href="../helpers/tensorboard/index.html" title="previous page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.helpers.tensorboard</span></code></a>
     <a class='right-next' id="next-link" href="average_meter/index.html" title="next page"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.meters.average_meter</span></code></a>
 
               </div>

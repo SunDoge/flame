@@ -1,0 +1,71 @@
+:py:mod:`flame.core.config`
+===========================
+
+.. py:module:: flame.core.config
+
+.. autoapi-nested-parse::
+
+   暂时使用dict作为config
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.core.config.from_file
+   flame.core.config.from_snippet
+   flame.core.config.dump_to_json
+   flame.core.config.merge_jsonnet
+   flame.core.config.parse_config
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.core.config._logger
+   flame.core.config.PATCH_FILE
+
+
+.. py:data:: _logger
+   
+
+   
+
+.. py:data:: PATCH_FILE
+   :annotation: = patch.libsonnet
+
+   
+
+.. py:function:: from_file(filename)
+
+   读取jsonnet格式的config
+
+
+.. py:function:: from_snippet(expr, filename = 'snippet.jsonnet')
+
+   helper function for evaluating snippet to python dict
+
+   :param expr: jsonnet expression
+   :param filename: fake file name for snippet
+
+
+.. py:function:: dump_to_json(cfg, filename)
+
+   保存config为json文件。jsonnet可以直接读取json文件。
+
+
+.. py:function:: merge_jsonnet(main_snippet, added, patch_file)
+
+
+.. py:function:: parse_config(config_file, patches)
+
+

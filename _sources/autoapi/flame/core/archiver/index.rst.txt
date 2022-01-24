@@ -1,0 +1,56 @@
+:py:mod:`flame.core.archiver`
+=============================
+
+.. py:module:: flame.core.archiver
+
+.. autoapi-nested-parse::
+
+   保存当前代码到指定目录
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.core.archiver.git_ls_files
+   flame.core.archiver.zip_files
+   flame.core.archiver.make_archive
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.core.archiver._logger
+   flame.core.archiver.file_list
+
+
+.. py:data:: _logger
+   
+
+   
+
+.. py:function:: git_ls_files()
+
+   https://stackoverflow.com/questions/2766600/git-archive-of-repository-with-uncommitted-changes/63092214#63092214
+
+
+.. py:function:: zip_files(file_list, filename)
+
+
+.. py:function:: make_archive(filename)
+
+
+.. py:data:: file_list
+   
+
+   
+

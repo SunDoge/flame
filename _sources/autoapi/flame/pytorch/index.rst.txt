@@ -10,13 +10,11 @@ Subpackages
    :titlesonly:
    :maxdepth: 3
 
-   checkpoint_saver/index.rst
-   experimental/index.rst
    helpers/index.rst
    meters/index.rst
    metrics/index.rst
    nn/index.rst
-   processes/index.rst
+   trainer/index.rst
    utils/index.rst
 
 
@@ -26,12 +24,12 @@ Submodules
    :titlesonly:
    :maxdepth: 1
 
+   arguments/index.rst
    container/index.rst
-   data_loader_factory/index.rst
-   distributed_training/index.rst
+   distributed/index.rst
    engine/index.rst
    experiment/index.rst
-   sampler/index.rst
+   launcher/index.rst
    typing_prelude/index.rst
 
 

@@ -12,7 +12,6 @@ Submodules
 
    attributes/index.rst
    cudnn/index.rst
-   distributed/index.rst
    lr_schduler/index.rst
    ranking/index.rst
    spawn/index.rst
