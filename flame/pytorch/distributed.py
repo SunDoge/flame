@@ -1,11 +1,11 @@
-from typing import List, Union
-import torch.distributed as dist
-import torch
 import functools
-from torch.distributed import ReduceOp
-from numbers import Number
-from pathlib import Path
 import logging
+from pathlib import Path
+from typing import List, Union
+
+import torch
+import torch.distributed as dist
+from torch.distributed import ReduceOp
 from torch.utils.data.dataloader import DataLoader
 from torch.utils.data.distributed import DistributedSampler
 
@@ -61,6 +61,7 @@ def init_process_group_from_file(
     """
     file_path = Path(filename)
 
+    # FIXME: maybe this should be check before multiprocessing?
     if file_path.exists():
         # file_path.unlink(missing_ok=True)
         file_path.unlink()  # Unfortunately, py37 does not support missing_ok
