@@ -1,8 +1,12 @@
 import logging
+import sys
 from typing import Optional
-from rich import console
-from tqdm import tqdm as _tqdm
+
 from rich.console import Console
+from tqdm import tqdm as _tqdm
+
+_logger = logging.getLogger(__name__)
+
 
 FILE_FORMAT = "%(asctime)s|%(levelname)-8s|%(message)s"
 CONSOLE_FORMAT = '%(asctime)s|%(levelname)-8s|%(message)s'
@@ -51,6 +55,25 @@ def create_file_handler(filename: str, fmt: str = FILE_FORMAT):
     return file_handler
 
 
+def logging_except_hook(exc_type, exc_value, traceback):
+    """
+    https://stackoverflow.com/questions/6234405/logging-uncaught-exceptions-in-python
+    """
+    if issubclass(exc_type, KeyboardInterrupt):
+        sys.__excepthook__(exc_type, exc_value, traceback)
+        return
+
+    _logger.exception(
+        "Uncaught exception",
+        exc_info=(exc_type, exc_value, traceback)
+    )
+
+
+def set_logging_except_hook():
+    _logger.debug("setting logging except hook")
+    sys.excepthook = logging_except_hook
+
+
 def init_logging(
     filename: Optional[str] = None,
     debug: bool = False,
@@ -73,3 +96,5 @@ def init_logging(
         level=level,
         handlers=handlers
     )
+
+    set_logging_except_hook()
