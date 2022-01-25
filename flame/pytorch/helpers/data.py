@@ -5,6 +5,8 @@ import torch.multiprocessing as mp
 from torch.utils.data import DataLoader, Dataset
 from torch.utils.data.distributed import DistributedSampler
 
+from flame.pytorch.sampler import DistributedNoPaddingSampler
+
 _logger = logging.getLogger(__name__)
 
 
@@ -20,7 +22,11 @@ def create_data_loader(
     drop_last: bool = False,
 ) -> DataLoader:
     if dist.is_available() and dist.is_initialized():
-        sampler = DistributedSampler(dataset, shuffle=shuffle)
+        if shuffle:
+            sampler = DistributedSampler(dataset)
+        else:
+            _logger.info('Using DistributedNoPaddingSampler')
+            sampler = DistributedNoPaddingSampler(dataset)
     else:
         sampler = None
 
@@ -39,7 +45,7 @@ def create_data_loader(
     loader = DataLoader(
         dataset,
         batch_size=batch_size,
-        shuffle=(sampler is None),
+        shuffle=(sampler is None and shuffle),
         sampler=sampler,
         num_workers=num_workers,
         collate_fn=collate_fn,

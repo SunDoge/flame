@@ -95,7 +95,7 @@ class BaseTrainer:
 
             _logger.info('Total time: %s', tqdm_get_total_time(pbar))
 
-    def progress_meter(self, prefix: str, num_valid_samples: int = 0) -> ProgressMeter:
+    def progress_meter(self, prefix: str) -> ProgressMeter:
         return ProgressMeter(
             self.meters,
             self.state,
@@ -104,7 +104,6 @@ class BaseTrainer:
             print_freq=self.args.print_freq,
             no_tqdm=self.args.no_tqdm,
             debug=self.args.debug,
-            num_valid_samples=num_valid_samples,
             separator='/',
         )
 
