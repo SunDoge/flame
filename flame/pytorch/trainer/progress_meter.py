@@ -1,23 +1,21 @@
 
 
 import logging
+import time
 from typing import Optional
 
 import torch
 from torch import Tensor
+from torch.utils.tensorboard.writer import SummaryWriter
 from tqdm import tqdm
 
 from flame.core.helpers.tqdm import tqdm_get_rate
 from flame.core.meters.naive_average_meter import NaiveAverageMeter
 from flame.pytorch.distributed import get_rank_safe
 from flame.pytorch.meters.average_meter import (AverageMeter,
-                                                   LazyAverageMeterDict)
-
-from torch.utils.tensorboard.writer import SummaryWriter
+                                                LazyAverageMeterDict)
 
 from .state import State
-import time
-
 
 _logger = logging.getLogger(__name__)
 
@@ -34,7 +32,6 @@ class ProgressMeter:
         no_tqdm: bool = False,
         separator: str = '/',
         debug: bool = False,
-        num_valid_samples: int = 0,
     ) -> None:
         self._state = state
         self._prefix = prefix
@@ -46,7 +43,6 @@ class ProgressMeter:
         self._meters = meters
         self._debug = debug
 
-        self._num_valid_samples = num_valid_samples
         self._num_processed_samples = 0
 
         self.sample_per_second_meter = NaiveAverageMeter('spl/s', fmt=':.2f')
@@ -99,7 +95,7 @@ class ProgressMeter:
             f'{prefix} complete [{epoch}]\t{self.sample_per_second_meter}\t{meter_str}'
         )
 
-    def update_batch_size(self, batch_size: int) -> int:
+    def update_batch_size(self, batch_size: int):
         """
         Return:
             num valid samples in this batch
@@ -107,12 +103,6 @@ class ProgressMeter:
         self._batch_size = batch_size
         self._num_processed_samples += batch_size
 
-        num_remaining_samples = self._num_valid_samples - self._num_processed_samples
-
-        if num_remaining_samples > 0:
-            return min(num_remaining_samples, batch_size)
-        else:
-            return 0
 
     def get(self, name: str, fmt: str = ':f') -> AverageMeter:
         key = self._prefix + self._separator + name
