@@ -12,76 +12,29 @@ Classes
 
 .. autoapisummary::
 
-   flame.pytorch.sampler.UniformDistributedSampler
+   flame.pytorch.sampler.DistributedNoPaddingSampler
 
 
 
-Functions
-~~~~~~~~~
 
-.. autoapisummary::
+.. py:class:: DistributedNoPaddingSampler(dataset, num_replicas = None, rank = None)
 
-   flame.pytorch.sampler.remove_padding
+   Bases: :py:obj:`torch.utils.data.sampler.Sampler`
 
+   Base class for all Samplers.
 
+   Every Sampler subclass has to provide an :meth:`__iter__` method, providing a
+   way to iterate over indices of dataset elements, and a :meth:`__len__` method
+   that returns the length of the returned iterators.
 
-.. py:class:: UniformDistributedSampler(dataset, num_replicas = None, rank = None, shuffle = True, seed = 0, drop_last = False)
-
-   Bases: :py:obj:`torch.utils.data.distributed.DistributedSampler`
-
-   Sampler that restricts data loading to a subset of the dataset.
-
-   It is especially useful in conjunction with
-   :class:`torch.nn.parallel.DistributedDataParallel`. In such a case, each
-   process can pass a :class:`~torch.utils.data.DistributedSampler` instance as a
-   :class:`~torch.utils.data.DataLoader` sampler, and load a subset of the
-   original dataset that is exclusive to it.
-
-   .. note::
-       Dataset is assumed to be of constant size.
-
-   :param dataset: Dataset used for sampling.
-   :param num_replicas: Number of processes participating in
-                        distributed training. By default, :attr:`world_size` is retrieved from the
-                        current distributed group.
-   :type num_replicas: int, optional
-   :param rank: Rank of the current process within :attr:`num_replicas`.
-                By default, :attr:`rank` is retrieved from the current distributed
-                group.
-   :type rank: int, optional
-   :param shuffle: If ``True`` (default), sampler will shuffle the
-                   indices.
-   :type shuffle: bool, optional
-   :param seed: random seed used to shuffle the sampler if
-                :attr:`shuffle=True`. This number should be identical across all
-                processes in the distributed group. Default: ``0``.
-   :type seed: int, optional
-   :param drop_last: if ``True``, then the sampler will drop the
-                     tail of the data to make it evenly divisible across the number of
-                     replicas. If ``False``, the sampler will add extra indices to make
-                     the data evenly divisible across the replicas. Default: ``False``.
-   :type drop_last: bool, optional
-
-   .. warning::
-       In distributed mode, calling the :meth:`set_epoch` method at
-       the beginning of each epoch **before** creating the :class:`DataLoader` iterator
-       is necessary to make shuffling work properly across multiple epochs. Otherwise,
-       the same ordering will be always used.
-
-   Example::
-
-       >>> sampler = DistributedSampler(dataset) if is_distributed else None
-       >>> loader = DataLoader(dataset, shuffle=(sampler is None),
-       ...                     sampler=sampler)
-       >>> for epoch in range(start_epoch, n_epochs):
-       ...     if is_distributed:
-       ...         sampler.set_epoch(epoch)
-       ...     train(loader)
+   .. note:: The :meth:`__len__` method isn't strictly required by
+             :class:`~torch.utils.data.DataLoader`, but is expected in any
+             calculation involving the length of a :class:`~torch.utils.data.DataLoader`.
 
    .. py:method:: __iter__(self)
 
 
+   .. py:method:: __len__(self)
 
-.. py:function:: remove_padding(x, indices)
 
 

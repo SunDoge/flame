@@ -53,7 +53,7 @@ Attributes
 
    
 
-.. py:class:: TqdmHandler(level=NOTSET)
+.. py:class:: TqdmHandler(level=logging.NOTSET)
 
    Bases: :py:obj:`logging.Handler`
 

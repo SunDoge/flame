@@ -30,7 +30,7 @@ Attributes
 
    
 
-.. py:class:: ProgressMeter(meters, state, prefix, device, print_freq = 10, no_tqdm = False, separator = '/', debug = False, num_valid_samples = 0)
+.. py:class:: ProgressMeter(meters, state, prefix, device, print_freq = 10, no_tqdm = False, separator = '/', debug = False)
 
    .. py:method:: enumerate(self, iterable, num_iters = None)
 

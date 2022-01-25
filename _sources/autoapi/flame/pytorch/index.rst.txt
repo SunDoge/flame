@@ -30,6 +30,7 @@ Submodules
    engine/index.rst
    experiment/index.rst
    launcher/index.rst
+   sampler/index.rst
    typing_prelude/index.rst
 
 

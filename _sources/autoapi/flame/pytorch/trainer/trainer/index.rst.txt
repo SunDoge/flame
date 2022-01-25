@@ -67,7 +67,7 @@ Attributes
    .. py:method:: epoch_range(self, max_epochs)
 
 
-   .. py:method:: progress_meter(self, prefix, num_valid_samples = 0)
+   .. py:method:: progress_meter(self, prefix)
 
 
    .. py:method:: set_sampler_epoch(self, loader)
