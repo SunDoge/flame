@@ -11,14 +11,6 @@
 
 ### pip
 
-If in China
-
-```bash
-pip install -U git+https://hub.fastgit.org/SunDoge/flame
-```
-
-else
-
 ```bash
 pip install -U git+https://github.com/SunDoge/flame
 ```
@@ -27,7 +19,7 @@ pip install -U git+https://github.com/SunDoge/flame
 
 ```bash
 mkdir third_party
-git submodule add https://hub.fastgit.org/SunDoge/flame third_party/flame
+git submodule add https://github.com/SunDoge/flame third_party/flame
 ln -s third_party/flame/flame ./
 ```
 
@@ -52,4 +44,4 @@ poetry install
 
 ## Core concepts
 
-TODO
+Checkout [https://github.com/SunDoge/flame-cifar](https://github.com/SunDoge/flame-cifar)
