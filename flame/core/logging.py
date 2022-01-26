@@ -5,6 +5,7 @@ from typing import Optional
 from rich.console import Console
 from tqdm import tqdm as _tqdm
 import socket
+import subprocess
 
 _logger = logging.getLogger(__name__)
 
@@ -106,3 +107,19 @@ def log_runtime_env():
     From @huww98/hutils
     """
     _logger.info("Running on host: %s", socket.getfqdn())
+
+
+def log_code_version():
+    """
+    Borrow from @huww98/hutils, thx
+    """
+    try:
+        git_desc = subprocess.run(
+            ['git', 'describe', '--always', '--dirty', '--long'], capture_output=True, text=True)
+    except FileNotFoundError:
+        _logger.warn('git not installed, will not record code version.')
+
+    if git_desc.returncode != 0:
+        _logger.warn('git describe failed:\n%s', git_desc.stderr.strip())
+    else:
+        _logger.info('Current code version: %s', git_desc.stdout.strip())
