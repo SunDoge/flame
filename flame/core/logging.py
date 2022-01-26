@@ -4,6 +4,7 @@ from typing import Optional
 
 from rich.console import Console
 from tqdm import tqdm as _tqdm
+import socket
 
 _logger = logging.getLogger(__name__)
 
@@ -98,3 +99,10 @@ def init_logging(
     )
 
     set_logging_except_hook()
+
+
+def log_runtime_env():
+    """
+    From @huww98/hutils
+    """
+    _logger.info("Running on host: %s", socket.getfqdn())

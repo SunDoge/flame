@@ -35,6 +35,9 @@ def make_archive(filename: str):
     zip_files(file_list, filename)
 
 
+
+
+
 if __name__ == '__main__':
     file_list = git_ls_files()
     zip_files(file_list, 'code.zip')

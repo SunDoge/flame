@@ -2,7 +2,7 @@ from flame.pytorch.helpers.cudnn import cudnn_benchmark_if_possible
 from .arguments import BaseArgs
 from typing import Callable
 from flame.core.config_parser import ConfigParser
-from flame.core.logging import init_logging
+from flame.core.logging import init_logging, log_runtime_env
 import torch.multiprocessing as mp
 import logging
 
@@ -37,6 +37,8 @@ def _init_distributed(
             debug=args.debug,
         )
 
+    log_runtime_env()
+
     args.try_cuda_set_device(local_rank)
 
     if not args.debug:
@@ -54,6 +56,7 @@ def run_distributed(
     if args.rank_start == 0:
         args.try_make_experiment_dir()
         args.save_config()
+        args.save_command()
 
     num_procs = 1
     if len(args.gpu) > 1:
