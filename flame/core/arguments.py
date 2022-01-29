@@ -83,8 +83,7 @@ class BaseArgs(ta.TypedArgs):
 
     def try_make_experiment_dir(self):
         if self.experiment_dir.exists():
-            # force 和 debug 都会导致覆盖实验目录
-            if self.force or self.debug:
+            if self.force:
                 timestamp = datetime.now().strftime('%Y_%m_%d-%H.%M.%S')
                 new_experiment_name = self.experiment_dir.name + '-' + timestamp
                 new_experiment_dir = self.temp_dir / new_experiment_name
@@ -95,7 +94,8 @@ class BaseArgs(ta.TypedArgs):
                 self.temp_dir.mkdir(parents=True, exist_ok=True)
                 self.experiment_dir.rename(new_experiment_dir)
             else:
-                print('实验目录已存在，可使用 -f/--force 参数覆盖实验目录')
+                print(
+                    f'实验目录 {self.experiment_dir} 已存在，可使用 -f/--force 参数覆盖实验目录')
                 exit(0)
 
         self.experiment_dir.mkdir(parents=True, exist_ok=True)
