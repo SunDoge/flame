@@ -1,8 +1,14 @@
 import logging
+import sys
 from typing import Optional
-from rich import console
-from tqdm import tqdm as _tqdm
+
 from rich.console import Console
+from tqdm import tqdm as _tqdm
+import socket
+import subprocess
+
+_logger = logging.getLogger(__name__)
+
 
 FILE_FORMAT = "%(asctime)s|%(levelname)-8s|%(message)s"
 CONSOLE_FORMAT = '%(asctime)s|%(levelname)-8s|%(message)s'
@@ -51,6 +57,25 @@ def create_file_handler(filename: str, fmt: str = FILE_FORMAT):
     return file_handler
 
 
+def logging_except_hook(exc_type, exc_value, traceback):
+    """
+    https://stackoverflow.com/questions/6234405/logging-uncaught-exceptions-in-python
+    """
+    if issubclass(exc_type, KeyboardInterrupt):
+        sys.__excepthook__(exc_type, exc_value, traceback)
+        return
+
+    _logger.exception(
+        "Uncaught exception",
+        exc_info=(exc_type, exc_value, traceback)
+    )
+
+
+def set_logging_except_hook():
+    _logger.debug("setting logging except hook")
+    sys.excepthook = logging_except_hook
+
+
 def init_logging(
     filename: Optional[str] = None,
     debug: bool = False,
@@ -73,3 +98,28 @@ def init_logging(
         level=level,
         handlers=handlers
     )
+
+    set_logging_except_hook()
+
+
+def log_runtime_env():
+    """
+    From @huww98/hutils
+    """
+    _logger.info("Running on host: %s", socket.getfqdn())
+
+
+def log_code_version():
+    """
+    Borrow from @huww98/hutils, thx
+    """
+    try:
+        git_desc = subprocess.run(
+            ['git', 'describe', '--always', '--dirty', '--long'], capture_output=True, text=True)
+    except FileNotFoundError:
+        _logger.warn('git not installed, will not record code version.')
+
+    if git_desc.returncode != 0:
+        _logger.warn('git describe failed:\n%s', git_desc.stderr.strip())
+    else:
+        _logger.info('Current code version: %s', git_desc.stdout.strip())
