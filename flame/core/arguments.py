@@ -97,15 +97,15 @@ class BaseArgs(ta.TypedArgs):
 
         self.experiment_dir.mkdir(parents=True, exist_ok=True)
 
-    @property
     def config(self) -> dict:
         assert self.config_file, "请指定 config file"
         snippet = parse_config(self.config_file, self.apply)
         config = from_snippet(snippet)
         return config
 
-    def save_config(self, name: str = "config.json"):
-        config = self.config
+    def save_config(self, config: Optional[dict] = None, name: str = "config.json"):
+        if not config:
+            config = self.config()
         dump_to_json(config, self.experiment_dir / name)
 
     def save_command(self, name: str = 'run.sh'):
