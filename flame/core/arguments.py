@@ -95,7 +95,7 @@ class BaseArgs(ta.TypedArgs):
                     f'实验目录 {self.experiment_dir} 已存在，可使用 -f/--force 参数覆盖实验目录')
                 exit(0)
 
-        self.experiment_dir.mkdir(parents=True, exist_ok=True)
+        self.experiment_dir.mkdir(parents=True, exist_ok=False)
 
     def config(self) -> dict:
         assert self.config_file, "请指定 config file"
