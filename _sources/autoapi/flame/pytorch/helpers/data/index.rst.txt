@@ -30,6 +30,6 @@ Attributes
 
    
 
-.. py:function:: create_data_loader(dataset, batch_size = 1, shuffle = True, num_workers = 0, collate_fn=None, pin_memory = True, multiprocessing_context=None, persistent_workers = True, drop_last = False)
+.. py:function:: create_data_loader(dataset, batch_size = 1, shuffle = True, num_workers = 0, collate_fn=None, pin_memory = True, multiprocessing_context=None, persistent_workers = True, drop_last = False, worker_init_fn = None)
 
 

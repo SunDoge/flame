@@ -302,8 +302,8 @@
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.pytorch.launcher._default_main_worker">
-       _default_main_worker
+      <a class="reference internal nav-link" href="#flame.pytorch.launcher.default_main_worker">
+       default_main_worker
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
@@ -349,13 +349,13 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.launcher._default_main_worker" title="flame.pytorch.launcher._default_main_worker"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_default_main_worker</span></code></a>(args)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.launcher.default_main_worker" title="flame.pytorch.launcher.default_main_worker"><code class="xref py py-obj docutils literal notranslate"><span class="pre">default_main_worker</span></code></a>(args, config)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.launcher._init_distributed" title="flame.pytorch.launcher._init_distributed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_init_distributed</span></code></a>(local_rank, args, main_worker)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.launcher._init_distributed" title="flame.pytorch.launcher._init_distributed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_init_distributed</span></code></a>(local_rank, args, config, main_worker)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.launcher.run_distributed" title="flame.pytorch.launcher.run_distributed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run_distributed</span></code></a>(args, main_worker = _default_main_worker)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.launcher.run_distributed" title="flame.pytorch.launcher.run_distributed"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run_distributed</span></code></a>(args, config = None, main_worker = default_main_worker)</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -388,23 +388,27 @@
 <dd></dd></dl>
 
 <dl class="py function">
-<dt id="flame.pytorch.launcher._default_main_worker">
-<code class="sig-prename descclassname"><span class="pre">flame.pytorch.launcher.</span></code><code class="sig-name descname"><span class="pre">_default_main_worker</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.launcher._default_main_worker" title="Permalink to this definition">¶</a></dt>
+<dt id="flame.pytorch.launcher.default_main_worker">
+<code class="sig-prename descclassname"><span class="pre">flame.pytorch.launcher.</span></code><code class="sig-name descname"><span class="pre">default_main_worker</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.launcher.default_main_worker" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>args</strong> (<a class="reference internal" href="../arguments/index.html#flame.pytorch.arguments.BaseArgs" title="flame.pytorch.arguments.BaseArgs"><em>flame.pytorch.arguments.BaseArgs</em></a>) – </p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> (<a class="reference internal" href="../arguments/index.html#flame.pytorch.arguments.BaseArgs" title="flame.pytorch.arguments.BaseArgs"><em>flame.pytorch.arguments.BaseArgs</em></a>) – </p></li>
+<li><p><strong>config</strong> (<em>dict</em>) – </p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="flame.pytorch.launcher._init_distributed">
-<code class="sig-prename descclassname"><span class="pre">flame.pytorch.launcher.</span></code><code class="sig-name descname"><span class="pre">_init_distributed</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">local_rank</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">main_worker</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.launcher._init_distributed" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">flame.pytorch.launcher.</span></code><code class="sig-name descname"><span class="pre">_init_distributed</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">local_rank</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">main_worker</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.launcher._init_distributed" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>local_rank</strong> (<em>int</em>) – </p></li>
 <li><p><strong>args</strong> (<a class="reference internal" href="../arguments/index.html#flame.pytorch.arguments.BaseArgs" title="flame.pytorch.arguments.BaseArgs"><em>flame.pytorch.arguments.BaseArgs</em></a>) – </p></li>
+<li><p><strong>config</strong> (<em>dict</em>) – </p></li>
 <li><p><strong>main_worker</strong> (<em>MainWorker</em>) – </p></li>
 </ul>
 </dd>
@@ -413,11 +417,12 @@
 
 <dl class="py function">
 <dt id="flame.pytorch.launcher.run_distributed">
-<code class="sig-prename descclassname"><span class="pre">flame.pytorch.launcher.</span></code><code class="sig-name descname"><span class="pre">run_distributed</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">main_worker</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">_default_main_worker</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.launcher.run_distributed" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">flame.pytorch.launcher.</span></code><code class="sig-name descname"><span class="pre">run_distributed</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">main_worker</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">default_main_worker</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.launcher.run_distributed" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>args</strong> (<a class="reference internal" href="../arguments/index.html#flame.pytorch.arguments.BaseArgs" title="flame.pytorch.arguments.BaseArgs"><em>flame.pytorch.arguments.BaseArgs</em></a>) – </p></li>
+<li><p><strong>config</strong> (<em>Optional</em><em>[</em><em>dict</em><em>]</em>) – </p></li>
 <li><p><strong>main_worker</strong> (<em>MainWorker</em>) – </p></li>
 </ul>
 </dd>

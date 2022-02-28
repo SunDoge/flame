@@ -24,7 +24,11 @@ Functions
    flame.core.logging.remove_all_handlers
    flame.core.logging.create_console_handler
    flame.core.logging.create_file_handler
+   flame.core.logging.logging_except_hook
+   flame.core.logging.set_logging_except_hook
    flame.core.logging.init_logging
+   flame.core.logging.log_runtime_env
+   flame.core.logging.log_code_version
 
 
 
@@ -33,10 +37,16 @@ Attributes
 
 .. autoapisummary::
 
+   flame.core.logging._logger
    flame.core.logging.FILE_FORMAT
    flame.core.logging.CONSOLE_FORMAT
    flame.core.logging.CONSOLE_DATE_FORMAT
 
+
+.. py:data:: _logger
+   
+
+   
 
 .. py:data:: FILE_FORMAT
    :annotation: = %(asctime)s|%(levelname)-8s|%(message)s
@@ -82,6 +92,24 @@ Attributes
 .. py:function:: create_file_handler(filename, fmt = FILE_FORMAT)
 
 
+.. py:function:: logging_except_hook(exc_type, exc_value, traceback)
+
+   https://stackoverflow.com/questions/6234405/logging-uncaught-exceptions-in-python
+
+
+.. py:function:: set_logging_except_hook()
+
+
 .. py:function:: init_logging(filename = None, debug = False, force = True)
+
+
+.. py:function:: log_runtime_env()
+
+   From @huww98/hutils
+
+
+.. py:function:: log_code_version()
+
+   Borrow from @huww98/hutils, thx
 
 

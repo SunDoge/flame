@@ -13,7 +13,7 @@ Functions
 
 .. autoapisummary::
 
-   flame.pytorch.launcher._default_main_worker
+   flame.pytorch.launcher.default_main_worker
    flame.pytorch.launcher._init_distributed
    flame.pytorch.launcher.run_distributed
 
@@ -38,12 +38,12 @@ Attributes
 
    
 
-.. py:function:: _default_main_worker(args)
+.. py:function:: default_main_worker(args, config)
 
 
-.. py:function:: _init_distributed(local_rank, args, main_worker)
+.. py:function:: _init_distributed(local_rank, args, config, main_worker)
 
 
-.. py:function:: run_distributed(args, main_worker = _default_main_worker)
+.. py:function:: run_distributed(args, config = None, main_worker = default_main_worker)
 
 

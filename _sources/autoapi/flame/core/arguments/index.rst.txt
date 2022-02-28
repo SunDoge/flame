@@ -30,8 +30,14 @@ Attributes
 
 .. autoapisummary::
 
+   flame.core.arguments._logger
    flame.core.arguments.args
 
+
+.. py:data:: _logger
+   
+
+   
 
 .. py:function:: parse_gpu_list(gpu_str)
 
@@ -98,10 +104,12 @@ Attributes
 
 
    .. py:method:: config(self)
-      :property:
 
 
-   .. py:method:: save_config(self, name = 'config.json')
+   .. py:method:: save_config(self, config = None, name = 'config.json')
+
+
+   .. py:method:: save_command(self, name = 'run.sh')
 
 
 
