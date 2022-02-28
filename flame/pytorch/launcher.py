@@ -28,7 +28,13 @@ def _init_distributed(
     config: dict,
     main_worker: MainWorker,
 ):
-    rank = args.init_process_group_from_file(local_rank)
+
+    if args.dist_url:
+        rank = args.init_process_group_from_tcp(local_rank)
+    else:
+        # Use share file by default
+        rank = args.init_process_group_from_file(local_rank)
+        
     if rank == 0:
         init_logging(
             filename=args.experiment_dir / 'experiment.log',
