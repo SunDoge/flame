@@ -81,7 +81,7 @@ class ProgressMeter:
                     sps
                 )
 
-                if batch_idx % self._print_freq == 0:
+                if batch_idx % self._print_freq == 0 or self._debug:
                     meter_str = self._meters.to_str(prefix=self._prefix)
                     _logger.info(
                         f'{self._prefix} [{epoch}][{batch_idx}/{num_iters}]\t{self.sample_per_second_meter}\t{meter_str}'
@@ -102,7 +102,6 @@ class ProgressMeter:
         """
         self._batch_size = batch_size
         self._num_processed_samples += batch_size
-
 
     def get(self, name: str, fmt: str = ':f') -> AverageMeter:
         key = self._prefix + self._separator + name
