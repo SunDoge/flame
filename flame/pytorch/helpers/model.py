@@ -12,6 +12,7 @@ def create_ddp_model(
     device: torch.device,
     use_sync_bn: bool = False,
     find_unused_parameters: bool = False,
+    static_graph: bool = True,
 ) -> nn.Module:
     base_model.to(device)
 
@@ -20,12 +21,14 @@ def create_ddp_model(
         model = DistributedDataParallel(
             base_model,
             device_ids=[device],
-            find_unused_parameters=find_unused_parameters
+            find_unused_parameters=find_unused_parameters,
+            static_graph=static_graph,
         )
     else:
         model = DistributedDataParallel(
             base_model,
-            find_unused_parameters=find_unused_parameters
+            find_unused_parameters=find_unused_parameters,
+            static_graph=static_graph,
         )
 
     if use_sync_bn:
