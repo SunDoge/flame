@@ -81,6 +81,7 @@ def main():
     current_env["MASTER_ADDR"] = args.master_addr
     current_env["MASTER_PORT"] = str(args.master_port)
     current_env["WORLD_SIZE"] = str(args.world_size)
+    current_env["CUDA_VISIBLE_DEVICES"] = ",".join(map(str, args.gpu))
 
     processes: List[Any] = []
     subprocess_file_handles = []
@@ -89,6 +90,10 @@ def main():
         dist_rank = args.rank_start + local_rank
         current_env["RANK"] = str(dist_rank)
         current_env["LOCAL_RANK"] = str(local_rank)
+        if args.gpu:
+            current_env["DEVICE_ID"] = str(local_rank)
+        else:
+            current_env["DEVICE_ID"] = '-1'
 
         with_python = not args.no_python
         cmd = []
