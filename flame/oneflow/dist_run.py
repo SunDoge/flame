@@ -17,6 +17,7 @@ import sys
 import subprocess
 import signal
 import time
+from icecream import ic
 
 _logger = logging.getLogger(__name__)
 
@@ -141,6 +142,7 @@ def main():
         signal.signal(signal.SIGINT, sigkill_handler)
         signal.signal(signal.SIGTERM, sigkill_handler)
 
+        # ic(current_env)
         process = subprocess.Popen(
             cmd, env=current_env,
         )

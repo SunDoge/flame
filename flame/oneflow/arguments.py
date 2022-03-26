@@ -6,6 +6,7 @@ import os
 
 
 DEFAULT_DEVICE_ID = int(os.environ.get("DEVICE_ID", "-1"))
+LOCAL_RANK = int(os.environ.get("LOCAL_RANK", "0"))
 
 
 @dataclass
@@ -18,7 +19,8 @@ class BaseArgs(Base):
 
     @property
     def device(self) -> flow.device:
-        if self.device_id < 0:
-            return flow.device('cpu')
-        else:
-            return flow.device('cuda:{}'.format(self.device_id))
+        # if self.device_id < 0:
+        #     return flow.device('cpu')
+        # else:
+        #     return flow.device('cuda:{}'.format(self.device_id))
+        return flow.device('cuda:{}'.format(LOCAL_RANK))
