@@ -2,7 +2,7 @@ from flame.pytorch.helpers.cudnn import cudnn_benchmark_if_possible
 from .arguments import BaseArgs
 from typing import Callable, Optional
 from flame.core.config_parser import ConfigParser
-from flame.core.logging import init_logging, log_runtime_env
+from flame.core.logging import init_logging, log_runtime_env, remove_all_handlers
 import torch.multiprocessing as mp
 import logging
 
@@ -28,12 +28,21 @@ def _init_distributed(
     config: dict,
     main_worker: MainWorker,
 ):
-    rank = args.init_process_group_from_file(local_rank)
+
+    if args.dist_url:
+        rank = args.init_process_group_from_tcp(local_rank)
+    else:
+        # Use share file by default
+        rank = args.init_process_group_from_file(local_rank)
+
     if rank == 0:
         init_logging(
             filename=args.experiment_dir / 'experiment.log',
             debug=args.debug,
         )
+    else:
+        # 不确定是否应该这样做
+        remove_all_handlers()
 
     log_runtime_env()
 

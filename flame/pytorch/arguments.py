@@ -1,3 +1,4 @@
+from typing import Optional
 from flame.core.arguments import BaseArgs as Base
 import torch
 import typed_args as ta
@@ -24,8 +25,8 @@ class BaseArgs(Base):
     world_size: int = ta.add_argument(
         '--world-size', type=int, default=1,
     )
-    dist_url: str = ta.add_argument(
-        "--dist-url", type=str, default=f"tcp://127.0.0.1:{find_free_port()}"
+    dist_url: Optional[str] = ta.add_argument(
+        "--dist-url", type=str,
     )
 
     @property
@@ -59,8 +60,21 @@ class BaseArgs(Base):
 
         return rank
 
+    def init_process_group_from_tcp(self, local_rank: int) -> int:
+        assert self.dist_url
+
+        rank = self.rank_start + local_rank
+
+        dist.init_process_group(
+            self.dist_backend,
+            init_method=self.dist_url,
+            world_size=self.world_size,
+            rank=rank,
+        )
+
+        return rank
+
     def try_cuda_set_device(self, local_rank: int):
         if self.gpu:
             device_id = self.gpu[local_rank]
             torch.cuda.set_device(device_id)
-
