@@ -1,6 +1,6 @@
-import _jsonnet
-import rjsonnet
 import os
+
+import rjsonnet
 
 
 #  Returns content if worked, None if file not found, or throws an exception
