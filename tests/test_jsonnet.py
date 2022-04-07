@@ -22,3 +22,7 @@ def test_jsonnet_lib():
     json_str = jsonnet.evaluate_file('jsonnet/test.jsonnet')
     json_obj = json.loads(json_str)
     assert json_obj, "fail to pass jsonnet test"
+
+
+if __name__ == '__main__':
+    test_eval_file()
