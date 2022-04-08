@@ -1,0 +1,119 @@
+:py:mod:`flame.oneflow.trainer.state_manager`
+=============================================
+
+.. py:module:: flame.oneflow.trainer.state_manager
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.oneflow.trainer.state_manager.Entry
+   flame.oneflow.trainer.state_manager.StateManager
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.oneflow.trainer.state_manager._default_to_training
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.oneflow.trainer.state_manager._logger
+   flame.oneflow.trainer.state_manager.ToStateDict
+   flame.oneflow.trainer.state_manager.LoadStateDict
+   flame.oneflow.trainer.state_manager.ToTraining
+
+
+.. py:data:: _logger
+   
+
+   
+
+.. py:data:: ToStateDict
+   
+
+   
+
+.. py:data:: LoadStateDict
+   
+
+   
+
+.. py:data:: ToTraining
+   
+
+   
+
+.. py:function:: _default_to_training(training)
+
+
+.. py:class:: Entry
+
+   .. py:attribute:: to_state_dict
+      :annotation: :ToStateDict
+
+      
+
+   .. py:attribute:: load_state_dict
+      :annotation: :LoadStateDict
+
+      
+
+   .. py:attribute:: to_training
+      :annotation: :ToTraining
+
+      
+
+
+.. py:class:: StateManager
+
+   .. py:method:: register(self, name, to_state_dict, load_state_dict, to_training = _default_to_training)
+
+
+   .. py:method:: train(self, mode = True)
+
+
+   .. py:method:: eval(self)
+
+
+   .. py:method:: state_dict(self)
+
+
+   .. py:method:: load_state_dict(self, state_dict)
+
+
+   .. py:method:: register_model(self, model, name = 'model', strict = True)
+
+
+   .. py:method:: register_optimizer(self, optimizer, name = 'optimizer')
+
+
+   .. py:method:: register_lr_scheduler(self, lr_scheduler, name = 'lr_scheduler')
+
+
+   .. py:method:: register_grad_scaler(self, grad_scaler, name = 'grad_scaler')
+      :abstractmethod:
+
+
+   .. py:method:: __str__(self)
+
+      Return str(self).
+
+
+   .. py:method:: resume(self, checkpoint_path)
+
+
+

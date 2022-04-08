@@ -25,7 +25,6 @@ Submodules
    :maxdepth: 1
 
    arguments/index.rst
-   container/index.rst
    distributed/index.rst
    engine/index.rst
    experiment/index.rst

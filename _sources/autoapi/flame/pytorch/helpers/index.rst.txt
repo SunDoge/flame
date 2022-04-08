@@ -41,7 +41,7 @@ Functions
 .. py:function:: create_data_loader(dataset, batch_size = 1, shuffle = True, num_workers = 0, collate_fn=None, pin_memory = True, multiprocessing_context=None, persistent_workers = True, drop_last = False, worker_init_fn = None)
 
 
-.. py:function:: create_ddp_model(base_model, device, use_sync_bn = False, find_unused_parameters = False)
+.. py:function:: create_ddp_model(base_model, device, use_sync_bn = False, find_unused_parameters = False, static_graph = True)
 
 
 .. py:function:: cudnn_benchmark_if_possible()

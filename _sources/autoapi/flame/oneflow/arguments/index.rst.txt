@@ -17,8 +17,36 @@ Classes
 
 
 
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.oneflow.arguments.DEFAULT_DEVICE_ID
+   flame.oneflow.arguments.LOCAL_RANK
+
+
+.. py:data:: DEFAULT_DEVICE_ID
+   
+
+   
+
+.. py:data:: LOCAL_RANK
+   
+
+   
+
 .. py:class:: BaseArgs
 
    Bases: :py:obj:`flame.core.arguments.BaseArgs`
+
+   .. py:attribute:: device_id
+      :annotation: :int
+
+      
+
+   .. py:method:: device(self)
+      :property:
+
 
 

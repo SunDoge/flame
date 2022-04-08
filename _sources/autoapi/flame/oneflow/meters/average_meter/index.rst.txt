@@ -1,0 +1,131 @@
+:py:mod:`flame.oneflow.meters.average_meter`
+============================================
+
+.. py:module:: flame.oneflow.meters.average_meter
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.oneflow.meters.average_meter.AverageMeter
+   flame.oneflow.meters.average_meter.LazyAverageMeterDict
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.oneflow.meters.average_meter._logger
+   flame.oneflow.meters.average_meter._DEFAULT_DEVICE
+   flame.oneflow.meters.average_meter._HistoryRecord
+
+
+.. py:data:: _logger
+   
+
+   
+
+.. py:data:: _DEFAULT_DEVICE
+   
+
+   
+
+.. py:data:: _HistoryRecord
+   
+
+   
+
+.. py:class:: AverageMeter(name, fmt = ':f', device = _DEFAULT_DEVICE)
+
+   .. py:attribute:: val
+      :annotation: :oneflow.Tensor
+
+      
+
+   .. py:attribute:: sum
+      :annotation: :oneflow.Tensor
+
+      
+
+   .. py:attribute:: count
+      :annotation: :oneflow.Tensor
+
+      
+
+   .. py:method:: reset(self)
+
+
+   .. py:method:: update(self, val, n = 1)
+
+
+   .. py:method:: avg(self)
+      :property:
+
+
+   .. py:method:: __str__(self)
+
+      Return str(self).
+
+
+   .. py:method:: sync(self)
+
+
+
+.. py:class:: LazyAverageMeterDict(delimiter = '\t', device = _DEFAULT_DEVICE)
+
+   .. py:method:: sync(self, prefix = None)
+
+
+   .. py:method:: reset(self, prefix = None)
+
+
+   .. py:method:: save_history(self, epoch = None, prefix = None)
+
+
+   .. py:method:: named_meters(self, prefix = None)
+
+
+   .. py:method:: record(self, epoch = None, prefix = None)
+
+
+   .. py:method:: get(self, name, key = None, fmt = ':f')
+
+
+   .. py:method:: state_dict(self)
+
+
+   .. py:method:: load_state_dict(self, state_dict)
+
+
+   .. py:method:: max(self, key)
+
+
+   .. py:method:: min(self, key)
+
+
+   .. py:method:: last(self, key)
+
+
+   .. py:method:: is_highest(self, key)
+
+
+   .. py:method:: is_lowest(self, key)
+
+
+   .. py:method:: __str__(self)
+
+      Return str(self).
+
+
+   .. py:method:: to_str(self, prefix = None)
+
+
+

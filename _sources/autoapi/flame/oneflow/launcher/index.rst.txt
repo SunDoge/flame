@@ -1,0 +1,39 @@
+:py:mod:`flame.oneflow.launcher`
+================================
+
+.. py:module:: flame.oneflow.launcher
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.oneflow.launcher.default_main_worker
+   flame.oneflow.launcher.run_distributed
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.oneflow.launcher.MainWorker
+
+
+.. py:data:: MainWorker
+   
+
+   
+
+.. py:function:: default_main_worker(args, config)
+
+
+.. py:function:: run_distributed(args, main_worker = default_main_worker)
+
+

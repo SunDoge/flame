@@ -1,0 +1,109 @@
+:py:mod:`flame.oneflow.dist_run`
+================================
+
+.. py:module:: flame.oneflow.dist_run
+
+.. autoapi-nested-parse::
+
+   基本按照 oneflow.distributed.launch 实现
+   未实现 logdir
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.oneflow.dist_run.Args
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.oneflow.dist_run.main
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.oneflow.dist_run._logger
+
+
+.. py:data:: _logger
+   
+
+   
+
+.. py:class:: Args
+
+   Bases: :py:obj:`typed_args.TypedArgs`
+
+   .. py:attribute:: rank_start
+      :annotation: :int
+
+      
+
+   .. py:attribute:: world_size
+      :annotation: :int
+
+      
+
+   .. py:attribute:: master_addr
+      :annotation: :str
+
+      
+
+   .. py:attribute:: master_port
+      :annotation: :int
+
+      
+
+   .. py:attribute:: redirect_stdout_and_stderr
+      :annotation: :bool
+
+      
+
+   .. py:attribute:: gpu
+      :annotation: :List[int]
+
+      
+
+   .. py:attribute:: debug
+      :annotation: :bool
+
+      
+
+   .. py:attribute:: no_python
+      :annotation: :bool
+
+      
+
+   .. py:attribute:: module
+      :annotation: :bool
+
+      
+
+   .. py:attribute:: training_script
+      :annotation: :str
+
+      
+
+   .. py:attribute:: training_script_args
+      :annotation: :List[str]
+
+      
+
+
+.. py:function:: main()
+
+

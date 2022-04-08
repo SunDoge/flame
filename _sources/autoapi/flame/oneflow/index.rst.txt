@@ -4,6 +4,18 @@
 .. py:module:: flame.oneflow
 
 
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   helpers/index.rst
+   meters/index.rst
+   metrics/index.rst
+   trainer/index.rst
+
+
 Submodules
 ----------
 .. toctree::
@@ -11,5 +23,9 @@ Submodules
    :maxdepth: 1
 
    arguments/index.rst
+   dist_run/index.rst
+   launcher/index.rst
+   sampler/index.rst
+   typing_prelude/index.rst
 
 

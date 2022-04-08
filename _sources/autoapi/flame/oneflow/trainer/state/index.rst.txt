@@ -1,0 +1,34 @@
+:py:mod:`flame.oneflow.trainer.state`
+=====================================
+
+.. py:module:: flame.oneflow.trainer.state
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.oneflow.trainer.state.State
+
+
+
+
+.. py:class:: State
+
+   .. py:method:: state_dict(self)
+
+
+   .. py:method:: load_state_dict(self, state_dict)
+
+
+   .. py:method:: train(self, mode = True)
+
+
+   .. py:method:: eval(self)
+
+
+

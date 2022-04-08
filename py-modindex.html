@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Python Module Index &#8212; flame 0.0.1 documentation</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.f6b7ca918bee2f46fd9abac01cfb07d5.css" rel="stylesheet" />
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,17 +19,13 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.1e043a052b0af929e4d8.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
@@ -36,40 +33,62 @@
     <link rel="search" title="Search" href="search.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
 
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
     <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="index.html">
+<p class="title">flame</p>
+</a>
 
     
-    <a class="navbar-brand" href="index.html">
-      <p class="title">flame</p>
-    </a>
-    
+  </div>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    
-    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
-      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
-        <li class="toctree-l1 nav-item">
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="autoapi/index.html">
   API Reference
  </a>
 </li>
 
-        
-      </ul>
-
-      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
-      </ul>
+    
+</ul>
+      </div>
+      
     </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
 </div>
     </nav>
     
@@ -79,29 +98,25 @@
           
             
             <!-- Only show if we have sidebars configured, else just a small margin  -->
-            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
     
   </div>
 </nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
             </div>
             
           
 
           
           <div class="d-none d-xl-block col-xl-2 bd-toc">
-              
-
-<nav id="bd-toc-nav">
-    
-</nav>
-
-
-              
+            
           </div>
           
 
@@ -168,7 +183,17 @@
      <tr class="cg-1">
        <td></td>
        <td>&#160;&#160;&#160;
+       <a href="autoapi/flame/core/distributed_launcher/index.html#module-flame.core.distributed_launcher"><code class="xref">flame.core.distributed_launcher</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
        <a href="autoapi/flame/core/helpers/index.html#module-flame.core.helpers"><code class="xref">flame.core.helpers</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="autoapi/flame/core/helpers/multiprocessing/index.html#module-flame.core.helpers.multiprocessing"><code class="xref">flame.core.helpers.multiprocessing</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
        <td></td>
@@ -248,17 +273,107 @@
      <tr class="cg-1">
        <td></td>
        <td>&#160;&#160;&#160;
+       <a href="autoapi/flame/oneflow/dist_run/index.html#module-flame.oneflow.dist_run"><code class="xref">flame.oneflow.dist_run</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="autoapi/flame/oneflow/helpers/index.html#module-flame.oneflow.helpers"><code class="xref">flame.oneflow.helpers</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="autoapi/flame/oneflow/helpers/checkpoint_saver/index.html#module-flame.oneflow.helpers.checkpoint_saver"><code class="xref">flame.oneflow.helpers.checkpoint_saver</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="autoapi/flame/oneflow/helpers/data/index.html#module-flame.oneflow.helpers.data"><code class="xref">flame.oneflow.helpers.data</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="autoapi/flame/oneflow/helpers/optimizer/index.html#module-flame.oneflow.helpers.optimizer"><code class="xref">flame.oneflow.helpers.optimizer</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="autoapi/flame/oneflow/helpers/rank0/index.html#module-flame.oneflow.helpers.rank0"><code class="xref">flame.oneflow.helpers.rank0</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="autoapi/flame/oneflow/helpers/tensorboard/index.html#module-flame.oneflow.helpers.tensorboard"><code class="xref">flame.oneflow.helpers.tensorboard</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="autoapi/flame/oneflow/launcher/index.html#module-flame.oneflow.launcher"><code class="xref">flame.oneflow.launcher</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="autoapi/flame/oneflow/meters/index.html#module-flame.oneflow.meters"><code class="xref">flame.oneflow.meters</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="autoapi/flame/oneflow/meters/average_meter/index.html#module-flame.oneflow.meters.average_meter"><code class="xref">flame.oneflow.meters.average_meter</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="autoapi/flame/oneflow/metrics/index.html#module-flame.oneflow.metrics"><code class="xref">flame.oneflow.metrics</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="autoapi/flame/oneflow/metrics/functional/index.html#module-flame.oneflow.metrics.functional"><code class="xref">flame.oneflow.metrics.functional</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="autoapi/flame/oneflow/sampler/index.html#module-flame.oneflow.sampler"><code class="xref">flame.oneflow.sampler</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="autoapi/flame/oneflow/trainer/index.html#module-flame.oneflow.trainer"><code class="xref">flame.oneflow.trainer</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="autoapi/flame/oneflow/trainer/progress_meter/index.html#module-flame.oneflow.trainer.progress_meter"><code class="xref">flame.oneflow.trainer.progress_meter</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="autoapi/flame/oneflow/trainer/state/index.html#module-flame.oneflow.trainer.state"><code class="xref">flame.oneflow.trainer.state</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="autoapi/flame/oneflow/trainer/state_manager/index.html#module-flame.oneflow.trainer.state_manager"><code class="xref">flame.oneflow.trainer.state_manager</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="autoapi/flame/oneflow/trainer/trainer/index.html#module-flame.oneflow.trainer.trainer"><code class="xref">flame.oneflow.trainer.trainer</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="autoapi/flame/oneflow/typing_prelude/index.html#module-flame.oneflow.typing_prelude"><code class="xref">flame.oneflow.typing_prelude</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
        <a href="autoapi/flame/pytorch/index.html#module-flame.pytorch"><code class="xref">flame.pytorch</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
        <td></td>
        <td>&#160;&#160;&#160;
        <a href="autoapi/flame/pytorch/arguments/index.html#module-flame.pytorch.arguments"><code class="xref">flame.pytorch.arguments</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="autoapi/flame/pytorch/container/index.html#module-flame.pytorch.container"><code class="xref">flame.pytorch.container</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
        <td></td>
@@ -413,11 +528,6 @@
      <tr class="cg-1">
        <td></td>
        <td>&#160;&#160;&#160;
-       <a href="autoapi/flame/pytorch/trainer/data_module/index.html#module-flame.pytorch.trainer.data_module"><code class="xref">flame.pytorch.trainer.data_module</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
        <a href="autoapi/flame/pytorch/trainer/progress_meter/index.html#module-flame.pytorch.trainer.progress_meter"><code class="xref">flame.pytorch.trainer.progress_meter</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
@@ -476,27 +586,33 @@
               </div>
               
               
-              <div class='prev-next-bottom'>
-                
-
-              </div>
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
               
           </main>
           
 
       </div>
     </div>
-
-    
-  <script src="_static/js/index.1e043a052b0af929e4d8.js"></script>
-
-
-    <footer class="footer mt-5 mt-md-0">
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
   <div class="container">
-    <p>
-          &copy; Copyright 2021, SunDoge.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.4.<br/>
-    </p>
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, SunDoge.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+    </div>
+    
   </div>
 </footer>
   </body>

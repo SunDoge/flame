@@ -1,0 +1,44 @@
+:py:mod:`flame.oneflow.sampler`
+===============================
+
+.. py:module:: flame.oneflow.sampler
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.oneflow.sampler.DistributedNoPaddingSampler
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.oneflow.sampler.num_valid_samples
+
+
+
+.. py:class:: DistributedNoPaddingSampler(dataset, num_replicas = None, rank = None)
+
+   Bases: :py:obj:`oneflow.utils.data.sampler.Sampler`
+
+   .. py:method:: __iter__(self)
+
+
+   .. py:method:: __len__(self)
+
+
+
+.. py:function:: num_valid_samples(num_samples, rank, num_replicas)
+
+   Note: depends on the implementation detail of `DistributedSampler`
+   Written by @huww98
+
+

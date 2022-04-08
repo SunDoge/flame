@@ -13,19 +13,27 @@ Functions
 
 .. autoapisummary::
 
+   flame.core.jsonnet.try_path
+   flame.core.jsonnet.import_callback
    flame.core.jsonnet.evaluate_file
    flame.core.jsonnet.evaluate_snippet
 
 
 
-.. py:function:: evaluate_file(filename, **kwargs)
+.. py:function:: try_path(dir, rel)
+
+
+.. py:function:: import_callback(dir, rel)
+
+
+.. py:function:: evaluate_file(filename, import_callback=import_callback, **kwargs)
 
    eval file
 
    :param filename: jsonnet file
 
 
-.. py:function:: evaluate_snippet(filename, expr, **kwargs)
+.. py:function:: evaluate_snippet(filename, expr, import_callback=import_callback, **kwargs)
 
    eval snippet
 

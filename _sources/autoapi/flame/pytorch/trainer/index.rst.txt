@@ -11,7 +11,6 @@ Submodules
    :maxdepth: 1
 
    coroutine_scheduler/index.rst
-   data_module/index.rst
    progress_meter/index.rst
    state/index.rst
    state_manager/index.rst

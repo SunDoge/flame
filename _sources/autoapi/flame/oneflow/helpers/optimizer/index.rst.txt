@@ -1,0 +1,35 @@
+:py:mod:`flame.oneflow.helpers.optimizer`
+=========================================
+
+.. py:module:: flame.oneflow.helpers.optimizer
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.oneflow.helpers.optimizer.scale_lr_linearly
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.oneflow.helpers.optimizer._logger
+
+
+.. py:data:: _logger
+   
+
+   
+
+.. py:function:: scale_lr_linearly(base_lr, batch_size, world_size = None, base_batch_size = 256)
+
+

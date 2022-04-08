@@ -1,0 +1,69 @@
+:py:mod:`flame.oneflow.helpers.rank0`
+=====================================
+
+.. py:module:: flame.oneflow.helpers.rank0
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.oneflow.helpers.rank0.FakeObject
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.oneflow.helpers.rank0.do_nothing
+   flame.oneflow.helpers.rank0.rank0
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.oneflow.helpers.rank0.T
+
+
+.. py:class:: FakeObject
+
+   .. py:method:: __getattr__(self, _name)
+
+
+   .. py:method:: __bool__(self)
+
+
+
+.. py:function:: do_nothing(*args, **kwargs)
+
+
+.. py:data:: T
+   
+
+   
+
+.. py:function:: rank0(func)
+
+   run func only on rank 0
+
+   You can use it as a decorator
+
+   .. code-block:: python
+
+       @rank0
+       def my_print(*args, **kwargs):
+           print(*args, **kwargs)
+
+
+   :param func: function or lambda
+
+

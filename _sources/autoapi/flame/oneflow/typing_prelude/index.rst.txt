@@ -1,0 +1,19 @@
+:py:mod:`flame.oneflow.typing_prelude`
+======================================
+
+.. py:module:: flame.oneflow.typing_prelude
+
+
+Module Contents
+---------------
+
+.. py:data:: OptimizerFn
+   
+
+   
+
+.. py:data:: LrSchedulerFn
+   
+
+   
+

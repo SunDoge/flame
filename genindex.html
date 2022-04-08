@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Index &#8212; flame 0.0.1 documentation</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.f6b7ca918bee2f46fd9abac01cfb07d5.css" rel="stylesheet" />
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,55 +19,73 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.1e043a052b0af929e4d8.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
     <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="index.html">
+<p class="title">flame</p>
+</a>
 
     
-    <a class="navbar-brand" href="index.html">
-      <p class="title">flame</p>
-    </a>
-    
+  </div>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    
-    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
-      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
-        <li class="toctree-l1 nav-item">
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="autoapi/index.html">
   API Reference
  </a>
 </li>
 
-        
-      </ul>
-
-      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
-      </ul>
+    
+</ul>
+      </div>
+      
     </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
 </div>
     </nav>
     
@@ -76,29 +95,25 @@
           
             
             <!-- Only show if we have sidebars configured, else just a small margin  -->
-            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
     
   </div>
 </nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
             </div>
             
           
 
           
           <div class="d-none d-xl-block col-xl-2 bd-toc">
-              
-
-<nav id="bd-toc-nav">
-    
-</nav>
-
-
-              
+            
           </div>
           
 
@@ -142,8 +157,12 @@
 <h2 id="_">_</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/flame/pytorch/utils/ranking/index.html#flame.pytorch.utils.ranking.FakeObject.__bool__">__bool__() (flame.pytorch.utils.ranking.FakeObject method)</a>
+      <li><a href="autoapi/flame/oneflow/helpers/rank0/index.html#flame.oneflow.helpers.rank0.FakeObject.__bool__">__bool__() (flame.oneflow.helpers.rank0.FakeObject method)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/utils/ranking/index.html#flame.pytorch.utils.ranking.FakeObject.__bool__">(flame.pytorch.utils.ranking.FakeObject method)</a>
 </li>
+      </ul></li>
       <li><a href="autoapi/flame/pytorch/helpers/amp/index.html#flame.pytorch.helpers.amp.Amp.__call__">__call__() (flame.pytorch.helpers.amp.Amp method)</a>
 
       <ul>
@@ -160,15 +179,33 @@
 </li>
       <li><a href="autoapi/flame/pytorch/trainer/coroutine_scheduler/index.html#flame.pytorch.trainer.coroutine_scheduler.CoroutineScheduler.__exit__">__exit__() (flame.pytorch.trainer.coroutine_scheduler.CoroutineScheduler method)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/utils/ranking/index.html#flame.pytorch.utils.ranking.FakeObject.__getattr__">__getattr__() (flame.pytorch.utils.ranking.FakeObject method)</a>
+      <li><a href="autoapi/flame/oneflow/helpers/rank0/index.html#flame.oneflow.helpers.rank0.FakeObject.__getattr__">__getattr__() (flame.oneflow.helpers.rank0.FakeObject method)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/utils/ranking/index.html#flame.pytorch.utils.ranking.FakeObject.__getattr__">(flame.pytorch.utils.ranking.FakeObject method)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/sampler/index.html#flame.pytorch.sampler.DistributedNoPaddingSampler.__iter__">__iter__() (flame.pytorch.sampler.DistributedNoPaddingSampler method)</a>
+      </ul></li>
+      <li><a href="autoapi/flame/oneflow/sampler/index.html#flame.oneflow.sampler.DistributedNoPaddingSampler.__iter__">__iter__() (flame.oneflow.sampler.DistributedNoPaddingSampler method)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/sampler/index.html#flame.pytorch.sampler.DistributedNoPaddingSampler.__iter__">(flame.pytorch.sampler.DistributedNoPaddingSampler method)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/sampler/index.html#flame.pytorch.sampler.DistributedNoPaddingSampler.__len__">__len__() (flame.pytorch.sampler.DistributedNoPaddingSampler method)</a>
+      </ul></li>
+      <li><a href="autoapi/flame/oneflow/sampler/index.html#flame.oneflow.sampler.DistributedNoPaddingSampler.__len__">__len__() (flame.oneflow.sampler.DistributedNoPaddingSampler method)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/sampler/index.html#flame.pytorch.sampler.DistributedNoPaddingSampler.__len__">(flame.pytorch.sampler.DistributedNoPaddingSampler method)</a>
 </li>
+      </ul></li>
       <li><a href="autoapi/flame/core/meters/naive_average_meter/index.html#flame.core.meters.naive_average_meter.NaiveAverageMeter.__str__">__str__() (flame.core.meters.naive_average_meter.NaiveAverageMeter method)</a>
 
       <ul>
+        <li><a href="autoapi/flame/oneflow/meters/average_meter/index.html#flame.oneflow.meters.average_meter.AverageMeter.__str__">(flame.oneflow.meters.average_meter.AverageMeter method)</a>
+</li>
+        <li><a href="autoapi/flame/oneflow/meters/average_meter/index.html#flame.oneflow.meters.average_meter.LazyAverageMeterDict.__str__">(flame.oneflow.meters.average_meter.LazyAverageMeterDict method)</a>
+</li>
+        <li><a href="autoapi/flame/oneflow/trainer/state_manager/index.html#flame.oneflow.trainer.state_manager.StateManager.__str__">(flame.oneflow.trainer.state_manager.StateManager method)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/meters/average_meter/index.html#flame.pytorch.meters.average_meter.AverageMeter.__str__">(flame.pytorch.meters.average_meter.AverageMeter method)</a>
 </li>
         <li><a href="autoapi/flame/pytorch/meters/average_meter/index.html#flame.pytorch.meters.average_meter.LazyAverageMeterDict.__str__">(flame.pytorch.meters.average_meter.LazyAverageMeterDict method)</a>
@@ -192,24 +229,40 @@
 </li>
       <li><a href="autoapi/flame/pytorch/metrics/base_metric/index.html#flame.pytorch.metrics.base_metric._default_compute_fn">_default_compute_fn() (in module flame.pytorch.metrics.base_metric)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/meters/average_meter/index.html#flame.pytorch.meters.average_meter._DEFAULT_DEVICE">_DEFAULT_DEVICE (in module flame.pytorch.meters.average_meter)</a>
-</li>
-      <li><a href="autoapi/flame/pytorch/trainer/state_manager/index.html#flame.pytorch.trainer.state_manager._default_to_training">_default_to_training() (in module flame.pytorch.trainer.state_manager)</a>
-</li>
-      <li><a href="autoapi/flame/pytorch/trainer/index.html#flame.pytorch.trainer.BaseTrainer._disable_tqdm">_disable_tqdm() (flame.pytorch.trainer.BaseTrainer method)</a>
+      <li><a href="autoapi/flame/oneflow/meters/average_meter/index.html#flame.oneflow.meters.average_meter._DEFAULT_DEVICE">_DEFAULT_DEVICE (in module flame.oneflow.meters.average_meter)</a>
 
       <ul>
+        <li><a href="autoapi/flame/pytorch/meters/average_meter/index.html#flame.pytorch.meters.average_meter._DEFAULT_DEVICE">(in module flame.pytorch.meters.average_meter)</a>
+</li>
+      </ul></li>
+      <li><a href="autoapi/flame/oneflow/trainer/state_manager/index.html#flame.oneflow.trainer.state_manager._default_to_training">_default_to_training() (in module flame.oneflow.trainer.state_manager)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/trainer/state_manager/index.html#flame.pytorch.trainer.state_manager._default_to_training">(in module flame.pytorch.trainer.state_manager)</a>
+</li>
+      </ul></li>
+      <li><a href="autoapi/flame/oneflow/trainer/index.html#flame.oneflow.trainer.BaseTrainer._disable_tqdm">_disable_tqdm() (flame.oneflow.trainer.BaseTrainer method)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/oneflow/trainer/trainer/index.html#flame.oneflow.trainer.trainer.BaseTrainer._disable_tqdm">(flame.oneflow.trainer.trainer.BaseTrainer method)</a>
+</li>
+        <li><a href="autoapi/flame/pytorch/trainer/index.html#flame.pytorch.trainer.BaseTrainer._disable_tqdm">(flame.pytorch.trainer.BaseTrainer method)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/trainer/trainer/index.html#flame.pytorch.trainer.trainer.BaseTrainer._disable_tqdm">(flame.pytorch.trainer.trainer.BaseTrainer method)</a>
 </li>
       </ul></li>
       <li><a href="autoapi/flame/pytorch/arguments/index.html#flame.pytorch.arguments.BaseArgs._dist_backend">_dist_backend (flame.pytorch.arguments.BaseArgs attribute)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/meters/average_meter/index.html#flame.pytorch.meters.average_meter._HistoryRecord">_HistoryRecord (in module flame.pytorch.meters.average_meter)</a>
+      <li><a href="autoapi/flame/oneflow/meters/average_meter/index.html#flame.oneflow.meters.average_meter._HistoryRecord">_HistoryRecord (in module flame.oneflow.meters.average_meter)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/meters/average_meter/index.html#flame.pytorch.meters.average_meter._HistoryRecord">(in module flame.pytorch.meters.average_meter)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/trainer/data_module/index.html#flame.pytorch.trainer.data_module.DataModule._infer_len">_infer_len() (flame.pytorch.trainer.data_module.DataModule static method)</a>
-</li>
+      </ul></li>
       <li><a href="autoapi/flame/pytorch/launcher/index.html#flame.pytorch.launcher._init_distributed">_init_distributed() (in module flame.pytorch.launcher)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="autoapi/flame/core/archiver/index.html#flame.core.archiver._logger">_logger (in module flame.core.archiver)</a>
 
       <ul>
@@ -229,9 +282,23 @@
 </li>
         <li><a href="autoapi/flame/core/testing/index.html#flame.core.testing._logger">(in module flame.core.testing)</a>
 </li>
-        <li><a href="autoapi/flame/pytorch/arguments/index.html#flame.pytorch.arguments._logger">(in module flame.pytorch.arguments)</a>
+        <li><a href="autoapi/flame/oneflow/dist_run/index.html#flame.oneflow.dist_run._logger">(in module flame.oneflow.dist_run)</a>
 </li>
-        <li><a href="autoapi/flame/pytorch/container/index.html#flame.pytorch.container._logger">(in module flame.pytorch.container)</a>
+        <li><a href="autoapi/flame/oneflow/helpers/checkpoint_saver/index.html#flame.oneflow.helpers.checkpoint_saver._logger">(in module flame.oneflow.helpers.checkpoint_saver)</a>
+</li>
+        <li><a href="autoapi/flame/oneflow/helpers/data/index.html#flame.oneflow.helpers.data._logger">(in module flame.oneflow.helpers.data)</a>
+</li>
+        <li><a href="autoapi/flame/oneflow/helpers/optimizer/index.html#flame.oneflow.helpers.optimizer._logger">(in module flame.oneflow.helpers.optimizer)</a>
+</li>
+        <li><a href="autoapi/flame/oneflow/meters/average_meter/index.html#flame.oneflow.meters.average_meter._logger">(in module flame.oneflow.meters.average_meter)</a>
+</li>
+        <li><a href="autoapi/flame/oneflow/trainer/progress_meter/index.html#flame.oneflow.trainer.progress_meter._logger">(in module flame.oneflow.trainer.progress_meter)</a>
+</li>
+        <li><a href="autoapi/flame/oneflow/trainer/state_manager/index.html#flame.oneflow.trainer.state_manager._logger">(in module flame.oneflow.trainer.state_manager)</a>
+</li>
+        <li><a href="autoapi/flame/oneflow/trainer/trainer/index.html#flame.oneflow.trainer.trainer._logger">(in module flame.oneflow.trainer.trainer)</a>
+</li>
+        <li><a href="autoapi/flame/pytorch/arguments/index.html#flame.pytorch.arguments._logger">(in module flame.pytorch.arguments)</a>
 </li>
         <li><a href="autoapi/flame/pytorch/distributed/index.html#flame.pytorch.distributed._logger">(in module flame.pytorch.distributed)</a>
 </li>
@@ -253,8 +320,6 @@
 </li>
         <li><a href="autoapi/flame/pytorch/meters/average_meter/index.html#flame.pytorch.meters.average_meter._logger">(in module flame.pytorch.meters.average_meter)</a>
 </li>
-        <li><a href="autoapi/flame/pytorch/trainer/data_module/index.html#flame.pytorch.trainer.data_module._logger">(in module flame.pytorch.trainer.data_module)</a>
-</li>
         <li><a href="autoapi/flame/pytorch/trainer/progress_meter/index.html#flame.pytorch.trainer.progress_meter._logger">(in module flame.pytorch.trainer.progress_meter)</a>
 </li>
         <li><a href="autoapi/flame/pytorch/trainer/state_manager/index.html#flame.pytorch.trainer.state_manager._logger">(in module flame.pytorch.trainer.state_manager)</a>
@@ -264,8 +329,6 @@
         <li><a href="autoapi/flame/pytorch/utils/cudnn/index.html#flame.pytorch.utils.cudnn._logger">(in module flame.pytorch.utils.cudnn)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="autoapi/flame/core/main_fn/index.html#flame.core.main_fn._main_fn">_main_fn() (in module flame.core.main_fn)</a>
 </li>
       <li><a href="autoapi/flame/core/config_parser/index.html#flame.core.config_parser.ConfigParser._parse_dict">_parse_dict() (flame.core.config_parser.ConfigParser method)</a>
@@ -278,8 +341,14 @@
 </li>
       <li><a href="autoapi/flame/core/config_parser/index.html#flame.core.config_parser.ConfigParser._parse_str">_parse_str() (flame.core.config_parser.ConfigParser method)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/trainer/trainer/index.html#flame.pytorch.trainer.trainer._to_device">_to_device() (in module flame.pytorch.trainer.trainer)</a>
+      <li><a href="autoapi/flame/oneflow/trainer/progress_meter/index.html#flame.oneflow.trainer.progress_meter._SummaryWriter">_SummaryWriter (class in flame.oneflow.trainer.progress_meter)</a>
 </li>
+      <li><a href="autoapi/flame/oneflow/trainer/trainer/index.html#flame.oneflow.trainer.trainer._to_device">_to_device() (in module flame.oneflow.trainer.trainer)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/trainer/trainer/index.html#flame.pytorch.trainer.trainer._to_device">(in module flame.pytorch.trainer.trainer)</a>
+</li>
+      </ul></li>
       <li><a href="autoapi/flame/pytorch/metrics/base_metric/index.html#flame.pytorch.metrics.base_metric._to_number">_to_number() (in module flame.pytorch.metrics.base_metric)</a>
 </li>
   </ul></td>
@@ -288,15 +357,23 @@
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/flame/oneflow/trainer/progress_meter/index.html#flame.oneflow.trainer.progress_meter._SummaryWriter.add_scalar">add_scalar() (flame.oneflow.trainer.progress_meter._SummaryWriter method)</a>
+</li>
       <li><a href="autoapi/flame/pytorch/helpers/amp/index.html#flame.pytorch.helpers.amp.Amp">Amp (class in flame.pytorch.helpers.amp)</a>
 </li>
       <li><a href="autoapi/flame/core/arguments/index.html#flame.core.arguments.BaseArgs.apply">apply (flame.core.arguments.BaseArgs attribute)</a>
 </li>
       <li><a href="autoapi/flame/__main__/index.html#flame.__main__.Args">Args (class in flame.__main__)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/core/distributed_launcher/index.html#flame.core.distributed_launcher.Args">(class in flame.core.distributed_launcher)</a>
 </li>
+        <li><a href="autoapi/flame/oneflow/dist_run/index.html#flame.oneflow.dist_run.Args">(class in flame.oneflow.dist_run)</a>
+</li>
+      </ul></li>
       <li><a href="autoapi/flame/core/arguments/index.html#flame.core.arguments.args">args (in module flame.core.arguments)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/meters/index.html#flame.pytorch.meters.EstimatedTimeOfArrival.arrival_time">arrival_time() (flame.pytorch.meters.EstimatedTimeOfArrival property)</a>
+      <li><a href="autoapi/flame/pytorch/meters/index.html#flame.pytorch.meters.EstimatedTimeOfArrival.arrival_time">arrival_time (flame.pytorch.meters.EstimatedTimeOfArrival property)</a>
 
       <ul>
         <li><a href="autoapi/flame/pytorch/meters/time_meter/index.html#flame.pytorch.meters.time_meter.EstimatedTimeOfArrival.arrival_time">(flame.pytorch.meters.time_meter.EstimatedTimeOfArrival property)</a>
@@ -306,15 +383,19 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="autoapi/flame/pytorch/helpers/amp/index.html#flame.pytorch.helpers.amp.Amp.autocast">autocast() (flame.pytorch.helpers.amp.Amp method)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/meters/index.html#flame.pytorch.meters.AverageMeter">AverageMeter (class in flame.pytorch.meters)</a>
+      <li><a href="autoapi/flame/oneflow/meters/average_meter/index.html#flame.oneflow.meters.average_meter.AverageMeter">AverageMeter (class in flame.oneflow.meters.average_meter)</a>
 
       <ul>
+        <li><a href="autoapi/flame/pytorch/meters/index.html#flame.pytorch.meters.AverageMeter">(class in flame.pytorch.meters)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/meters/average_meter/index.html#flame.pytorch.meters.average_meter.AverageMeter">(class in flame.pytorch.meters.average_meter)</a>
 </li>
       </ul></li>
-      <li><a href="autoapi/flame/core/meters/naive_average_meter/index.html#flame.core.meters.naive_average_meter.NaiveAverageMeter.avg">avg() (flame.core.meters.naive_average_meter.NaiveAverageMeter property)</a>
+      <li><a href="autoapi/flame/core/meters/naive_average_meter/index.html#flame.core.meters.naive_average_meter.NaiveAverageMeter.avg">avg (flame.core.meters.naive_average_meter.NaiveAverageMeter property)</a>
 
       <ul>
+        <li><a href="autoapi/flame/oneflow/meters/average_meter/index.html#flame.oneflow.meters.average_meter.AverageMeter.avg">(flame.oneflow.meters.average_meter.AverageMeter property)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/meters/average_meter/index.html#flame.pytorch.meters.average_meter.AverageMeter.avg">(flame.pytorch.meters.average_meter.AverageMeter property)</a>
 </li>
         <li><a href="autoapi/flame/pytorch/meters/index.html#flame.pytorch.meters.AverageMeter.avg">(flame.pytorch.meters.AverageMeter property)</a>
@@ -338,13 +419,15 @@
       </ul></li>
       <li><a href="autoapi/flame/core/meters/base_meter/index.html#flame.core.meters.base_meter.BaseMeter">BaseMeter (class in flame.core.meters.base_meter)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/container/index.html#flame.pytorch.container.BaseModule">BaseModule (class in flame.pytorch.container)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/flame/pytorch/trainer/index.html#flame.pytorch.trainer.BaseTrainer">BaseTrainer (class in flame.pytorch.trainer)</a>
+      <li><a href="autoapi/flame/oneflow/trainer/index.html#flame.oneflow.trainer.BaseTrainer">BaseTrainer (class in flame.oneflow.trainer)</a>
 
       <ul>
+        <li><a href="autoapi/flame/oneflow/trainer/trainer/index.html#flame.oneflow.trainer.trainer.BaseTrainer">(class in flame.oneflow.trainer.trainer)</a>
+</li>
+        <li><a href="autoapi/flame/pytorch/trainer/index.html#flame.pytorch.trainer.BaseTrainer">(class in flame.pytorch.trainer)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/trainer/trainer/index.html#flame.pytorch.trainer.trainer.BaseTrainer">(class in flame.pytorch.trainer.trainer)</a>
 </li>
       </ul></li>
@@ -354,18 +437,12 @@
         <li><a href="autoapi/flame/pytorch/metrics/batch_size_metric/index.html#flame.pytorch.metrics.batch_size_metric.BatchSizeMetric">(class in flame.pytorch.metrics.batch_size_metric)</a>
 </li>
       </ul></li>
-      <li><a href="autoapi/flame/pytorch/container/index.html#flame.pytorch.container.CallableAssistedBuilder.build">build() (flame.pytorch.container.CallableAssistedBuilder method)</a>
-</li>
-      <li><a href="autoapi/flame/pytorch/container/index.html#flame.pytorch.container.build_from_config_with_container">build_from_config_with_container() (in module flame.pytorch.container)</a>
-</li>
   </ul></td>
 </tr></table>
 
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/flame/pytorch/container/index.html#flame.pytorch.container.CallableAssistedBuilder">CallableAssistedBuilder (class in flame.pytorch.container)</a>
-</li>
       <li><a href="autoapi/flame/pytorch/helpers/amp/index.html#flame.pytorch.helpers.amp.Amp.clip_grad_norm_">clip_grad_norm_() (flame.pytorch.helpers.amp.Amp method)</a>
 </li>
       <li><a href="autoapi/flame/core/arguments/index.html#flame.core.arguments.BaseArgs.config">config() (flame.core.arguments.BaseArgs method)</a>
@@ -386,17 +463,19 @@
       </ul></li>
       <li><a href="autoapi/flame/pytorch/trainer/coroutine_scheduler/index.html#flame.pytorch.trainer.coroutine_scheduler.CoroutineScheduler">CoroutineScheduler (class in flame.pytorch.trainer.coroutine_scheduler)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/container/index.html#flame.pytorch.container.BaseModule.create_basic_args">create_basic_args() (flame.pytorch.container.BaseModule method)</a>
-</li>
-      <li><a href="autoapi/flame/pytorch/container/index.html#flame.pytorch.container.BaseModule.create_config">create_config() (flame.pytorch.container.BaseModule method)</a>
+      <li><a href="autoapi/flame/oneflow/meters/average_meter/index.html#flame.oneflow.meters.average_meter.AverageMeter.count">count (flame.oneflow.meters.average_meter.AverageMeter attribute)</a>
 </li>
       <li><a href="autoapi/flame/core/logging/index.html#flame.core.logging.create_console_handler">create_console_handler() (in module flame.core.logging)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/flame/pytorch/helpers/index.html#flame.pytorch.helpers.create_data_loader">create_data_loader() (in module flame.pytorch.helpers)</a>
+      <li><a href="autoapi/flame/oneflow/helpers/index.html#flame.oneflow.helpers.create_data_loader">create_data_loader() (in module flame.oneflow.helpers)</a>
 
       <ul>
+        <li><a href="autoapi/flame/oneflow/helpers/data/index.html#flame.oneflow.helpers.data.create_data_loader">(in module flame.oneflow.helpers.data)</a>
+</li>
+        <li><a href="autoapi/flame/pytorch/helpers/index.html#flame.pytorch.helpers.create_data_loader">(in module flame.pytorch.helpers)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/helpers/data/index.html#flame.pytorch.helpers.data.create_data_loader">(in module flame.pytorch.helpers.data)</a>
 </li>
       </ul></li>
@@ -406,15 +485,7 @@
         <li><a href="autoapi/flame/pytorch/helpers/model/index.html#flame.pytorch.helpers.model.create_ddp_model">(in module flame.pytorch.helpers.model)</a>
 </li>
       </ul></li>
-      <li><a href="autoapi/flame/pytorch/container/index.html#flame.pytorch.container.BaseModule.create_debug_mode">create_debug_mode() (flame.pytorch.container.BaseModule method)</a>
-</li>
-      <li><a href="autoapi/flame/pytorch/container/index.html#flame.pytorch.container.BaseModule.create_device">create_device() (flame.pytorch.container.BaseModule method)</a>
-</li>
-      <li><a href="autoapi/flame/pytorch/container/index.html#flame.pytorch.container.BaseModule.create_experiment_dir">create_experiment_dir() (flame.pytorch.container.BaseModule method)</a>
-</li>
       <li><a href="autoapi/flame/core/logging/index.html#flame.core.logging.create_file_handler">create_file_handler() (in module flame.core.logging)</a>
-</li>
-      <li><a href="autoapi/flame/pytorch/container/index.html#flame.pytorch.container.BaseModule.create_local_rank">create_local_rank() (flame.pytorch.container.BaseModule method)</a>
 </li>
       <li><a href="autoapi/flame/pytorch/helpers/index.html#flame.pytorch.helpers.cudnn_benchmark_if_possible">cudnn_benchmark_if_possible() (in module flame.pytorch.helpers)</a>
 
@@ -432,26 +503,48 @@
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/flame/pytorch/trainer/data_module/index.html#flame.pytorch.trainer.data_module.DataModule">DataModule (class in flame.pytorch.trainer.data_module)</a>
-</li>
       <li><a href="autoapi/flame/core/arguments/index.html#flame.core.arguments.BaseArgs.debug">debug (flame.core.arguments.BaseArgs attribute)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/oneflow/dist_run/index.html#flame.oneflow.dist_run.Args.debug">(flame.oneflow.dist_run.Args attribute)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/launcher/index.html#flame.pytorch.launcher.default_main_worker">default_main_worker() (in module flame.pytorch.launcher)</a>
+      </ul></li>
+      <li><a href="autoapi/flame/oneflow/arguments/index.html#flame.oneflow.arguments.DEFAULT_DEVICE_ID">DEFAULT_DEVICE_ID (in module flame.oneflow.arguments)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/arguments/index.html#flame.pytorch.arguments.BaseArgs.device">device() (flame.pytorch.arguments.BaseArgs property)</a>
+      <li><a href="autoapi/flame/oneflow/launcher/index.html#flame.oneflow.launcher.default_main_worker">default_main_worker() (in module flame.oneflow.launcher)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/launcher/index.html#flame.pytorch.launcher.default_main_worker">(in module flame.pytorch.launcher)</a>
 </li>
-      <li><a href="autoapi/flame/core/config_parser/index.html#flame.core.config_parser.ConfigParser.dispatch">dispatch() (flame.core.config_parser.ConfigParser method)</a>
+      </ul></li>
+      <li><a href="autoapi/flame/oneflow/arguments/index.html#flame.oneflow.arguments.BaseArgs.device">device (flame.oneflow.arguments.BaseArgs property)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/arguments/index.html#flame.pytorch.arguments.BaseArgs.device">(flame.pytorch.arguments.BaseArgs property)</a>
+</li>
+      </ul></li>
+      <li><a href="autoapi/flame/oneflow/arguments/index.html#flame.oneflow.arguments.BaseArgs.device_id">device_id (flame.oneflow.arguments.BaseArgs attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/flame/pytorch/arguments/index.html#flame.pytorch.arguments.BaseArgs.dist_backend">dist_backend() (flame.pytorch.arguments.BaseArgs property)</a>
+      <li><a href="autoapi/flame/core/config_parser/index.html#flame.core.config_parser.ConfigParser.dispatch">dispatch() (flame.core.config_parser.ConfigParser method)</a>
+</li>
+      <li><a href="autoapi/flame/pytorch/arguments/index.html#flame.pytorch.arguments.BaseArgs.dist_backend">dist_backend (flame.pytorch.arguments.BaseArgs property)</a>
 </li>
       <li><a href="autoapi/flame/pytorch/arguments/index.html#flame.pytorch.arguments.BaseArgs.dist_url">dist_url (flame.pytorch.arguments.BaseArgs attribute)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/sampler/index.html#flame.pytorch.sampler.DistributedNoPaddingSampler">DistributedNoPaddingSampler (class in flame.pytorch.sampler)</a>
+      <li><a href="autoapi/flame/oneflow/sampler/index.html#flame.oneflow.sampler.DistributedNoPaddingSampler">DistributedNoPaddingSampler (class in flame.oneflow.sampler)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/sampler/index.html#flame.pytorch.sampler.DistributedNoPaddingSampler">(class in flame.pytorch.sampler)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/utils/ranking/index.html#flame.pytorch.utils.ranking.do_nothing">do_nothing() (in module flame.pytorch.utils.ranking)</a>
+      </ul></li>
+      <li><a href="autoapi/flame/oneflow/helpers/rank0/index.html#flame.oneflow.helpers.rank0.do_nothing">do_nothing() (in module flame.oneflow.helpers.rank0)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/utils/ranking/index.html#flame.pytorch.utils.ranking.do_nothing">(in module flame.pytorch.utils.ranking)</a>
 </li>
+      </ul></li>
       <li><a href="autoapi/flame/core/config/index.html#flame.core.config.dump_to_json">dump_to_json() (in module flame.core.config)</a>
 </li>
   </ul></td>
@@ -460,19 +553,19 @@
 <h2 id="E">E</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/flame/pytorch/meters/index.html#flame.pytorch.meters.EstimatedTimeOfArrival.elapsed">elapsed() (flame.pytorch.meters.EstimatedTimeOfArrival property)</a>
+      <li><a href="autoapi/flame/pytorch/meters/index.html#flame.pytorch.meters.EstimatedTimeOfArrival.elapsed">elapsed (flame.pytorch.meters.EstimatedTimeOfArrival property)</a>
 
       <ul>
         <li><a href="autoapi/flame/pytorch/meters/time_meter/index.html#flame.pytorch.meters.time_meter.EstimatedTimeOfArrival.elapsed">(flame.pytorch.meters.time_meter.EstimatedTimeOfArrival property)</a>
 </li>
       </ul></li>
-      <li><a href="autoapi/flame/pytorch/meters/index.html#flame.pytorch.meters.EstimatedTimeOfArrival.elapsed_seconds">elapsed_seconds() (flame.pytorch.meters.EstimatedTimeOfArrival property)</a>
+      <li><a href="autoapi/flame/pytorch/meters/index.html#flame.pytorch.meters.EstimatedTimeOfArrival.elapsed_seconds">elapsed_seconds (flame.pytorch.meters.EstimatedTimeOfArrival property)</a>
 
       <ul>
         <li><a href="autoapi/flame/pytorch/meters/time_meter/index.html#flame.pytorch.meters.time_meter.EstimatedTimeOfArrival.elapsed_seconds">(flame.pytorch.meters.time_meter.EstimatedTimeOfArrival property)</a>
 </li>
       </ul></li>
-      <li><a href="autoapi/flame/pytorch/meters/index.html#flame.pytorch.meters.EstimatedTimeOfArrival.elapsed_time">elapsed_time() (flame.pytorch.meters.EstimatedTimeOfArrival property)</a>
+      <li><a href="autoapi/flame/pytorch/meters/index.html#flame.pytorch.meters.EstimatedTimeOfArrival.elapsed_time">elapsed_time (flame.pytorch.meters.EstimatedTimeOfArrival property)</a>
 
       <ul>
         <li><a href="autoapi/flame/pytorch/meters/time_meter/index.html#flame.pytorch.meters.time_meter.EstimatedTimeOfArrival.elapsed_time">(flame.pytorch.meters.time_meter.EstimatedTimeOfArrival property)</a>
@@ -484,25 +577,35 @@
 </li>
       <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.Engine">Engine (class in flame.pytorch.engine)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/trainer/state_manager/index.html#flame.pytorch.trainer.state_manager.Entry">Entry (class in flame.pytorch.trainer.state_manager)</a>
-</li>
-      <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.Engine.enumerate">enumerate() (flame.pytorch.engine.Engine static method)</a>
+      <li><a href="autoapi/flame/oneflow/trainer/state_manager/index.html#flame.oneflow.trainer.state_manager.Entry">Entry (class in flame.oneflow.trainer.state_manager)</a>
 
       <ul>
+        <li><a href="autoapi/flame/pytorch/trainer/state_manager/index.html#flame.pytorch.trainer.state_manager.Entry">(class in flame.pytorch.trainer.state_manager)</a>
+</li>
+      </ul></li>
+      <li><a href="autoapi/flame/oneflow/trainer/progress_meter/index.html#flame.oneflow.trainer.progress_meter.ProgressMeter.enumerate">enumerate() (flame.oneflow.trainer.progress_meter.ProgressMeter method)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.Engine.enumerate">(flame.pytorch.engine.Engine static method)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/trainer/progress_meter/index.html#flame.pytorch.trainer.progress_meter.ProgressMeter.enumerate">(flame.pytorch.trainer.progress_meter.ProgressMeter method)</a>
 </li>
       </ul></li>
       <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.EpochState.epoch">epoch (flame.pytorch.engine.EpochState attribute)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="autoapi/flame/pytorch/utils/lr_schduler/index.html#flame.pytorch.utils.lr_schduler.SchedulePosition.EPOCH">EPOCH (flame.pytorch.utils.lr_schduler.SchedulePosition attribute)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.IterationState.epoch_length">epoch_length (flame.pytorch.engine.IterationState attribute)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/trainer/index.html#flame.pytorch.trainer.BaseTrainer.epoch_range">epoch_range() (flame.pytorch.trainer.BaseTrainer method)</a>
+      <li><a href="autoapi/flame/oneflow/trainer/index.html#flame.oneflow.trainer.BaseTrainer.epoch_range">epoch_range() (flame.oneflow.trainer.BaseTrainer method)</a>
 
       <ul>
+        <li><a href="autoapi/flame/oneflow/trainer/trainer/index.html#flame.oneflow.trainer.trainer.BaseTrainer.epoch_range">(flame.oneflow.trainer.trainer.BaseTrainer method)</a>
+</li>
+        <li><a href="autoapi/flame/pytorch/trainer/index.html#flame.pytorch.trainer.BaseTrainer.epoch_range">(flame.pytorch.trainer.BaseTrainer method)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/trainer/trainer/index.html#flame.pytorch.trainer.trainer.BaseTrainer.epoch_range">(flame.pytorch.trainer.trainer.BaseTrainer method)</a>
 </li>
       </ul></li>
@@ -516,9 +619,13 @@
       </ul></li>
       <li><a href="autoapi/flame/pytorch/meters/time_meter/index.html#flame.pytorch.meters.time_meter.eta">eta (in module flame.pytorch.meters.time_meter)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/trainer/state/index.html#flame.pytorch.trainer.state.State.eval">eval() (flame.pytorch.trainer.state.State method)</a>
+      <li><a href="autoapi/flame/oneflow/trainer/state/index.html#flame.oneflow.trainer.state.State.eval">eval() (flame.oneflow.trainer.state.State method)</a>
 
       <ul>
+        <li><a href="autoapi/flame/oneflow/trainer/state_manager/index.html#flame.oneflow.trainer.state_manager.StateManager.eval">(flame.oneflow.trainer.state_manager.StateManager method)</a>
+</li>
+        <li><a href="autoapi/flame/pytorch/trainer/state/index.html#flame.pytorch.trainer.state.State.eval">(flame.pytorch.trainer.state.State method)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/trainer/state_manager/index.html#flame.pytorch.trainer.state_manager.StateManager.eval">(flame.pytorch.trainer.state_manager.StateManager method)</a>
 </li>
       </ul></li>
@@ -536,8 +643,12 @@
 <h2 id="F">F</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/flame/pytorch/utils/ranking/index.html#flame.pytorch.utils.ranking.FakeObject">FakeObject (class in flame.pytorch.utils.ranking)</a>
+      <li><a href="autoapi/flame/oneflow/helpers/rank0/index.html#flame.oneflow.helpers.rank0.FakeObject">FakeObject (class in flame.oneflow.helpers.rank0)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/utils/ranking/index.html#flame.pytorch.utils.ranking.FakeObject">(class in flame.pytorch.utils.ranking)</a>
 </li>
+      </ul></li>
       <li><a href="autoapi/flame/core/logging/index.html#flame.core.logging.FILE_FORMAT">FILE_FORMAT (in module flame.core.logging)</a>
 </li>
       <li><a href="autoapi/flame/core/archiver/index.html#flame.core.archiver.file_list">file_list (in module flame.core.archiver)</a>
@@ -601,10 +712,24 @@
 </li>
       </ul></li>
       <li>
+    flame.core.distributed_launcher
+
+      <ul>
+        <li><a href="autoapi/flame/core/distributed_launcher/index.html#module-flame.core.distributed_launcher">module</a>
+</li>
+      </ul></li>
+      <li>
     flame.core.helpers
 
       <ul>
         <li><a href="autoapi/flame/core/helpers/index.html#module-flame.core.helpers">module</a>
+</li>
+      </ul></li>
+      <li>
+    flame.core.helpers.multiprocessing
+
+      <ul>
+        <li><a href="autoapi/flame/core/helpers/multiprocessing/index.html#module-flame.core.helpers.multiprocessing">module</a>
 </li>
       </ul></li>
       <li>
@@ -713,6 +838,141 @@
 </li>
       </ul></li>
       <li>
+    flame.oneflow.dist_run
+
+      <ul>
+        <li><a href="autoapi/flame/oneflow/dist_run/index.html#module-flame.oneflow.dist_run">module</a>
+</li>
+      </ul></li>
+      <li>
+    flame.oneflow.helpers
+
+      <ul>
+        <li><a href="autoapi/flame/oneflow/helpers/index.html#module-flame.oneflow.helpers">module</a>
+</li>
+      </ul></li>
+      <li>
+    flame.oneflow.helpers.checkpoint_saver
+
+      <ul>
+        <li><a href="autoapi/flame/oneflow/helpers/checkpoint_saver/index.html#module-flame.oneflow.helpers.checkpoint_saver">module</a>
+</li>
+      </ul></li>
+      <li>
+    flame.oneflow.helpers.data
+
+      <ul>
+        <li><a href="autoapi/flame/oneflow/helpers/data/index.html#module-flame.oneflow.helpers.data">module</a>
+</li>
+      </ul></li>
+      <li>
+    flame.oneflow.helpers.optimizer
+
+      <ul>
+        <li><a href="autoapi/flame/oneflow/helpers/optimizer/index.html#module-flame.oneflow.helpers.optimizer">module</a>
+</li>
+      </ul></li>
+      <li>
+    flame.oneflow.helpers.rank0
+
+      <ul>
+        <li><a href="autoapi/flame/oneflow/helpers/rank0/index.html#module-flame.oneflow.helpers.rank0">module</a>
+</li>
+      </ul></li>
+      <li>
+    flame.oneflow.helpers.tensorboard
+
+      <ul>
+        <li><a href="autoapi/flame/oneflow/helpers/tensorboard/index.html#module-flame.oneflow.helpers.tensorboard">module</a>
+</li>
+      </ul></li>
+      <li>
+    flame.oneflow.launcher
+
+      <ul>
+        <li><a href="autoapi/flame/oneflow/launcher/index.html#module-flame.oneflow.launcher">module</a>
+</li>
+      </ul></li>
+      <li>
+    flame.oneflow.meters
+
+      <ul>
+        <li><a href="autoapi/flame/oneflow/meters/index.html#module-flame.oneflow.meters">module</a>
+</li>
+      </ul></li>
+      <li>
+    flame.oneflow.meters.average_meter
+
+      <ul>
+        <li><a href="autoapi/flame/oneflow/meters/average_meter/index.html#module-flame.oneflow.meters.average_meter">module</a>
+</li>
+      </ul></li>
+      <li>
+    flame.oneflow.metrics
+
+      <ul>
+        <li><a href="autoapi/flame/oneflow/metrics/index.html#module-flame.oneflow.metrics">module</a>
+</li>
+      </ul></li>
+      <li>
+    flame.oneflow.metrics.functional
+
+      <ul>
+        <li><a href="autoapi/flame/oneflow/metrics/functional/index.html#module-flame.oneflow.metrics.functional">module</a>
+</li>
+      </ul></li>
+      <li>
+    flame.oneflow.sampler
+
+      <ul>
+        <li><a href="autoapi/flame/oneflow/sampler/index.html#module-flame.oneflow.sampler">module</a>
+</li>
+      </ul></li>
+      <li>
+    flame.oneflow.trainer
+
+      <ul>
+        <li><a href="autoapi/flame/oneflow/trainer/index.html#module-flame.oneflow.trainer">module</a>
+</li>
+      </ul></li>
+      <li>
+    flame.oneflow.trainer.progress_meter
+
+      <ul>
+        <li><a href="autoapi/flame/oneflow/trainer/progress_meter/index.html#module-flame.oneflow.trainer.progress_meter">module</a>
+</li>
+      </ul></li>
+      <li>
+    flame.oneflow.trainer.state
+
+      <ul>
+        <li><a href="autoapi/flame/oneflow/trainer/state/index.html#module-flame.oneflow.trainer.state">module</a>
+</li>
+      </ul></li>
+      <li>
+    flame.oneflow.trainer.state_manager
+
+      <ul>
+        <li><a href="autoapi/flame/oneflow/trainer/state_manager/index.html#module-flame.oneflow.trainer.state_manager">module</a>
+</li>
+      </ul></li>
+      <li>
+    flame.oneflow.trainer.trainer
+
+      <ul>
+        <li><a href="autoapi/flame/oneflow/trainer/trainer/index.html#module-flame.oneflow.trainer.trainer">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    flame.oneflow.typing_prelude
+
+      <ul>
+        <li><a href="autoapi/flame/oneflow/typing_prelude/index.html#module-flame.oneflow.typing_prelude">module</a>
+</li>
+      </ul></li>
+      <li>
     flame.pytorch
 
       <ul>
@@ -724,13 +984,6 @@
 
       <ul>
         <li><a href="autoapi/flame/pytorch/arguments/index.html#module-flame.pytorch.arguments">module</a>
-</li>
-      </ul></li>
-      <li>
-    flame.pytorch.container
-
-      <ul>
-        <li><a href="autoapi/flame/pytorch/container/index.html#module-flame.pytorch.container">module</a>
 </li>
       </ul></li>
       <li>
@@ -789,8 +1042,6 @@
         <li><a href="autoapi/flame/pytorch/helpers/data/index.html#module-flame.pytorch.helpers.data">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     flame.pytorch.helpers.model
 
@@ -946,13 +1197,6 @@
 </li>
       </ul></li>
       <li>
-    flame.pytorch.trainer.data_module
-
-      <ul>
-        <li><a href="autoapi/flame/pytorch/trainer/data_module/index.html#module-flame.pytorch.trainer.data_module">module</a>
-</li>
-      </ul></li>
-      <li>
     flame.pytorch.trainer.progress_meter
 
       <ul>
@@ -1049,9 +1293,13 @@
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/flame/pytorch/meters/average_meter/index.html#flame.pytorch.meters.average_meter.LazyAverageMeterDict.get">get() (flame.pytorch.meters.average_meter.LazyAverageMeterDict method)</a>
+      <li><a href="autoapi/flame/oneflow/meters/average_meter/index.html#flame.oneflow.meters.average_meter.LazyAverageMeterDict.get">get() (flame.oneflow.meters.average_meter.LazyAverageMeterDict method)</a>
 
       <ul>
+        <li><a href="autoapi/flame/oneflow/trainer/progress_meter/index.html#flame.oneflow.trainer.progress_meter.ProgressMeter.get">(flame.oneflow.trainer.progress_meter.ProgressMeter method)</a>
+</li>
+        <li><a href="autoapi/flame/pytorch/meters/average_meter/index.html#flame.pytorch.meters.average_meter.LazyAverageMeterDict.get">(flame.pytorch.meters.average_meter.LazyAverageMeterDict method)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/meters/index.html#flame.pytorch.meters.LazyAverageMeterDict.get">(flame.pytorch.meters.LazyAverageMeterDict method)</a>
 </li>
         <li><a href="autoapi/flame/pytorch/trainer/progress_meter/index.html#flame.pytorch.trainer.progress_meter.ProgressMeter.get">(flame.pytorch.trainer.progress_meter.ProgressMeter method)</a>
@@ -1063,14 +1311,14 @@
 </li>
       <li><a href="autoapi/flame/pytorch/utils/attributes/index.html#flame.pytorch.utils.attributes.get_dtype_from_module">get_dtype_from_module() (in module flame.pytorch.utils.attributes)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="autoapi/flame/pytorch/utils/index.html#flame.pytorch.utils.get_first_parameter_or_buffer">get_first_parameter_or_buffer() (in module flame.pytorch.utils)</a>
 
       <ul>
         <li><a href="autoapi/flame/pytorch/utils/attributes/index.html#flame.pytorch.utils.attributes.get_first_parameter_or_buffer">(in module flame.pytorch.utils.attributes)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="autoapi/flame/pytorch/utils/index.html#flame.pytorch.utils.get_learning_rate_from_optimizer">get_learning_rate_from_optimizer() (in module flame.pytorch.utils)</a>
 
       <ul>
@@ -1084,7 +1332,11 @@
       <li><a href="autoapi/flame/core/archiver/index.html#flame.core.archiver.git_ls_files">git_ls_files() (in module flame.core.archiver)</a>
 </li>
       <li><a href="autoapi/flame/core/arguments/index.html#flame.core.arguments.BaseArgs.gpu">gpu (flame.core.arguments.BaseArgs attribute)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/oneflow/dist_run/index.html#flame.oneflow.dist_run.Args.gpu">(flame.oneflow.dist_run.Args attribute)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -1092,6 +1344,8 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="autoapi/flame/core/zip_importer/index.html#flame.core.zip_importer.import_any">import_any() (in module flame.core.zip_importer)</a>
+</li>
+      <li><a href="autoapi/flame/core/jsonnet/index.html#flame.core.jsonnet.import_callback">import_callback() (in module flame.core.jsonnet)</a>
 </li>
       <li><a href="autoapi/flame/core/zip_importer/index.html#flame.core.zip_importer.import_from_zip">import_from_zip() (in module flame.core.zip_importer)</a>
 </li>
@@ -1105,19 +1359,25 @@
         <li><a href="autoapi/flame/pytorch/distributed/index.html#flame.pytorch.distributed.init_process_group_from_file">(in module flame.pytorch.distributed)</a>
 </li>
       </ul></li>
+      <li><a href="autoapi/flame/pytorch/arguments/index.html#flame.pytorch.arguments.BaseArgs.init_process_group_from_tcp">init_process_group_from_tcp() (flame.pytorch.arguments.BaseArgs method)</a>
+</li>
       <li><a href="autoapi/flame/pytorch/distributed/index.html#flame.pytorch.distributed.is_dist_available_and_initialized">is_dist_available_and_initialized() (in module flame.pytorch.distributed)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/flame/pytorch/meters/average_meter/index.html#flame.pytorch.meters.average_meter.LazyAverageMeterDict.is_highest">is_highest() (flame.pytorch.meters.average_meter.LazyAverageMeterDict method)</a>
+      <li><a href="autoapi/flame/oneflow/meters/average_meter/index.html#flame.oneflow.meters.average_meter.LazyAverageMeterDict.is_highest">is_highest() (flame.oneflow.meters.average_meter.LazyAverageMeterDict method)</a>
 
       <ul>
+        <li><a href="autoapi/flame/pytorch/meters/average_meter/index.html#flame.pytorch.meters.average_meter.LazyAverageMeterDict.is_highest">(flame.pytorch.meters.average_meter.LazyAverageMeterDict method)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/meters/index.html#flame.pytorch.meters.LazyAverageMeterDict.is_highest">(flame.pytorch.meters.LazyAverageMeterDict method)</a>
 </li>
       </ul></li>
-      <li><a href="autoapi/flame/pytorch/meters/average_meter/index.html#flame.pytorch.meters.average_meter.LazyAverageMeterDict.is_lowest">is_lowest() (flame.pytorch.meters.average_meter.LazyAverageMeterDict method)</a>
+      <li><a href="autoapi/flame/oneflow/meters/average_meter/index.html#flame.oneflow.meters.average_meter.LazyAverageMeterDict.is_lowest">is_lowest() (flame.oneflow.meters.average_meter.LazyAverageMeterDict method)</a>
 
       <ul>
+        <li><a href="autoapi/flame/pytorch/meters/average_meter/index.html#flame.pytorch.meters.average_meter.LazyAverageMeterDict.is_lowest">(flame.pytorch.meters.average_meter.LazyAverageMeterDict method)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/meters/index.html#flame.pytorch.meters.LazyAverageMeterDict.is_lowest">(flame.pytorch.meters.LazyAverageMeterDict method)</a>
 </li>
       </ul></li>
@@ -1155,23 +1415,39 @@
 <h2 id="L">L</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/flame/pytorch/meters/average_meter/index.html#flame.pytorch.meters.average_meter.LazyAverageMeterDict.last">last() (flame.pytorch.meters.average_meter.LazyAverageMeterDict method)</a>
+      <li><a href="autoapi/flame/oneflow/meters/average_meter/index.html#flame.oneflow.meters.average_meter.LazyAverageMeterDict.last">last() (flame.oneflow.meters.average_meter.LazyAverageMeterDict method)</a>
 
       <ul>
+        <li><a href="autoapi/flame/pytorch/meters/average_meter/index.html#flame.pytorch.meters.average_meter.LazyAverageMeterDict.last">(flame.pytorch.meters.average_meter.LazyAverageMeterDict method)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/meters/index.html#flame.pytorch.meters.LazyAverageMeterDict.last">(flame.pytorch.meters.LazyAverageMeterDict method)</a>
 </li>
       </ul></li>
-      <li><a href="autoapi/flame/pytorch/meters/index.html#flame.pytorch.meters.LazyAverageMeterDict">LazyAverageMeterDict (class in flame.pytorch.meters)</a>
+      <li><a href="autoapi/flame/core/distributed_launcher/index.html#flame.core.distributed_launcher.launch">launch() (in module flame.core.distributed_launcher)</a>
+</li>
+      <li><a href="autoapi/flame/oneflow/meters/average_meter/index.html#flame.oneflow.meters.average_meter.LazyAverageMeterDict">LazyAverageMeterDict (class in flame.oneflow.meters.average_meter)</a>
 
       <ul>
+        <li><a href="autoapi/flame/pytorch/meters/index.html#flame.pytorch.meters.LazyAverageMeterDict">(class in flame.pytorch.meters)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/meters/average_meter/index.html#flame.pytorch.meters.average_meter.LazyAverageMeterDict">(class in flame.pytorch.meters.average_meter)</a>
 </li>
       </ul></li>
-      <li><a href="autoapi/flame/pytorch/trainer/state_manager/index.html#flame.pytorch.trainer.state_manager.Entry.load_state_dict">load_state_dict (flame.pytorch.trainer.state_manager.Entry attribute)</a>
-</li>
-      <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.State.load_state_dict">load_state_dict() (flame.pytorch.engine.State method)</a>
+      <li><a href="autoapi/flame/oneflow/trainer/state_manager/index.html#flame.oneflow.trainer.state_manager.Entry.load_state_dict">load_state_dict (flame.oneflow.trainer.state_manager.Entry attribute)</a>
 
       <ul>
+        <li><a href="autoapi/flame/pytorch/trainer/state_manager/index.html#flame.pytorch.trainer.state_manager.Entry.load_state_dict">(flame.pytorch.trainer.state_manager.Entry attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="autoapi/flame/oneflow/meters/average_meter/index.html#flame.oneflow.meters.average_meter.LazyAverageMeterDict.load_state_dict">load_state_dict() (flame.oneflow.meters.average_meter.LazyAverageMeterDict method)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/oneflow/trainer/state/index.html#flame.oneflow.trainer.state.State.load_state_dict">(flame.oneflow.trainer.state.State method)</a>
+</li>
+        <li><a href="autoapi/flame/oneflow/trainer/state_manager/index.html#flame.oneflow.trainer.state_manager.StateManager.load_state_dict">(flame.oneflow.trainer.state_manager.StateManager method)</a>
+</li>
+        <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.State.load_state_dict">(flame.pytorch.engine.State method)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/helpers/amp/index.html#flame.pytorch.helpers.amp.Amp.load_state_dict">(flame.pytorch.helpers.amp.Amp method)</a>
 </li>
         <li><a href="autoapi/flame/pytorch/meters/average_meter/index.html#flame.pytorch.meters.average_meter.LazyAverageMeterDict.load_state_dict">(flame.pytorch.meters.average_meter.LazyAverageMeterDict method)</a>
@@ -1185,7 +1461,13 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/flame/pytorch/trainer/state_manager/index.html#flame.pytorch.trainer.state_manager.LoadStateDict">LoadStateDict (in module flame.pytorch.trainer.state_manager)</a>
+      <li><a href="autoapi/flame/oneflow/trainer/state_manager/index.html#flame.oneflow.trainer.state_manager.LoadStateDict">LoadStateDict (in module flame.oneflow.trainer.state_manager)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/trainer/state_manager/index.html#flame.pytorch.trainer.state_manager.LoadStateDict">(in module flame.pytorch.trainer.state_manager)</a>
+</li>
+      </ul></li>
+      <li><a href="autoapi/flame/oneflow/arguments/index.html#flame.oneflow.arguments.LOCAL_RANK">LOCAL_RANK (in module flame.oneflow.arguments)</a>
 </li>
       <li><a href="autoapi/flame/core/logging/index.html#flame.core.logging.log_code_version">log_code_version() (in module flame.core.logging)</a>
 </li>
@@ -1201,8 +1483,12 @@
       </ul></li>
       <li><a href="autoapi/flame/pytorch/utils/lr_schduler/index.html#flame.pytorch.utils.lr_schduler.LrScheduler">LrScheduler (class in flame.pytorch.utils.lr_schduler)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/typing_prelude/index.html#flame.pytorch.typing_prelude.LrSchedulerFn">LrSchedulerFn (in module flame.pytorch.typing_prelude)</a>
+      <li><a href="autoapi/flame/oneflow/typing_prelude/index.html#flame.oneflow.typing_prelude.LrSchedulerFn">LrSchedulerFn (in module flame.oneflow.typing_prelude)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/typing_prelude/index.html#flame.pytorch.typing_prelude.LrSchedulerFn">(in module flame.pytorch.typing_prelude)</a>
 </li>
+      </ul></li>
       <li><a href="autoapi/flame/pytorch/utils/lr_schduler/index.html#flame.pytorch.utils.lr_schduler.LrSchedulerManager">LrSchedulerManager (class in flame.pytorch.utils.lr_schduler)</a>
 </li>
   </ul></td>
@@ -1216,6 +1502,8 @@
       <ul>
         <li><a href="autoapi/flame/core/ckcfg/index.html#flame.core.ckcfg.main">(in module flame.core.ckcfg)</a>
 </li>
+        <li><a href="autoapi/flame/oneflow/dist_run/index.html#flame.oneflow.dist_run.main">(in module flame.oneflow.dist_run)</a>
+</li>
       </ul></li>
       <li><a href="autoapi/flame/index.html#flame.main_fn">main_fn() (in module flame)</a>
 
@@ -1223,13 +1511,23 @@
         <li><a href="autoapi/flame/core/main_fn/index.html#flame.core.main_fn.main_fn">(in module flame.core.main_fn)</a>
 </li>
       </ul></li>
-      <li><a href="autoapi/flame/pytorch/launcher/index.html#flame.pytorch.launcher.MainWorker">MainWorker (in module flame.pytorch.launcher)</a>
-</li>
-      <li><a href="autoapi/flame/core/archiver/index.html#flame.core.archiver.make_archive">make_archive() (in module flame.core.archiver)</a>
-</li>
-      <li><a href="autoapi/flame/pytorch/meters/average_meter/index.html#flame.pytorch.meters.average_meter.LazyAverageMeterDict.max">max() (flame.pytorch.meters.average_meter.LazyAverageMeterDict method)</a>
+      <li><a href="autoapi/flame/oneflow/launcher/index.html#flame.oneflow.launcher.MainWorker">MainWorker (in module flame.oneflow.launcher)</a>
 
       <ul>
+        <li><a href="autoapi/flame/pytorch/launcher/index.html#flame.pytorch.launcher.MainWorker">(in module flame.pytorch.launcher)</a>
+</li>
+      </ul></li>
+      <li><a href="autoapi/flame/core/archiver/index.html#flame.core.archiver.make_archive">make_archive() (in module flame.core.archiver)</a>
+</li>
+      <li><a href="autoapi/flame/oneflow/dist_run/index.html#flame.oneflow.dist_run.Args.master_addr">master_addr (flame.oneflow.dist_run.Args attribute)</a>
+</li>
+      <li><a href="autoapi/flame/oneflow/dist_run/index.html#flame.oneflow.dist_run.Args.master_port">master_port (flame.oneflow.dist_run.Args attribute)</a>
+</li>
+      <li><a href="autoapi/flame/oneflow/meters/average_meter/index.html#flame.oneflow.meters.average_meter.LazyAverageMeterDict.max">max() (flame.oneflow.meters.average_meter.LazyAverageMeterDict method)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/meters/average_meter/index.html#flame.pytorch.meters.average_meter.LazyAverageMeterDict.max">(flame.pytorch.meters.average_meter.LazyAverageMeterDict method)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/meters/index.html#flame.pytorch.meters.LazyAverageMeterDict.max">(flame.pytorch.meters.LazyAverageMeterDict method)</a>
 </li>
       </ul></li>
@@ -1265,9 +1563,11 @@
       </ul></li>
       <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.EpochState.metrics">metrics (flame.pytorch.engine.EpochState attribute)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/meters/average_meter/index.html#flame.pytorch.meters.average_meter.LazyAverageMeterDict.min">min() (flame.pytorch.meters.average_meter.LazyAverageMeterDict method)</a>
+      <li><a href="autoapi/flame/oneflow/meters/average_meter/index.html#flame.oneflow.meters.average_meter.LazyAverageMeterDict.min">min() (flame.oneflow.meters.average_meter.LazyAverageMeterDict method)</a>
 
       <ul>
+        <li><a href="autoapi/flame/pytorch/meters/average_meter/index.html#flame.pytorch.meters.average_meter.LazyAverageMeterDict.min">(flame.pytorch.meters.average_meter.LazyAverageMeterDict method)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/meters/index.html#flame.pytorch.meters.LazyAverageMeterDict.min">(flame.pytorch.meters.LazyAverageMeterDict method)</a>
 </li>
       </ul></li>
@@ -1291,7 +1591,11 @@
 </li>
         <li><a href="autoapi/flame/core/config_parser/index.html#module-flame.core.config_parser">flame.core.config_parser</a>
 </li>
+        <li><a href="autoapi/flame/core/distributed_launcher/index.html#module-flame.core.distributed_launcher">flame.core.distributed_launcher</a>
+</li>
         <li><a href="autoapi/flame/core/helpers/index.html#module-flame.core.helpers">flame.core.helpers</a>
+</li>
+        <li><a href="autoapi/flame/core/helpers/multiprocessing/index.html#module-flame.core.helpers.multiprocessing">flame.core.helpers.multiprocessing</a>
 </li>
         <li><a href="autoapi/flame/core/helpers/opencv/index.html#module-flame.core.helpers.opencv">flame.core.helpers.opencv</a>
 </li>
@@ -1323,11 +1627,47 @@
 </li>
         <li><a href="autoapi/flame/oneflow/arguments/index.html#module-flame.oneflow.arguments">flame.oneflow.arguments</a>
 </li>
+        <li><a href="autoapi/flame/oneflow/dist_run/index.html#module-flame.oneflow.dist_run">flame.oneflow.dist_run</a>
+</li>
+        <li><a href="autoapi/flame/oneflow/helpers/index.html#module-flame.oneflow.helpers">flame.oneflow.helpers</a>
+</li>
+        <li><a href="autoapi/flame/oneflow/helpers/checkpoint_saver/index.html#module-flame.oneflow.helpers.checkpoint_saver">flame.oneflow.helpers.checkpoint_saver</a>
+</li>
+        <li><a href="autoapi/flame/oneflow/helpers/data/index.html#module-flame.oneflow.helpers.data">flame.oneflow.helpers.data</a>
+</li>
+        <li><a href="autoapi/flame/oneflow/helpers/optimizer/index.html#module-flame.oneflow.helpers.optimizer">flame.oneflow.helpers.optimizer</a>
+</li>
+        <li><a href="autoapi/flame/oneflow/helpers/rank0/index.html#module-flame.oneflow.helpers.rank0">flame.oneflow.helpers.rank0</a>
+</li>
+        <li><a href="autoapi/flame/oneflow/helpers/tensorboard/index.html#module-flame.oneflow.helpers.tensorboard">flame.oneflow.helpers.tensorboard</a>
+</li>
+        <li><a href="autoapi/flame/oneflow/launcher/index.html#module-flame.oneflow.launcher">flame.oneflow.launcher</a>
+</li>
+        <li><a href="autoapi/flame/oneflow/meters/index.html#module-flame.oneflow.meters">flame.oneflow.meters</a>
+</li>
+        <li><a href="autoapi/flame/oneflow/meters/average_meter/index.html#module-flame.oneflow.meters.average_meter">flame.oneflow.meters.average_meter</a>
+</li>
+        <li><a href="autoapi/flame/oneflow/metrics/index.html#module-flame.oneflow.metrics">flame.oneflow.metrics</a>
+</li>
+        <li><a href="autoapi/flame/oneflow/metrics/functional/index.html#module-flame.oneflow.metrics.functional">flame.oneflow.metrics.functional</a>
+</li>
+        <li><a href="autoapi/flame/oneflow/sampler/index.html#module-flame.oneflow.sampler">flame.oneflow.sampler</a>
+</li>
+        <li><a href="autoapi/flame/oneflow/trainer/index.html#module-flame.oneflow.trainer">flame.oneflow.trainer</a>
+</li>
+        <li><a href="autoapi/flame/oneflow/trainer/progress_meter/index.html#module-flame.oneflow.trainer.progress_meter">flame.oneflow.trainer.progress_meter</a>
+</li>
+        <li><a href="autoapi/flame/oneflow/trainer/state/index.html#module-flame.oneflow.trainer.state">flame.oneflow.trainer.state</a>
+</li>
+        <li><a href="autoapi/flame/oneflow/trainer/state_manager/index.html#module-flame.oneflow.trainer.state_manager">flame.oneflow.trainer.state_manager</a>
+</li>
+        <li><a href="autoapi/flame/oneflow/trainer/trainer/index.html#module-flame.oneflow.trainer.trainer">flame.oneflow.trainer.trainer</a>
+</li>
+        <li><a href="autoapi/flame/oneflow/typing_prelude/index.html#module-flame.oneflow.typing_prelude">flame.oneflow.typing_prelude</a>
+</li>
         <li><a href="autoapi/flame/pytorch/index.html#module-flame.pytorch">flame.pytorch</a>
 </li>
         <li><a href="autoapi/flame/pytorch/arguments/index.html#module-flame.pytorch.arguments">flame.pytorch.arguments</a>
-</li>
-        <li><a href="autoapi/flame/pytorch/container/index.html#module-flame.pytorch.container">flame.pytorch.container</a>
 </li>
         <li><a href="autoapi/flame/pytorch/distributed/index.html#module-flame.pytorch.distributed">flame.pytorch.distributed</a>
 </li>
@@ -1389,8 +1729,6 @@
 </li>
         <li><a href="autoapi/flame/pytorch/trainer/coroutine_scheduler/index.html#module-flame.pytorch.trainer.coroutine_scheduler">flame.pytorch.trainer.coroutine_scheduler</a>
 </li>
-        <li><a href="autoapi/flame/pytorch/trainer/data_module/index.html#module-flame.pytorch.trainer.data_module">flame.pytorch.trainer.data_module</a>
-</li>
         <li><a href="autoapi/flame/pytorch/trainer/progress_meter/index.html#module-flame.pytorch.trainer.progress_meter">flame.pytorch.trainer.progress_meter</a>
 </li>
         <li><a href="autoapi/flame/pytorch/trainer/state/index.html#module-flame.pytorch.trainer.state">flame.pytorch.trainer.state</a>
@@ -1416,9 +1754,15 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/flame/pytorch/trainer/index.html#flame.pytorch.trainer.BaseTrainer.module_name">module_name() (flame.pytorch.trainer.BaseTrainer property)</a>
+      <li><a href="autoapi/flame/oneflow/dist_run/index.html#flame.oneflow.dist_run.Args.module">module (flame.oneflow.dist_run.Args attribute)</a>
+</li>
+      <li><a href="autoapi/flame/oneflow/trainer/index.html#flame.oneflow.trainer.BaseTrainer.module_name">module_name (flame.oneflow.trainer.BaseTrainer property)</a>
 
       <ul>
+        <li><a href="autoapi/flame/oneflow/trainer/trainer/index.html#flame.oneflow.trainer.trainer.BaseTrainer.module_name">(flame.oneflow.trainer.trainer.BaseTrainer property)</a>
+</li>
+        <li><a href="autoapi/flame/pytorch/trainer/index.html#flame.pytorch.trainer.BaseTrainer.module_name">(flame.pytorch.trainer.BaseTrainer property)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/trainer/trainer/index.html#flame.pytorch.trainer.trainer.BaseTrainer.module_name">(flame.pytorch.trainer.trainer.BaseTrainer property)</a>
 </li>
       </ul></li>
@@ -1440,24 +1784,40 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="autoapi/flame/core/meters/naive_average_meter/index.html#flame.core.meters.naive_average_meter.NaiveAverageMeter">NaiveAverageMeter (class in flame.core.meters.naive_average_meter)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/trainer/index.html#flame.pytorch.trainer.BaseTrainer.name">name() (flame.pytorch.trainer.BaseTrainer property)</a>
+      <li><a href="autoapi/flame/oneflow/trainer/index.html#flame.oneflow.trainer.BaseTrainer.name">name (flame.oneflow.trainer.BaseTrainer property)</a>
 
       <ul>
+        <li><a href="autoapi/flame/oneflow/trainer/trainer/index.html#flame.oneflow.trainer.trainer.BaseTrainer.name">(flame.oneflow.trainer.trainer.BaseTrainer property)</a>
+</li>
+        <li><a href="autoapi/flame/pytorch/trainer/index.html#flame.pytorch.trainer.BaseTrainer.name">(flame.pytorch.trainer.BaseTrainer property)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/trainer/trainer/index.html#flame.pytorch.trainer.trainer.BaseTrainer.name">(flame.pytorch.trainer.trainer.BaseTrainer property)</a>
 </li>
       </ul></li>
-      <li><a href="autoapi/flame/pytorch/meters/average_meter/index.html#flame.pytorch.meters.average_meter.LazyAverageMeterDict.named_meters">named_meters() (flame.pytorch.meters.average_meter.LazyAverageMeterDict method)</a>
+      <li><a href="autoapi/flame/oneflow/meters/average_meter/index.html#flame.oneflow.meters.average_meter.LazyAverageMeterDict.named_meters">named_meters() (flame.oneflow.meters.average_meter.LazyAverageMeterDict method)</a>
 
       <ul>
+        <li><a href="autoapi/flame/pytorch/meters/average_meter/index.html#flame.pytorch.meters.average_meter.LazyAverageMeterDict.named_meters">(flame.pytorch.meters.average_meter.LazyAverageMeterDict method)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/meters/index.html#flame.pytorch.meters.LazyAverageMeterDict.named_meters">(flame.pytorch.meters.LazyAverageMeterDict method)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/flame/core/distributed_launcher/index.html#flame.core.distributed_launcher.Args.no_python">no_python (flame.core.distributed_launcher.Args attribute)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/oneflow/dist_run/index.html#flame.oneflow.dist_run.Args.no_python">(flame.oneflow.dist_run.Args attribute)</a>
+</li>
+      </ul></li>
       <li><a href="autoapi/flame/core/arguments/index.html#flame.core.arguments.BaseArgs.no_tqdm">no_tqdm (flame.core.arguments.BaseArgs attribute)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/distributed/index.html#flame.pytorch.distributed.num_valid_samples">num_valid_samples() (in module flame.pytorch.distributed)</a>
+      <li><a href="autoapi/flame/oneflow/sampler/index.html#flame.oneflow.sampler.num_valid_samples">num_valid_samples() (in module flame.oneflow.sampler)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/distributed/index.html#flame.pytorch.distributed.num_valid_samples">(in module flame.pytorch.distributed)</a>
 </li>
+      </ul></li>
       <li><a href="autoapi/flame/pytorch/distributed/index.html#flame.pytorch.distributed.num_valid_samples_from_data_loader">num_valid_samples_from_data_loader() (in module flame.pytorch.distributed)</a>
 
       <ul>
@@ -1470,12 +1830,12 @@
 <h2 id="O">O</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/flame/pytorch/typing_prelude/index.html#flame.pytorch.typing_prelude.OptimizerFn">OptimizerFn (in module flame.pytorch.typing_prelude)</a>
+      <li><a href="autoapi/flame/oneflow/typing_prelude/index.html#flame.oneflow.typing_prelude.OptimizerFn">OptimizerFn (in module flame.oneflow.typing_prelude)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/typing_prelude/index.html#flame.pytorch.typing_prelude.OptimizerFn">(in module flame.pytorch.typing_prelude)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/flame/pytorch/trainer/data_module/index.html#flame.pytorch.trainer.data_module.OptionalDataLoader">OptionalDataLoader (in module flame.pytorch.trainer.data_module)</a>
-</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -1496,86 +1856,128 @@
 </li>
       <li><a href="autoapi/flame/pytorch/utils/spawn/index.html#flame.pytorch.utils.spawn.ProcessContext.pids">pids() (flame.pytorch.utils.spawn.ProcessContext method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="autoapi/flame/core/config_parser/index.html#flame.core.config_parser.PREFIX_IMPORT">PREFIX_IMPORT (in module flame.core.config_parser)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="autoapi/flame/core/config_parser/index.html#flame.core.config_parser.PREFIX_PLACEHOLDER">PREFIX_PLACEHOLDER (in module flame.core.config_parser)</a>
 </li>
       <li><a href="autoapi/flame/core/arguments/index.html#flame.core.arguments.BaseArgs.print_freq">print_freq (flame.core.arguments.BaseArgs attribute)</a>
 </li>
       <li><a href="autoapi/flame/pytorch/utils/spawn/index.html#flame.pytorch.utils.spawn.ProcessContext">ProcessContext (class in flame.pytorch.utils.spawn)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/trainer/index.html#flame.pytorch.trainer.BaseTrainer.progress_meter">progress_meter() (flame.pytorch.trainer.BaseTrainer method)</a>
+      <li><a href="autoapi/flame/oneflow/trainer/index.html#flame.oneflow.trainer.BaseTrainer.progress_meter">progress_meter() (flame.oneflow.trainer.BaseTrainer method)</a>
 
       <ul>
+        <li><a href="autoapi/flame/oneflow/trainer/trainer/index.html#flame.oneflow.trainer.trainer.BaseTrainer.progress_meter">(flame.oneflow.trainer.trainer.BaseTrainer method)</a>
+</li>
+        <li><a href="autoapi/flame/pytorch/trainer/index.html#flame.pytorch.trainer.BaseTrainer.progress_meter">(flame.pytorch.trainer.BaseTrainer method)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/trainer/trainer/index.html#flame.pytorch.trainer.trainer.BaseTrainer.progress_meter">(flame.pytorch.trainer.trainer.BaseTrainer method)</a>
 </li>
       </ul></li>
-      <li><a href="autoapi/flame/pytorch/trainer/progress_meter/index.html#flame.pytorch.trainer.progress_meter.ProgressMeter">ProgressMeter (class in flame.pytorch.trainer.progress_meter)</a>
+      <li><a href="autoapi/flame/oneflow/trainer/progress_meter/index.html#flame.oneflow.trainer.progress_meter.ProgressMeter">ProgressMeter (class in flame.oneflow.trainer.progress_meter)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/trainer/progress_meter/index.html#flame.pytorch.trainer.progress_meter.ProgressMeter">(class in flame.pytorch.trainer.progress_meter)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/flame/pytorch/helpers/index.html#flame.pytorch.helpers.rank0">rank0() (in module flame.pytorch.helpers)</a>
+      <li><a href="autoapi/flame/oneflow/helpers/rank0/index.html#flame.oneflow.helpers.rank0.rank0">rank0() (in module flame.oneflow.helpers.rank0)</a>
 
       <ul>
+        <li><a href="autoapi/flame/pytorch/helpers/index.html#flame.pytorch.helpers.rank0">(in module flame.pytorch.helpers)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/utils/index.html#flame.pytorch.utils.rank0">(in module flame.pytorch.utils)</a>
 </li>
         <li><a href="autoapi/flame/pytorch/utils/ranking/index.html#flame.pytorch.utils.ranking.rank0">(in module flame.pytorch.utils.ranking)</a>
 </li>
       </ul></li>
-      <li><a href="autoapi/flame/pytorch/helpers/tensorboard/index.html#flame.pytorch.helpers.tensorboard.Rank0SummaryWriter">Rank0SummaryWriter (class in flame.pytorch.helpers.tensorboard)</a>
+      <li><a href="autoapi/flame/oneflow/helpers/tensorboard/index.html#flame.oneflow.helpers.tensorboard.Rank0SummaryWriter">Rank0SummaryWriter (class in flame.oneflow.helpers.tensorboard)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/helpers/tensorboard/index.html#flame.pytorch.helpers.tensorboard.Rank0SummaryWriter">(class in flame.pytorch.helpers.tensorboard)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/arguments/index.html#flame.pytorch.arguments.BaseArgs.rank_start">rank_start (flame.pytorch.arguments.BaseArgs attribute)</a>
+      </ul></li>
+      <li><a href="autoapi/flame/oneflow/dist_run/index.html#flame.oneflow.dist_run.Args.rank_start">rank_start (flame.oneflow.dist_run.Args attribute)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/arguments/index.html#flame.pytorch.arguments.BaseArgs.rank_start">(flame.pytorch.arguments.BaseArgs attribute)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/meters/index.html#flame.pytorch.meters.EstimatedTimeOfArrival.rate">rate() (flame.pytorch.meters.EstimatedTimeOfArrival property)</a>
+      </ul></li>
+      <li><a href="autoapi/flame/pytorch/meters/index.html#flame.pytorch.meters.EstimatedTimeOfArrival.rate">rate (flame.pytorch.meters.EstimatedTimeOfArrival property)</a>
 
       <ul>
         <li><a href="autoapi/flame/pytorch/meters/time_meter/index.html#flame.pytorch.meters.time_meter.EstimatedTimeOfArrival.rate">(flame.pytorch.meters.time_meter.EstimatedTimeOfArrival property)</a>
 </li>
       </ul></li>
-      <li><a href="autoapi/flame/pytorch/meters/average_meter/index.html#flame.pytorch.meters.average_meter.LazyAverageMeterDict.record">record() (flame.pytorch.meters.average_meter.LazyAverageMeterDict method)</a>
+      <li><a href="autoapi/flame/oneflow/meters/average_meter/index.html#flame.oneflow.meters.average_meter.LazyAverageMeterDict.record">record() (flame.oneflow.meters.average_meter.LazyAverageMeterDict method)</a>
 
       <ul>
+        <li><a href="autoapi/flame/pytorch/meters/average_meter/index.html#flame.pytorch.meters.average_meter.LazyAverageMeterDict.record">(flame.pytorch.meters.average_meter.LazyAverageMeterDict method)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/meters/index.html#flame.pytorch.meters.LazyAverageMeterDict.record">(flame.pytorch.meters.LazyAverageMeterDict method)</a>
 </li>
       </ul></li>
+      <li><a href="autoapi/flame/oneflow/dist_run/index.html#flame.oneflow.dist_run.Args.redirect_stdout_and_stderr">redirect_stdout_and_stderr (flame.oneflow.dist_run.Args attribute)</a>
+</li>
       <li><a href="autoapi/flame/pytorch/distributed/index.html#flame.pytorch.distributed.reduce_numbers">reduce_numbers() (in module flame.pytorch.distributed)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/trainer/state_manager/index.html#flame.pytorch.trainer.state_manager.StateManager.register">register() (flame.pytorch.trainer.state_manager.StateManager method)</a>
+      <li><a href="autoapi/flame/oneflow/trainer/state_manager/index.html#flame.oneflow.trainer.state_manager.StateManager.register">register() (flame.oneflow.trainer.state_manager.StateManager method)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/trainer/state_manager/index.html#flame.pytorch.trainer.state_manager.StateManager.register">(flame.pytorch.trainer.state_manager.StateManager method)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/trainer/state_manager/index.html#flame.pytorch.trainer.state_manager.StateManager.register_grad_scaler">register_grad_scaler() (flame.pytorch.trainer.state_manager.StateManager method)</a>
+      </ul></li>
+      <li><a href="autoapi/flame/oneflow/trainer/state_manager/index.html#flame.oneflow.trainer.state_manager.StateManager.register_grad_scaler">register_grad_scaler() (flame.oneflow.trainer.state_manager.StateManager method)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/trainer/state_manager/index.html#flame.pytorch.trainer.state_manager.StateManager.register_grad_scaler">(flame.pytorch.trainer.state_manager.StateManager method)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/trainer/state_manager/index.html#flame.pytorch.trainer.state_manager.StateManager.register_lr_scheduler">register_lr_scheduler() (flame.pytorch.trainer.state_manager.StateManager method)</a>
+      </ul></li>
+      <li><a href="autoapi/flame/oneflow/trainer/state_manager/index.html#flame.oneflow.trainer.state_manager.StateManager.register_lr_scheduler">register_lr_scheduler() (flame.oneflow.trainer.state_manager.StateManager method)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/trainer/state_manager/index.html#flame.pytorch.trainer.state_manager.StateManager.register_lr_scheduler">(flame.pytorch.trainer.state_manager.StateManager method)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/trainer/state_manager/index.html#flame.pytorch.trainer.state_manager.StateManager.register_model">register_model() (flame.pytorch.trainer.state_manager.StateManager method)</a>
+      </ul></li>
+      <li><a href="autoapi/flame/oneflow/trainer/state_manager/index.html#flame.oneflow.trainer.state_manager.StateManager.register_model">register_model() (flame.oneflow.trainer.state_manager.StateManager method)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/trainer/state_manager/index.html#flame.pytorch.trainer.state_manager.StateManager.register_model">(flame.pytorch.trainer.state_manager.StateManager method)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/trainer/state_manager/index.html#flame.pytorch.trainer.state_manager.StateManager.register_optimizer">register_optimizer() (flame.pytorch.trainer.state_manager.StateManager method)</a>
+      </ul></li>
+      <li><a href="autoapi/flame/oneflow/trainer/state_manager/index.html#flame.oneflow.trainer.state_manager.StateManager.register_optimizer">register_optimizer() (flame.oneflow.trainer.state_manager.StateManager method)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/trainer/state_manager/index.html#flame.pytorch.trainer.state_manager.StateManager.register_optimizer">(flame.pytorch.trainer.state_manager.StateManager method)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/meters/index.html#flame.pytorch.meters.EstimatedTimeOfArrival.remaining">remaining() (flame.pytorch.meters.EstimatedTimeOfArrival property)</a>
+      </ul></li>
+      <li><a href="autoapi/flame/pytorch/meters/index.html#flame.pytorch.meters.EstimatedTimeOfArrival.remaining">remaining (flame.pytorch.meters.EstimatedTimeOfArrival property)</a>
 
       <ul>
         <li><a href="autoapi/flame/pytorch/meters/time_meter/index.html#flame.pytorch.meters.time_meter.EstimatedTimeOfArrival.remaining">(flame.pytorch.meters.time_meter.EstimatedTimeOfArrival property)</a>
 </li>
       </ul></li>
-      <li><a href="autoapi/flame/pytorch/meters/index.html#flame.pytorch.meters.EstimatedTimeOfArrival.remaining_seconds">remaining_seconds() (flame.pytorch.meters.EstimatedTimeOfArrival property)</a>
+      <li><a href="autoapi/flame/pytorch/meters/index.html#flame.pytorch.meters.EstimatedTimeOfArrival.remaining_seconds">remaining_seconds (flame.pytorch.meters.EstimatedTimeOfArrival property)</a>
 
       <ul>
         <li><a href="autoapi/flame/pytorch/meters/time_meter/index.html#flame.pytorch.meters.time_meter.EstimatedTimeOfArrival.remaining_seconds">(flame.pytorch.meters.time_meter.EstimatedTimeOfArrival property)</a>
 </li>
       </ul></li>
-      <li><a href="autoapi/flame/pytorch/meters/index.html#flame.pytorch.meters.EstimatedTimeOfArrival.remaining_time">remaining_time() (flame.pytorch.meters.EstimatedTimeOfArrival property)</a>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/flame/pytorch/meters/index.html#flame.pytorch.meters.EstimatedTimeOfArrival.remaining_time">remaining_time (flame.pytorch.meters.EstimatedTimeOfArrival property)</a>
 
       <ul>
         <li><a href="autoapi/flame/pytorch/meters/time_meter/index.html#flame.pytorch.meters.time_meter.EstimatedTimeOfArrival.remaining_time">(flame.pytorch.meters.time_meter.EstimatedTimeOfArrival property)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="autoapi/flame/core/logging/index.html#flame.core.logging.remove_all_handlers">remove_all_handlers() (in module flame.core.logging)</a>
 </li>
       <li><a href="autoapi/flame/core/config_parser/index.html#flame.core.config_parser.require">require() (in module flame.core.config_parser)</a>
@@ -1584,6 +1986,10 @@
 
       <ul>
         <li><a href="autoapi/flame/core/meters/naive_average_meter/index.html#flame.core.meters.naive_average_meter.NaiveAverageMeter.reset">(flame.core.meters.naive_average_meter.NaiveAverageMeter method)</a>
+</li>
+        <li><a href="autoapi/flame/oneflow/meters/average_meter/index.html#flame.oneflow.meters.average_meter.AverageMeter.reset">(flame.oneflow.meters.average_meter.AverageMeter method)</a>
+</li>
+        <li><a href="autoapi/flame/oneflow/meters/average_meter/index.html#flame.oneflow.meters.average_meter.LazyAverageMeterDict.reset">(flame.oneflow.meters.average_meter.LazyAverageMeterDict method)</a>
 </li>
         <li><a href="autoapi/flame/pytorch/meters/average_meter/index.html#flame.pytorch.meters.average_meter.AverageMeter.reset">(flame.pytorch.meters.average_meter.AverageMeter method)</a>
 </li>
@@ -1604,11 +2010,19 @@
       </ul></li>
       <li><a href="autoapi/flame/core/arguments/index.html#flame.core.arguments.BaseArgs.resume">resume (flame.core.arguments.BaseArgs attribute)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/trainer/state_manager/index.html#flame.pytorch.trainer.state_manager.StateManager.resume">resume() (flame.pytorch.trainer.state_manager.StateManager method)</a>
-</li>
-      <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.Engine.run">run() (flame.pytorch.engine.Engine method)</a>
+      <li><a href="autoapi/flame/oneflow/trainer/state_manager/index.html#flame.oneflow.trainer.state_manager.StateManager.resume">resume() (flame.oneflow.trainer.state_manager.StateManager method)</a>
 
       <ul>
+        <li><a href="autoapi/flame/pytorch/trainer/state_manager/index.html#flame.pytorch.trainer.state_manager.StateManager.resume">(flame.pytorch.trainer.state_manager.StateManager method)</a>
+</li>
+      </ul></li>
+      <li><a href="autoapi/flame/oneflow/trainer/index.html#flame.oneflow.trainer.BaseTrainer.run">run() (flame.oneflow.trainer.BaseTrainer method)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/oneflow/trainer/trainer/index.html#flame.oneflow.trainer.trainer.BaseTrainer.run">(flame.oneflow.trainer.trainer.BaseTrainer method)</a>
+</li>
+        <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.Engine.run">(flame.pytorch.engine.Engine method)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/trainer/index.html#flame.pytorch.trainer.BaseTrainer.run">(flame.pytorch.trainer.BaseTrainer method)</a>
 </li>
         <li><a href="autoapi/flame/pytorch/trainer/coroutine_scheduler/index.html#flame.pytorch.trainer.coroutine_scheduler.CoroutineScheduler.run">(flame.pytorch.trainer.coroutine_scheduler.CoroutineScheduler method)</a>
@@ -1616,19 +2030,31 @@
         <li><a href="autoapi/flame/pytorch/trainer/trainer/index.html#flame.pytorch.trainer.trainer.BaseTrainer.run">(flame.pytorch.trainer.trainer.BaseTrainer method)</a>
 </li>
       </ul></li>
-      <li><a href="autoapi/flame/pytorch/launcher/index.html#flame.pytorch.launcher.run_distributed">run_distributed() (in module flame.pytorch.launcher)</a>
+      <li><a href="autoapi/flame/oneflow/launcher/index.html#flame.oneflow.launcher.run_distributed">run_distributed() (in module flame.oneflow.launcher)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/launcher/index.html#flame.pytorch.launcher.run_distributed">(in module flame.pytorch.launcher)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/flame/pytorch/helpers/checkpoint_saver/index.html#flame.pytorch.helpers.checkpoint_saver.safe_delete">safe_delete() (in module flame.pytorch.helpers.checkpoint_saver)</a>
-</li>
-      <li><a href="autoapi/flame/pytorch/helpers/index.html#flame.pytorch.helpers.save_checkpoint">save_checkpoint() (in module flame.pytorch.helpers)</a>
+      <li><a href="autoapi/flame/oneflow/helpers/checkpoint_saver/index.html#flame.oneflow.helpers.checkpoint_saver.safe_delete">safe_delete() (in module flame.oneflow.helpers.checkpoint_saver)</a>
 
       <ul>
+        <li><a href="autoapi/flame/pytorch/helpers/checkpoint_saver/index.html#flame.pytorch.helpers.checkpoint_saver.safe_delete">(in module flame.pytorch.helpers.checkpoint_saver)</a>
+</li>
+      </ul></li>
+      <li><a href="autoapi/flame/oneflow/helpers/index.html#flame.oneflow.helpers.save_checkpoint">save_checkpoint() (in module flame.oneflow.helpers)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/oneflow/helpers/checkpoint_saver/index.html#flame.oneflow.helpers.checkpoint_saver.save_checkpoint">(in module flame.oneflow.helpers.checkpoint_saver)</a>
+</li>
+        <li><a href="autoapi/flame/pytorch/helpers/index.html#flame.pytorch.helpers.save_checkpoint">(in module flame.pytorch.helpers)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/helpers/checkpoint_saver/index.html#flame.pytorch.helpers.checkpoint_saver.save_checkpoint">(in module flame.pytorch.helpers.checkpoint_saver)</a>
 </li>
       </ul></li>
@@ -1636,17 +2062,23 @@
 </li>
       <li><a href="autoapi/flame/core/arguments/index.html#flame.core.arguments.BaseArgs.save_config">save_config() (flame.core.arguments.BaseArgs method)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/meters/average_meter/index.html#flame.pytorch.meters.average_meter.LazyAverageMeterDict.save_history">save_history() (flame.pytorch.meters.average_meter.LazyAverageMeterDict method)</a>
+      <li><a href="autoapi/flame/oneflow/meters/average_meter/index.html#flame.oneflow.meters.average_meter.LazyAverageMeterDict.save_history">save_history() (flame.oneflow.meters.average_meter.LazyAverageMeterDict method)</a>
 
       <ul>
+        <li><a href="autoapi/flame/pytorch/meters/average_meter/index.html#flame.pytorch.meters.average_meter.LazyAverageMeterDict.save_history">(flame.pytorch.meters.average_meter.LazyAverageMeterDict method)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/meters/index.html#flame.pytorch.meters.LazyAverageMeterDict.save_history">(flame.pytorch.meters.LazyAverageMeterDict method)</a>
 </li>
       </ul></li>
       <li><a href="autoapi/flame/pytorch/helpers/amp/index.html#flame.pytorch.helpers.amp.Amp.scale">scale() (flame.pytorch.helpers.amp.Amp method)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/helpers/index.html#flame.pytorch.helpers.scale_lr_linearly">scale_lr_linearly() (in module flame.pytorch.helpers)</a>
+      <li><a href="autoapi/flame/oneflow/helpers/index.html#flame.oneflow.helpers.scale_lr_linearly">scale_lr_linearly() (in module flame.oneflow.helpers)</a>
 
       <ul>
+        <li><a href="autoapi/flame/oneflow/helpers/optimizer/index.html#flame.oneflow.helpers.optimizer.scale_lr_linearly">(in module flame.oneflow.helpers.optimizer)</a>
+</li>
+        <li><a href="autoapi/flame/pytorch/helpers/index.html#flame.pytorch.helpers.scale_lr_linearly">(in module flame.pytorch.helpers)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/helpers/optimizer/index.html#flame.pytorch.helpers.optimizer.scale_lr_linearly">(in module flame.pytorch.helpers.optimizer)</a>
 </li>
       </ul></li>
@@ -1660,9 +2092,13 @@
       </ul></li>
       <li><a href="autoapi/flame/core/logging/index.html#flame.core.logging.set_logging_except_hook">set_logging_except_hook() (in module flame.core.logging)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/trainer/index.html#flame.pytorch.trainer.BaseTrainer.set_sampler_epoch">set_sampler_epoch() (flame.pytorch.trainer.BaseTrainer method)</a>
+      <li><a href="autoapi/flame/oneflow/trainer/index.html#flame.oneflow.trainer.BaseTrainer.set_sampler_epoch">set_sampler_epoch() (flame.oneflow.trainer.BaseTrainer method)</a>
 
       <ul>
+        <li><a href="autoapi/flame/oneflow/trainer/trainer/index.html#flame.oneflow.trainer.trainer.BaseTrainer.set_sampler_epoch">(flame.oneflow.trainer.trainer.BaseTrainer method)</a>
+</li>
+        <li><a href="autoapi/flame/pytorch/trainer/index.html#flame.pytorch.trainer.BaseTrainer.set_sampler_epoch">(flame.pytorch.trainer.BaseTrainer method)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/trainer/trainer/index.html#flame.pytorch.trainer.trainer.BaseTrainer.set_sampler_epoch">(flame.pytorch.trainer.trainer.BaseTrainer method)</a>
 </li>
       </ul></li>
@@ -1670,17 +2106,25 @@
 </li>
       <li><a href="autoapi/flame/pytorch/utils/spawn/index.html#flame.pytorch.utils.spawn.start_processes">start_processes() (in module flame.pytorch.utils.spawn)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.State">State (class in flame.pytorch.engine)</a>
+      <li><a href="autoapi/flame/oneflow/trainer/state/index.html#flame.oneflow.trainer.state.State">State (class in flame.oneflow.trainer.state)</a>
 
       <ul>
+        <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.State">(class in flame.pytorch.engine)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/trainer/state/index.html#flame.pytorch.trainer.state.State">(class in flame.pytorch.trainer.state)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.State.state_dict">state_dict() (flame.pytorch.engine.State method)</a>
+      <li><a href="autoapi/flame/oneflow/meters/average_meter/index.html#flame.oneflow.meters.average_meter.LazyAverageMeterDict.state_dict">state_dict() (flame.oneflow.meters.average_meter.LazyAverageMeterDict method)</a>
 
       <ul>
+        <li><a href="autoapi/flame/oneflow/trainer/state/index.html#flame.oneflow.trainer.state.State.state_dict">(flame.oneflow.trainer.state.State method)</a>
+</li>
+        <li><a href="autoapi/flame/oneflow/trainer/state_manager/index.html#flame.oneflow.trainer.state_manager.StateManager.state_dict">(flame.oneflow.trainer.state_manager.StateManager method)</a>
+</li>
+        <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.State.state_dict">(flame.pytorch.engine.State method)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/helpers/amp/index.html#flame.pytorch.helpers.amp.Amp.state_dict">(flame.pytorch.helpers.amp.Amp method)</a>
 </li>
         <li><a href="autoapi/flame/pytorch/meters/average_meter/index.html#flame.pytorch.meters.average_meter.LazyAverageMeterDict.state_dict">(flame.pytorch.meters.average_meter.LazyAverageMeterDict method)</a>
@@ -1692,8 +2136,12 @@
         <li><a href="autoapi/flame/pytorch/trainer/state_manager/index.html#flame.pytorch.trainer.state_manager.StateManager.state_dict">(flame.pytorch.trainer.state_manager.StateManager method)</a>
 </li>
       </ul></li>
-      <li><a href="autoapi/flame/pytorch/trainer/state_manager/index.html#flame.pytorch.trainer.state_manager.StateManager">StateManager (class in flame.pytorch.trainer.state_manager)</a>
+      <li><a href="autoapi/flame/oneflow/trainer/state_manager/index.html#flame.oneflow.trainer.state_manager.StateManager">StateManager (class in flame.oneflow.trainer.state_manager)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/trainer/state_manager/index.html#flame.pytorch.trainer.state_manager.StateManager">(class in flame.pytorch.trainer.state_manager)</a>
 </li>
+      </ul></li>
       <li><a href="autoapi/flame/pytorch/utils/lr_schduler/index.html#flame.pytorch.utils.lr_schduler.SchedulePosition.STEP">STEP (flame.pytorch.utils.lr_schduler.SchedulePosition attribute)</a>
 </li>
       <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.Engine.step">step() (flame.pytorch.engine.Engine method)</a>
@@ -1704,9 +2152,15 @@
         <li><a href="autoapi/flame/pytorch/utils/lr_schduler/index.html#flame.pytorch.utils.lr_schduler.LrScheduler.step">(flame.pytorch.utils.lr_schduler.LrScheduler method)</a>
 </li>
       </ul></li>
+      <li><a href="autoapi/flame/oneflow/meters/average_meter/index.html#flame.oneflow.meters.average_meter.AverageMeter.sum">sum (flame.oneflow.meters.average_meter.AverageMeter attribute)</a>
+</li>
       <li><a href="autoapi/flame/core/meters/base_meter/index.html#flame.core.meters.base_meter.BaseMeter.sync">sync() (flame.core.meters.base_meter.BaseMeter method)</a>
 
       <ul>
+        <li><a href="autoapi/flame/oneflow/meters/average_meter/index.html#flame.oneflow.meters.average_meter.AverageMeter.sync">(flame.oneflow.meters.average_meter.AverageMeter method)</a>
+</li>
+        <li><a href="autoapi/flame/oneflow/meters/average_meter/index.html#flame.oneflow.meters.average_meter.LazyAverageMeterDict.sync">(flame.oneflow.meters.average_meter.LazyAverageMeterDict method)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/meters/average_meter/index.html#flame.pytorch.meters.average_meter.AverageMeter.sync">(flame.pytorch.meters.average_meter.AverageMeter method)</a>
 </li>
         <li><a href="autoapi/flame/pytorch/meters/average_meter/index.html#flame.pytorch.meters.average_meter.LazyAverageMeterDict.sync">(flame.pytorch.meters.average_meter.LazyAverageMeterDict method)</a>
@@ -1726,16 +2180,20 @@
 <h2 id="T">T</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/flame/pytorch/trainer/index.html#flame.pytorch.trainer.BaseTrainer.T">T (flame.pytorch.trainer.BaseTrainer attribute)</a>
+      <li><a href="autoapi/flame/oneflow/trainer/index.html#flame.oneflow.trainer.BaseTrainer.T">T (flame.oneflow.trainer.BaseTrainer attribute)</a>
 
       <ul>
+        <li><a href="autoapi/flame/oneflow/trainer/trainer/index.html#flame.oneflow.trainer.trainer.BaseTrainer.T">(flame.oneflow.trainer.trainer.BaseTrainer attribute)</a>
+</li>
+        <li><a href="autoapi/flame/pytorch/trainer/index.html#flame.pytorch.trainer.BaseTrainer.T">(flame.pytorch.trainer.BaseTrainer attribute)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/trainer/trainer/index.html#flame.pytorch.trainer.trainer.BaseTrainer.T">(flame.pytorch.trainer.trainer.BaseTrainer attribute)</a>
 </li>
         <li><a href="autoapi/flame/core/main_fn/index.html#flame.core.main_fn.T">(in module flame.core.main_fn)</a>
 </li>
-        <li><a href="autoapi/flame/pytorch/container/index.html#flame.pytorch.container.T">(in module flame.pytorch.container)</a>
+        <li><a href="autoapi/flame/oneflow/helpers/rank0/index.html#flame.oneflow.helpers.rank0.T">(in module flame.oneflow.helpers.rank0)</a>
 </li>
-        <li><a href="autoapi/flame/pytorch/trainer/data_module/index.html#flame.pytorch.trainer.data_module.T">(in module flame.pytorch.trainer.data_module)</a>
+        <li><a href="autoapi/flame/oneflow/trainer/trainer/index.html#flame.oneflow.trainer.trainer.T">(in module flame.oneflow.trainer.trainer)</a>
 </li>
         <li><a href="autoapi/flame/pytorch/trainer/trainer/index.html#flame.pytorch.trainer.trainer.T">(in module flame.pytorch.trainer.trainer)</a>
 </li>
@@ -1746,44 +2204,74 @@
 </li>
       <li><a href="autoapi/flame/pytorch/helpers/amp/index.html#flame.pytorch.helpers.amp.TensorOrIterableTensors">TensorOrIterableTensors (in module flame.pytorch.helpers.amp)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/trainer/index.html#flame.pytorch.trainer.BaseTrainer.test">test() (flame.pytorch.trainer.BaseTrainer method)</a>
+      <li><a href="autoapi/flame/oneflow/trainer/index.html#flame.oneflow.trainer.BaseTrainer.test">test() (flame.oneflow.trainer.BaseTrainer method)</a>
 
       <ul>
+        <li><a href="autoapi/flame/oneflow/trainer/trainer/index.html#flame.oneflow.trainer.trainer.BaseTrainer.test">(flame.oneflow.trainer.trainer.BaseTrainer method)</a>
+</li>
+        <li><a href="autoapi/flame/pytorch/trainer/index.html#flame.pytorch.trainer.BaseTrainer.test">(flame.pytorch.trainer.BaseTrainer method)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/trainer/trainer/index.html#flame.pytorch.trainer.trainer.BaseTrainer.test">(flame.pytorch.trainer.trainer.BaseTrainer method)</a>
 </li>
       </ul></li>
       <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.EpochState.test_state">test_state (flame.pytorch.engine.EpochState attribute)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/trainer/index.html#flame.pytorch.trainer.BaseTrainer.to_device">to_device() (flame.pytorch.trainer.BaseTrainer method)</a>
+      <li><a href="autoapi/flame/oneflow/trainer/index.html#flame.oneflow.trainer.BaseTrainer.to_device">to_device() (flame.oneflow.trainer.BaseTrainer method)</a>
 
       <ul>
+        <li><a href="autoapi/flame/oneflow/trainer/trainer/index.html#flame.oneflow.trainer.trainer.BaseTrainer.to_device">(flame.oneflow.trainer.trainer.BaseTrainer method)</a>
+</li>
+        <li><a href="autoapi/flame/pytorch/trainer/index.html#flame.pytorch.trainer.BaseTrainer.to_device">(flame.pytorch.trainer.BaseTrainer method)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/trainer/trainer/index.html#flame.pytorch.trainer.trainer.BaseTrainer.to_device">(flame.pytorch.trainer.trainer.BaseTrainer method)</a>
 </li>
       </ul></li>
-      <li><a href="autoapi/flame/pytorch/trainer/state_manager/index.html#flame.pytorch.trainer.state_manager.Entry.to_state_dict">to_state_dict (flame.pytorch.trainer.state_manager.Entry attribute)</a>
-</li>
-      <li><a href="autoapi/flame/pytorch/meters/average_meter/index.html#flame.pytorch.meters.average_meter.LazyAverageMeterDict.to_str">to_str() (flame.pytorch.meters.average_meter.LazyAverageMeterDict method)</a>
+      <li><a href="autoapi/flame/oneflow/trainer/state_manager/index.html#flame.oneflow.trainer.state_manager.Entry.to_state_dict">to_state_dict (flame.oneflow.trainer.state_manager.Entry attribute)</a>
 
       <ul>
+        <li><a href="autoapi/flame/pytorch/trainer/state_manager/index.html#flame.pytorch.trainer.state_manager.Entry.to_state_dict">(flame.pytorch.trainer.state_manager.Entry attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="autoapi/flame/oneflow/meters/average_meter/index.html#flame.oneflow.meters.average_meter.LazyAverageMeterDict.to_str">to_str() (flame.oneflow.meters.average_meter.LazyAverageMeterDict method)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/meters/average_meter/index.html#flame.pytorch.meters.average_meter.LazyAverageMeterDict.to_str">(flame.pytorch.meters.average_meter.LazyAverageMeterDict method)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/meters/index.html#flame.pytorch.meters.LazyAverageMeterDict.to_str">(flame.pytorch.meters.LazyAverageMeterDict method)</a>
+</li>
+      </ul></li>
+      <li><a href="autoapi/flame/oneflow/trainer/state_manager/index.html#flame.oneflow.trainer.state_manager.Entry.to_training">to_training (flame.oneflow.trainer.state_manager.Entry attribute)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/trainer/state_manager/index.html#flame.pytorch.trainer.state_manager.Entry.to_training">(flame.pytorch.trainer.state_manager.Entry attribute)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/flame/pytorch/trainer/state_manager/index.html#flame.pytorch.trainer.state_manager.Entry.to_training">to_training (flame.pytorch.trainer.state_manager.Entry attribute)</a>
+      <li><a href="autoapi/flame/oneflow/metrics/functional/index.html#flame.oneflow.metrics.functional.topk_accuracy">topk_accuracy() (in module flame.oneflow.metrics.functional)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/metrics/functional/index.html#flame.pytorch.metrics.functional.topk_accuracy">(in module flame.pytorch.metrics.functional)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/metrics/functional/index.html#flame.pytorch.metrics.functional.topk_accuracy">topk_accuracy() (in module flame.pytorch.metrics.functional)</a>
-</li>
+      </ul></li>
       <li><a href="autoapi/flame/pytorch/metrics/index.html#flame.pytorch.metrics.TopkAccuracy">TopkAccuracy (class in flame.pytorch.metrics)</a>
 
       <ul>
         <li><a href="autoapi/flame/pytorch/metrics/topk_accuracy/index.html#flame.pytorch.metrics.topk_accuracy.TopkAccuracy">(class in flame.pytorch.metrics.topk_accuracy)</a>
 </li>
       </ul></li>
-      <li><a href="autoapi/flame/pytorch/trainer/state_manager/index.html#flame.pytorch.trainer.state_manager.ToStateDict">ToStateDict (in module flame.pytorch.trainer.state_manager)</a>
+      <li><a href="autoapi/flame/oneflow/trainer/state_manager/index.html#flame.oneflow.trainer.state_manager.ToStateDict">ToStateDict (in module flame.oneflow.trainer.state_manager)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/trainer/state_manager/index.html#flame.pytorch.trainer.state_manager.ToStateDict">(in module flame.pytorch.trainer.state_manager)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/trainer/state_manager/index.html#flame.pytorch.trainer.state_manager.ToTraining">ToTraining (in module flame.pytorch.trainer.state_manager)</a>
+      </ul></li>
+      <li><a href="autoapi/flame/oneflow/trainer/state_manager/index.html#flame.oneflow.trainer.state_manager.ToTraining">ToTraining (in module flame.oneflow.trainer.state_manager)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/trainer/state_manager/index.html#flame.pytorch.trainer.state_manager.ToTraining">(in module flame.pytorch.trainer.state_manager)</a>
 </li>
+      </ul></li>
       <li><a href="autoapi/flame/core/helpers/tqdm/index.html#flame.core.helpers.tqdm.tqdm_get_rate">tqdm_get_rate() (in module flame.core.helpers.tqdm)</a>
 </li>
       <li><a href="autoapi/flame/core/helpers/tqdm/index.html#flame.core.helpers.tqdm.tqdm_get_total_time">tqdm_get_total_time() (in module flame.core.helpers.tqdm)</a>
@@ -1792,9 +2280,17 @@
 </li>
       <li><a href="autoapi/flame/core/meters/tqdm_meter/index.html#flame.core.meters.tqdm_meter.TqdmMeter">TqdmMeter (class in flame.core.meters.tqdm_meter)</a>
 </li>
-      <li><a href="autoapi/flame/pytorch/trainer/index.html#flame.pytorch.trainer.BaseTrainer.train">train() (flame.pytorch.trainer.BaseTrainer method)</a>
+      <li><a href="autoapi/flame/oneflow/trainer/index.html#flame.oneflow.trainer.BaseTrainer.train">train() (flame.oneflow.trainer.BaseTrainer method)</a>
 
       <ul>
+        <li><a href="autoapi/flame/oneflow/trainer/state/index.html#flame.oneflow.trainer.state.State.train">(flame.oneflow.trainer.state.State method)</a>
+</li>
+        <li><a href="autoapi/flame/oneflow/trainer/state_manager/index.html#flame.oneflow.trainer.state_manager.StateManager.train">(flame.oneflow.trainer.state_manager.StateManager method)</a>
+</li>
+        <li><a href="autoapi/flame/oneflow/trainer/trainer/index.html#flame.oneflow.trainer.trainer.BaseTrainer.train">(flame.oneflow.trainer.trainer.BaseTrainer method)</a>
+</li>
+        <li><a href="autoapi/flame/pytorch/trainer/index.html#flame.pytorch.trainer.BaseTrainer.train">(flame.pytorch.trainer.BaseTrainer method)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/trainer/state/index.html#flame.pytorch.trainer.state.State.train">(flame.pytorch.trainer.state.State method)</a>
 </li>
         <li><a href="autoapi/flame/pytorch/trainer/state_manager/index.html#flame.pytorch.trainer.state_manager.StateManager.train">(flame.pytorch.trainer.state_manager.StateManager method)</a>
@@ -1804,9 +2300,15 @@
       </ul></li>
       <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.EpochState.train_state">train_state (flame.pytorch.engine.EpochState attribute)</a>
 </li>
+      <li><a href="autoapi/flame/oneflow/dist_run/index.html#flame.oneflow.dist_run.Args.training_script">training_script (flame.oneflow.dist_run.Args attribute)</a>
+</li>
+      <li><a href="autoapi/flame/oneflow/dist_run/index.html#flame.oneflow.dist_run.Args.training_script_args">training_script_args (flame.oneflow.dist_run.Args attribute)</a>
+</li>
       <li><a href="autoapi/flame/pytorch/arguments/index.html#flame.pytorch.arguments.BaseArgs.try_cuda_set_device">try_cuda_set_device() (flame.pytorch.arguments.BaseArgs method)</a>
 </li>
       <li><a href="autoapi/flame/core/arguments/index.html#flame.core.arguments.BaseArgs.try_make_experiment_dir">try_make_experiment_dir() (flame.core.arguments.BaseArgs method)</a>
+</li>
+      <li><a href="autoapi/flame/core/jsonnet/index.html#flame.core.jsonnet.try_path">try_path() (in module flame.core.jsonnet)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -1823,6 +2325,8 @@
       <ul>
         <li><a href="autoapi/flame/core/meters/tqdm_meter/index.html#flame.core.meters.tqdm_meter.TqdmMeter.update">(flame.core.meters.tqdm_meter.TqdmMeter method)</a>
 </li>
+        <li><a href="autoapi/flame/oneflow/meters/average_meter/index.html#flame.oneflow.meters.average_meter.AverageMeter.update">(flame.oneflow.meters.average_meter.AverageMeter method)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/helpers/amp/index.html#flame.pytorch.helpers.amp.Amp.update">(flame.pytorch.helpers.amp.Amp method)</a>
 </li>
         <li><a href="autoapi/flame/pytorch/meters/average_meter/index.html#flame.pytorch.meters.average_meter.AverageMeter.update">(flame.pytorch.meters.average_meter.AverageMeter method)</a>
@@ -1836,21 +2340,29 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/flame/pytorch/trainer/progress_meter/index.html#flame.pytorch.trainer.progress_meter.ProgressMeter.update_batch_size">update_batch_size() (flame.pytorch.trainer.progress_meter.ProgressMeter method)</a>
+      <li><a href="autoapi/flame/oneflow/trainer/progress_meter/index.html#flame.oneflow.trainer.progress_meter.ProgressMeter.update_batch_size">update_batch_size() (flame.oneflow.trainer.progress_meter.ProgressMeter method)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/trainer/progress_meter/index.html#flame.pytorch.trainer.progress_meter.ProgressMeter.update_batch_size">(flame.pytorch.trainer.progress_meter.ProgressMeter method)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="V">V</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="autoapi/flame/oneflow/meters/average_meter/index.html#flame.oneflow.meters.average_meter.AverageMeter.val">val (flame.oneflow.meters.average_meter.AverageMeter attribute)</a>
+</li>
       <li><a href="autoapi/flame/pytorch/engine/index.html#flame.pytorch.engine.EpochState.val_state">val_state (flame.pytorch.engine.EpochState attribute)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/flame/pytorch/trainer/index.html#flame.pytorch.trainer.BaseTrainer.validate">validate() (flame.pytorch.trainer.BaseTrainer method)</a>
+      <li><a href="autoapi/flame/oneflow/trainer/index.html#flame.oneflow.trainer.BaseTrainer.validate">validate() (flame.oneflow.trainer.BaseTrainer method)</a>
 
       <ul>
+        <li><a href="autoapi/flame/oneflow/trainer/trainer/index.html#flame.oneflow.trainer.trainer.BaseTrainer.validate">(flame.oneflow.trainer.trainer.BaseTrainer method)</a>
+</li>
+        <li><a href="autoapi/flame/pytorch/trainer/index.html#flame.pytorch.trainer.BaseTrainer.validate">(flame.pytorch.trainer.BaseTrainer method)</a>
+</li>
         <li><a href="autoapi/flame/pytorch/trainer/trainer/index.html#flame.pytorch.trainer.trainer.BaseTrainer.validate">(flame.pytorch.trainer.trainer.BaseTrainer method)</a>
 </li>
       </ul></li>
@@ -1860,12 +2372,20 @@
 <h2 id="W">W</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/flame/pytorch/arguments/index.html#flame.pytorch.arguments.BaseArgs.world_size">world_size (flame.pytorch.arguments.BaseArgs attribute)</a>
+      <li><a href="autoapi/flame/oneflow/dist_run/index.html#flame.oneflow.dist_run.Args.world_size">world_size (flame.oneflow.dist_run.Args attribute)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/arguments/index.html#flame.pytorch.arguments.BaseArgs.world_size">(flame.pytorch.arguments.BaseArgs attribute)</a>
 </li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="autoapi/flame/pytorch/trainer/progress_meter/index.html#flame.pytorch.trainer.progress_meter.ProgressMeter.write_summary">write_summary() (flame.pytorch.trainer.progress_meter.ProgressMeter method)</a>
+      <li><a href="autoapi/flame/oneflow/trainer/progress_meter/index.html#flame.oneflow.trainer.progress_meter.ProgressMeter.write_summary">write_summary() (flame.oneflow.trainer.progress_meter.ProgressMeter method)</a>
+
+      <ul>
+        <li><a href="autoapi/flame/pytorch/trainer/progress_meter/index.html#flame.pytorch.trainer.progress_meter.ProgressMeter.write_summary">(flame.pytorch.trainer.progress_meter.ProgressMeter method)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -1882,27 +2402,33 @@
               </div>
               
               
-              <div class='prev-next-bottom'>
-                
-
-              </div>
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
               
           </main>
           
 
       </div>
     </div>
-
-    
-  <script src="_static/js/index.1e043a052b0af929e4d8.js"></script>
-
-
-    <footer class="footer mt-5 mt-md-0">
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
   <div class="container">
-    <p>
-          &copy; Copyright 2021, SunDoge.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.4.<br/>
-    </p>
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, SunDoge.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+    </div>
+    
   </div>
 </footer>
   </body>

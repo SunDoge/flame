@@ -1,0 +1,76 @@
+:py:mod:`flame.oneflow.trainer`
+===============================
+
+.. py:module:: flame.oneflow.trainer
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   progress_meter/index.rst
+   state/index.rst
+   state_manager/index.rst
+   trainer/index.rst
+
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.oneflow.trainer.BaseTrainer
+
+
+
+
+.. py:class:: BaseTrainer(args)
+
+   .. py:attribute:: T
+      
+
+      
+
+   .. py:method:: to_device(self, x)
+
+
+   .. py:method:: run(self, max_epochs)
+
+
+   .. py:method:: train(self, loader, prefix = 'train')
+
+
+   .. py:method:: validate(self, loader, prefix = 'val')
+
+
+   .. py:method:: test(self, loader, prefix = 'test')
+
+
+   .. py:method:: _disable_tqdm(self)
+
+
+   .. py:method:: epoch_range(self, max_epochs)
+
+
+   .. py:method:: progress_meter(self, prefix)
+
+
+   .. py:method:: set_sampler_epoch(self, loader)
+
+
+   .. py:method:: name(self)
+      :property:
+
+
+   .. py:method:: module_name(self)
+      :property:
+
+      lib.xxx_trainer -> xxx_trainer
+
+
+

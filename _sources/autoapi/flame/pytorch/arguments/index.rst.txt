@@ -50,7 +50,7 @@ Attributes
       
 
    .. py:attribute:: dist_url
-      :annotation: :str
+      :annotation: :Optional[str]
 
       
 
@@ -63,6 +63,9 @@ Attributes
 
 
    .. py:method:: init_process_group_from_file(self, local_rank)
+
+
+   .. py:method:: init_process_group_from_tcp(self, local_rank)
 
 
    .. py:method:: try_cuda_set_device(self, local_rank)

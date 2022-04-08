@@ -1,0 +1,15 @@
+:py:mod:`flame.oneflow.metrics`
+===============================
+
+.. py:module:: flame.oneflow.metrics
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   functional/index.rst
+
+

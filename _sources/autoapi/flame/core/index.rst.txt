@@ -25,6 +25,7 @@ Submodules
    ckcfg/index.rst
    config/index.rst
    config_parser/index.rst
+   distributed_launcher/index.rst
    jsonnet/index.rst
    logging/index.rst
    main_fn/index.rst
