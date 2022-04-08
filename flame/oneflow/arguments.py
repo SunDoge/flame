@@ -24,3 +24,6 @@ class BaseArgs(Base):
         # else:
         #     return flow.device('cuda:{}'.format(self.device_id))
         return flow.device('cuda:{}'.format(LOCAL_RANK))
+
+    def is_cuda_available(self) -> bool:
+        return self.device_id > -1

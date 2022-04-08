@@ -5,14 +5,8 @@ import rjsonnet
 
 #  Returns content if worked, None if file not found, or throws an exception
 def try_path(dir: str, rel: str):
-    if not rel:
-        raise RuntimeError('Got invalid filename (empty string).')
-    if rel[0] == '/':
-        full_path = rel
-    else:
-        full_path = dir + '/' + rel
-    if full_path[-1] == '/':
-        raise RuntimeError('Attempted to import a directory')
+
+    full_path = os.path.join(dir, rel)
 
     if not os.path.isfile(full_path):
         return full_path, None
