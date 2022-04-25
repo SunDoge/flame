@@ -49,4 +49,7 @@ Attributes
       :property:
 
 
+   .. py:method:: is_cuda_available(self)
+
+
 
