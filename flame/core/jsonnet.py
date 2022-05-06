@@ -1,20 +1,40 @@
-import _jsonnet
+import os
+
+import rjsonnet
 
 
-def evaluate_file(filename: str, **kwargs) -> str:
+#  Returns content if worked, None if file not found, or throws an exception
+def try_path(dir: str, rel: str):
+
+    full_path = os.path.join(dir, rel)
+
+    if not os.path.isfile(full_path):
+        return full_path, None
+    with open(full_path) as f:
+        return full_path, f.read()
+
+
+def import_callback(dir: str, rel: str):
+    full_path, content = try_path(dir, rel)
+    if content:
+        return full_path, content
+    raise RuntimeError('File not found')
+
+
+def evaluate_file(filename: str, import_callback=import_callback, **kwargs) -> str:
     """eval file
 
     Args:
         filename: jsonnet file
     """
-    return _jsonnet.evaluate_file(filename, **kwargs)
+    return rjsonnet.evaluate_file(filename, import_callback=import_callback, **kwargs)
 
 
-def evaluate_snippet(filename: str, expr: str, **kwargs) -> str:
+def evaluate_snippet(filename: str, expr: str, import_callback=import_callback, **kwargs) -> str:
     """eval snippet
 
     Args:
         filename: fake name for snippet
         expr: the snippet
     """
-    return _jsonnet.evaluate_snippet(filename, expr, **kwargs)
+    return rjsonnet.evaluate_snippet(filename, expr, import_callback=import_callback, **kwargs)
