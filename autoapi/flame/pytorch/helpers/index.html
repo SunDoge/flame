@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>flame.pytorch.helpers &#8212; flame 0.0.1 documentation</title>
 <script>
@@ -33,13 +33,14 @@
     <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
     <script src="../../../../_static/jquery.js"></script>
     <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="flame.pytorch.helpers.amp" href="amp/index.html" />
     <link rel="prev" title="flame.pytorch" href="../index.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="docsearch:language" content="None">
+<meta name="docsearch:language" content="en">
   </head>
   
   
@@ -1127,9 +1128,9 @@
               <article class="bd-article" role="main">
                 
   <section id="module-flame.pytorch.helpers">
-<span id="flame-pytorch-helpers"></span><h1><a class="reference internal" href="#module-flame.pytorch.helpers" title="flame.pytorch.helpers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.helpers</span></code></a><a class="headerlink" href="#module-flame.pytorch.helpers" title="Permalink to this headline">#</a></h1>
+<span id="flame-pytorch-helpers"></span><h1><a class="reference internal" href="#module-flame.pytorch.helpers" title="flame.pytorch.helpers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.helpers</span></code></a><a class="headerlink" href="#module-flame.pytorch.helpers" title="Permalink to this heading">#</a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">#</a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="amp/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.helpers.amp</span></code></a></li>
@@ -1143,14 +1144,10 @@
 </div>
 </section>
 <section id="package-contents">
-<h2>Package Contents<a class="headerlink" href="#package-contents" title="Permalink to this headline">#</a></h2>
+<h2>Package Contents<a class="headerlink" href="#package-contents" title="Permalink to this heading">#</a></h2>
 <section id="functions">
-<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">#</a></h3>
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h3>
 <table class="autosummary longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.helpers.create_data_loader" title="flame.pytorch.helpers.create_data_loader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_data_loader</span></code></a>(dataset, batch_size = 1, shuffle = True, num_workers = 0, collate_fn=None, pin_memory = True, multiprocessing_context=None, persistent_workers = True, drop_last = False, worker_init_fn = None)</p></td>
 <td><p></p></td>
@@ -1179,7 +1176,7 @@
 <dt class="sig sig-object py" id="flame.pytorch.helpers.create_data_loader">
 <span class="sig-prename descclassname"><span class="pre">flame.pytorch.helpers.</span></span><span class="sig-name descname"><span class="pre">create_data_loader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shuffle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collate_fn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pin_memory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multiprocessing_context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">persistent_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drop_last</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">worker_init_fn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.helpers.create_data_loader" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>dataset</strong> (<em>torch.utils.data.Dataset</em>) – </p></li>
 <li><p><strong>batch_size</strong> (<em>int</em>) – </p></li>
@@ -1191,7 +1188,7 @@
 <li><p><strong>worker_init_fn</strong> (<em>Optional</em><em>[</em><em>Callable</em><em>[</em><em>[</em><em>int</em><em>]</em><em>, </em><em>None</em><em>]</em><em>]</em>) – </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>torch.utils.data.DataLoader</p>
 </dd>
 </dl>
@@ -1201,7 +1198,7 @@
 <dt class="sig sig-object py" id="flame.pytorch.helpers.create_ddp_model">
 <span class="sig-prename descclassname"><span class="pre">flame.pytorch.helpers.</span></span><span class="sig-name descname"><span class="pre">create_ddp_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_sync_bn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">find_unused_parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">static_graph</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.helpers.create_ddp_model" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>base_model</strong> (<em>torch.nn.Module</em>) – </p></li>
 <li><p><strong>device</strong> (<em>torch.device</em>) – </p></li>
@@ -1210,7 +1207,7 @@
 <li><p><strong>static_graph</strong> (<em>bool</em>) – </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>torch.nn.Module</p>
 </dd>
 </dl>
@@ -1225,7 +1222,7 @@
 <dt class="sig sig-object py" id="flame.pytorch.helpers.scale_lr_linearly">
 <span class="sig-prename descclassname"><span class="pre">flame.pytorch.helpers.</span></span><span class="sig-name descname"><span class="pre">scale_lr_linearly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_lr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">world_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.helpers.scale_lr_linearly" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>base_lr</strong> (<em>float</em>) – </p></li>
 <li><p><strong>batch_size</strong> (<em>int</em>) – </p></li>
@@ -1233,7 +1230,7 @@
 <li><p><strong>base_batch_size</strong> (<em>int</em>) – </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>float</p>
 </dd>
 </dl>
@@ -1243,10 +1240,10 @@
 <dt class="sig sig-object py" id="flame.pytorch.helpers.num_valid_samples_from_data_loader">
 <span class="sig-prename descclassname"><span class="pre">flame.pytorch.helpers.</span></span><span class="sig-name descname"><span class="pre">num_valid_samples_from_data_loader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loader</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.helpers.num_valid_samples_from_data_loader" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>loader</strong> (<em>torch.utils.data.dataloader.DataLoader</em>) – </p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>int</p>
 </dd>
 </dl>
@@ -1256,7 +1253,7 @@
 <dt class="sig sig-object py" id="flame.pytorch.helpers.save_checkpoint">
 <span class="sig-prename descclassname"><span class="pre">flame.pytorch.helpers.</span></span><span class="sig-name descname"><span class="pre">save_checkpoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_best</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'checkpoint.pth.tar'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.helpers.save_checkpoint" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>state</strong> (<em>dict</em>) – </p></li>
 <li><p><strong>experiment_dir</strong> (<em>pathlib.Path</em>) – </p></li>
@@ -1277,10 +1274,10 @@
 </pre></div>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>func</strong> (<em>T</em>) – function or lambda</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>T</p>
 </dd>
 </dl>
@@ -1335,7 +1332,7 @@
   
   <div class="footer-item">
     <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
 </p>
   </div>
   

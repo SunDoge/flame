@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>flame.pytorch.helpers.checkpoint_saver &#8212; flame 0.0.1 documentation</title>
 <script>
@@ -33,13 +33,14 @@
     <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
     <script src="../../../../../_static/jquery.js"></script>
     <script src="../../../../../_static/underscore.js"></script>
+    <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
     <link rel="next" title="flame.pytorch.helpers.cudnn" href="../cudnn/index.html" />
     <link rel="prev" title="flame.pytorch.helpers.amp" href="../amp/index.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="docsearch:language" content="None">
+<meta name="docsearch:language" content="en">
   </head>
   
   
@@ -1107,16 +1108,12 @@
               <article class="bd-article" role="main">
                 
   <section id="module-flame.pytorch.helpers.checkpoint_saver">
-<span id="flame-pytorch-helpers-checkpoint-saver"></span><h1><a class="reference internal" href="#module-flame.pytorch.helpers.checkpoint_saver" title="flame.pytorch.helpers.checkpoint_saver"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.helpers.checkpoint_saver</span></code></a><a class="headerlink" href="#module-flame.pytorch.helpers.checkpoint_saver" title="Permalink to this headline">#</a></h1>
+<span id="flame-pytorch-helpers-checkpoint-saver"></span><h1><a class="reference internal" href="#module-flame.pytorch.helpers.checkpoint_saver" title="flame.pytorch.helpers.checkpoint_saver"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.helpers.checkpoint_saver</span></code></a><a class="headerlink" href="#module-flame.pytorch.helpers.checkpoint_saver" title="Permalink to this heading">#</a></h1>
 <section id="module-contents">
-<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">#</a></h2>
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading">#</a></h2>
 <section id="functions">
-<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">#</a></h3>
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h3>
 <table class="autosummary longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.helpers.checkpoint_saver.safe_delete" title="flame.pytorch.helpers.checkpoint_saver.safe_delete"><code class="xref py py-obj docutils literal notranslate"><span class="pre">safe_delete</span></code></a>(file_path)</p></td>
 <td><p></p></td>
@@ -1128,12 +1125,8 @@
 </table>
 </section>
 <section id="attributes">
-<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">#</a></h3>
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading">#</a></h3>
 <table class="autosummary longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.helpers.checkpoint_saver._logger" title="flame.pytorch.helpers.checkpoint_saver._logger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_logger</span></code></a></p></td>
 <td><p></p></td>
@@ -1149,7 +1142,7 @@
 <dt class="sig sig-object py" id="flame.pytorch.helpers.checkpoint_saver.safe_delete">
 <span class="sig-prename descclassname"><span class="pre">flame.pytorch.helpers.checkpoint_saver.</span></span><span class="sig-name descname"><span class="pre">safe_delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.helpers.checkpoint_saver.safe_delete" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>file_path</strong> (<em>pathlib.Path</em>) – </p>
 </dd>
 </dl>
@@ -1159,7 +1152,7 @@
 <dt class="sig sig-object py" id="flame.pytorch.helpers.checkpoint_saver.save_checkpoint">
 <span class="sig-prename descclassname"><span class="pre">flame.pytorch.helpers.checkpoint_saver.</span></span><span class="sig-name descname"><span class="pre">save_checkpoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_best</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'checkpoint.pth.tar'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.helpers.checkpoint_saver.save_checkpoint" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>state</strong> (<em>dict</em>) – </p></li>
 <li><p><strong>experiment_dir</strong> (<em>pathlib.Path</em>) – </p></li>
@@ -1218,7 +1211,7 @@
   
   <div class="footer-item">
     <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
 </p>
   </div>
   

@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>flame.pytorch.trainer.trainer &#8212; flame 0.0.1 documentation</title>
 <script>
@@ -33,13 +33,14 @@
     <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
     <script src="../../../../../_static/jquery.js"></script>
     <script src="../../../../../_static/underscore.js"></script>
+    <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
     <link rel="next" title="flame.pytorch.utils" href="../../utils/index.html" />
     <link rel="prev" title="flame.pytorch.trainer.state_manager" href="../state_manager/index.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="docsearch:language" content="None">
+<meta name="docsearch:language" content="en">
   </head>
   
   
@@ -1179,16 +1180,12 @@
               <article class="bd-article" role="main">
                 
   <section id="module-flame.pytorch.trainer.trainer">
-<span id="flame-pytorch-trainer-trainer"></span><h1><a class="reference internal" href="#module-flame.pytorch.trainer.trainer" title="flame.pytorch.trainer.trainer"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.trainer.trainer</span></code></a><a class="headerlink" href="#module-flame.pytorch.trainer.trainer" title="Permalink to this headline">#</a></h1>
+<span id="flame-pytorch-trainer-trainer"></span><h1><a class="reference internal" href="#module-flame.pytorch.trainer.trainer" title="flame.pytorch.trainer.trainer"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.trainer.trainer</span></code></a><a class="headerlink" href="#module-flame.pytorch.trainer.trainer" title="Permalink to this heading">#</a></h1>
 <section id="module-contents">
-<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">#</a></h2>
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading">#</a></h2>
 <section id="classes">
-<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">#</a></h3>
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">#</a></h3>
 <table class="autosummary longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.trainer.trainer.BaseTrainer" title="flame.pytorch.trainer.trainer.BaseTrainer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseTrainer</span></code></a></p></td>
 <td><p></p></td>
@@ -1197,12 +1194,8 @@
 </table>
 </section>
 <section id="functions">
-<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">#</a></h3>
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h3>
 <table class="autosummary longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.trainer.trainer._to_device" title="flame.pytorch.trainer.trainer._to_device"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_to_device</span></code></a>(x, device, non_blocking = True)</p></td>
 <td><p></p></td>
@@ -1211,12 +1204,8 @@
 </table>
 </section>
 <section id="attributes">
-<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">#</a></h3>
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading">#</a></h3>
 <table class="autosummary longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.trainer.trainer._logger" title="flame.pytorch.trainer.trainer._logger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_logger</span></code></a></p></td>
 <td><p></p></td>
@@ -1235,7 +1224,7 @@
 <dt class="sig sig-object py" id="flame.pytorch.trainer.trainer.BaseTrainer">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flame.pytorch.trainer.trainer.</span></span><span class="sig-name descname"><span class="pre">BaseTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.trainer.trainer.BaseTrainer" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>args</strong> (<a class="reference internal" href="../../arguments/index.html#flame.pytorch.arguments.BaseArgs" title="flame.pytorch.arguments.BaseArgs"><em>flame.pytorch.arguments.BaseArgs</em></a>) – </p>
 </dd>
 </dl>
@@ -1248,13 +1237,13 @@
 <dt class="sig sig-object py" id="flame.pytorch.trainer.trainer.BaseTrainer.to_device">
 <span class="sig-name descname"><span class="pre">to_device</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">non_blocking</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.trainer.trainer.BaseTrainer.to_device" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>x</strong> (<em>T</em>) – </p></li>
 <li><p><strong>non_blocking</strong> (<em>bool</em>) – </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>T</p>
 </dd>
 </dl>
@@ -1264,7 +1253,7 @@
 <dt class="sig sig-object py" id="flame.pytorch.trainer.trainer.BaseTrainer.run">
 <span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_epochs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.trainer.trainer.BaseTrainer.run" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>max_epochs</strong> (<em>int</em>) – </p>
 </dd>
 </dl>
@@ -1274,7 +1263,7 @@
 <dt class="sig sig-object py" id="flame.pytorch.trainer.trainer.BaseTrainer.train">
 <span class="sig-name descname"><span class="pre">train</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loader</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'train'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.trainer.trainer.BaseTrainer.train" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>prefix</strong> (<em>str</em>) – </p>
 </dd>
 </dl>
@@ -1284,7 +1273,7 @@
 <dt class="sig sig-object py" id="flame.pytorch.trainer.trainer.BaseTrainer.validate">
 <span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loader</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'val'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.trainer.trainer.BaseTrainer.validate" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>prefix</strong> (<em>str</em>) – </p>
 </dd>
 </dl>
@@ -1294,7 +1283,7 @@
 <dt class="sig sig-object py" id="flame.pytorch.trainer.trainer.BaseTrainer.test">
 <span class="sig-name descname"><span class="pre">test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loader</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'test'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.trainer.trainer.BaseTrainer.test" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>prefix</strong> (<em>str</em>) – </p>
 </dd>
 </dl>
@@ -1304,7 +1293,7 @@
 <dt class="sig sig-object py" id="flame.pytorch.trainer.trainer.BaseTrainer._disable_tqdm">
 <span class="sig-name descname"><span class="pre">_disable_tqdm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.trainer.trainer.BaseTrainer._disable_tqdm" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>
 </dd>
 </dl>
@@ -1314,7 +1303,7 @@
 <dt class="sig sig-object py" id="flame.pytorch.trainer.trainer.BaseTrainer.epoch_range">
 <span class="sig-name descname"><span class="pre">epoch_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_epochs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.trainer.trainer.BaseTrainer.epoch_range" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>max_epochs</strong> (<em>int</em>) – </p>
 </dd>
 </dl>
@@ -1324,10 +1313,10 @@
 <dt class="sig sig-object py" id="flame.pytorch.trainer.trainer.BaseTrainer.progress_meter">
 <span class="sig-name descname"><span class="pre">progress_meter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.trainer.trainer.BaseTrainer.progress_meter" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>prefix</strong> (<em>str</em>) – </p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><a class="reference internal" href="../progress_meter/index.html#flame.pytorch.trainer.progress_meter.ProgressMeter" title="flame.pytorch.trainer.progress_meter.ProgressMeter">flame.pytorch.trainer.progress_meter.ProgressMeter</a></p>
 </dd>
 </dl>
@@ -1337,7 +1326,7 @@
 <dt class="sig sig-object py" id="flame.pytorch.trainer.trainer.BaseTrainer.set_sampler_epoch">
 <span class="sig-name descname"><span class="pre">set_sampler_epoch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loader</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.trainer.trainer.BaseTrainer.set_sampler_epoch" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>loader</strong> (<em>torch.utils.data.dataloader.DataLoader</em>) – </p>
 </dd>
 </dl>
@@ -1347,7 +1336,7 @@
 <dt class="sig sig-object py" id="flame.pytorch.trainer.trainer.BaseTrainer.name">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.trainer.trainer.BaseTrainer.name" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
@@ -1358,7 +1347,7 @@
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">module_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.trainer.trainer.BaseTrainer.module_name" title="Permalink to this definition">#</a></dt>
 <dd><p>lib.xxx_trainer -&gt; xxx_trainer</p>
 <dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
@@ -1375,14 +1364,14 @@
 <dt class="sig sig-object py" id="flame.pytorch.trainer.trainer._to_device">
 <span class="sig-prename descclassname"><span class="pre">flame.pytorch.trainer.trainer.</span></span><span class="sig-name descname"><span class="pre">_to_device</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">non_blocking</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.trainer.trainer._to_device" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>x</strong> (<em>T</em>) – </p></li>
 <li><p><strong>device</strong> (<em>torch.device</em>) – </p></li>
 <li><p><strong>non_blocking</strong> (<em>bool</em>) – </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>T</p>
 </dd>
 </dl>
@@ -1437,7 +1426,7 @@
   
   <div class="footer-item">
     <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
 </p>
   </div>
   

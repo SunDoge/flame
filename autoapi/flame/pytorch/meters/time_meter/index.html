@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>flame.pytorch.meters.time_meter &#8212; flame 0.0.1 documentation</title>
 <script>
@@ -33,13 +33,14 @@
     <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
     <script src="../../../../../_static/jquery.js"></script>
     <script src="../../../../../_static/underscore.js"></script>
+    <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
     <link rel="next" title="flame.pytorch.metrics" href="../../metrics/index.html" />
     <link rel="prev" title="flame.pytorch.meters.smoothed_value" href="../smoothed_value/index.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="docsearch:language" content="None">
+<meta name="docsearch:language" content="en">
   </head>
   
   
@@ -1159,16 +1160,12 @@
               <article class="bd-article" role="main">
                 
   <section id="module-flame.pytorch.meters.time_meter">
-<span id="flame-pytorch-meters-time-meter"></span><h1><a class="reference internal" href="#module-flame.pytorch.meters.time_meter" title="flame.pytorch.meters.time_meter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.meters.time_meter</span></code></a><a class="headerlink" href="#module-flame.pytorch.meters.time_meter" title="Permalink to this headline">#</a></h1>
+<span id="flame-pytorch-meters-time-meter"></span><h1><a class="reference internal" href="#module-flame.pytorch.meters.time_meter" title="flame.pytorch.meters.time_meter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.meters.time_meter</span></code></a><a class="headerlink" href="#module-flame.pytorch.meters.time_meter" title="Permalink to this heading">#</a></h1>
 <section id="module-contents">
-<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">#</a></h2>
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading">#</a></h2>
 <section id="classes">
-<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">#</a></h3>
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">#</a></h3>
 <table class="autosummary longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.meters.time_meter.EstimatedTimeOfArrival" title="flame.pytorch.meters.time_meter.EstimatedTimeOfArrival"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EstimatedTimeOfArrival</span></code></a></p></td>
 <td><p>不需要了，定义在reset里面就可以了，vscode可以提示</p></td>
@@ -1177,12 +1174,8 @@
 </table>
 </section>
 <section id="attributes">
-<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">#</a></h3>
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading">#</a></h3>
 <table class="autosummary longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.meters.time_meter.eta" title="flame.pytorch.meters.time_meter.eta"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eta</span></code></a></p></td>
 <td><p></p></td>
@@ -1195,7 +1188,7 @@
 <dd><p>Bases: <a class="reference internal" href="../base_meter/index.html#flame.pytorch.meters.base_meter.Meter" title="flame.pytorch.meters.base_meter.Meter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">flame.pytorch.meters.base_meter.Meter</span></code></a></p>
 <p>不需要了，定义在reset里面就可以了，vscode可以提示</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>total</strong> (<em>int</em>) – </p></li>
 <li><p><strong>initial</strong> (<em>int</em>) – </p></li>
@@ -1206,7 +1199,7 @@
 <dt class="sig sig-object py" id="flame.pytorch.meters.time_meter.EstimatedTimeOfArrival.update">
 <span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.time_meter.EstimatedTimeOfArrival.update" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>n</strong> (<em>int</em>) – </p>
 </dd>
 </dl>
@@ -1216,7 +1209,7 @@
 <dt class="sig sig-object py" id="flame.pytorch.meters.time_meter.EstimatedTimeOfArrival.remaining_seconds">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">remaining_seconds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.time_meter.EstimatedTimeOfArrival.remaining_seconds" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
 </dd>
 </dl>
@@ -1226,7 +1219,7 @@
 <dt class="sig sig-object py" id="flame.pytorch.meters.time_meter.EstimatedTimeOfArrival.remaining_time">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">remaining_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.time_meter.EstimatedTimeOfArrival.remaining_time" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>datetime.timedelta</p>
 </dd>
 </dl>
@@ -1236,7 +1229,7 @@
 <dt class="sig sig-object py" id="flame.pytorch.meters.time_meter.EstimatedTimeOfArrival.arrival_time">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">arrival_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.time_meter.EstimatedTimeOfArrival.arrival_time" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>datetime.datetime</p>
 </dd>
 </dl>
@@ -1246,7 +1239,7 @@
 <dt class="sig sig-object py" id="flame.pytorch.meters.time_meter.EstimatedTimeOfArrival.elapsed_seconds">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">elapsed_seconds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.time_meter.EstimatedTimeOfArrival.elapsed_seconds" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
 </dd>
 </dl>
@@ -1256,7 +1249,7 @@
 <dt class="sig sig-object py" id="flame.pytorch.meters.time_meter.EstimatedTimeOfArrival.elapsed_time">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">elapsed_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.time_meter.EstimatedTimeOfArrival.elapsed_time" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>datetime.timedelta</p>
 </dd>
 </dl>
@@ -1266,7 +1259,7 @@
 <dt class="sig sig-object py" id="flame.pytorch.meters.time_meter.EstimatedTimeOfArrival.remaining">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">remaining</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.time_meter.EstimatedTimeOfArrival.remaining" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int</p>
 </dd>
 </dl>
@@ -1276,7 +1269,7 @@
 <dt class="sig sig-object py" id="flame.pytorch.meters.time_meter.EstimatedTimeOfArrival.elapsed">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">elapsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.time_meter.EstimatedTimeOfArrival.elapsed" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int</p>
 </dd>
 </dl>
@@ -1286,7 +1279,7 @@
 <dt class="sig sig-object py" id="flame.pytorch.meters.time_meter.EstimatedTimeOfArrival.rate">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.time_meter.EstimatedTimeOfArrival.rate" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
 </dd>
 </dl>
@@ -1302,7 +1295,7 @@
 <span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.meters.time_meter.EstimatedTimeOfArrival.__str__" title="Permalink to this definition">#</a></dt>
 <dd><p>Return str(self).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
@@ -1364,7 +1357,7 @@
   
   <div class="footer-item">
     <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
 </p>
   </div>
   

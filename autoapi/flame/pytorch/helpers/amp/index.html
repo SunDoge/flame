@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>flame.pytorch.helpers.amp &#8212; flame 0.0.1 documentation</title>
 <script>
@@ -33,13 +33,14 @@
     <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
     <script src="../../../../../_static/jquery.js"></script>
     <script src="../../../../../_static/underscore.js"></script>
+    <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
     <link rel="next" title="flame.pytorch.helpers.checkpoint_saver" href="../checkpoint_saver/index.html" />
     <link rel="prev" title="flame.pytorch.helpers" href="../index.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="docsearch:language" content="None">
+<meta name="docsearch:language" content="en">
   </head>
   
   
@@ -1159,16 +1160,12 @@
               <article class="bd-article" role="main">
                 
   <section id="module-flame.pytorch.helpers.amp">
-<span id="flame-pytorch-helpers-amp"></span><h1><a class="reference internal" href="#module-flame.pytorch.helpers.amp" title="flame.pytorch.helpers.amp"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.helpers.amp</span></code></a><a class="headerlink" href="#module-flame.pytorch.helpers.amp" title="Permalink to this headline">#</a></h1>
+<span id="flame-pytorch-helpers-amp"></span><h1><a class="reference internal" href="#module-flame.pytorch.helpers.amp" title="flame.pytorch.helpers.amp"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.helpers.amp</span></code></a><a class="headerlink" href="#module-flame.pytorch.helpers.amp" title="Permalink to this heading">#</a></h1>
 <section id="module-contents">
-<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">#</a></h2>
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading">#</a></h2>
 <section id="classes">
-<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">#</a></h3>
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">#</a></h3>
 <table class="autosummary longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.helpers.amp.Amp" title="flame.pytorch.helpers.amp.Amp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Amp</span></code></a></p></td>
 <td><p></p></td>
@@ -1177,12 +1174,8 @@
 </table>
 </section>
 <section id="attributes">
-<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">#</a></h3>
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading">#</a></h3>
 <table class="autosummary longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.helpers.amp._logger" title="flame.pytorch.helpers.amp._logger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_logger</span></code></a></p></td>
 <td><p></p></td>
@@ -1206,7 +1199,7 @@
 <dt class="sig sig-object py" id="flame.pytorch.helpers.amp.Amp">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flame.pytorch.helpers.amp.</span></span><span class="sig-name descname"><span class="pre">Amp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enabled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.helpers.amp.Amp" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>enabled</strong> (<em>bool</em>) – </p></li>
 <li><p><strong>max_norm</strong> (<em>Optional</em><em>[</em><em>float</em><em>]</em>) – </p></li>
@@ -1222,10 +1215,10 @@
 <dt class="sig sig-object py" id="flame.pytorch.helpers.amp.Amp.scale">
 <span class="sig-name descname"><span class="pre">scale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.helpers.amp.Amp.scale" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>outputs</strong> (<em>TensorOrIterableTensors</em>) – </p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>TensorOrIterableTensors</p>
 </dd>
 </dl>
@@ -1235,7 +1228,7 @@
 <dt class="sig sig-object py" id="flame.pytorch.helpers.amp.Amp.unscale_">
 <span class="sig-name descname"><span class="pre">unscale_</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.helpers.amp.Amp.unscale_" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>optimizer</strong> (<em>torch.optim.Optimizer</em>) – </p>
 </dd>
 </dl>
@@ -1245,7 +1238,7 @@
 <dt class="sig sig-object py" id="flame.pytorch.helpers.amp.Amp.step">
 <span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.helpers.amp.Amp.step" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>optimizer</strong> (<em>torch.optim.Optimizer</em>) – </p>
 </dd>
 </dl>
@@ -1255,7 +1248,7 @@
 <dt class="sig sig-object py" id="flame.pytorch.helpers.amp.Amp.update">
 <span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.helpers.amp.Amp.update" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>new_scale</strong> (<em>Union</em><em>[</em><em>float</em><em>, </em><em>torch.functional.Tensor</em><em>, </em><em>None</em><em>]</em>) – </p>
 </dd>
 </dl>
@@ -1265,7 +1258,7 @@
 <dt class="sig sig-object py" id="flame.pytorch.helpers.amp.Amp.clip_grad_norm_">
 <span class="sig-name descname"><span class="pre">clip_grad_norm_</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.helpers.amp.Amp.clip_grad_norm_" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>params</strong> (<em>TensorOrIterableTensors</em>) – </p>
 </dd>
 </dl>
@@ -1275,7 +1268,7 @@
 <dt class="sig sig-object py" id="flame.pytorch.helpers.amp.Amp.state_dict">
 <span class="sig-name descname"><span class="pre">state_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.helpers.amp.Amp.state_dict" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
@@ -1285,7 +1278,7 @@
 <dt class="sig sig-object py" id="flame.pytorch.helpers.amp.Amp.load_state_dict">
 <span class="sig-name descname"><span class="pre">load_state_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.helpers.amp.Amp.load_state_dict" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>state_dict</strong> (<em>dict</em>) – </p>
 </dd>
 </dl>
@@ -1295,7 +1288,7 @@
 <dt class="sig sig-object py" id="flame.pytorch.helpers.amp.Amp.__call__">
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zero_grad_set_to_none</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.helpers.amp.Amp.__call__" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>loss</strong> (<em>torch.functional.Tensor</em>) – </p></li>
 <li><p><strong>optimizer</strong> (<em>torch.optim.Optimizer</em>) – </p></li>
@@ -1310,7 +1303,7 @@
 <dt class="sig sig-object py" id="flame.pytorch.helpers.amp.Amp.backward">
 <span class="sig-name descname"><span class="pre">backward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.helpers.amp.Amp.backward" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>loss</strong> (<em>torch.functional.Tensor</em>) – </p></li>
 <li><p><strong>optimizer</strong> (<em>torch.optim.Optimizer</em>) – </p></li>
@@ -1371,7 +1364,7 @@
   
   <div class="footer-item">
     <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
 </p>
   </div>
   

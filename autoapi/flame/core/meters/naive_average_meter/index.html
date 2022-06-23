@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>flame.core.meters.naive_average_meter &#8212; flame 0.0.1 documentation</title>
 <script>
@@ -33,13 +33,14 @@
     <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
     <script src="../../../../../_static/jquery.js"></script>
     <script src="../../../../../_static/underscore.js"></script>
+    <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
     <link rel="next" title="flame.core.meters.tqdm_meter" href="../tqdm_meter/index.html" />
     <link rel="prev" title="flame.core.meters.base_meter" href="../base_meter/index.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="docsearch:language" content="None">
+<meta name="docsearch:language" content="en">
   </head>
   
   
@@ -1114,16 +1115,12 @@
               <article class="bd-article" role="main">
                 
   <section id="module-flame.core.meters.naive_average_meter">
-<span id="flame-core-meters-naive-average-meter"></span><h1><a class="reference internal" href="#module-flame.core.meters.naive_average_meter" title="flame.core.meters.naive_average_meter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.core.meters.naive_average_meter</span></code></a><a class="headerlink" href="#module-flame.core.meters.naive_average_meter" title="Permalink to this headline">#</a></h1>
+<span id="flame-core-meters-naive-average-meter"></span><h1><a class="reference internal" href="#module-flame.core.meters.naive_average_meter" title="flame.core.meters.naive_average_meter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.core.meters.naive_average_meter</span></code></a><a class="headerlink" href="#module-flame.core.meters.naive_average_meter" title="Permalink to this heading">#</a></h1>
 <section id="module-contents">
-<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">#</a></h2>
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading">#</a></h2>
 <section id="classes">
-<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">#</a></h3>
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">#</a></h3>
 <table class="autosummary longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame.core.meters.naive_average_meter.NaiveAverageMeter" title="flame.core.meters.naive_average_meter.NaiveAverageMeter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NaiveAverageMeter</span></code></a></p></td>
 <td><p></p></td>
@@ -1135,7 +1132,7 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flame.core.meters.naive_average_meter.</span></span><span class="sig-name descname"><span class="pre">NaiveAverageMeter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">':f'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.core.meters.naive_average_meter.NaiveAverageMeter" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="../base_meter/index.html#flame.core.meters.base_meter.BaseMeter" title="flame.core.meters.base_meter.BaseMeter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">flame.core.meters.base_meter.BaseMeter</span></code></a></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> (<em>str</em>) – </p></li>
 <li><p><strong>fmt</strong> (<em>str</em>) – </p></li>
@@ -1156,7 +1153,7 @@
 <dt class="sig sig-object py" id="flame.core.meters.naive_average_meter.NaiveAverageMeter.update">
 <span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.core.meters.naive_average_meter.NaiveAverageMeter.update" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>val</strong> (<em>float</em>) – </p></li>
 <li><p><strong>n</strong> (<em>int</em>) – </p></li>
@@ -1170,7 +1167,7 @@
 <span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.core.meters.naive_average_meter.NaiveAverageMeter.__str__" title="Permalink to this definition">#</a></dt>
 <dd><p>Return str(self).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
@@ -1227,7 +1224,7 @@
   
   <div class="footer-item">
     <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
 </p>
   </div>
   

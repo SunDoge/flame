@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>flame.core.config &#8212; flame 0.0.1 documentation</title>
 <script>
@@ -33,13 +33,14 @@
     <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
     <script src="../../../../_static/jquery.js"></script>
     <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="flame.core.config_parser" href="../config_parser/index.html" />
     <link rel="prev" title="flame.core.ckcfg" href="../ckcfg/index.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="docsearch:language" content="None">
+<meta name="docsearch:language" content="en">
   </head>
   
   
@@ -1127,17 +1128,13 @@
               <article class="bd-article" role="main">
                 
   <section id="module-flame.core.config">
-<span id="flame-core-config"></span><h1><a class="reference internal" href="#module-flame.core.config" title="flame.core.config"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.core.config</span></code></a><a class="headerlink" href="#module-flame.core.config" title="Permalink to this headline">#</a></h1>
+<span id="flame-core-config"></span><h1><a class="reference internal" href="#module-flame.core.config" title="flame.core.config"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.core.config</span></code></a><a class="headerlink" href="#module-flame.core.config" title="Permalink to this heading">#</a></h1>
 <p>暂时使用dict作为config</p>
 <section id="module-contents">
-<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">#</a></h2>
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading">#</a></h2>
 <section id="functions">
-<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">#</a></h3>
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h3>
 <table class="autosummary longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame.core.config.from_file" title="flame.core.config.from_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_file</span></code></a>(filename)</p></td>
 <td><p>读取jsonnet格式的config</p></td>
@@ -1158,12 +1155,8 @@
 </table>
 </section>
 <section id="attributes">
-<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">#</a></h3>
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading">#</a></h3>
 <table class="autosummary longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame.core.config._logger" title="flame.core.config._logger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_logger</span></code></a></p></td>
 <td><p></p></td>
@@ -1188,10 +1181,10 @@
 <span class="sig-prename descclassname"><span class="pre">flame.core.config.</span></span><span class="sig-name descname"><span class="pre">from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.core.config.from_file" title="Permalink to this definition">#</a></dt>
 <dd><p>读取jsonnet格式的config</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – </p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>dict</p>
 </dd>
 </dl>
@@ -1202,13 +1195,13 @@
 <span class="sig-prename descclassname"><span class="pre">flame.core.config.</span></span><span class="sig-name descname"><span class="pre">from_snippet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'snippet.jsonnet'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.core.config.from_snippet" title="Permalink to this definition">#</a></dt>
 <dd><p>helper function for evaluating snippet to python dict</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>expr</strong> (<em>str</em>) – jsonnet expression</p></li>
 <li><p><strong>filename</strong> (<em>str</em>) – fake file name for snippet</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>dict</p>
 </dd>
 </dl>
@@ -1219,7 +1212,7 @@
 <span class="sig-prename descclassname"><span class="pre">flame.core.config.</span></span><span class="sig-name descname"><span class="pre">dump_to_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.core.config.dump_to_json" title="Permalink to this definition">#</a></dt>
 <dd><p>保存config为json文件。jsonnet可以直接读取json文件。</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>cfg</strong> (<em>dict</em>) – </p></li>
 <li><p><strong>filename</strong> (<em>str</em>) – </p></li>
@@ -1232,14 +1225,14 @@
 <dt class="sig sig-object py" id="flame.core.config.merge_jsonnet">
 <span class="sig-prename descclassname"><span class="pre">flame.core.config.</span></span><span class="sig-name descname"><span class="pre">merge_jsonnet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">main_snippet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">added</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">patch_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.core.config.merge_jsonnet" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>main_snippet</strong> (<em>str</em>) – </p></li>
 <li><p><strong>added</strong> (<em>str</em>) – </p></li>
 <li><p><strong>patch_file</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>pathlib.Path</em><em>]</em>) – </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
 </dd>
 </dl>
@@ -1249,13 +1242,13 @@
 <dt class="sig sig-object py" id="flame.core.config.parse_config">
 <span class="sig-prename descclassname"><span class="pre">flame.core.config.</span></span><span class="sig-name descname"><span class="pre">parse_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">patches</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.core.config.parse_config" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>config_file</strong> (<em>str</em>) – </p></li>
 <li><p><strong>patches</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
 </dd>
 </dl>
@@ -1310,7 +1303,7 @@
   
   <div class="footer-item">
     <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
 </p>
   </div>
   
