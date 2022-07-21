@@ -1,4 +1,5 @@
 import logging
+from datetime import datetime
 from typing import TypeVar
 
 import torch
@@ -7,7 +8,7 @@ from torch.utils.data.dataloader import DataLoader
 from torch.utils.data.distributed import DistributedSampler
 from tqdm import tqdm
 
-from flame.core.helpers.tqdm import tqdm_get_total_time
+# from flame.core.helpers.tqdm import tqdm_get_total_time
 from flame.pytorch.arguments import BaseArgs
 from flame.pytorch.distributed import get_rank_safe
 from flame.pytorch.meters.average_meter import LazyAverageMeterDict
@@ -67,6 +68,8 @@ class BaseTrainer:
 
     def epoch_range(self, max_epochs: int):
 
+        start_time = datetime.now()
+
         with tqdm(
             desc='Epoch',
             total=max_epochs,
@@ -93,7 +96,9 @@ class BaseTrainer:
                 if self.debug:
                     break
 
-            _logger.info('Total time: %s', tqdm_get_total_time(pbar))
+            # _logger.info('Total time: %s', tqdm_get_total_time(pbar))
+        duration = datetime.now() - start_time
+        _logger.info('Total time: %s', duration)
 
     def progress_meter(self, prefix: str) -> ProgressMeter:
         return ProgressMeter(
