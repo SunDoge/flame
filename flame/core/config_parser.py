@@ -60,7 +60,12 @@ class ConfigParser:
         func = require(name)
 
         kwargs = {k: v for k, v in value.items() if k != KEY_CALL}
-        return func(**self._parse_dict(kwargs, root_config))
+
+        # TODO: raise better exception
+        try:
+            return func(**self._parse_dict(kwargs, root_config))
+        except Exception as e:
+            raise Exception(func, e)
 
     def _parse_function(self, value: dict, root_config: dict):
         name = value[KEY_USE]
@@ -68,6 +73,7 @@ class ConfigParser:
 
         kwargs = {k: v for k, v in value.items() if k != KEY_USE}
         if kwargs:
+            # TODO: raise exception
             return functools.partial(
                 func, **self._parse_dict(kwargs, root_config)
             )
