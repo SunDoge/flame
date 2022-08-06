@@ -51,6 +51,8 @@ class ProgressMeter:
         if not num_iters:
             num_iters = len(iterable)
 
+        self._state.epoch_length = num_iters
+
         self.sample_per_second_meter.reset()
         epoch = self._state.epoch
         prefix = self._prefix
