@@ -45,72 +45,72 @@ Attributes
 
 .. py:class:: AverageMeter(name, fmt = ':f', device = _DEFAULT_DEVICE)
 
-   .. py:method:: reset(self)
+   .. py:method:: reset()
 
 
-   .. py:method:: update(self, val, n = 1)
+   .. py:method:: update(val, n = 1)
 
 
-   .. py:method:: avg(self)
+   .. py:method:: avg()
       :property:
 
 
-   .. py:method:: __str__(self)
+   .. py:method:: __str__()
 
       Return str(self).
 
 
-   .. py:method:: sync(self)
+   .. py:method:: sync()
 
 
 
 .. py:class:: LazyAverageMeterDict(delimiter = '\t', device = _DEFAULT_DEVICE)
 
-   .. py:method:: sync(self, prefix = None)
+   .. py:method:: sync(prefix = None)
 
 
-   .. py:method:: reset(self, prefix = None)
+   .. py:method:: reset(prefix = None)
 
 
-   .. py:method:: save_history(self, epoch = None, prefix = None)
+   .. py:method:: save_history(epoch = None, prefix = None)
 
 
-   .. py:method:: named_meters(self, prefix = None)
+   .. py:method:: named_meters(prefix = None)
 
 
-   .. py:method:: record(self, epoch = None, prefix = None)
+   .. py:method:: record(epoch = None, prefix = None)
 
 
-   .. py:method:: get(self, name, key = None, fmt = ':f')
+   .. py:method:: get(name, key = None, fmt = ':f')
 
 
-   .. py:method:: state_dict(self)
+   .. py:method:: state_dict()
 
 
-   .. py:method:: load_state_dict(self, state_dict)
+   .. py:method:: load_state_dict(state_dict)
 
 
-   .. py:method:: max(self, key)
+   .. py:method:: max(key)
 
 
-   .. py:method:: min(self, key)
+   .. py:method:: min(key)
 
 
-   .. py:method:: last(self, key)
+   .. py:method:: last(key)
 
 
-   .. py:method:: is_highest(self, key)
+   .. py:method:: is_highest(key)
 
 
-   .. py:method:: is_lowest(self, key)
+   .. py:method:: is_lowest(key)
 
 
-   .. py:method:: __str__(self)
+   .. py:method:: __str__()
 
       Return str(self).
 
 
-   .. py:method:: to_str(self, prefix = None)
+   .. py:method:: to_str(prefix = None)
 
 
 

@@ -19,16 +19,16 @@ Classes
 
 .. py:class:: State
 
-   .. py:method:: state_dict(self)
+   .. py:method:: state_dict()
 
 
-   .. py:method:: load_state_dict(self, state_dict)
+   .. py:method:: load_state_dict(state_dict)
 
 
-   .. py:method:: train(self, mode = True)
+   .. py:method:: train(mode = True)
 
 
-   .. py:method:: eval(self)
+   .. py:method:: eval()
 
 
 

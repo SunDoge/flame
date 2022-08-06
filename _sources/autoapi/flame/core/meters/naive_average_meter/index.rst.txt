@@ -21,17 +21,17 @@ Classes
 
    Bases: :py:obj:`flame.core.meters.base_meter.BaseMeter`
 
-   .. py:method:: reset(self)
+   .. py:method:: reset()
 
 
-   .. py:method:: avg(self)
+   .. py:method:: avg()
       :property:
 
 
-   .. py:method:: update(self, val, n = 1)
+   .. py:method:: update(val, n = 1)
 
 
-   .. py:method:: __str__(self)
+   .. py:method:: __str__()
 
       Return str(self).
 

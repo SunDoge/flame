@@ -19,10 +19,10 @@ Classes
 
 .. py:class:: BaseMeter
 
-   .. py:method:: sync(self)
+   .. py:method:: sync()
 
 
-   .. py:method:: reset(self)
+   .. py:method:: reset()
 
 
 

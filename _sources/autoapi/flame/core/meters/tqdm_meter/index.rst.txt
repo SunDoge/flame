@@ -19,7 +19,7 @@ Classes
 
 .. py:class:: TqdmMeter(pbar)
 
-   .. py:method:: update(self, batch_size)
+   .. py:method:: update(batch_size)
 
 
 

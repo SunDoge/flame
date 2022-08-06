@@ -36,10 +36,10 @@ Attributes
 
 .. py:class:: FakeObject
 
-   .. py:method:: __getattr__(self, _name)
+   .. py:method:: __getattr__(_name)
 
 
-   .. py:method:: __bool__(self)
+   .. py:method:: __bool__()
 
 
 

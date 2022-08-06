@@ -76,28 +76,28 @@ Attributes
 
 .. py:class:: ConfigParser(**kwargs)
 
-   .. py:method:: parse_root_config(self, root_config)
+   .. py:method:: parse_root_config(root_config)
 
 
-   .. py:method:: parse(self, config)
+   .. py:method:: parse(config)
 
 
-   .. py:method:: dispatch(self, value, root_config)
+   .. py:method:: dispatch(value, root_config)
 
 
-   .. py:method:: _parse_list(self, value, root_config)
+   .. py:method:: _parse_list(value, root_config)
 
 
-   .. py:method:: _parse_dict(self, value, root_config)
+   .. py:method:: _parse_dict(value, root_config)
 
 
-   .. py:method:: _parse_object(self, value, root_config)
+   .. py:method:: _parse_object(value, root_config)
 
 
-   .. py:method:: _parse_function(self, value, root_config)
+   .. py:method:: _parse_function(value, root_config)
 
 
-   .. py:method:: _parse_str(self, value, root_config)
+   .. py:method:: _parse_str(value, root_config)
 
 
 

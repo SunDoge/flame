@@ -23,20 +23,20 @@ Classes
 
    An abstract base class for context managers.
 
-   .. py:method:: run(self, coro)
+   .. py:method:: run(coro)
 
 
-   .. py:method:: __enter__(self)
+   .. py:method:: __enter__()
 
       Return `self` upon entering the runtime context.
 
 
-   .. py:method:: __exit__(self, exc_type, exc_value, traceback)
+   .. py:method:: __exit__(exc_type, exc_value, traceback)
 
       Raise any exception triggered within the runtime context.
 
 
-   .. py:method:: empty_tasks(self)
+   .. py:method:: empty_tasks()
 
 
 

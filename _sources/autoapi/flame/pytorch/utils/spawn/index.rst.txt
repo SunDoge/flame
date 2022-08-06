@@ -28,10 +28,10 @@ Functions
 
 .. py:class:: ProcessContext(processes, error_queues)
 
-   .. py:method:: pids(self)
+   .. py:method:: pids()
 
 
-   .. py:method:: join(self, timeout=None)
+   .. py:method:: join(timeout=None)
 
       Tries to join one or more processes in this spawn context.
       If one of them exited with a non-zero exit status, this function

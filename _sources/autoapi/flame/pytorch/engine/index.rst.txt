@@ -35,13 +35,13 @@ Attributes
 
 .. py:class:: State
 
-   .. py:method:: state_dict(self)
+   .. py:method:: state_dict()
 
       将 State 序列化成 nested dict
 
 
 
-   .. py:method:: load_state_dict(self, state_dict)
+   .. py:method:: load_state_dict(state_dict)
 
       将 nested dict 加载回 State
 
@@ -113,11 +113,11 @@ Attributes
       :staticmethod:
 
 
-   .. py:method:: step(self, state, epoch)
+   .. py:method:: step(state, epoch)
       :abstractmethod:
 
 
-   .. py:method:: run(self)
+   .. py:method:: run()
       :abstractmethod:
 
 

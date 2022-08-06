@@ -25,7 +25,7 @@ Classes
 
    用来占位，没有实际作用
 
-   .. py:method:: step(self, epoch = None)
+   .. py:method:: step(epoch = None)
 
 
 

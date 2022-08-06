@@ -31,10 +31,10 @@ Classes
              :class:`~torch.utils.data.DataLoader`, but is expected in any
              calculation involving the length of a :class:`~torch.utils.data.DataLoader`.
 
-   .. py:method:: __iter__(self)
+   .. py:method:: __iter__()
 
 
-   .. py:method:: __len__(self)
+   .. py:method:: __len__()
 
 
 

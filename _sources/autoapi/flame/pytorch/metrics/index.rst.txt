@@ -39,13 +39,13 @@ Classes
 
 .. py:class:: Metric(name, output_transform, compute_fn = _default_compute_fn)
 
-   .. py:method:: __call__(self, output)
+   .. py:method:: __call__(output)
 
 
 
 .. py:class:: MetricList(metrics)
 
-   .. py:method:: __call__(self, output)
+   .. py:method:: __call__(output)
 
 
 

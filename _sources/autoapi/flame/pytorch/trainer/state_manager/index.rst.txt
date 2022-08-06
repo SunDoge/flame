@@ -80,39 +80,39 @@ Attributes
 
 .. py:class:: StateManager
 
-   .. py:method:: register(self, name, to_state_dict, load_state_dict, to_training = _default_to_training)
+   .. py:method:: register(name, to_state_dict, load_state_dict, to_training = _default_to_training)
 
 
-   .. py:method:: train(self, mode = True)
+   .. py:method:: train(mode = True)
 
 
-   .. py:method:: eval(self)
+   .. py:method:: eval()
 
 
-   .. py:method:: state_dict(self)
+   .. py:method:: state_dict()
 
 
-   .. py:method:: load_state_dict(self, state_dict)
+   .. py:method:: load_state_dict(state_dict)
 
 
-   .. py:method:: register_model(self, model, name = 'model', strict = True)
+   .. py:method:: register_model(model, name = 'model', strict = True)
 
 
-   .. py:method:: register_optimizer(self, optimizer, name = 'optimizer')
+   .. py:method:: register_optimizer(optimizer, name = 'optimizer')
 
 
-   .. py:method:: register_lr_scheduler(self, lr_scheduler, name = 'lr_scheduler')
+   .. py:method:: register_lr_scheduler(lr_scheduler, name = 'lr_scheduler')
 
 
-   .. py:method:: register_grad_scaler(self, grad_scaler, name = 'grad_scaler')
+   .. py:method:: register_grad_scaler(grad_scaler, name = 'grad_scaler')
 
 
-   .. py:method:: __str__(self)
+   .. py:method:: __str__()
 
       Return str(self).
 
 
-   .. py:method:: resume(self, checkpoint_path)
+   .. py:method:: resume(checkpoint_path)
 
 
 

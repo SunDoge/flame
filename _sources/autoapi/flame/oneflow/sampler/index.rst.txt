@@ -29,10 +29,10 @@ Functions
 
    Bases: :py:obj:`oneflow.utils.data.sampler.Sampler`
 
-   .. py:method:: __iter__(self)
+   .. py:method:: __iter__()
 
 
-   .. py:method:: __len__(self)
+   .. py:method:: __len__()
 
 
 

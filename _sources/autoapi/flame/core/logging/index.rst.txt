@@ -74,7 +74,7 @@ Attributes
    records as desired. By default, no formatter is specified; in this case,
    the 'raw' message as determined by record.message is logged.
 
-   .. py:method:: emit(self, record)
+   .. py:method:: emit(record)
 
       Do whatever it takes to actually log the specified logging record.
 

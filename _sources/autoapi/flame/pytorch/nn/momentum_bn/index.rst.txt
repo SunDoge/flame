@@ -91,10 +91,10 @@ Classes
        >>> input = torch.randn(20, 100, 35, 45)
        >>> output = m(input)
 
-   .. py:method:: momentum_cosine_decay(self)
+   .. py:method:: momentum_cosine_decay()
 
 
-   .. py:method:: forward(self, x)
+   .. py:method:: forward(x)
 
 
 
@@ -165,10 +165,10 @@ Classes
        >>> input = torch.randn(20, 100)
        >>> output = m(input)
 
-   .. py:method:: momentum_cosine_decay(self)
+   .. py:method:: momentum_cosine_decay()
 
 
-   .. py:method:: forward(self, x)
+   .. py:method:: forward(x)
 
 
 

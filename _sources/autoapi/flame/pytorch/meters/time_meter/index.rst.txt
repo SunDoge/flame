@@ -31,45 +31,45 @@ Attributes
 
    不需要了，定义在reset里面就可以了，vscode可以提示
 
-   .. py:method:: update(self, n = 1)
+   .. py:method:: update(n = 1)
 
 
-   .. py:method:: remaining_seconds(self)
+   .. py:method:: remaining_seconds()
       :property:
 
 
-   .. py:method:: remaining_time(self)
+   .. py:method:: remaining_time()
       :property:
 
 
-   .. py:method:: arrival_time(self)
+   .. py:method:: arrival_time()
       :property:
 
 
-   .. py:method:: elapsed_seconds(self)
+   .. py:method:: elapsed_seconds()
       :property:
 
 
-   .. py:method:: elapsed_time(self)
+   .. py:method:: elapsed_time()
       :property:
 
 
-   .. py:method:: remaining(self)
+   .. py:method:: remaining()
       :property:
 
 
-   .. py:method:: elapsed(self)
+   .. py:method:: elapsed()
       :property:
 
 
-   .. py:method:: rate(self)
+   .. py:method:: rate()
       :property:
 
 
-   .. py:method:: reset(self)
+   .. py:method:: reset()
 
 
-   .. py:method:: __str__(self)
+   .. py:method:: __str__()
 
       Return str(self).
 

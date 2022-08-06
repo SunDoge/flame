@@ -45,11 +45,11 @@ Attributes
 
       
 
-   .. py:method:: device(self)
+   .. py:method:: device()
       :property:
 
 
-   .. py:method:: is_cuda_available(self)
+   .. py:method:: is_cuda_available()
 
 
 

@@ -38,34 +38,34 @@ Attributes
 
 .. py:class:: Amp(enabled = False, max_norm = None)
 
-   .. py:method:: autocast(self)
+   .. py:method:: autocast()
 
 
-   .. py:method:: scale(self, outputs)
+   .. py:method:: scale(outputs)
 
 
-   .. py:method:: unscale_(self, optimizer)
+   .. py:method:: unscale_(optimizer)
 
 
-   .. py:method:: step(self, optimizer, *args, **kwargs)
+   .. py:method:: step(optimizer, *args, **kwargs)
 
 
-   .. py:method:: update(self, new_scale = None)
+   .. py:method:: update(new_scale = None)
 
 
-   .. py:method:: clip_grad_norm_(self, params)
+   .. py:method:: clip_grad_norm_(params)
 
 
-   .. py:method:: state_dict(self)
+   .. py:method:: state_dict()
 
 
-   .. py:method:: load_state_dict(self, state_dict)
+   .. py:method:: load_state_dict(state_dict)
 
 
-   .. py:method:: __call__(self, loss, optimizer, parameters = None, zero_grad_set_to_none = False)
+   .. py:method:: __call__(loss, optimizer, parameters = None, zero_grad_set_to_none = False)
 
 
-   .. py:method:: backward(self, loss, optimizer, parameters = None)
+   .. py:method:: backward(loss, optimizer, parameters = None)
 
 
 

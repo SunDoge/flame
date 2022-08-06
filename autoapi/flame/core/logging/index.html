@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>flame.core.logging &#8212; flame 0.0.1 documentation</title>
 <script>
@@ -1187,13 +1187,13 @@
 <h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h3>
 <table class="autosummary longtable table autosummary">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.core.logging.remove_all_handlers" title="flame.core.logging.remove_all_handlers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_all_handlers</span></code></a>(name = None)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.core.logging.remove_all_handlers" title="flame.core.logging.remove_all_handlers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_all_handlers</span></code></a>([name])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame.core.logging.create_console_handler" title="flame.core.logging.create_console_handler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_console_handler</span></code></a>(fmt = CONSOLE_FORMAT, datefmt = CONSOLE_DATE_FORMAT)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.core.logging.create_console_handler" title="flame.core.logging.create_console_handler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_console_handler</span></code></a>([fmt, datefmt])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.core.logging.create_file_handler" title="flame.core.logging.create_file_handler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_file_handler</span></code></a>(filename, fmt = FILE_FORMAT)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.core.logging.create_file_handler" title="flame.core.logging.create_file_handler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_file_handler</span></code></a>(filename[, fmt])</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#flame.core.logging.logging_except_hook" title="flame.core.logging.logging_except_hook"><code class="xref py py-obj docutils literal notranslate"><span class="pre">logging_except_hook</span></code></a>(exc_type, exc_value, traceback)</p></td>
@@ -1202,7 +1202,7 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame.core.logging.set_logging_except_hook" title="flame.core.logging.set_logging_except_hook"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_logging_except_hook</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame.core.logging.init_logging" title="flame.core.logging.init_logging"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_logging</span></code></a>(filename = None, debug = False, force = True)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#flame.core.logging.init_logging" title="flame.core.logging.init_logging"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_logging</span></code></a>([filename, debug, force])</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#flame.core.logging.log_runtime_env" title="flame.core.logging.log_runtime_env"><code class="xref py py-obj docutils literal notranslate"><span class="pre">log_runtime_env</span></code></a>()</p></td>
@@ -1263,7 +1263,7 @@ records as desired. By default, no formatter is specified; in this case,
 the ‘raw’ message as determined by record.message is logged.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="flame.core.logging.TqdmHandler.emit">
-<span class="sig-name descname"><span class="pre">emit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">record</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.core.logging.TqdmHandler.emit" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">emit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">record</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.core.logging.TqdmHandler.emit" title="Permalink to this definition">#</a></dt>
 <dd><p>Do whatever it takes to actually log the specified logging record.</p>
 <p>This version is intended to be implemented by subclasses and so
 raises a NotImplementedError.</p>
@@ -1401,7 +1401,7 @@ raises a NotImplementedError.</p>
   
   <div class="footer-item">
     <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1.<br>
 </p>
   </div>
   

@@ -33,24 +33,24 @@ Attributes
 
 .. py:class:: _SummaryWriter
 
-   .. py:method:: add_scalar(self, value, global_step=None)
+   .. py:method:: add_scalar(value, global_step=None)
 
 
 
 .. py:class:: ProgressMeter(meters, state, prefix, device, print_freq = 10, no_tqdm = False, separator = '/', debug = False)
 
-   .. py:method:: enumerate(self, iterable, num_iters = None)
+   .. py:method:: enumerate(iterable, num_iters = None)
 
 
-   .. py:method:: update_batch_size(self, batch_size)
+   .. py:method:: update_batch_size(batch_size)
 
       :returns: num valid samples in this batch
 
 
-   .. py:method:: get(self, name, fmt = ':f')
+   .. py:method:: get(name, fmt = ':f')
 
 
-   .. py:method:: write_summary(self, summary_writer, trainer_name = None)
+   .. py:method:: write_summary(summary_writer, trainer_name = None)
 
 
 

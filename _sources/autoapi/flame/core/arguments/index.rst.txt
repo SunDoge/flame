@@ -100,16 +100,16 @@ Attributes
 
       
 
-   .. py:method:: try_make_experiment_dir(self)
+   .. py:method:: try_make_experiment_dir()
 
 
-   .. py:method:: config(self)
+   .. py:method:: config()
 
 
-   .. py:method:: save_config(self, config = None, name = 'config.json')
+   .. py:method:: save_config(config = None, name = 'config.json')
 
 
-   .. py:method:: save_command(self, name = 'run.sh')
+   .. py:method:: save_command(name = 'run.sh')
 
 
 

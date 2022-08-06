@@ -34,72 +34,72 @@ Classes
 
 .. py:class:: AverageMeter(name, fmt = ':f', device = _DEFAULT_DEVICE)
 
-   .. py:method:: reset(self)
+   .. py:method:: reset()
 
 
-   .. py:method:: update(self, val, n = 1)
+   .. py:method:: update(val, n = 1)
 
 
-   .. py:method:: avg(self)
+   .. py:method:: avg()
       :property:
 
 
-   .. py:method:: __str__(self)
+   .. py:method:: __str__()
 
       Return str(self).
 
 
-   .. py:method:: sync(self)
+   .. py:method:: sync()
 
 
 
 .. py:class:: LazyAverageMeterDict(delimiter = '\t', device = _DEFAULT_DEVICE)
 
-   .. py:method:: sync(self, prefix = None)
+   .. py:method:: sync(prefix = None)
 
 
-   .. py:method:: reset(self, prefix = None)
+   .. py:method:: reset(prefix = None)
 
 
-   .. py:method:: save_history(self, epoch = None, prefix = None)
+   .. py:method:: save_history(epoch = None, prefix = None)
 
 
-   .. py:method:: named_meters(self, prefix = None)
+   .. py:method:: named_meters(prefix = None)
 
 
-   .. py:method:: record(self, epoch = None, prefix = None)
+   .. py:method:: record(epoch = None, prefix = None)
 
 
-   .. py:method:: get(self, name, key = None, fmt = ':f')
+   .. py:method:: get(name, key = None, fmt = ':f')
 
 
-   .. py:method:: state_dict(self)
+   .. py:method:: state_dict()
 
 
-   .. py:method:: load_state_dict(self, state_dict)
+   .. py:method:: load_state_dict(state_dict)
 
 
-   .. py:method:: max(self, key)
+   .. py:method:: max(key)
 
 
-   .. py:method:: min(self, key)
+   .. py:method:: min(key)
 
 
-   .. py:method:: last(self, key)
+   .. py:method:: last(key)
 
 
-   .. py:method:: is_highest(self, key)
+   .. py:method:: is_highest(key)
 
 
-   .. py:method:: is_lowest(self, key)
+   .. py:method:: is_lowest(key)
 
 
-   .. py:method:: __str__(self)
+   .. py:method:: __str__()
 
       Return str(self).
 
 
-   .. py:method:: to_str(self, prefix = None)
+   .. py:method:: to_str(prefix = None)
 
 
 
@@ -109,45 +109,45 @@ Classes
 
    不需要了，定义在reset里面就可以了，vscode可以提示
 
-   .. py:method:: update(self, n = 1)
+   .. py:method:: update(n = 1)
 
 
-   .. py:method:: remaining_seconds(self)
+   .. py:method:: remaining_seconds()
       :property:
 
 
-   .. py:method:: remaining_time(self)
+   .. py:method:: remaining_time()
       :property:
 
 
-   .. py:method:: arrival_time(self)
+   .. py:method:: arrival_time()
       :property:
 
 
-   .. py:method:: elapsed_seconds(self)
+   .. py:method:: elapsed_seconds()
       :property:
 
 
-   .. py:method:: elapsed_time(self)
+   .. py:method:: elapsed_time()
       :property:
 
 
-   .. py:method:: remaining(self)
+   .. py:method:: remaining()
       :property:
 
 
-   .. py:method:: elapsed(self)
+   .. py:method:: elapsed()
       :property:
 
 
-   .. py:method:: rate(self)
+   .. py:method:: rate()
       :property:
 
 
-   .. py:method:: reset(self)
+   .. py:method:: reset()
 
 
-   .. py:method:: __str__(self)
+   .. py:method:: __str__()
 
       Return str(self).
 
@@ -157,13 +157,13 @@ Classes
 
    不需要了，定义在reset里面就可以了，vscode可以提示
 
-   .. py:method:: reset(self)
+   .. py:method:: reset()
 
 
-   .. py:method:: sync(self)
+   .. py:method:: sync()
 
 
-   .. py:method:: __str__(self)
+   .. py:method:: __str__()
 
       Return str(self).
 

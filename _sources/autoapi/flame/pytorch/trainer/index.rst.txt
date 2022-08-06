@@ -37,38 +37,38 @@ Classes
 
       
 
-   .. py:method:: to_device(self, x, non_blocking = True)
+   .. py:method:: to_device(x, non_blocking = True)
 
 
-   .. py:method:: run(self, max_epochs)
+   .. py:method:: run(max_epochs)
 
 
-   .. py:method:: train(self, loader, prefix = 'train')
+   .. py:method:: train(loader, prefix = 'train')
 
 
-   .. py:method:: validate(self, loader, prefix = 'val')
+   .. py:method:: validate(loader, prefix = 'val')
 
 
-   .. py:method:: test(self, loader, prefix = 'test')
+   .. py:method:: test(loader, prefix = 'test')
 
 
-   .. py:method:: _disable_tqdm(self)
+   .. py:method:: _disable_tqdm()
 
 
-   .. py:method:: epoch_range(self, max_epochs)
+   .. py:method:: epoch_range(max_epochs)
 
 
-   .. py:method:: progress_meter(self, prefix)
+   .. py:method:: progress_meter(prefix)
 
 
-   .. py:method:: set_sampler_epoch(self, loader)
+   .. py:method:: set_sampler_epoch(loader)
 
 
-   .. py:method:: name(self)
+   .. py:method:: name()
       :property:
 
 
-   .. py:method:: module_name(self)
+   .. py:method:: module_name()
       :property:
 
       lib.xxx_trainer -> xxx_trainer
