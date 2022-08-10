@@ -15,6 +15,7 @@ Subpackages
    metrics/index.rst
    nn/index.rst
    trainer/index.rst
+   trainer_v2/index.rst
    utils/index.rst
 
 

@@ -1,0 +1,33 @@
+:py:mod:`flame.pytorch.trainer_v2.trainer`
+==========================================
+
+.. py:module:: flame.pytorch.trainer_v2.trainer
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.trainer_v2.trainer.BaseTrainer
+
+
+
+
+.. py:class:: BaseTrainer(**kwargs)
+
+   .. py:method:: initialize(args)
+
+      Must return max_epochs
+
+
+   .. py:method:: run(max_epochs = 1)
+
+
+   .. py:method:: run_once(epoch)
+
+
+

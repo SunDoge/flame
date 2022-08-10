@@ -6,39 +6,39 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>flame.pytorch.helpers &#8212; flame 0.0.1 documentation</title>
+    <title>flame.pytorch.trainer_v2.trainer &#8212; flame 0.0.1 documentation</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
 </script>
 
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../../_static/styles/theme.css?digest=92025949c220c2e29695" rel="stylesheet">
-<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+  <link href="../../../../../_static/styles/theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=92025949c220c2e29695" rel="stylesheet">
 
 
   <link rel="stylesheet"
-    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    href="../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    href="../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    href="../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/graphviz.css" />
 
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
+  <link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
 
-    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
-    <script src="../../../../_static/jquery.js"></script>
-    <script src="../../../../_static/underscore.js"></script>
-    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../../_static/doctools.js"></script>
-    <link rel="index" title="Index" href="../../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="flame.pytorch.helpers.amp" href="amp/index.html" />
-    <link rel="prev" title="flame.pytorch" href="../index.html" />
+    <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../_static/jquery.js"></script>
+    <script src="../../../../../_static/underscore.js"></script>
+    <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="flame.pytorch.utils" href="../../utils/index.html" />
+    <link rel="prev" title="flame.pytorch.trainer_v2" href="../index.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="docsearch:language" content="en">
   </head>
@@ -59,7 +59,7 @@
   
 
 
-<a class="navbar-brand logo" href="../../../../index.html">
+<a class="navbar-brand logo" href="../../../../../index.html">
   
   
   
@@ -82,7 +82,7 @@
       <div class="navbar-center-item">
         <ul id="navbar-main-elements" class="navbar-nav">
     <li class="toctree-l1 current active nav-item">
- <a class="reference internal nav-link" href="../../../index.html">
+ <a class="reference internal nav-link" href="../../../../index.html">
   API Reference
  </a>
 </li>
@@ -120,14 +120,14 @@
 
 <!-- Only show if we have sidebars configured, else just a small margin  -->
 <div class="bd-sidebar-primary col-12 col-md-3 bd-sidebar">
-  <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../../../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
     <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="../../index.html">
+  <a class="reference internal" href="../../../index.html">
    <code class="xref py py-mod docutils literal notranslate">
     <span class="pre">
      flame
@@ -141,7 +141,7 @@
   </label>
   <ul class="current">
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../core/index.html">
+    <a class="reference internal" href="../../../core/index.html">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
        flame.core
@@ -155,7 +155,7 @@
     </label>
     <ul>
      <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../../core/helpers/index.html">
+      <a class="reference internal" href="../../../core/helpers/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.core.helpers
@@ -169,7 +169,7 @@
       </label>
       <ul>
        <li class="toctree-l4">
-        <a class="reference internal" href="../../core/helpers/multiprocessing/index.html">
+        <a class="reference internal" href="../../../core/helpers/multiprocessing/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.core.helpers.multiprocessing
@@ -178,7 +178,7 @@
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../../core/helpers/opencv/index.html">
+        <a class="reference internal" href="../../../core/helpers/opencv/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.core.helpers.opencv
@@ -187,7 +187,7 @@
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../../core/helpers/tqdm/index.html">
+        <a class="reference internal" href="../../../core/helpers/tqdm/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.core.helpers.tqdm
@@ -198,7 +198,7 @@
       </ul>
      </li>
      <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../../core/meters/index.html">
+      <a class="reference internal" href="../../../core/meters/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.core.meters
@@ -212,7 +212,7 @@
       </label>
       <ul>
        <li class="toctree-l4">
-        <a class="reference internal" href="../../core/meters/base_meter/index.html">
+        <a class="reference internal" href="../../../core/meters/base_meter/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.core.meters.base_meter
@@ -221,7 +221,7 @@
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../../core/meters/naive_average_meter/index.html">
+        <a class="reference internal" href="../../../core/meters/naive_average_meter/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.core.meters.naive_average_meter
@@ -230,7 +230,7 @@
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../../core/meters/tqdm_meter/index.html">
+        <a class="reference internal" href="../../../core/meters/tqdm_meter/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.core.meters.tqdm_meter
@@ -241,7 +241,7 @@
       </ul>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../core/archiver/index.html">
+      <a class="reference internal" href="../../../core/archiver/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.core.archiver
@@ -250,7 +250,7 @@
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../core/arguments/index.html">
+      <a class="reference internal" href="../../../core/arguments/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.core.arguments
@@ -259,7 +259,7 @@
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../core/ckcfg/index.html">
+      <a class="reference internal" href="../../../core/ckcfg/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.core.ckcfg
@@ -268,7 +268,7 @@
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../core/config/index.html">
+      <a class="reference internal" href="../../../core/config/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.core.config
@@ -277,7 +277,7 @@
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../core/config_parser/index.html">
+      <a class="reference internal" href="../../../core/config_parser/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.core.config_parser
@@ -286,7 +286,7 @@
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../core/distributed_launcher/index.html">
+      <a class="reference internal" href="../../../core/distributed_launcher/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.core.distributed_launcher
@@ -295,7 +295,7 @@
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../core/jsonnet/index.html">
+      <a class="reference internal" href="../../../core/jsonnet/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.core.jsonnet
@@ -304,7 +304,7 @@
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../core/logging/index.html">
+      <a class="reference internal" href="../../../core/logging/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.core.logging
@@ -313,7 +313,7 @@
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../core/main_fn/index.html">
+      <a class="reference internal" href="../../../core/main_fn/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.core.main_fn
@@ -322,7 +322,7 @@
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../core/operating_system/index.html">
+      <a class="reference internal" href="../../../core/operating_system/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.core.operating_system
@@ -331,7 +331,7 @@
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../core/testing/index.html">
+      <a class="reference internal" href="../../../core/testing/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.core.testing
@@ -340,7 +340,7 @@
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../core/timing/index.html">
+      <a class="reference internal" href="../../../core/timing/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.core.timing
@@ -349,7 +349,7 @@
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../core/zip_importer/index.html">
+      <a class="reference internal" href="../../../core/zip_importer/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.core.zip_importer
@@ -360,7 +360,7 @@
     </ul>
    </li>
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../oneflow/index.html">
+    <a class="reference internal" href="../../../oneflow/index.html">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
        flame.oneflow
@@ -374,7 +374,7 @@
     </label>
     <ul>
      <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../../oneflow/helpers/index.html">
+      <a class="reference internal" href="../../../oneflow/helpers/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.oneflow.helpers
@@ -388,7 +388,7 @@
       </label>
       <ul>
        <li class="toctree-l4">
-        <a class="reference internal" href="../../oneflow/helpers/checkpoint_saver/index.html">
+        <a class="reference internal" href="../../../oneflow/helpers/checkpoint_saver/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.oneflow.helpers.checkpoint_saver
@@ -397,7 +397,7 @@
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../../oneflow/helpers/data/index.html">
+        <a class="reference internal" href="../../../oneflow/helpers/data/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.oneflow.helpers.data
@@ -406,7 +406,7 @@
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../../oneflow/helpers/optimizer/index.html">
+        <a class="reference internal" href="../../../oneflow/helpers/optimizer/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.oneflow.helpers.optimizer
@@ -415,7 +415,7 @@
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../../oneflow/helpers/rank0/index.html">
+        <a class="reference internal" href="../../../oneflow/helpers/rank0/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.oneflow.helpers.rank0
@@ -424,7 +424,7 @@
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../../oneflow/helpers/tensorboard/index.html">
+        <a class="reference internal" href="../../../oneflow/helpers/tensorboard/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.oneflow.helpers.tensorboard
@@ -435,7 +435,7 @@
       </ul>
      </li>
      <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../../oneflow/meters/index.html">
+      <a class="reference internal" href="../../../oneflow/meters/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.oneflow.meters
@@ -449,7 +449,7 @@
       </label>
       <ul>
        <li class="toctree-l4">
-        <a class="reference internal" href="../../oneflow/meters/average_meter/index.html">
+        <a class="reference internal" href="../../../oneflow/meters/average_meter/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.oneflow.meters.average_meter
@@ -460,7 +460,7 @@
       </ul>
      </li>
      <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../../oneflow/metrics/index.html">
+      <a class="reference internal" href="../../../oneflow/metrics/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.oneflow.metrics
@@ -474,7 +474,7 @@
       </label>
       <ul>
        <li class="toctree-l4">
-        <a class="reference internal" href="../../oneflow/metrics/functional/index.html">
+        <a class="reference internal" href="../../../oneflow/metrics/functional/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.oneflow.metrics.functional
@@ -485,7 +485,7 @@
       </ul>
      </li>
      <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../../oneflow/trainer/index.html">
+      <a class="reference internal" href="../../../oneflow/trainer/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.oneflow.trainer
@@ -499,7 +499,7 @@
       </label>
       <ul>
        <li class="toctree-l4">
-        <a class="reference internal" href="../../oneflow/trainer/progress_meter/index.html">
+        <a class="reference internal" href="../../../oneflow/trainer/progress_meter/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.oneflow.trainer.progress_meter
@@ -508,7 +508,7 @@
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../../oneflow/trainer/state/index.html">
+        <a class="reference internal" href="../../../oneflow/trainer/state/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.oneflow.trainer.state
@@ -517,7 +517,7 @@
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../../oneflow/trainer/state_manager/index.html">
+        <a class="reference internal" href="../../../oneflow/trainer/state_manager/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.oneflow.trainer.state_manager
@@ -526,7 +526,7 @@
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../../oneflow/trainer/trainer/index.html">
+        <a class="reference internal" href="../../../oneflow/trainer/trainer/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.oneflow.trainer.trainer
@@ -537,7 +537,7 @@
       </ul>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../oneflow/arguments/index.html">
+      <a class="reference internal" href="../../../oneflow/arguments/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.oneflow.arguments
@@ -546,7 +546,7 @@
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../oneflow/dist_run/index.html">
+      <a class="reference internal" href="../../../oneflow/dist_run/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.oneflow.dist_run
@@ -555,7 +555,7 @@
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../oneflow/launcher/index.html">
+      <a class="reference internal" href="../../../oneflow/launcher/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.oneflow.launcher
@@ -564,7 +564,7 @@
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../oneflow/sampler/index.html">
+      <a class="reference internal" href="../../../oneflow/sampler/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.oneflow.sampler
@@ -573,7 +573,7 @@
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../oneflow/typing_prelude/index.html">
+      <a class="reference internal" href="../../../oneflow/typing_prelude/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.oneflow.typing_prelude
@@ -584,7 +584,7 @@
     </ul>
    </li>
    <li class="toctree-l2 current active has-children">
-    <a class="reference internal" href="../index.html">
+    <a class="reference internal" href="../../index.html">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
        flame.pytorch
@@ -597,22 +597,22 @@
      </i>
     </label>
     <ul class="current">
-     <li class="toctree-l3 current active has-children">
-      <a class="current reference internal" href="#">
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../helpers/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.pytorch.helpers
         </span>
        </code>
       </a>
-      <input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+      <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
       <label for="toctree-checkbox-11">
        <i class="fas fa-chevron-down">
        </i>
       </label>
       <ul>
        <li class="toctree-l4">
-        <a class="reference internal" href="amp/index.html">
+        <a class="reference internal" href="../../helpers/amp/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.pytorch.helpers.amp
@@ -621,7 +621,7 @@
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="checkpoint_saver/index.html">
+        <a class="reference internal" href="../../helpers/checkpoint_saver/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.pytorch.helpers.checkpoint_saver
@@ -630,7 +630,7 @@
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="cudnn/index.html">
+        <a class="reference internal" href="../../helpers/cudnn/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.pytorch.helpers.cudnn
@@ -639,7 +639,7 @@
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="data/index.html">
+        <a class="reference internal" href="../../helpers/data/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.pytorch.helpers.data
@@ -648,7 +648,7 @@
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="model/index.html">
+        <a class="reference internal" href="../../helpers/model/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.pytorch.helpers.model
@@ -657,7 +657,7 @@
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="optimizer/index.html">
+        <a class="reference internal" href="../../helpers/optimizer/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.pytorch.helpers.optimizer
@@ -666,7 +666,7 @@
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="tensorboard/index.html">
+        <a class="reference internal" href="../../helpers/tensorboard/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.pytorch.helpers.tensorboard
@@ -677,7 +677,7 @@
       </ul>
      </li>
      <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../meters/index.html">
+      <a class="reference internal" href="../../meters/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.pytorch.meters
@@ -691,7 +691,7 @@
       </label>
       <ul>
        <li class="toctree-l4">
-        <a class="reference internal" href="../meters/average_meter/index.html">
+        <a class="reference internal" href="../../meters/average_meter/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.pytorch.meters.average_meter
@@ -700,7 +700,7 @@
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../meters/base_meter/index.html">
+        <a class="reference internal" href="../../meters/base_meter/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.pytorch.meters.base_meter
@@ -709,7 +709,7 @@
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../meters/smoothed_value/index.html">
+        <a class="reference internal" href="../../meters/smoothed_value/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.pytorch.meters.smoothed_value
@@ -718,7 +718,7 @@
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../meters/time_meter/index.html">
+        <a class="reference internal" href="../../meters/time_meter/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.pytorch.meters.time_meter
@@ -729,7 +729,7 @@
       </ul>
      </li>
      <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../metrics/index.html">
+      <a class="reference internal" href="../../metrics/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.pytorch.metrics
@@ -743,7 +743,7 @@
       </label>
       <ul>
        <li class="toctree-l4">
-        <a class="reference internal" href="../metrics/base_metric/index.html">
+        <a class="reference internal" href="../../metrics/base_metric/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.pytorch.metrics.base_metric
@@ -752,7 +752,7 @@
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../metrics/batch_size_metric/index.html">
+        <a class="reference internal" href="../../metrics/batch_size_metric/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.pytorch.metrics.batch_size_metric
@@ -761,7 +761,7 @@
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../metrics/copy_metric/index.html">
+        <a class="reference internal" href="../../metrics/copy_metric/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.pytorch.metrics.copy_metric
@@ -770,7 +770,7 @@
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../metrics/functional/index.html">
+        <a class="reference internal" href="../../metrics/functional/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.pytorch.metrics.functional
@@ -779,7 +779,7 @@
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../metrics/loss_metric/index.html">
+        <a class="reference internal" href="../../metrics/loss_metric/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.pytorch.metrics.loss_metric
@@ -788,7 +788,7 @@
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../metrics/metric_dict/index.html">
+        <a class="reference internal" href="../../metrics/metric_dict/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.pytorch.metrics.metric_dict
@@ -797,7 +797,7 @@
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../metrics/topk_accuracy/index.html">
+        <a class="reference internal" href="../../metrics/topk_accuracy/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.pytorch.metrics.topk_accuracy
@@ -808,7 +808,7 @@
       </ul>
      </li>
      <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../nn/index.html">
+      <a class="reference internal" href="../../nn/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.pytorch.nn
@@ -822,7 +822,7 @@
       </label>
       <ul>
        <li class="toctree-l4">
-        <a class="reference internal" href="../nn/momentum_bn/index.html">
+        <a class="reference internal" href="../../nn/momentum_bn/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.pytorch.nn.momentum_bn
@@ -833,7 +833,7 @@
       </ul>
      </li>
      <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../trainer/index.html">
+      <a class="reference internal" href="../../trainer/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.pytorch.trainer
@@ -847,7 +847,7 @@
       </label>
       <ul>
        <li class="toctree-l4">
-        <a class="reference internal" href="../trainer/coroutine_scheduler/index.html">
+        <a class="reference internal" href="../../trainer/coroutine_scheduler/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.pytorch.trainer.coroutine_scheduler
@@ -856,7 +856,7 @@
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../trainer/progress_meter/index.html">
+        <a class="reference internal" href="../../trainer/progress_meter/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.pytorch.trainer.progress_meter
@@ -865,7 +865,7 @@
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../trainer/state/index.html">
+        <a class="reference internal" href="../../trainer/state/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.pytorch.trainer.state
@@ -874,7 +874,7 @@
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../trainer/state_manager/index.html">
+        <a class="reference internal" href="../../trainer/state_manager/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.pytorch.trainer.state_manager
@@ -883,7 +883,7 @@
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../trainer/trainer/index.html">
+        <a class="reference internal" href="../../trainer/trainer/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.pytorch.trainer.trainer
@@ -893,22 +893,22 @@
        </li>
       </ul>
      </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../trainer_v2/index.html">
+     <li class="toctree-l3 current active has-children">
+      <a class="reference internal" href="../index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.pytorch.trainer_v2
         </span>
        </code>
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+      <input checked="" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
       <label for="toctree-checkbox-16">
        <i class="fas fa-chevron-down">
        </i>
       </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../trainer_v2/trainer/index.html">
+      <ul class="current">
+       <li class="toctree-l4 current active">
+        <a class="current reference internal" href="#">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.pytorch.trainer_v2.trainer
@@ -919,7 +919,7 @@
       </ul>
      </li>
      <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../utils/index.html">
+      <a class="reference internal" href="../../utils/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.pytorch.utils
@@ -933,7 +933,7 @@
       </label>
       <ul>
        <li class="toctree-l4">
-        <a class="reference internal" href="../utils/attributes/index.html">
+        <a class="reference internal" href="../../utils/attributes/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.pytorch.utils.attributes
@@ -942,7 +942,7 @@
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../utils/cudnn/index.html">
+        <a class="reference internal" href="../../utils/cudnn/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.pytorch.utils.cudnn
@@ -951,7 +951,7 @@
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../utils/lr_schduler/index.html">
+        <a class="reference internal" href="../../utils/lr_schduler/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.pytorch.utils.lr_schduler
@@ -960,7 +960,7 @@
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../utils/ranking/index.html">
+        <a class="reference internal" href="../../utils/ranking/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.pytorch.utils.ranking
@@ -969,7 +969,7 @@
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../utils/spawn/index.html">
+        <a class="reference internal" href="../../utils/spawn/index.html">
          <code class="xref py py-mod docutils literal notranslate">
           <span class="pre">
            flame.pytorch.utils.spawn
@@ -980,7 +980,7 @@
       </ul>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../arguments/index.html">
+      <a class="reference internal" href="../../arguments/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.pytorch.arguments
@@ -989,7 +989,7 @@
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../distributed/index.html">
+      <a class="reference internal" href="../../distributed/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.pytorch.distributed
@@ -998,7 +998,7 @@
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../engine/index.html">
+      <a class="reference internal" href="../../engine/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.pytorch.engine
@@ -1007,7 +1007,7 @@
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../experiment/index.html">
+      <a class="reference internal" href="../../experiment/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.pytorch.experiment
@@ -1016,7 +1016,7 @@
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../launcher/index.html">
+      <a class="reference internal" href="../../launcher/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.pytorch.launcher
@@ -1025,7 +1025,7 @@
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../sampler/index.html">
+      <a class="reference internal" href="../../sampler/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.pytorch.sampler
@@ -1034,7 +1034,7 @@
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../typing_prelude/index.html">
+      <a class="reference internal" href="../../typing_prelude/index.html">
        <code class="xref py py-mod docutils literal notranslate">
         <span class="pre">
          flame.pytorch.typing_prelude
@@ -1045,7 +1045,7 @@
     </ul>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../__main__/index.html">
+    <a class="reference internal" href="../../../__main__/index.html">
      <code class="xref py py-mod docutils literal notranslate">
       <span class="pre">
        flame.__main__
@@ -1080,54 +1080,36 @@
 <nav id="bd-toc-nav">
     <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#submodules">
-   Submodules
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#package-contents">
-   Package Contents
+  <a class="reference internal nav-link" href="#module-contents">
+   Module Contents
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#functions">
-     Functions
+    <a class="reference internal nav-link" href="#classes">
+     Classes
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.pytorch.helpers.create_data_loader">
-       create_data_loader
+      <a class="reference internal nav-link" href="#flame.pytorch.trainer_v2.trainer.BaseTrainer">
+       BaseTrainer
       </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.pytorch.helpers.create_ddp_model">
-       create_ddp_model
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.pytorch.helpers.cudnn_benchmark_if_possible">
-       cudnn_benchmark_if_possible
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.pytorch.helpers.scale_lr_linearly">
-       scale_lr_linearly
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.pytorch.helpers.num_valid_samples_from_data_loader">
-       num_valid_samples_from_data_loader
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.pytorch.helpers.save_checkpoint">
-       save_checkpoint
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#flame.pytorch.helpers.rank0">
-       rank0
-      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.trainer_v2.trainer.BaseTrainer.initialize">
+         initialize
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.trainer_v2.trainer.BaseTrainer.run">
+         run
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#flame.pytorch.trainer_v2.trainer.BaseTrainer.run_once">
+         run_once
+        </a>
+       </li>
+      </ul>
      </li>
     </ul>
    </li>
@@ -1152,160 +1134,53 @@
               
               <article class="bd-article" role="main">
                 
-  <section id="module-flame.pytorch.helpers">
-<span id="flame-pytorch-helpers"></span><h1><a class="reference internal" href="#module-flame.pytorch.helpers" title="flame.pytorch.helpers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.helpers</span></code></a><a class="headerlink" href="#module-flame.pytorch.helpers" title="Permalink to this heading">#</a></h1>
-<section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">#</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="amp/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.helpers.amp</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="checkpoint_saver/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.helpers.checkpoint_saver</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="cudnn/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.helpers.cudnn</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="data/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.helpers.data</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="model/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.helpers.model</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="optimizer/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.helpers.optimizer</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="tensorboard/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.helpers.tensorboard</span></code></a></li>
-</ul>
-</div>
-</section>
-<section id="package-contents">
-<h2>Package Contents<a class="headerlink" href="#package-contents" title="Permalink to this heading">#</a></h2>
-<section id="functions">
-<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h3>
+  <section id="module-flame.pytorch.trainer_v2.trainer">
+<span id="flame-pytorch-trainer-v2-trainer"></span><h1><a class="reference internal" href="#module-flame.pytorch.trainer_v2.trainer" title="flame.pytorch.trainer_v2.trainer"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.trainer_v2.trainer</span></code></a><a class="headerlink" href="#module-flame.pytorch.trainer_v2.trainer" title="Permalink to this heading">#</a></h1>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading">#</a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">#</a></h3>
 <table class="autosummary longtable table autosummary">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.helpers.create_data_loader" title="flame.pytorch.helpers.create_data_loader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_data_loader</span></code></a>(dataset[, batch_size, shuffle, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.trainer_v2.trainer.BaseTrainer" title="flame.pytorch.trainer_v2.trainer.BaseTrainer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseTrainer</span></code></a></p></td>
 <td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.helpers.create_ddp_model" title="flame.pytorch.helpers.create_ddp_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_ddp_model</span></code></a>(base_model, device[, use_sync_bn, ...])</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.helpers.cudnn_benchmark_if_possible" title="flame.pytorch.helpers.cudnn_benchmark_if_possible"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cudnn_benchmark_if_possible</span></code></a>()</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.helpers.scale_lr_linearly" title="flame.pytorch.helpers.scale_lr_linearly"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scale_lr_linearly</span></code></a>(base_lr, batch_size[, world_size, ...])</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.helpers.num_valid_samples_from_data_loader" title="flame.pytorch.helpers.num_valid_samples_from_data_loader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">num_valid_samples_from_data_loader</span></code></a>(loader)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#flame.pytorch.helpers.save_checkpoint" title="flame.pytorch.helpers.save_checkpoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_checkpoint</span></code></a>(state, experiment_dir[, is_best, filename])</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#flame.pytorch.helpers.rank0" title="flame.pytorch.helpers.rank0"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rank0</span></code></a>(func)</p></td>
-<td><p>run func only on rank 0</p></td>
 </tr>
 </tbody>
 </table>
-<dl class="py function">
-<dt class="sig sig-object py" id="flame.pytorch.helpers.create_data_loader">
-<span class="sig-prename descclassname"><span class="pre">flame.pytorch.helpers.</span></span><span class="sig-name descname"><span class="pre">create_data_loader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shuffle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collate_fn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pin_memory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multiprocessing_context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">persistent_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drop_last</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">worker_init_fn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.helpers.create_data_loader" title="Permalink to this definition">#</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>dataset</strong> (<em>torch.utils.data.Dataset</em>) – </p></li>
-<li><p><strong>batch_size</strong> (<em>int</em>) – </p></li>
-<li><p><strong>shuffle</strong> (<em>bool</em>) – </p></li>
-<li><p><strong>num_workers</strong> (<em>int</em>) – </p></li>
-<li><p><strong>pin_memory</strong> (<em>bool</em>) – </p></li>
-<li><p><strong>persistent_workers</strong> (<em>bool</em>) – </p></li>
-<li><p><strong>drop_last</strong> (<em>bool</em>) – </p></li>
-<li><p><strong>worker_init_fn</strong> (<em>Optional</em><em>[</em><em>Callable</em><em>[</em><em>[</em><em>int</em><em>]</em><em>, </em><em>None</em><em>]</em><em>]</em>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>torch.utils.data.DataLoader</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="flame.pytorch.helpers.create_ddp_model">
-<span class="sig-prename descclassname"><span class="pre">flame.pytorch.helpers.</span></span><span class="sig-name descname"><span class="pre">create_ddp_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_sync_bn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">find_unused_parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">static_graph</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.helpers.create_ddp_model" title="Permalink to this definition">#</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>base_model</strong> (<em>torch.nn.Module</em>) – </p></li>
-<li><p><strong>device</strong> (<em>torch.device</em>) – </p></li>
-<li><p><strong>use_sync_bn</strong> (<em>bool</em>) – </p></li>
-<li><p><strong>find_unused_parameters</strong> (<em>bool</em>) – </p></li>
-<li><p><strong>static_graph</strong> (<em>bool</em>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>torch.nn.Module</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="flame.pytorch.helpers.cudnn_benchmark_if_possible">
-<span class="sig-prename descclassname"><span class="pre">flame.pytorch.helpers.</span></span><span class="sig-name descname"><span class="pre">cudnn_benchmark_if_possible</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.helpers.cudnn_benchmark_if_possible" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="flame.pytorch.helpers.scale_lr_linearly">
-<span class="sig-prename descclassname"><span class="pre">flame.pytorch.helpers.</span></span><span class="sig-name descname"><span class="pre">scale_lr_linearly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_lr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">world_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.helpers.scale_lr_linearly" title="Permalink to this definition">#</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>base_lr</strong> (<em>float</em>) – </p></li>
-<li><p><strong>batch_size</strong> (<em>int</em>) – </p></li>
-<li><p><strong>world_size</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
-<li><p><strong>base_batch_size</strong> (<em>int</em>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="flame.pytorch.helpers.num_valid_samples_from_data_loader">
-<span class="sig-prename descclassname"><span class="pre">flame.pytorch.helpers.</span></span><span class="sig-name descname"><span class="pre">num_valid_samples_from_data_loader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loader</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.helpers.num_valid_samples_from_data_loader" title="Permalink to this definition">#</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>loader</strong> (<em>torch.utils.data.dataloader.DataLoader</em>) – </p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>int</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="flame.pytorch.helpers.save_checkpoint">
-<span class="sig-prename descclassname"><span class="pre">flame.pytorch.helpers.</span></span><span class="sig-name descname"><span class="pre">save_checkpoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_best</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'checkpoint.pth.tar'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.helpers.save_checkpoint" title="Permalink to this definition">#</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>state</strong> (<em>dict</em>) – </p></li>
-<li><p><strong>experiment_dir</strong> (<em>pathlib.Path</em>) – </p></li>
-<li><p><strong>is_best</strong> (<em>bool</em>) – </p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="flame.pytorch.helpers.rank0">
-<span class="sig-prename descclassname"><span class="pre">flame.pytorch.helpers.</span></span><span class="sig-name descname"><span class="pre">rank0</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.helpers.rank0" title="Permalink to this definition">#</a></dt>
-<dd><p>run func only on rank 0</p>
-<p>You can use it as a decorator</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@rank0</span>
-<span class="k">def</span> <span class="nf">my_print</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-</pre></div>
-</div>
+<dl class="py class">
+<dt class="sig sig-object py" id="flame.pytorch.trainer_v2.trainer.BaseTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flame.pytorch.trainer_v2.trainer.</span></span><span class="sig-name descname"><span class="pre">BaseTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.trainer_v2.trainer.BaseTrainer" title="Permalink to this definition">#</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="flame.pytorch.trainer_v2.trainer.BaseTrainer.initialize">
+<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.trainer_v2.trainer.BaseTrainer.initialize" title="Permalink to this definition">#</a></dt>
+<dd><p>Must return max_epochs</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>func</strong> (<em>T</em>) – function or lambda</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>T</p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flame.pytorch.trainer_v2.trainer.BaseTrainer.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_epochs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.trainer_v2.trainer.BaseTrainer.run" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>max_epochs</strong> (<em>int</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flame.pytorch.trainer_v2.trainer.BaseTrainer.run_once">
+<span class="sig-name descname"><span class="pre">run_once</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epoch</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flame.pytorch.trainer_v2.trainer.BaseTrainer.run_once" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>epoch</strong> (<em>int</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 </section>
@@ -1324,13 +1199,13 @@
       <i class="fas fa-angle-left"></i>
       <div class="prev-next-info">
           <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch</span></code></p>
+          <p class="prev-next-title"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.trainer_v2</span></code></p>
       </div>
   </a>
-  <a class='right-next' id="next-link" href="amp/index.html" title="next page">
+  <a class='right-next' id="next-link" href="../../utils/index.html" title="next page">
   <div class="prev-next-info">
       <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.helpers.amp</span></code></p>
+      <p class="prev-next-title"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flame.pytorch.utils</span></code></p>
   </div>
   <i class="fas fa-angle-right"></i>
   </a>
@@ -1345,7 +1220,7 @@
   
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695"></script>
+  <script src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695"></script>
 
 <footer class="bd-footer"><div class="bd-footer__inner container">
   

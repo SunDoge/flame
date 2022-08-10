@@ -1,0 +1,15 @@
+:py:mod:`flame.pytorch.trainer_v2`
+==================================
+
+.. py:module:: flame.pytorch.trainer_v2
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   trainer/index.rst
+
+
