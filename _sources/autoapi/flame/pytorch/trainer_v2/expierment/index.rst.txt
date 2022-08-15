@@ -1,0 +1,27 @@
+:py:mod:`flame.pytorch.trainer_v2.expierment`
+=============================================
+
+.. py:module:: flame.pytorch.trainer_v2.expierment
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.trainer_v2.expierment.Experiment
+
+
+
+
+.. py:class:: Experiment(**kwargs)
+
+   Bases: :py:obj:`flame.pytorch.trainer_v2.base.Dataclass`
+
+   .. py:method:: initialize(device, work_dir)
+
+
+

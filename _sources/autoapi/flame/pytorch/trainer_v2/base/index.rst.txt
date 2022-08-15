@@ -1,0 +1,158 @@
+:py:mod:`flame.pytorch.trainer_v2.base`
+=======================================
+
+.. py:module:: flame.pytorch.trainer_v2.base
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.trainer_v2.base.InputsOutputs
+   flame.pytorch.trainer_v2.base.Dataclass
+   flame.pytorch.trainer_v2.base.WeightedLosses
+   flame.pytorch.trainer_v2.base.ModelWithLosses
+
+
+
+
+.. py:class:: InputsOutputs
+
+   Bases: :py:obj:`TypedDict`
+
+   A simple typed namespace. At runtime it is equivalent to a plain dict.
+
+   TypedDict creates a dictionary type that expects all of its
+   instances to have a certain set of keys, where each key is
+   associated with a value of a consistent type. This expectation
+   is not checked at runtime but is only enforced by type checkers.
+   Usage::
+
+       class Point2D(TypedDict):
+           x: int
+           y: int
+           label: str
+
+       a: Point2D = {'x': 1, 'y': 2, 'label': 'good'}  # OK
+       b: Point2D = {'z': 3, 'label': 'bad'}           # Fails type check
+
+       assert Point2D(x=1, y=2, label='first') == dict(x=1, y=2, label='first')
+
+   The type info can be accessed via Point2D.__annotations__. TypedDict
+   supports two additional equivalent forms::
+
+       Point2D = TypedDict('Point2D', x=int, y=int, label=str)
+       Point2D = TypedDict('Point2D', {'x': int, 'y': int, 'label': str})
+
+   By default, all keys must be present in a TypedDict. It is possible
+   to override this by specifying totality.
+   Usage::
+
+       class point2D(TypedDict, total=False):
+           x: int
+           y: int
+
+   This means that a point2D TypedDict can have any of the keys omitted.A type
+   checker is only expected to support a literal False or True as the value of
+   the total argument. True is the default, and makes all items defined in the
+   class body be required.
+
+   The class syntax is only supported in Python 3.6+, while two other
+   syntax forms work for Python 2.7 and 3.2+
+
+   .. py:attribute:: inputs
+      :annotation: :ctypes.Union[Dict[str, Any], List[str]]
+
+      
+
+   .. py:attribute:: outputs
+      :annotation: :ctypes.Union[Dict[str, Any], List[str]]
+
+      
+
+
+.. py:class:: Dataclass(**kwargs)
+
+   .. py:method:: as_dict()
+
+
+
+.. py:class:: WeightedLosses(weights, losses, config)
+
+   Bases: :py:obj:`torch.nn.Module`
+
+   Base class for all neural network modules.
+
+   Your models should also subclass this class.
+
+   Modules can also contain other Modules, allowing to nest them in
+   a tree structure. You can assign the submodules as regular attributes::
+
+       import torch.nn as nn
+       import torch.nn.functional as F
+
+       class Model(nn.Module):
+           def __init__(self):
+               super().__init__()
+               self.conv1 = nn.Conv2d(1, 20, 5)
+               self.conv2 = nn.Conv2d(20, 20, 5)
+
+           def forward(self, x):
+               x = F.relu(self.conv1(x))
+               return F.relu(self.conv2(x))
+
+   Submodules assigned in this way will be registered, and will have their
+   parameters converted too when you call :meth:`to`, etc.
+
+   .. note::
+       As per the example above, an ``__init__()`` call to the parent class
+       must be made before assignment on the child.
+
+   :ivar training: Boolean represents whether this module is in training or
+                   evaluation mode.
+   :vartype training: bool
+
+   .. py:method:: forward(outputs)
+
+
+
+.. py:class:: ModelWithLosses(model, losses)
+
+   Bases: :py:obj:`torch.nn.Module`
+
+   Base class for all neural network modules.
+
+   Your models should also subclass this class.
+
+   Modules can also contain other Modules, allowing to nest them in
+   a tree structure. You can assign the submodules as regular attributes::
+
+       import torch.nn as nn
+       import torch.nn.functional as F
+
+       class Model(nn.Module):
+           def __init__(self):
+               super().__init__()
+               self.conv1 = nn.Conv2d(1, 20, 5)
+               self.conv2 = nn.Conv2d(20, 20, 5)
+
+           def forward(self, x):
+               x = F.relu(self.conv1(x))
+               return F.relu(self.conv2(x))
+
+   Submodules assigned in this way will be registered, and will have their
+   parameters converted too when you call :meth:`to`, etc.
+
+   .. note::
+       As per the example above, an ``__init__()`` call to the parent class
+       must be made before assignment on the child.
+
+   :ivar training: Boolean represents whether this module is in training or
+                   evaluation mode.
+   :vartype training: bool
+
+

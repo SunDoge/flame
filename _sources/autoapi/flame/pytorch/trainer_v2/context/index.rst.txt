@@ -1,0 +1,129 @@
+:py:mod:`flame.pytorch.trainer_v2.context`
+==========================================
+
+.. py:module:: flame.pytorch.trainer_v2.context
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.trainer_v2.context.MappingConfig
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.trainer_v2.context.remap_inputs
+   flame.pytorch.trainer_v2.context.remap_outputs
+   flame.pytorch.trainer_v2.context.call_with_mapping
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   flame.pytorch.trainer_v2.context.R
+
+
+.. py:class:: MappingConfig
+
+   Bases: :py:obj:`TypedDict`
+
+   A simple typed namespace. At runtime it is equivalent to a plain dict.
+
+   TypedDict creates a dictionary type that expects all of its
+   instances to have a certain set of keys, where each key is
+   associated with a value of a consistent type. This expectation
+   is not checked at runtime but is only enforced by type checkers.
+   Usage::
+
+       class Point2D(TypedDict):
+           x: int
+           y: int
+           label: str
+
+       a: Point2D = {'x': 1, 'y': 2, 'label': 'good'}  # OK
+       b: Point2D = {'z': 3, 'label': 'bad'}           # Fails type check
+
+       assert Point2D(x=1, y=2, label='first') == dict(x=1, y=2, label='first')
+
+   The type info can be accessed via Point2D.__annotations__. TypedDict
+   supports two additional equivalent forms::
+
+       Point2D = TypedDict('Point2D', x=int, y=int, label=str)
+       Point2D = TypedDict('Point2D', {'x': int, 'y': int, 'label': str})
+
+   By default, all keys must be present in a TypedDict. It is possible
+   to override this by specifying totality.
+   Usage::
+
+       class point2D(TypedDict, total=False):
+           x: int
+           y: int
+
+   This means that a point2D TypedDict can have any of the keys omitted.A type
+   checker is only expected to support a literal False or True as the value of
+   the total argument. True is the default, and makes all items defined in the
+   class body be required.
+
+   The class syntax is only supported in Python 3.6+, while two other
+   syntax forms work for Python 2.7 and 3.2+
+
+   .. py:attribute:: inputs
+      :annotation: :ctypes.Union[Dict[str, Any], List[str]]
+
+      
+
+   .. py:attribute:: outputs
+      :annotation: :ctypes.Union[Dict[str, Any], List[str]]
+
+      
+
+
+.. py:data:: R
+   
+
+   
+
+.. py:function:: remap_inputs(inputs, config)
+
+   if inputs is dict, config can be list or dict
+       if config is list, output is list
+           we select value using keys in config
+       if config is dict, output is dict
+           we select value using key and remap it to new key
+           the config is in [new_key, key] form
+
+   if inputs is tuple, config must be list
+       we name the items in inputs using keys in config
+
+   we restrict inputs to tuple, so that list can be named correctly
+
+
+.. py:function:: remap_outputs(outputs, config)
+
+   if output is tuple, config must be list
+       we name every output
+
+   if output is dict, config can be list or dict
+       if config is list
+           we select some output
+       if config is dict
+           config is in [old_key, new_key] so some keys are rewrite
+
+
+
+
+.. py:function:: call_with_mapping(func, mapping_config, inputs)
+
+
