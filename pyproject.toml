@@ -6,7 +6,7 @@ authors = ["SunDoge <384813529@qq.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
-rich = "^12.0.0"
+rich = ">=12,<14"
 tqdm = "^4.60.0"
 typed-args = "^0.5.1"
 rjsonnet = "^0.4.4"
